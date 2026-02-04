@@ -249,8 +249,28 @@ export default function DoctorPageFullContent({
 
       {/* Certificates Section */}
       {((doctorDetails && doctorDetails.accreditation && doctorDetails.accreditation.length > 0) || 
-         (doctorDetails && doctorDetails.certificates && doctorDetails.certificates && doctorDetails.certificates.length > 0)) && (
+         (doctorDetails && doctorDetails.certificates && doctorDetails.certificates && doctorDetails.certificates.length > 0) ||
+         (doctorDetails && doctorDetails.accreditationDocument)) && (
         <section className="mt-8 bg-white rounded-2xl shadow-lg p-6">
+          {doctorDetails && doctorDetails.accreditationDocument && (
+            <>
+              <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                Аккредитация
+              </h2>
+              <a
+                href={doctorDetails.accreditationDocument}
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+                className="inline-flex items-center gap-2 text-emerald-600 hover:text-emerald-700 font-medium mb-6"
+              >
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Скачать документ об аккредитации (PDF)
+              </a>
+            </>
+          )}
           {doctorDetails && doctorDetails.accreditation && doctorDetails.accreditation.length > 0 && (
             <>
               <h2 className="text-2xl font-bold text-gray-900 mb-4">
@@ -316,7 +336,7 @@ export default function DoctorPageFullContent({
           )}
         </section>
       )}
-      {(!doctorDetails || (!doctorDetails.accreditation && (!doctorDetails.certificates || doctorDetails.certificates.length === 0))) && (
+      {(!doctorDetails || (!doctorDetails.accreditation && (!doctorDetails.certificates || doctorDetails.certificates.length === 0) && !doctorDetails.accreditationDocument)) && (
         <section className="mt-8 bg-white rounded-2xl shadow-lg p-6">
           <h2 className="text-2xl font-bold text-gray-900 mb-4">
             Аккредитация

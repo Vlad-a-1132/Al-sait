@@ -232,11 +232,6 @@ export default function SchedulePage() {
       schedule: { Monday: { start: "09:00", end: "15:00" }, Wednesday: { start: "09:00", end: "15:00" }, Friday: { start: "09:00", end: "15:00" } }
     },
     {
-      name: "Стаченкова Светлана Валериевна",
-      specialty: "Остеопат",
-      schedule: { Monday: { start: "10:00", end: "19:00" }, Friday: { start: "10:00", end: "19:00" } }
-    },
-    {
       name: "Хомулло Валерия Викторовна",
       specialty: "Врач УЗИ",
       schedule: { Tuesday: { start: "16:00", end: "20:00" }, Wednesday: { start: "08:30", end: "15:00" } }
@@ -403,6 +398,11 @@ export default function SchedulePage() {
       schedule: { Monday: { start: "09:00", end: "17:30" }, Wednesday: { start: "09:00", end: "17:30" }, Friday: { start: "09:00", end: "17:30" } }
     },
     {
+      name: "Исаева Екатерина Николаевна",
+      specialty: "Гигиенист стоматологический",
+      schedule: { Monday: { start: "15:00", end: "20:00" }, Friday: { start: "09:00", end: "20:00" }, Saturday: { start: "09:00", end: "20:00" } }
+    },
+    {
       name: "Кириллова Елена Владимировна",
       specialty: "Стоматолог детский",
       schedule: { Tuesday: { start: "09:00", end: "20:00" }, Thursday: { start: "09:00", end: "20:00" }, Friday: { start: "09:00", end: "20:00" }, Sunday: { start: "09:00", end: "19:00" } }
@@ -440,7 +440,7 @@ export default function SchedulePage() {
     {
       name: "Ярулова Вероника Юрьевна",
       specialty: "Стоматолог",
-      schedule: { Wednesday: { start: "09:00", end: "18:30" }, Sunday: { start: "09:00", end: "18:30" } }
+      schedule: { Wednesday: { start: "09:00", end: "18:30" }, Saturday: { start: "09:00", end: "18:30" } }
     }
   ];
 

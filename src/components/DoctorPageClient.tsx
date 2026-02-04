@@ -31,6 +31,8 @@ export interface DoctorDetails {
   note?: string;
   certificates?: string[];
   achievements?: string[];
+  /** Ссылка на документ об аккредитации (PDF и т.д.) для скачивания */
+  accreditationDocument?: string;
 }
 
 interface DoctorPageClientProps {

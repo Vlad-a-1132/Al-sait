@@ -113,7 +113,6 @@ export default function AdminDashboard() {
     { name: "Понедельченко Надежда Ивановна", specialty: "Дерматокосметолог", schedule: { Tuesday: { start: "09:00", end: "20:00" }, Sunday: { start: "09:00", end: "17:00" } } },
     { name: "Полуэктова Оксана Николаевна", specialty: "Дерматовенеролог", schedule: { Monday: { start: "16:00", end: "20:00" }, Thursday: { start: "16:00", end: "20:00" }, Saturday: { start: "16:00", end: "20:00" } } },
     { name: "Ростовцева Эмилия Вениаминовна", specialty: "Кардиолог", schedule: { Monday: { start: "09:00", end: "15:00" }, Wednesday: { start: "09:00", end: "15:00" }, Friday: { start: "09:00", end: "15:00" } } },
-    { name: "Стаченкова Светлана Валериевна", specialty: "Остеопат", schedule: { Monday: { start: "10:00", end: "19:00" }, Friday: { start: "10:00", end: "19:00" } } },
     { name: "Хомулло Валерия Викторовна", specialty: "Врач УЗИ", schedule: { Tuesday: { start: "16:00", end: "20:00" }, Wednesday: { start: "08:30", end: "15:00" } } },
     { name: "Яблокова Инна Валерьевна", specialty: "Офтальмолог", schedule: { Monday: { start: "14:00", end: "19:00" }, Tuesday: { start: "14:00", end: "19:00" }, Wednesday: { start: "14:00", end: "19:00" }, Thursday: { start: "14:00", end: "19:00" }, Saturday: { start: "10:00", end: "16:00" } } }
   ];
@@ -152,6 +151,7 @@ export default function AdminDashboard() {
     { name: "Богомолова Светлана Сергеевна", specialty: "Стоматолог детский", schedule: { Monday: { start: "10:00", end: "17:00" }, Wednesday: { start: "10:00", end: "17:00" } } },
     { name: "Гончаренко Елена Борисовна", specialty: "Ортодонт", schedule: { Tuesday: { start: "12:00", end: "18:00" } } },
     { name: "Иванникова Любовь Андреевна", specialty: "Стоматолог", schedule: { Monday: { start: "09:00", end: "17:30" }, Wednesday: { start: "09:00", end: "17:30" }, Friday: { start: "09:00", end: "17:30" } } },
+    { name: "Исаева Екатерина Николаевна", specialty: "Гигиенист стоматологический", schedule: { Monday: { start: "15:00", end: "20:00" }, Friday: { start: "09:00", end: "20:00" }, Saturday: { start: "09:00", end: "20:00" } } },
     { name: "Кириллова Елена Владимировна", specialty: "Стоматолог детский", schedule: { Tuesday: { start: "09:00", end: "20:00" }, Thursday: { start: "09:00", end: "20:00" }, Friday: { start: "09:00", end: "20:00" }, Sunday: { start: "09:00", end: "19:00" } } },
     { name: "Крошкин Александр Дмитриевич", specialty: "Стоматолог-ортопед", schedule: { Wednesday: { start: "11:00", end: "20:00" }, Sunday: { start: "15:30", end: "20:00" } } },
     { name: "Полетаева (Ужегова) Мария Рашитовна", specialty: "Ортодонт", schedule: { Thursday: { start: "11:00", end: "20:00" }, Sunday: { start: "11:00", end: "20:00" } } },
@@ -159,7 +159,7 @@ export default function AdminDashboard() {
     { name: "Рубцов Роман Владимирович", specialty: "Стоматолог-ортопед", schedule: { Tuesday: { start: "09:00", end: "20:00" }, Thursday: { start: "09:00", end: "20:00" }, Friday: { start: "09:00", end: "20:00" }, Saturday: { start: "09:00", end: "20:00" } } },
     { name: "Рубцова Ольга Юрьевна", specialty: "Стоматолог-хирург", schedule: { Tuesday: { start: "09:00", end: "19:00" }, Thursday: { start: "09:00", end: "19:00" }, Friday: { start: "09:00", end: "19:00" }, Saturday: { start: "09:00", end: "19:00" } } },
     { name: "Чернова Алла Валерьевна", specialty: "Стоматолог", schedule: { Tuesday: { start: "09:00", end: "17:00" }, Wednesday: { start: "14:30", end: "20:00" } } },
-    { name: "Ярулова Вероника Юрьевна", specialty: "Стоматолог", schedule: { Wednesday: { start: "09:00", end: "18:30" }, Sunday: { start: "09:00", end: "18:30" } } }
+    { name: "Ярулова Вероника Юрьевна", specialty: "Стоматолог", schedule: { Wednesday: { start: "09:00", end: "18:30" }, Saturday: { start: "09:00", end: "18:30" } } }
   ];
 
   const defaultBranch4Doctors: DoctorScheduleData[] = [
