@@ -245,6 +245,11 @@ export default function SchedulePage() {
 
   const branch2Doctors = [
     {
+      name: "Абдулаев",
+      specialty: "Специалист",
+      schedule: { Monday: { start: "10:00", end: "18:00" }, Tuesday: { start: "10:00", end: "18:00" }, Saturday: { start: "10:00", end: "18:00" }, Sunday: { start: "10:00", end: "18:00" } }
+    },
+    {
       name: "Белянко Игорь Эдуардович",
       specialty: "Кардиолог",
       schedule: { Monday: { start: "08:00", end: "15:00" }, Tuesday: { start: "08:00", end: "15:00" }, Thursday: { start: "08:00", end: "15:00" }, Friday: { start: "08:00", end: "15:00" }, Saturday: { start: "08:00", end: "18:00" } }
@@ -263,6 +268,11 @@ export default function SchedulePage() {
       name: "Громов Евгений Викторович",
       specialty: "Уролог-андролог",
       schedule: { Monday: { start: "16:00", end: "21:00" }, Tuesday: { start: "16:00", end: "21:00" }, Wednesday: { start: "10:00", end: "14:00" }, Thursday: { start: "16:00", end: "21:00" }, Friday: { start: "09:00", end: "12:30" } }
+    },
+    {
+      name: "Глуцкая",
+      specialty: "Специалист",
+      schedule: { Tuesday: { start: "16:00", end: "19:00" }, Friday: { start: "16:00", end: "19:00" } }
     },
     {
       name: "Громова Елена Анатольевна",
@@ -435,7 +445,7 @@ export default function SchedulePage() {
     {
       name: "Чернова Алла Валерьевна",
       specialty: "Стоматолог",
-      schedule: { Tuesday: { start: "09:00", end: "17:00" }, Wednesday: { start: "14:30", end: "20:00" } }
+      schedule: { Thursday: { start: "10:00", end: "17:00" } }
     },
     {
       name: "Ярулова Вероника Юрьевна",

@@ -1,4 +1,4 @@
-﻿"use client"
+"use client"
 
 import Image from "next/image";
 import Link from "next/link";
@@ -108,6 +108,13 @@ export default function Home() {
   
   // Slides data - используем нейтральные пути чтобы избежать блокировки рекламы
   const slides = [
+    {
+      title: "День защитника Отечества — 23 февраля мужчинам скидка 20% на всё",
+      buttonText: "Подробнее",
+      buttonLink: "/promo/promo-8",
+      buttonColor: "#13AB7B",
+      image: "/images/fotogelery/23prom (1).png"
+    },
     {
       title: "Понедельник и Пятница – специальные скидки до 25%",
       buttonText: "Подробнее",

@@ -1,0 +1,1042 @@
+{
+  "doctors": [
+    {
+      "id": 1,
+      "name": "Хомулло Валерия Викторовна",
+      "slug": "khomullo-valeria-viktorovna",
+      "specialization": "УЗИ",
+      "specializations": ["УЗИ"],
+      "experience": 10,
+      "photo": "/images/doctors/Khomullo Valeria Viktorovna Odintsovo Altamed-s YZI.webp",
+      "description": "Специалист по ультразвуковой диагностике",
+      "schedule": {
+        "Tuesday": { "start": "16:00", "end": "20:00" },
+        "Wednesday": { "start": "08:30", "end": "15:00" }
+      }
+    },
+    {
+      "id": 2,
+      "name": "Балян Мария Маисовна",
+      "slug": "balyan-maria-maisovna",
+      "specialization": "Отоларинголог, Сурдолог",
+      "specializations": ["Отоларинголог", "Сурдолог"],
+      "experience": 15,
+      "photo": "/images/doctors/Balyan Maria Maisovna Altamed-С.webp",
+      "description": "Врач-оториноларинголог, сурдолог. Врач высшей квалификационной категории",
+      "schedule": {
+        "Wednesday": { "start": "17:30", "end": "20:00" },
+        "Friday": { "start": "17:30", "end": "20:00" },
+        "Sunday": { "start": "10:00", "end": "14:00" }
+      },
+      "details": {
+        "specialization": "Врач-оториноларинголог, сурдолог",
+        "category": "Врач высшей квалификационной категории",
+        "experience": "Стаж работы по специальности — с 2007 года"
+      }
+    },
+    {
+      "id": 3,
+      "name": "Емельянова Анна Игоревна",
+      "slug": "emelyanova-anna-igorevna",
+      "specialization": "Дерматовенеролог, Дерматолог лечение",
+      "specializations": ["Дерматовенеролог", "Дерматолог лечение"],
+      "experience": 12,
+      "photo": "/images/doctors/Emelyanova Anna Igorevna.webp",
+      "description": "Врач-дерматовенеролог. Сертифицированный специалист по косметологии и эстетической медицине",
+      "schedule": {
+        "Thursday": { "start": "09:00", "end": "15:00" }
+      },
+      "details": {
+        "specialization": "Дерматовенеролог",
+        "category": "Врач-дерматовенеролог"
+      }
+    },
+    {
+      "id": 4,
+      "name": "Крошкин Александр Дмитриевич",
+      "slug": "kroshkin-aleksandr-dmitrievich",
+      "specialization": "Стоматолог-ортопед, Стоматология",
+      "specializations": ["Стоматолог-ортопед", "Стоматология"],
+      "experience": 18,
+      "photo": "/images/doctors/Kroshkin Alexander Dmitrievich.webp",
+      "description": "Врач стоматолог-ортопед. Стаж с 2006 года. Специализируется на восстановлении и протезировании зубов",
+      "schedule": {
+        "Wednesday": { "start": "11:00", "end": "20:00" },
+        "Sunday": { "start": "15:30", "end": "20:00" }
+      },
+      "details": {
+        "specialization": "Стоматолог-ортопед",
+        "category": "Врач стоматолог-ортопед",
+        "experience": "Стаж с 2006 года"
+      }
+    },
+    {
+      "id": 5,
+      "name": "Унтилова Маргарита Павловна",
+      "slug": "untilova-margarita-pavlovna",
+      "specialization": "Рентгенолог",
+      "specializations": ["Рентгенолог"],
+      "experience": 28,
+      "photo": "/images/doctors/Untilova Margarita Pavlovna.webp",
+      "description": "Врач рентгенолог. Стаж с 1996 года",
+      "schedule": {
+        "Monday": { "start": "09:00", "end": "18:00" },
+        "Tuesday": { "start": "09:00", "end": "18:00" },
+        "Wednesday": { "start": "09:00", "end": "18:00" },
+        "Thursday": { "start": "09:00", "end": "18:00" },
+        "Friday": { "start": "09:00", "end": "18:00" },
+        "Saturday": { "start": "09:00", "end": "16:00" },
+        "Sunday": { "start": "09:00", "end": "16:00" }
+      },
+      "details": {
+        "specialization": "Врач рентгенолог",
+        "category": "Врач рентгенолог",
+        "experience": "Стаж с 1996 года"
+      }
+    },
+    {
+      "id": 6,
+      "name": "Панова Ольга Юрьевна",
+      "slug": "panova-olga-yurievna",
+      "specialization": "Гинеколог, Гинеколог-сексолог, УЗД",
+      "specializations": ["Гинеколог", "Гинеколог-сексолог", "УЗД"],
+      "experience": 25,
+      "photo": "/images/doctors/Panova Olga Yurievna.webp",
+      "description": "Врач акушер-гинеколог, гинеколог-сексолог, врач УЗД. Кандидат медицинских наук. Стаж работы 25 лет",
+      "schedule": {
+        "Monday": { "start": "08:00", "end": "15:00" },
+        "Wednesday": { "start": "14:00", "end": "20:00" },
+        "Thursday": { "start": "08:00", "end": "15:00" },
+        "Sunday": { "start": "14:00", "end": "19:00" }
+      },
+      "details": {
+        "specialization": "Врач акушер-гинеколог, гинеколог-сексолог, врач УЗД",
+        "category": "Кандидат медицинских наук",
+        "experience": "Стаж работы 25 лет"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Дмитриев Алексей Олегович",
+      "slug": "dmitriev-alexey-olegovich",
+      "specialization": "Невролог, Мануальный терапевт, Рефлексотерапевт",
+      "specializations": ["Невролог", "Мануальный терапевт", "Рефлексотерапевт"],
+      "experience": 21,
+      "photo": "/images/doctors/Dmitriev Alexey Olegovich.webp",
+      "description": "Врач невролог, мануальный терапевт, рефлексотерапевт. Кандидат медицинских наук. Стаж работы с 2003г.",
+      "schedule": {
+        "Tuesday": { "start": "08:30", "end": "19:00" },
+        "Thursday": { "start": "16:00", "end": "19:00" },
+        "Friday": { "start": "08:00", "end": "14:00" },
+        "Sunday": { "start": "08:00", "end": "17:30" }
+      },
+      "details": {
+        "specialization": "Врач невролог",
+        "category": "Невролог, мануальный терапевт, рефлексотерапевт. Кандидат медицинских наук",
+        "experience": "Стаж работы с 2003г."
+      }
+    },
+    {
+      "id": 8,
+      "name": "Ростовцева Эмилия Вениаминовна",
+      "slug": "rostovtseva-emilia-veniaminovna",
+      "specialization": "Кардиолог",
+      "specializations": ["Кардиолог"],
+      "experience": 43,
+      "photo": "/images/doctors/Rostovtseva Emilia Veniaminovna.webp",
+      "description": "Врач-кардиолог. Врачебный стаж с 1981 года. Заслуженный врач Российской Федерации",
+      "schedule": {
+        "Monday": { "start": "09:00", "end": "15:00" },
+        "Wednesday": { "start": "09:00", "end": "15:00" },
+        "Friday": { "start": "09:00", "end": "15:00" }
+      },
+      "details": {
+        "specialization": "Врач-кардиолог",
+        "category": "Заслуженный врач Российской Федерации",
+        "experience": "Врачебный стаж с 1981 года"
+      }
+    },
+    {
+      "id": 9,
+      "name": "Прикуле Елена Юрьевна",
+      "slug": "prikule-elena-yuryevna",
+      "specialization": "Стоматолог-терапевт",
+      "specializations": ["Стоматолог-терапевт"],
+      "photo": "/images/doctors/Prikule Elena Yuryevna.webp",
+      "description": "Врач стоматолог-терапевт",
+      "schedule": {
+        "Monday": { "start": "09:00", "end": "15:00" },
+        "Wednesday": { "start": "09:00", "end": "20:00" },
+        "Friday": { "start": "09:00", "end": "20:00" }
+      },
+      "details": {
+        "specialization": "Стоматолог-терапевт",
+        "category": "Врач стоматолог-терапевт"
+      }
+    },
+    {
+      "id": 10,
+      "name": "Иванникова Любовь Андреевна",
+      "slug": "ivannikova-lyubov-andreevna",
+      "specialization": "Стоматолог-терапевт, Микроскопист",
+      "specializations": ["Стоматолог-терапевт", "Микроскопист"],
+      "experience": 10,
+      "photo": "/images/doctors/Ivannikova Lyubov Andreevna.webp",
+      "description": "Стоматолог-терапевт. Стаж с 2014 года",
+      "schedule": {
+        "Monday": { "start": "09:00", "end": "17:30" },
+        "Wednesday": { "start": "09:00", "end": "17:30" },
+        "Friday": { "start": "09:00", "end": "17:30" }
+      },
+      "details": {
+        "specialization": "Стоматолог-терапевт, Микроскопист",
+        "category": "Стоматолог-терапевт",
+        "experience": "Стаж с 2014 года"
+      }
+    },
+    {
+      "id": 11,
+      "name": "Белянко Игорь Эдуардович",
+      "slug": "belyanko-igor-eduardovich",
+      "specialization": "Кардиолог, Кардиохирург",
+      "specializations": ["Кардиолог", "Кардиохирург"],
+      "experience": 33,
+      "photo": "/images/doctors/Belyanko Igor Eduardovich.webp",
+      "description": "Врач-кардиохирург высшей квалификационной категории. Кандидат медицинских наук. Стаж работы: с 1991 года",
+      "schedule": {
+        "Monday": { "start": "08:00", "end": "15:00" },
+        "Tuesday": { "start": "08:00", "end": "15:00" },
+        "Thursday": { "start": "08:00", "end": "15:00" },
+        "Friday": { "start": "08:00", "end": "15:00" },
+        "Saturday": { "start": "08:00", "end": "18:00" }
+      },
+      "details": {
+        "specialization": "Врач-кардиохирург",
+        "category": "Врач-кардиохирург высшей квалификационной категории. Кандидат медицинских наук",
+        "experience": "Стаж работы: с 1991 года"
+      }
+    },
+    {
+      "id": 12,
+      "name": "Полетаева Мария Рашитовна",
+      "slug": "oletayeva-maria-rashitovna",
+      "specialization": "Ортодонт, Стоматология",
+      "specializations": ["Ортодонт", "Стоматология"],
+      "experience": 22,
+      "photo": "/images/doctors/Oletayeva Maria Rashitovna.webp",
+      "description": "Врач-ортодонт. Стаж работы: с 2002 года",
+      "schedule": {
+        "Wednesday": { "start": "11:00", "end": "20:00" },
+        "Sunday": { "start": "11:00", "end": "20:00" }
+      },
+      "details": {
+        "specialization": "Врач-ортодонт",
+        "category": "Врач-ортодонт",
+        "experience": "Стаж работы: с 2002 года"
+      }
+    },
+    {
+      "id": 13,
+      "name": "Богомолова Светлана Сергеевна",
+      "slug": "bogomolova-svetlana-sergeevna",
+      "specialization": "Стоматолог детский, Стоматология",
+      "specializations": ["Стоматолог детский", "Стоматология"],
+      "experience": 22,
+      "photo": "/images/doctors/Bogomolova Svetlana Sergeevna.webp",
+      "description": "Врач-стоматолог детский. Кандидат медицинских наук. Опыт работы: с 2002 года. Работает в клинике с 2006 года",
+      "schedule": {
+        "Monday": { "start": "10:00", "end": "17:00" },
+        "Wednesday": { "start": "10:00", "end": "17:00" }
+      },
+      "details": {
+        "specialization": "Стоматолог детский",
+        "category": "Врач-стоматолог детский. Кандидат медицинских наук",
+        "experience": "Опыт работы: с 2002 года. Работает в клинике с 2006 года"
+      }
+    },
+    {
+      "id": 14,
+      "name": "Костина Валентина Яковлевна",
+      "slug": "kostina-valentina-yakovlevna",
+      "specialization": "Гастроэнтеролог, Диетолог",
+      "specializations": ["Гастроэнтеролог", "Диетолог"],
+      "experience": 39,
+      "photo": "/images/doctors/Kostina Valentina Yakovlevna.webp",
+      "description": "Врач гастроэнтеролог-диетолог. Врачебный стаж с 1985 г. Врач высшей категории",
+      "schedule": {
+        "Tuesday": { "start": "08:30", "end": "13:00" },
+        "Thursday": { "start": "08:30", "end": "20:00" },
+        "Friday": { "start": "08:30", "end": "13:00" },
+        "Saturday": { "start": "08:30", "end": "14:00" }
+      },
+      "details": {
+        "specialization": "Врач гастроэнтеролог-диетолог",
+        "category": "Врач гастроэнтеролог-диетолог. Врач высшей категории",
+        "experience": "Врачебный стаж с 1985 г."
+      }
+    },
+    {
+      "id": 15,
+      "name": "Громов Евгений Викторович",
+      "slug": "gromov-evgeny-viktorovich",
+      "specialization": "Уролог-андролог",
+      "specializations": ["Уролог-андролог"],
+      "experience": 22,
+      "photo": "/images/doctors/Gromov Evgeny Viktorovich.webp",
+      "description": "Врач-уролог. Окончил университет с отличием. Стаж работы: с 2002 года",
+      "schedule": {
+        "Monday": { "start": "16:00", "end": "21:00" },
+        "Tuesday": { "start": "16:00", "end": "21:00" },
+        "Wednesday": { "start": "10:00", "end": "14:00" },
+        "Thursday": { "start": "16:00", "end": "21:00" },
+        "Friday": { "start": "09:00", "end": "12:30" }
+      },
+      "details": {
+        "specialization": "Врач-уролог",
+        "category": "Врач-уролог",
+        "experience": "Стаж работы: с 2002 года"
+      }
+    },
+    {
+      "id": 16,
+      "name": "Иванченко Светлана Викторовна",
+      "slug": "ivanchenko-svetlana-viktorovna",
+      "specialization": "Эндокринолог, Детский эндокринолог",
+      "specializations": ["Эндокринолог", "Детский эндокринолог"],
+      "experience": 47,
+      "photo": "/images/doctors/Ivanchenko Svetlana Viktorovna.webp",
+      "description": "Врач-эндокринолог, детский эндокринолог высшей квалификационной категории. Стаж работы: с 1977 года",
+      "schedule": {
+        "Tuesday": { "start": "11:15", "end": "19:30" },
+        "Saturday": { "start": "09:15", "end": "18:00" }
+      },
+      "details": {
+        "specialization": "Врач-эндокринолог, детский эндокринолог",
+        "category": "Врач-эндокринолог, детский эндокринолог высшей квалификационной категории",
+        "experience": "Стаж работы: с 1977 года"
+      }
+    },
+    {
+      "id": 17,
+      "name": "Ютанин Сергей Николаевич",
+      "slug": "yutanin-sergey-nikolaevich",
+      "specialization": "Хирург, Маммолог",
+      "specializations": ["Хирург", "Маммолог"],
+      "experience": 48,
+      "photo": "/images/doctors/Yutanin Sergey Nikolaevich.webp",
+      "description": "Хирург, маммолог. Заслуженный врач России. Врач хирург высшей категории. Медицинский стаж с 1976 года",
+      "schedule": {
+        "Monday": { "start": "08:00", "end": "14:00" },
+        "Tuesday": { "start": "09:00", "end": "14:00" },
+        "Wednesday": { "start": "09:00", "end": "14:00" },
+        "Thursday": { "start": "09:00", "end": "15:00" },
+        "Sunday": { "start": "09:00", "end": "14:00" }
+      },
+      "details": {
+        "specialization": "Хирург, маммолог",
+        "category": "Заслуженный врач России. Врач хирург высшей категории",
+        "experience": "Медицинский стаж с 1976 года"
+      }
+    },
+    {
+      "id": 18,
+      "name": "Казакова Маргарита Витальевна",
+      "slug": "kazakova-margarita-vitalievna",
+      "specialization": "Физиотерапевт",
+      "specializations": ["Физиотерапевт"],
+      "experience": 30,
+      "photo": "/images/doctors/Kazakova Margarita Vitalievna.webp",
+      "description": "Врач-физиотерапевт высшей квалификационной категории. Врач по лечебной физкультуре высшей квалификационной категории. Стаж работы: с 1994 года",
+      "schedule": {
+        "Monday": { "start": "16:30", "end": "20:00" },
+        "Wednesday": { "start": "16:30", "end": "20:00" },
+        "Saturday": { "start": "09:00", "end": "15:00" }
+      },
+      "details": {
+        "specialization": "Врач-физиотерапевт",
+        "category": "Врач-физиотерапевт высшей квалификационной категории. Врач по лечебной физкультуре высшей квалификационной категории",
+        "experience": "Стаж работы: с 1994 года"
+      }
+    },
+    {
+      "id": 19,
+      "name": "Павлова Людмила Леонидовна",
+      "slug": "pavlova-lyudmila-leonidovna",
+      "specialization": "УЗИ",
+      "specializations": ["УЗИ"],
+      "experience": 38,
+      "photo": "/images/doctors/Pavlova Lyudmila Leonidovna.webp",
+      "description": "Врач УЗИ. Врачебный стаж с 1986 г.",
+      "schedule": {
+        "Monday": { "start": "09:00", "end": "20:00" },
+        "Tuesday": { "start": "09:00", "end": "13:00" },
+        "Wednesday": { "start": "09:00", "end": "20:00" },
+        "Friday": { "start": "09:00", "end": "13:00" },
+        "Saturday": { "start": "09:00", "end": "20:00" }
+      },
+      "details": {
+        "specialization": "Врач УЗИ",
+        "category": "Врач УЗИ",
+        "experience": "Врачебный стаж с 1986 г."
+      }
+    },
+    {
+      "id": 20,
+      "name": "Кузьминых Надежда Валентиновна",
+      "slug": "kuzminykh-nadezhda-valentinovna",
+      "specialization": "УЗИ",
+      "specializations": ["УЗИ"],
+      "experience": 45,
+      "photo": "/images/doctors/Kuzminykh Nadezhda Valentinovna.webp",
+      "description": "Врач-диагност. Врач-диагност с 1986 года, квалифицирована в области гастроэнтерологии, уронефрологии, акушерстве и гинекологии, заболевания сердца и сосудов. Стаж работы: с 1979 года",
+      "schedule": {
+        "Tuesday": { "start": "09:00", "end": "20:00" },
+        "Thursday": { "start": "09:00", "end": "20:00" },
+        "Friday": { "start": "15:00", "end": "20:00" },
+        "Sunday": { "start": "09:00", "end": "20:00" }
+      },
+      "details": {
+        "specialization": "Врач-диагност",
+        "category": "Врач-диагност",
+        "experience": "Стаж работы: с 1979 года. Врач-диагност с 1986 года"
+      }
+    },
+    {
+      "id": 21,
+      "name": "Есакова Мария Александровна",
+      "slug": "esakova-maria-alexandrovna",
+      "specialization": "УЗИ",
+      "specializations": ["УЗИ"],
+      "experience": 35,
+      "photo": "/images/doctors/Esakova Maria Alexandrovna.webp",
+      "description": "Врач УЗИ. Высшая квалификационная категория. Общий медицинский стаж – с 2002 года, по специальности – 15 лет",
+      "schedule": {
+        "Wednesday": { "start": "17:00", "end": "20:00" },
+        "Saturday": { "start": "08:00", "end": "14:00" },
+        "Sunday": { "start": "08:00", "end": "14:00" }
+      },
+      "details": {
+        "specialization": "Врач УЗИ",
+        "category": "Врач УЗИ. Высшая квалификационная категория",
+        "experience": "Общий медицинский стаж – с 2002 года, по специальности – 15 лет"
+      }
+    },
+    {
+      "id": 22,
+      "name": "Матулевский Николай Альфредович",
+      "slug": "matulevsky-nikolai-alfredovich",
+      "specialization": "Терапевт",
+      "specializations": ["Терапевт"],
+      "experience": 43,
+      "photo": "/images/doctors/Matulevsky Nikolai Alfredovich.webp",
+      "description": "Врач-терапевт высшей категории. Стаж работы: с 1981 года",
+      "schedule": {
+        "Monday": { "start": "08:30", "end": "11:00" },
+        "Wednesday": { "start": "09:00", "end": "13:00" },
+        "Saturday": { "start": "09:00", "end": "15:00" }
+      },
+      "details": {
+        "specialization": "Врач-терапевт",
+        "category": "Врач высшей категории",
+        "experience": "Стаж работы: с 1981 года"
+      }
+    },
+    {
+      "id": 23,
+      "name": "Максимова Инна Ивановна",
+      "slug": "maksimova-inna-ivanovna",
+      "specialization": "Биорезонансная терапия, Терапевт",
+      "specializations": ["Биорезонансная терапия", "Терапевт"],
+      "experience": 42,
+      "photo": "/images/doctors/Maksimova Inna Ivanovna.webp",
+      "description": "Терапевт, специалист по биорезонансной терапии. Стаж работы: с 1982 года",
+      "schedule": {
+        "Monday": { "start": "18:00", "end": "20:00" },
+        "Tuesday": { "start": "09:00", "end": "20:00" },
+        "Thursday": { "start": "09:00", "end": "20:00" },
+        "Friday": { "start": "09:00", "end": "20:00" },
+        "Sunday": { "start": "09:00", "end": "13:00" }
+      },
+      "details": {
+        "specialization": "Терапевт",
+        "category": "Терапевт",
+        "experience": "Стаж работы: с 1982 года"
+      }
+    },
+    {
+      "id": 24,
+      "name": "Рубцова Ольга Юрьевна",
+      "slug": "rubtsova-olga-yurievna",
+      "specialization": "Стоматолог-хирург, Имплантолог, Стоматолог-терапевт, Стоматолог",
+      "specializations": ["Стоматолог-хирург", "Имплантолог", "Стоматолог-терапевт", "Стоматолог"],
+      "experience": 23,
+      "photo": "/images/doctors/Rubtsova Olga Yurievna.webp",
+      "description": "Стоматолог-хирург, имплантолог, стоматолог-терапевт. Стаж работы: с 2001 года. В 2011 году награждена орденом «Лучший стоматолог»",
+      "schedule": {
+        "Tuesday": { "start": "09:00", "end": "19:00" },
+        "Thursday": { "start": "09:00", "end": "19:00" },
+        "Friday": { "start": "09:00", "end": "19:00" },
+        "Saturday": { "start": "09:00", "end": "19:00" }
+      },
+      "details": {
+        "specialization": "Стоматолог-хирург, имплантолог, стоматолог-терапевт",
+        "category": "Стоматолог-хирург, имплантолог, стоматолог-терапевт",
+        "experience": "Стаж работы: с 2001 года"
+      }
+    },
+    {
+      "id": 25,
+      "name": "Рубцов Роман Владимирович",
+      "slug": "rubtsov-roman-vladimirovich",
+      "specialization": "Стоматолог-ортопед, Стоматология",
+      "specializations": ["Стоматолог-ортопед", "Стоматология"],
+      "experience": 24,
+      "photo": "/images/doctors/Rubtsov Roman Vladimirovich.webp",
+      "description": "Стоматолог-ортопед. Стаж работы: с 2000 года",
+      "schedule": {
+        "Tuesday": { "start": "09:00", "end": "20:00" },
+        "Thursday": { "start": "09:00", "end": "20:00" },
+        "Friday": { "start": "09:00", "end": "20:00" },
+        "Saturday": { "start": "09:00", "end": "20:00" }
+      },
+      "details": {
+        "specialization": "Стоматолог-ортопед",
+        "category": "Стоматолог-ортопед",
+        "experience": "Стаж работы: с 2000 года"
+      }
+    },
+    {
+      "id": 26,
+      "name": "Кириллова Елена Владимировна",
+      "slug": "kirillova-elena-vladimirovna",
+      "specialization": "Стоматолог детский, Ортодонт, Стоматология",
+      "specializations": ["Стоматолог детский", "Ортодонт", "Стоматология"],
+      "experience": 20,
+      "photo": "/images/doctors/Kirillova Elena Vladimirovna.webp",
+      "description": "Врач-стоматолог детский. Кандидат медицинских наук",
+      "schedule": {
+        "Tuesday": { "start": "09:00", "end": "20:00" },
+        "Thursday": { "start": "09:00", "end": "20:00" },
+        "Friday": { "start": "09:00", "end": "20:00" },
+        "Sunday": { "start": "09:00", "end": "19:00" }
+      },
+      "details": {
+        "specialization": "Врач-стоматолог детский",
+        "category": "Врач-стоматолог детский. Кандидат медицинских наук"
+      }
+    },
+    {
+      "id": 27,
+      "name": "Ярулова Вероника Юрьевна",
+      "slug": "yarulova-veronika-yuryevna",
+      "specialization": "Стоматолог-терапевт, Микроскопист",
+      "specializations": ["Стоматолог-терапевт", "Микроскопист"],
+      "experience": 22,
+      "photo": "/images/doctors/Yarulova Veronika Yuryevna.webp",
+      "description": "Стоматолог-терапевт. Стаж работы с 2002 года. С января 2009 года по сегодняшний день врач-стоматолог терапевт в «Альтамед-С»",
+      "schedule": {
+        "Wednesday": { "start": "09:00", "end": "18:30" },
+        "Saturday": { "start": "09:00", "end": "18:30" }
+      },
+      "details": {
+        "specialization": "Стоматолог-терапевт, Микроскопист",
+        "category": "Стоматолог-терапевт",
+        "experience": "Стаж работы с 2002 года"
+      }
+    },
+    {
+      "id": 28,
+      "name": "Дячук Ольга Владимировна",
+      "slug": "dyachuk-olga-vladimirovna",
+      "specialization": "Психолог, Психолог-консультант",
+      "specializations": ["Психолог", "Психолог-консультант"],
+      "experience": 12,
+      "photo": "/images/doctors/Dyachuk Olga Vladimirovna.webp",
+      "description": "Психолог-консультант. Эриксоновский гипнотерапевт, действительный член Профессиональной психотерапевтической лиги",
+      "schedule": {
+        "Tuesday": { "start": "12:00", "end": "16:00" }
+      },
+      "details": {
+        "specialization": "Психолог-консультант",
+        "category": "Психолог-консультант. Эриксоновский гипнотерапевт, действительный член Профессиональной психотерапевтической лиги"
+      }
+    },
+    {
+      "id": 29,
+      "name": "Лория Ольга Викторовна",
+      "slug": "loria-olga-viktorovna",
+      "specialization": "Педиатр",
+      "specializations": ["Педиатр"],
+      "experience": 23,
+      "photo": "/images/doctors/Loria Olga Viktorovna.webp",
+      "description": "Педиатр. Стаж работы: с 2001 года. Врач высшей квалификационной категории по специальности «Инфекционные болезни». Ведет прием детей от 0 до 18 лет",
+      "schedule": {
+        "Monday": { "start": "14:00", "end": "18:00" },
+        "Wednesday": { "start": "16:00", "end": "20:00" },
+        "Friday": { "start": "10:00", "end": "14:00" },
+        "Saturday": { "start": "09:00", "end": "13:00" }
+      },
+      "details": {
+        "specialization": "Педиатр",
+        "category": "Педиатр. Врач высшей квалификационной категории по специальности «Инфекционные болезни»",
+        "experience": "Стаж работы: с 2001 года"
+      }
+    },
+    {
+      "id": 30,
+      "name": "Яблокова Инна Валерьевна",
+      "slug": "yablokova-inna-valerievna",
+      "specialization": "Офтальмолог",
+      "specializations": ["Офтальмолог"],
+      "experience": 31,
+      "photo": "/images/doctors/Yablokova Inna Valerievna.webp",
+      "description": "Врач-офтальмолог высшей квалификационной категории. Стаж работы с 1993 года. Имеет богатый опыт работы с детьми от 0 до 14 лет и взрослыми",
+      "schedule": {
+        "Monday": { "start": "14:00", "end": "19:00" },
+        "Tuesday": { "start": "14:00", "end": "19:00" },
+        "Wednesday": { "start": "14:00", "end": "19:00" },
+        "Thursday": { "start": "14:00", "end": "19:00" },
+        "Saturday": { "start": "10:00", "end": "16:00" }
+      },
+      "details": {
+        "specialization": "Врач-офтальмолог",
+        "category": "Врач-офтальмолог высшей квалификационной категории",
+        "experience": "Стаж работы с 1993 года"
+      }
+    },
+    {
+      "id": 31,
+      "name": "Рыжов Иван Николаевич",
+      "slug": "ryzhov-ivan-nikolaevich",
+      "specialization": "Отоларинголог",
+      "specializations": ["Отоларинголог"],
+      "experience": 51,
+      "photo": "/images/doctors/Ryzhov Ivan Nikolaevich.webp",
+      "description": "Врач отоларинголог. Заслуженный врач России. Высококвалифицированный врач-оториноларинголог. Врачебный стаж с 1973 года. Имеет высшую квалификационную категорию с 1990 г.",
+      "schedule": {
+        "Wednesday": { "start": "15:00", "end": "20:00" },
+        "Thursday": { "start": "15:00", "end": "20:00" },
+        "Saturday": { "start": "09:00", "end": "16:00" },
+        "Sunday": { "start": "09:00", "end": "16:00" }
+      },
+      "details": {
+        "specialization": "Врач отоларинголог",
+        "category": "Заслуженный врач России. Высококвалифицированный врач-оториноларинголог. Высшая квалификационная категория с 1990 г.",
+        "experience": "Врачебный стаж с 1973 года"
+      }
+    },
+    {
+      "id": 32,
+      "name": "Иванова Ольга Юрьевна",
+      "slug": "ivanova-olga-yurievna",
+      "specialization": "Отоларинголог-сурдолог",
+      "specializations": ["Отоларинголог-сурдолог"],
+      "experience": 42,
+      "photo": "/images/doctors/Ivanova Olga Yurievna.webp",
+      "description": "Врач сурдолог-оториноларинголог высшей квалификационной категории. Стаж работы с 1982 года. Является членом общества аудологов России",
+      "schedule": {
+        "Monday": { "start": "10:00", "end": "19:00" },
+        "Tuesday": { "start": "10:00", "end": "19:00" },
+        "Thursday": { "start": "10:00", "end": "19:00" },
+        "Saturday": { "start": "10:00", "end": "17:00" }
+      },
+      "details": {
+        "specialization": "Врач сурдолог-оториноларинголог",
+        "category": "Врач сурдолог-оториноларинголог высшей квалификационной категории",
+        "experience": "Стаж работы с 1982 года"
+      }
+    },
+    {
+      "id": 33,
+      "name": "Гончаренко Елена Борисовна",
+      "slug": "goncharenko-elena-borisovna",
+      "specialization": "Ортодонт, Гнатолог, Стоматолог",
+      "specializations": ["Ортодонт", "Гнатолог", "Стоматолог"],
+      "experience": 27,
+      "photo": "/images/doctors/Goncharenko Elena Borisovna.webp",
+      "description": "Врач-ортодонт, гнатолог высшей квалификационной категории. Стаж работы: более 25 лет",
+      "schedule": {
+        "Tuesday": { "start": "12:00", "end": "18:00" }
+      },
+      "details": {
+        "specialization": "Врач-ортодонт, гнатолог",
+        "category": "Врач-ортодонт, гнатолог высшей квалификационной категории",
+        "experience": "Стаж работы: более 25 лет"
+      }
+    },
+    {
+      "id": 34,
+      "name": "Притула Александр Васильевич",
+      "slug": "pritula-aleksandr-vasilievich",
+      "specialization": "Невролог",
+      "specializations": ["Невролог"],
+      "experience": 40,
+      "photo": "/images/doctors/Pritula Alexander Vasilievich.webp",
+      "description": "Невролог. Стаж работы: с 1984 года",
+      "schedule": {
+        "Monday": { "start": "14:00", "end": "20:00" },
+        "Wednesday": { "start": "13:30", "end": "20:00" },
+        "Saturday": { "start": "14:00", "end": "20:00" }
+      },
+      "details": {
+        "specialization": "Невролог",
+        "category": "Невролог",
+        "experience": "Стаж работы: с 1984 года"
+      }
+    },
+    {
+      "id": 35,
+      "name": "Пак Лариса Константиновна",
+      "slug": "pak-larisa-konstantinovna",
+      "specialization": "Невролог",
+      "specializations": ["Невролог"],
+      "experience": 34,
+      "photo": "/images/doctors/Pak Larisa Konstantinovna.webp",
+      "description": "Врач невролог высшей категории. Стаж работы врачом неврологом с 1990 года. Опыт работы по иглотерапии 15 лет",
+      "schedule": {
+        "Wednesday": { "start": "17:00", "end": "20:00" },
+        "Friday": { "start": "17:00", "end": "20:00" }
+      },
+      "details": {
+        "specialization": "Врач невролог",
+        "category": "Врач невролог высшей категории",
+        "experience": "Стаж работы врачом неврологом с 1990 года"
+      }
+    },
+    {
+      "id": 36,
+      "name": "Дутчак Елизавета Альбертовна",
+      "slug": "dutchak-elizaveta-albertovna",
+      "specialization": "Медсестра физиокабинета",
+      "specializations": ["Медсестра физиокабинета"],
+      "experience": 24,
+      "photo": "/images/doctors/Dutchak Elizaveta Albertovna.webp",
+      "description": "Медсестра высшей квалификационной категории по физиотерапии и массажу. 19 лет стажа по специальности. Ведет прием детей (от 3 лет) и взрослых",
+      "schedule": {
+        "Monday": { "start": "09:00", "end": "14:00" },
+        "Tuesday": { "start": "16:00", "end": "20:00" },
+        "Wednesday": { "start": "09:00", "end": "14:00" },
+        "Thursday": { "start": "16:00", "end": "20:00" },
+        "Friday": { "start": "16:00", "end": "20:00" },
+        "Sunday": { "start": "09:00", "end": "15:00" }
+      },
+      "details": {
+        "specialization": "Медсестра физиокабинета",
+        "category": "Медсестра высшей квалификационной категории по физиотерапии и массажу",
+        "experience": "19 лет стажа по специальности. С 2000 г работает медицинской сестрой по физиотерапии"
+      }
+    },
+    {
+      "id": 37,
+      "name": "Стаченкова Светлана Валериевна",
+      "slug": "stachenkova-svetlana-valerievna",
+      "specialization": "Остеопатия",
+      "specializations": ["Остеопатия"],
+      "experience": 29,
+      "photo": "/images/doctors/Stachenkova Svetlana Valerievna.webp",
+      "description": "Врач-педиатр, врач остеопат. Кандидат медицинских наук. Стаж работы: с 1995 года. Опыт практической работы с детьми в качестве педиатра и мануального терапевта более 20 лет",
+      "schedule": {
+        "Monday": { "start": "10:00", "end": "19:00" },
+        "Friday": { "start": "10:00", "end": "19:00" }
+      },
+      "details": {
+        "specialization": "Врач-педиатр, врач остеопат",
+        "category": "Врач-педиатр, врач остеопат. Кандидат медицинских наук",
+        "experience": "Стаж работы: с 1995 года. Опыт практической работы с детьми в качестве педиатра и мануального терапевта более 20 лет"
+      }
+    },
+    {
+      "id": 38,
+      "name": "Белоус Олег Анатольевич",
+      "slug": "belous-oleg-anatolyevich",
+      "specialization": "Остеопатия",
+      "specializations": ["Остеопатия"],
+      "experience": 40,
+      "photo": "/images/doctors/Belous Oleg Anatolyevich.webp",
+      "description": "Врач-невролог высшей квалификационной категории. Врач остеопат высшей квалификационной категории. Член Российской ассоциации остеопатов. Доктор Остеопатии Европы. Стаж работы: с 1984 года",
+      "schedule": {
+        "Tuesday": { "start": "08:00", "end": "19:00" },
+        "Wednesday": { "start": "08:00", "end": "19:00" },
+        "Thursday": { "start": "08:00", "end": "19:00" },
+        "Sunday": { "start": "08:00", "end": "19:00" }
+      },
+      "details": {
+        "specialization": "Врач-невролог, врач остеопат",
+        "category": "Врач-невролог высшей квалификационной категории. Врач остеопат высшей квалификационной категории. Член Российской ассоциации остеопатов. Доктор Остеопатии Европы",
+        "experience": "Стаж работы: с 1984 года. Мануальной терапией занимается с 1989 года"
+      }
+    },
+    {
+      "id": 39,
+      "name": "Громова Елена Анатольевна",
+      "slug": "gromova-elena-anatolyevna",
+      "specialization": "Маммолог",
+      "specializations": ["Маммолог"],
+      "experience": 44,
+      "photo": "/images/doctors/Gromova Elena Anatolyevna.webp",
+      "description": "Врач онколог-маммолог высшей квалификационной категории. Стаж работы: с 1980 года. С 1992 года работает врачом онкологом и занимается маммологией",
+      "schedule": {
+        "Wednesday": { "start": "17:00", "end": "20:00" },
+        "Friday": { "start": "17:00", "end": "20:00" }
+      },
+      "details": {
+        "specialization": "Врач онколог-маммолог",
+        "category": "Врач онколог-маммолог высшей квалификационной категории",
+        "experience": "Стаж работы: с 1980 года. С 1992 года работает врачом онкологом и занимается маммологией"
+      }
+    },
+    {
+      "id": 40,
+      "name": "Костьо Елена Владимировна",
+      "slug": "kostyo-elena-vladimirovna",
+      "specialization": "Косметолог-массажист",
+      "specializations": ["Косметолог-массажист"],
+      "experience": 10,
+      "photo": "/images/doctors/Kostyo Elena Vladimirovna.webp",
+      "description": "Косметолог-массажист. Медсестра физиокабинета. Имеет большой опыт по проведению любого вида массажа: медицинский массаж, антицеллюлитный массаж, коррекция фигуры",
+      "schedule": {
+        "Monday": { "start": "15:00", "end": "20:00" },
+        "Tuesday": { "start": "10:00", "end": "20:00" },
+        "Wednesday": { "start": "15:00", "end": "20:00" },
+        "Thursday": { "start": "15:00", "end": "20:00" },
+        "Sunday": { "start": "13:30", "end": "20:00" }
+      },
+      "details": {
+        "specialization": "Косметолог-массажист",
+        "category": "Косметолог-массажист. Медсестра физиокабинета"
+      }
+    },
+    {
+      "id": 41,
+      "name": "Русинович Валерий Михайлович",
+      "slug": "rusinovich-valery-mikhailovich",
+      "specialization": "Колопроктолог",
+      "specializations": ["Колопроктолог"],
+      "experience": 42,
+      "photo": "/images/doctors/Rusinovich Valery Mikhailovich.webp",
+      "description": "Врач-колопроктолог высшей квалификационной категории. Кандидат медицинских наук. Стаж работы: с 1982 года",
+      "schedule": {
+        "Tuesday": { "start": "16:00", "end": "20:00" }
+      },
+      "details": {
+        "specialization": "Врач-колопроктолог",
+        "category": "Врач-колопроктолог высшей квалификационной категории. Кандидат медицинских наук",
+        "experience": "Стаж работы: с 1982 года"
+      }
+    },
+    {
+      "id": 42,
+      "name": "Никулина Елена Ивановна",
+      "slug": "nikulina-elena-ivanovna",
+      "specialization": "Детский массажист",
+      "specializations": ["Детский массажист"],
+      "experience": 31,
+      "photo": "/images/doctors/Nikulina Elena Ivanovna.webp",
+      "description": "Детский массажист и медицинская сестра по физиотерапии. Окончила московский медицинский колледж при Правительстве РФ в 1993 г.",
+      "schedule": {
+        "Thursday": { "start": "10:00", "end": "20:00" },
+        "Friday": { "start": "10:00", "end": "20:00" },
+        "Saturday": { "start": "10:00", "end": "13:30" }
+      },
+      "details": {
+        "specialization": "Детский массажист",
+        "category": "Детский массажист и медицинская сестра по физиотерапии"
+      }
+    },
+    {
+      "id": 43,
+      "name": "Понедельченко Надежда Ивановна",
+      "slug": "ponedelchenko-nadezhda-ivanovna",
+      "specialization": "Дерматокосметолог, Дерматолог лечение",
+      "specializations": ["Дерматокосметолог", "Дерматолог лечение"],
+      "experience": 32,
+      "photo": "/images/doctors/Ponedelchenko Nadezhda Ivanovna.webp",
+      "description": "Врач-дерматокосметолог. Стаж работы: с 1992 года. Окончила РУДН по специальности «Лечебное дело»",
+      "schedule": {
+        "Tuesday": { "start": "09:00", "end": "20:00" },
+        "Sunday": { "start": "09:00", "end": "17:00" }
+      },
+      "details": {
+        "specialization": "Врач-дерматокосметолог",
+        "category": "Врач-дерматокосметолог",
+        "experience": "Стаж работы: с 1992 года"
+      }
+    },
+    {
+      "id": 44,
+      "name": "Полуэктова Оксана Николаевна",
+      "slug": "poluektova-oksana-nikolaevna",
+      "specialization": "Дерматовенеролог, Дерматолог лечение",
+      "specializations": ["Дерматовенеролог", "Дерматолог лечение"],
+      "experience": 40,
+      "photo": "/images/doctors/Poluektova Oksana Nikolaevna.webp",
+      "description": "Врач-дерматовенеролог высшей квалификационной категории. Стаж работы: с 1984 года. Ведет прием в качестве дерматолога: взрослого и детского",
+      "schedule": {
+        "Monday": { "start": "16:00", "end": "20:00" },
+        "Thursday": { "start": "16:00", "end": "20:00" },
+        "Saturday": { "start": "16:00", "end": "20:00" }
+      },
+      "details": {
+        "specialization": "Врач-дерматовенеролог",
+        "category": "Врач-дерматовенеролог высшей квалификационной категории",
+        "experience": "Стаж работы: с 1984 года"
+      }
+    },
+    {
+      "id": 45,
+      "name": "Перегудова Нина Алексеевна",
+      "slug": "peregudova-nina-alekseevna",
+      "specialization": "Гинеколог",
+      "specializations": ["Гинеколог"],
+      "experience": 43,
+      "photo": "/images/doctors/Peregudova Nina Alekseevna.webp",
+      "description": "Врач акушер-гинеколог высшей квалификационной категории. Стаж работы с 1981 года",
+      "schedule": {
+        "Monday": { "start": "15:00", "end": "20:00" },
+        "Tuesday": { "start": "10:00", "end": "15:00" },
+        "Saturday": { "start": "10:00", "end": "19:00" },
+        "Sunday": { "start": "10:00", "end": "18:00" }
+      },
+      "details": {
+        "specialization": "Врач акушер-гинеколог",
+        "category": "Врач акушер-гинеколог высшей квалификационной категории",
+        "experience": "Стаж работы с 1981 года"
+      }
+    },
+    {
+      "id": 46,
+      "name": "Бригадирова Елена Михайловна",
+      "slug": "brigadirova-elena-mikhailovna",
+      "specialization": "Гинеколог",
+      "specializations": ["Гинеколог"],
+      "experience": 34,
+      "photo": "/images/doctors/Brigadirova Elena Mikhailovna.webp",
+      "description": "Врач акушер-гинеколог первой квалификационной категории. Стаж работы с 1990 года. С 2006 г. по настоящее время работает в ООО «Альтамед-С»",
+      "schedule": {
+        "Monday": { "start": "09:00", "end": "14:30" },
+        "Wednesday": { "start": "09:00", "end": "15:30" },
+        "Friday": { "start": "09:00", "end": "20:00" },
+        "Sunday": { "start": "09:00", "end": "16:00" }
+      },
+      "details": {
+        "specialization": "Врач акушер-гинеколог",
+        "category": "Врач акушер-гинеколог первой квалификационной категории",
+        "experience": "Стаж работы с 1990 года"
+      }
+    },
+    {
+      "id": 47,
+      "name": "Будко Елена Анатольевна",
+      "slug": "budko-elena-anatolyevna",
+      "specialization": "Гастроэнтеролог",
+      "specializations": ["Гастроэнтеролог"],
+      "experience": 26,
+      "photo": "/images/doctors/Budko Elena Anatolyevna.webp",
+      "description": "Кандидат медицинских наук. Опыт работы с 1998г. Ведет прием детей (с 2 лет) и взрослого населения, семейный гастроэнтеролог",
+      "schedule": {
+        "Monday": { "start": "09:00", "end": "19:00" },
+        "Wednesday": { "start": "09:00", "end": "19:00" },
+        "Thursday": { "start": "09:00", "end": "14:00" },
+        "Sunday": { "start": "09:00", "end": "19:00" }
+      },
+      "details": {
+        "specialization": "Врач-гастроэнтеролог, диетолог",
+        "category": "Кандидат медицинских наук",
+        "experience": "Опыт работы с 1998г."
+      }
+    },
+    {
+      "id": 48,
+      "name": "Лысенко Ирина Владимировна",
+      "slug": "lysenko-irina-vladimirovna",
+      "specialization": "Аллерголог",
+      "specializations": ["Аллерголог"],
+      "experience": 42,
+      "photo": "/images/doctors/Lysenko Irina Vladimirovna.webp",
+      "description": "Врач аллерголог-иммунолог первой квалификационной категории. Стаж работы: с 1982 года. С 2004 года в медицинском центре «Альтамед-С»",
+      "schedule": {
+        "Wednesday": { "start": "09:00", "end": "14:00" },
+        "Sunday": { "start": "09:00", "end": "16:00" }
+      },
+      "details": {
+        "specialization": "Врач аллерголог-иммунолог",
+        "category": "Врач аллерголог-иммунолог первой квалификационной категории",
+        "experience": "Стаж работы: с 1982 года"
+      }
+    },
+    {
+      "id": 49,
+      "name": "Неклюдов Владимир Юрьевич",
+      "slug": "neklyudov-vladimir-yuryevich",
+      "specialization": "Травматолог-ортопед",
+      "specializations": ["Травматолог-ортопед"],
+      "experience": 39,
+      "photo": "/images/doctors/Neklyudov Vladimir Yuryevich.webp",
+      "description": "Врач травматолог-ортопед. Врачебный стаж с 1985 г",
+      "schedule": {
+        "Saturday": { "start": "09:00", "end": "14:00" }
+      },
+      "details": {
+        "specialization": "Врач травматолог-ортопед",
+        "category": "Врач травматолог-ортопед",
+        "experience": "Врачебный стаж с 1985 г"
+      }
+    },
+    {
+      "id": 50,
+      "name": "Абрамов Юно Эриильевич",
+      "slug": "abramov-yuno-eriilevich",
+      "specialization": "Стоматолог-хирург, Имплантолог, Стоматолог",
+      "specializations": ["Стоматолог-хирург", "Имплантолог", "Стоматолог"],
+      "experience": 6,
+      "photo": "/images/doctors/Abramov Yuno Eriilevich.webp",
+      "description": "Стоматолог-хирург, имплантолог. Окончил с отличием Первый московский государственный медицинский университет им. И.М.Сеченова",
+      "schedule": {
+        "Wednesday": { "start": "10:00", "end": "14:00" },
+        "Sunday": { "start": "10:00", "end": "14:00" }
+      },
+      "details": {
+        "specialization": "Стоматолог-хирург, имплантолог",
+        "category": "Стоматолог-хирург, имплантолог"
+      }
+    },
+    {
+      "id": 51,
+      "name": "Рыжов Андрей Иванович",
+      "slug": "ryzhov-andrey-ivanovich",
+      "specialization": "Отоларинголог",
+      "specializations": ["Отоларинголог"],
+      "experience": 23,
+      "photo": "/images/doctors/Ryzhov Andrey Ivanovich.webp",
+      "description": "Врач оториноларинголог. Стаж с 2001 года",
+      "schedule": {
+        "Tuesday": { "start": "17:00", "end": "20:00" }
+      },
+      "details": {
+        "specialization": "Врач оториноларинголог",
+        "category": "Врач оториноларинголог",
+        "experience": "Стаж с 2001 года"
+      }
+    },
+    {
+      "id": 52,
+      "name": "Чернова Алла Валерьевна",
+      "slug": "chernova-alla-valerievna",
+      "specialization": "Стоматолог",
+      "specializations": ["Стоматолог"],
+      "experience": 15,
+      "photo": "/images/doctors/Chernova Alla Valerievna.webp",
+      "description": "Врач стоматолог-терапевт. Окончила Рязанский государственный университет имени акад. И. П. Павлова по специальности «Врач- стоматолог»",
+      "schedule": {
+        "Monday": { "start": "09:00", "end": "17:00" },
+        "Tuesday": { "start": "14:30", "end": "20:00" }
+      },
+      "details": {
+        "specialization": "Врач стоматолог-терапевт",
+        "category": "Врач стоматолог-терапевт"
+      }
+    }
+  ],
+  "total": 52,
+  "lastUpdated": "2026-02-09"
+}

@@ -118,10 +118,12 @@ export default function AdminDashboard() {
   ];
 
   const defaultBranch2Doctors: DoctorScheduleData[] = [
+    { name: "Абдулаев", specialty: "Специалист", schedule: { Monday: { start: "10:00", end: "18:00" }, Tuesday: { start: "10:00", end: "18:00" }, Saturday: { start: "10:00", end: "18:00" }, Sunday: { start: "10:00", end: "18:00" } } },
     { name: "Белянко Игорь Эдуардович", specialty: "Кардиолог", schedule: { Monday: { start: "08:00", end: "15:00" }, Tuesday: { start: "08:00", end: "15:00" }, Thursday: { start: "08:00", end: "15:00" }, Friday: { start: "08:00", end: "15:00" }, Saturday: { start: "08:00", end: "19:20" } } },
     { name: "Бригадирова Елена Михайловна", specialty: "Гинеколог", schedule: { Monday: { start: "09:00", end: "14:30" }, Wednesday: { start: "09:00", end: "15:30" }, Friday: { start: "09:00", end: "20:00" }, Sunday: { start: "09:00", end: "16:00" } } },
     { name: "Будко Елена Анатольевна", specialty: "Гастроэнтеролог", schedule: { Monday: { start: "09:00", end: "19:00" }, Wednesday: { start: "09:00", end: "19:00" }, Thursday: { start: "09:00", end: "14:00" }, Sunday: { start: "09:00", end: "19:00" } } },
     { name: "Громов Евгений Викторович", specialty: "Уролог-андролог", schedule: { Monday: { start: "16:00", end: "21:00" }, Tuesday: { start: "16:00", end: "21:00" }, Wednesday: { start: "10:00", end: "14:00" }, Thursday: { start: "16:00", end: "21:00" }, Friday: { start: "09:00", end: "12:30" } } },
+    { name: "Глуцкая", specialty: "Специалист", schedule: { Tuesday: { start: "16:00", end: "19:00" }, Friday: { start: "16:00", end: "19:00" } } },
     { name: "Громова Елена Анатольевна", specialty: "Маммолог", schedule: { Wednesday: { start: "17:00", end: "20:00" }, Friday: { start: "17:00", end: "20:00" } } },
     { name: "Дмитриев Алексей Олегович", specialty: "Невролог", schedule: { Tuesday: { start: "08:30", end: "19:00" }, Thursday: { start: "16:00", end: "19:00" }, Friday: { start: "08:00", end: "14:00" }, Sunday: { start: "08:00", end: "17:30" } } },
     { name: "Дутчак Елизавета Альбертовна", specialty: "Медсестра физиокабинета", schedule: { Monday: { start: "09:00", end: "14:00" }, Tuesday: { start: "16:00", end: "20:00" }, Wednesday: { start: "09:00", end: "14:00" }, Thursday: { start: "16:00", end: "20:00" }, Friday: { start: "16:00", end: "20:00" }, Sunday: { start: "09:00", end: "15:00" } } },
@@ -158,7 +160,7 @@ export default function AdminDashboard() {
     { name: "Прикуле Елена Юрьевна", specialty: "Стоматолог-терапевт", schedule: { Monday: { start: "09:00", end: "15:00" }, Thursday: { start: "09:00", end: "20:00" }, Saturday: { start: "09:00", end: "20:00" } } },
     { name: "Рубцов Роман Владимирович", specialty: "Стоматолог-ортопед", schedule: { Tuesday: { start: "09:00", end: "20:00" }, Thursday: { start: "09:00", end: "20:00" }, Friday: { start: "09:00", end: "20:00" }, Saturday: { start: "09:00", end: "20:00" } } },
     { name: "Рубцова Ольга Юрьевна", specialty: "Стоматолог-хирург", schedule: { Tuesday: { start: "09:00", end: "19:00" }, Thursday: { start: "09:00", end: "19:00" }, Friday: { start: "09:00", end: "19:00" }, Saturday: { start: "09:00", end: "19:00" } } },
-    { name: "Чернова Алла Валерьевна", specialty: "Стоматолог", schedule: { Tuesday: { start: "09:00", end: "17:00" }, Wednesday: { start: "14:30", end: "20:00" } } },
+    { name: "Чернова Алла Валерьевна", specialty: "Стоматолог", schedule: { Thursday: { start: "10:00", end: "17:00" } } },
     { name: "Ярулова Вероника Юрьевна", specialty: "Стоматолог", schedule: { Wednesday: { start: "09:00", end: "18:30" }, Saturday: { start: "09:00", end: "18:30" } } }
   ];
 
