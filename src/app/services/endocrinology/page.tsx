@@ -13,6 +13,15 @@ export default function EndocrinologyPage() {
     setOpenAccordion(openAccordion === index ? null : index);
   };
 
+  // Услуги эндокринологии по прайсу (коды и цены актуальны)
+  const endocrinologyServices = [
+    { code: "B01.058.001", name: "Прием (осмотр, консультация) врача-эндокринолога первичный", price: "4 100 руб." },
+    { code: "B01.058.002", name: "Прием (осмотр, консультация) врача-эндокринолога повторный", price: "3 570 руб." },
+    { code: "A25.22.001", name: "Назначение лекарственных препаратов при заболеваниях желез внутренней секреции", price: "5 040 руб." },
+    { code: "A22.22.001", name: "Воздействие низкоинтенсивным лазерным излучением при заболеваниях желез внутренней секреции", price: "2 520 руб." },
+    { code: "A22.22.002", name: "Воздействие ультразвуком при заболеваниях желез внутренней секреции", price: "5 250 руб." }
+  ];
+
   return (
     <div className="flex flex-col min-h-full bg-white mx-auto">
       {/* Breadcrumb */}
@@ -219,6 +228,58 @@ export default function EndocrinologyPage() {
               <p className="text-gray-700 font-medium">
                 Высокий уровень сервиса и взвешенная ценовая политика
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Услуги эндокринологии */}
+      <section className="py-16 bg-white" aria-labelledby="endocrinology-services-heading">
+        <div className="mx-auto px-4" style={{ maxWidth: '83rem' }}>
+          <div className="text-center mb-8">
+            <h2 id="endocrinology-services-heading" className="text-3xl font-bold text-gray-900 mb-4">
+              Эндокринолог в Одинцово — услуги диагностики и лечения
+            </h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Консультации и процедуры при заболеваниях желез внутренней секреции
+            </p>
+            <p className="text-gray-600 text-sm mt-2 max-w-2xl mx-auto">
+              Цены носят справочный характер. Актуальную стоимость уточняйте в регистратуре или по телефону{' '}
+              <a href="tel:+74952554450" className="text-emerald-600 hover:underline font-medium">+7 (495) 255-44-50</a>.
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+            <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 px-6 py-4">
+              <h3 className="text-xl font-semibold text-white">Услуги эндокринологии</h3>
+            </div>
+            <div className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {endocrinologyServices.map((service) => (
+                  <div
+                    key={service.code}
+                    className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-300"
+                  >
+                    <div className="flex justify-between items-start gap-3">
+                      <div className="flex-1 min-w-0">
+                        <h4 className="font-medium text-gray-900 text-sm leading-tight mb-2">
+                          {service.name}
+                        </h4>
+                        <div className="text-emerald-600 font-semibold text-lg">
+                          {service.price}
+                        </div>
+                      </div>
+                      <Link
+                        href="https://online.altamed-c.ru/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-3 bg-emerald-600 text-white px-3 py-1 rounded-md text-sm hover:bg-emerald-700 transition-colors duration-300 flex-shrink-0"
+                      >
+                        Записаться
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -13,36 +13,41 @@ export default function GastroenterologyPage() {
   const gastroenterologyServices = [
     {
       id: 1,
+      code: "B01.004.001.001",
       name: "Прием (осмотр, консультация) врача гастроэнтеролога к.м.н. первичный",
-      price: "4 600 руб.",
+      price: "4 830 руб.",
       image: "/images/yslugi/Gastroenterology.webp",
       description: "Первичная консультация и осмотр у врача-гастроэнтеролога кандидата медицинских наук"
     },
     {
       id: 2,
+      code: "B01.004.001",
       name: "Прием (осмотр, консультация) врача гастроэнтеролога первичный",
-      price: "4 100 руб.",
+      price: "4 310 руб.",
       image: "/images/yslugi/Gastroenterology.webp",
       description: "Первичная консультация и осмотр у врача-гастроэнтеролога"
     },
     {
       id: 3,
+      code: "B01.004.002",
       name: "Прием (осмотр, консультация) врача гастроэнтеролога повторный",
-      price: "3 200 руб.",
+      price: "3 360 руб.",
       image: "/images/yslugi/Gastroenterology.webp",
       description: "Повторная консультация у врача-гастроэнтеролога"
     },
     {
       id: 4,
+      code: "B01.004.002.001",
       name: "Прием (осмотр, консультация) врача гастроэнтеролога к.м.н. повторный",
-      price: "4 100 руб.",
+      price: "4 310 руб.",
       image: "/images/yslugi/Gastroenterology.webp",
       description: "Повторная консультация у врача-гастроэнтеролога кандидата медицинских наук"
     },
     {
       id: 5,
+      code: "A07.16.006",
       name: "13С-уреазный дыхательный тест на HELICOBACTER PYLORI",
-      price: "2 300 руб.",
+      price: "2 420 руб.",
       image: "/images/yslugi/Gastroenterology.webp",
       description: "Диагностический тест для выявления бактерии Helicobacter pylori"
     }
@@ -269,6 +274,10 @@ export default function GastroenterologyPage() {
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Полный спектр услуг гастроэнтерологии
+            </p>
+            <p className="mt-4 text-sm text-gray-500 max-w-3xl mx-auto leading-relaxed">
+              Обратите внимание: цены на услуги могут меняться. Мы стараемся своевременно обновлять прайс-лист на сайте, но рекомендуем уточнять актуальную стоимость в регистратуре или по телефону контакт-центра{' '}
+              <a href="tel:+74952554450" className="text-emerald-600 hover:text-emerald-700 font-medium">+7 (495) 255-44-50</a>. Указанные на сайте цены не являются офертой. Медицинская помощь оказывается на основании заключенного договора.
             </p>
           </div>
 

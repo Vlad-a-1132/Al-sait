@@ -18,13 +18,15 @@ export default function PsychotherapyPage() {
 
   const psychotherapyServices = [
     {
+      code: "B01.035.001",
       name: "Прием (осмотр, консультация) врача-психиатра первичный",
-      price: 3900,
+      price: 4100,
       description: "Первичная консультация психиатра для оценки состояния, постановки диагноза и разработки индивидуального плана лечения"
     },
     {
+      code: "B01.035.002",
       name: "Прием (осмотр, консультация) врача-психиатра повторный",
-      price: 3600,
+      price: 3780,
       description: "Повторная консультация для контроля динамики лечения, корректировки терапии и отслеживания прогресса"
     }
   ];
@@ -298,6 +300,10 @@ export default function PsychotherapyPage() {
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Полный спектр услуг психотерапии
             </p>
+            <p className="mt-4 text-sm text-gray-500 max-w-3xl mx-auto leading-relaxed">
+              Обратите внимание: цены на услуги могут меняться. Рекомендуем уточнять актуальную стоимость в регистратуре или по телефону контакт-центра{' '}
+              <a href="tel:+74952554450" className="text-emerald-600 hover:text-emerald-700 font-medium">+7 (495) 255-44-50</a>. Указанные цены не являются офертой.
+            </p>
           </div>
 
           <div className="space-y-8">
@@ -307,9 +313,9 @@ export default function PsychotherapyPage() {
               </div>
               <div className="p-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                  {psychotherapyServices.map((service, index) => (
+                  {psychotherapyServices.map((service) => (
                     <div 
-                      key={index}
+                      key={service.code}
                       className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-300"
                     >
                       <div className="flex justify-between items-start">

@@ -40,6 +40,18 @@ export default function BioresonancePage() {
     "Поддержка естественных процессов саморегуляции"
   ];
 
+  // Услуги биорезонансной терапии по прайсу (коды и цены актуальны)
+  const bioresonanceServices = [
+    { code: "A17.01.006.001", name: "Первичный прием врача биорезонансной терапии (2,5 часа)", price: "7 040 руб." },
+    { code: "A17.01.006.002", name: "Повторный прием врача биорезонансной терапии + коррекция лечения", price: "5 460 руб." },
+    { code: "A17.01.006.003", name: "Сеанс биорезонансной терапии (1 час)", price: "950 руб." },
+    { code: "A17.01.006.004", name: "Сеанс резонансно-частотной терапии (1 час)", price: "1 890 руб." },
+    { code: "A17.01.006.005", name: "Тестирование медикаментов, аллергенов, продуктов (1 час)", price: "2 840 руб." },
+    { code: "A17.01.006.006", name: "Обследование на наличие паразитов, вирусов, бактерий (2 часа)", price: "3 890 руб." },
+    { code: "A17.01.006.007", name: "Изготовление биорезонансного препарата", price: "420 руб." },
+    { code: "A17.01.006.008", name: "Сегментарная диагностика", price: "3 360 руб." }
+  ];
+
   const faqItems = [
     {
       question: "Как работает биорезонансная терапия?",
@@ -220,6 +232,56 @@ export default function BioresonancePage() {
               <p className="text-gray-700 font-medium">
                 Индивидуальный подход к каждому пациенту
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Услуги биорезонансной терапии */}
+      <section className="py-16 bg-white" aria-labelledby="bioresonance-services-heading">
+        <div className="mx-auto px-4" style={{ maxWidth: '83rem' }}>
+          <div className="text-center mb-8">
+            <h2 id="bioresonance-services-heading" className="text-3xl font-bold text-gray-900 mb-4">
+              Биорезонансная терапия — услуги и цены
+            </h2>
+            <p className="text-gray-600 text-sm max-w-2xl mx-auto">
+              Цены носят справочный характер. Актуальную стоимость уточняйте в регистратуре или по телефону{' '}
+              <a href="tel:+74952554450" className="text-purple-600 hover:underline font-medium">+7 (495) 255-44-50</a>.
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200">
+            <div className="bg-gradient-to-r from-purple-600 to-purple-700 px-6 py-4">
+              <h3 className="text-xl font-semibold text-white">Услуги биорезонансной терапии</h3>
+            </div>
+            <div className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {bioresonanceServices.map((service) => (
+                  <div
+                    key={service.code}
+                    className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-300"
+                  >
+                    <div className="flex justify-between items-start gap-3">
+                      <div className="flex-1 min-w-0">
+                        <span className="text-xs text-gray-500 font-mono block mb-1">{service.code}</span>
+                        <h4 className="font-medium text-gray-900 text-sm leading-tight mb-2">
+                          {service.name}
+                        </h4>
+                        <div className="text-purple-600 font-semibold text-lg">
+                          {service.price}
+                        </div>
+                      </div>
+                      <Link
+                        href="https://online.altamed-c.ru/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-3 bg-purple-600 text-white px-3 py-1 rounded-md text-sm hover:bg-purple-700 transition-colors duration-300 flex-shrink-0"
+                      >
+                        Записаться
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

@@ -8,15 +8,16 @@ import AppointmentForm from '@/components/AppointmentForm';
 export default function CardiologyPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
 
-  // Услуги кардиологии
+  // Услуги кардиологии по прайсу (коды и цены актуальны)
   const cardiologyServices = [
-    { id: 1, name: "Прием (осмотр, консультация) врача-кардиолога к.м.н. первичный", price: "4 200 руб.", image: "/images/yslugi/Cardiology.webp", description: "Первичная консультация у врача-кардиолога кандидата медицинских наук" },
-    { id: 2, name: "Прием (осмотр, консультация) врача-кардиолога к.м.н. повторный", price: "3 600 руб.", image: "/images/yslugi/Cardiology.webp", description: "Повторная консультация у врача-кардиолога кандидата медицинских наук" },
-    { id: 3, name: "Прием (осмотр, консультация) врача-кардиолога первичный", price: "3 900 руб.", image: "/images/yslugi/Cardiology.webp", description: "Первичная консультация и осмотр у врача-кардиолога" },
-    { id: 4, name: "Прием (осмотр, консультация) врача-кардиолога повторный", price: "3 300 руб.", image: "/images/yslugi/Cardiology.webp", description: "Повторная консультация у врача-кардиолога" },
-    { id: 5, name: "Регистрация электрокардиограммы", price: "1 300 руб.", image: "/images/yslugi/Cardiology.webp", description: "Запись электрокардиограммы сердца" },
-    { id: 6, name: "Расшифровка, описание и интерпретация электрокардиографических данных", price: "1 100 руб.", image: "/images/yslugi/Cardiology.webp", description: "Анализ и расшифровка результатов ЭКГ" },
-    { id: 7, name: "Суточное мониторирование ЭКГ по Холтеру", price: "3 400 руб.", image: "/images/yslugi/Cardiology.webp", description: "24-часовое мониторирование сердечной деятельности" }
+    { code: "B01.015.001.001", name: "Прием (осмотр, консультация) врача-кардиолога к.м.н. первичный", price: "4 410 руб." },
+    { code: "B01.015.002.001", name: "Прием (осмотр, консультация) врача-кардиолога к.м.н. повторный", price: "3 780 руб." },
+    { code: "B01.015.001", name: "Прием (осмотр, консультация) врача-кардиолога первичный", price: "4 100 руб." },
+    { code: "B01.015.002", name: "Прием (осмотр, консультация) врача-кардиолога повторный", price: "3 470 руб." },
+    { code: "A05.10.006", name: "Регистрация электрокардиограммы", price: "1 370 руб." },
+    { code: "A05.10.004", name: "Расшифровка, описание и интерпретация электрокардиографических данных", price: "1 160 руб." },
+    { code: "A05.10.008", name: "Суточное мониторирование ЭКГ по Холтеру (3 канальный)", price: "3 570 руб." },
+    { code: "A05.10.008.01", name: "Суточное мониторирование ЭКГ по Холтеру (12 канальный)", price: "3 990 руб." }
   ];
 
   return (
@@ -141,6 +142,10 @@ export default function CardiologyPage() {
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 Полный спектр услуг кардиологии
               </p>
+              <p className="text-gray-600 text-sm mt-2 max-w-2xl mx-auto">
+                Цены носят справочный характер. Актуальную стоимость уточняйте в регистратуре или по телефону{' '}
+                <a href="tel:+74952554450" className="text-emerald-600 hover:underline font-medium">+7 (495) 255-44-50</a>.
+              </p>
             </div>
 
             <div className="space-y-8">
@@ -150,9 +155,9 @@ export default function CardiologyPage() {
                 </div>
                 <div className="p-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {cardiologyServices.map((service, index) => (
+                    {cardiologyServices.map((service) => (
                       <div 
-                        key={service.id}
+                        key={service.code}
                         className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-300"
                       >
                         <div className="flex justify-between items-start">

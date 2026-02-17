@@ -40,6 +40,14 @@ export default function ShockwaveTherapyPage() {
     "Немедикаментозное лечение"
   ];
 
+  // Услуги УВТ по прайсу (коды и цены актуальны)
+  const shockwaveServices = [
+    { code: "A22.30.015", name: "Ударно-волновая терапия", price: "2 940 руб." },
+    { code: "A22.30.015.002", name: "Ударно-волновая терапия 2 категории", price: "5 250 руб." },
+    { code: "A22.30.015.003", name: "Ударно-волновая терапия 3 категории", price: "6 830 руб." },
+    { code: "A22.30.015.004", name: "Ударно-волновая терапия 4 категории", price: "9 140 руб." }
+  ];
+
   const faqItems = [
     {
       question: "Как работает ударно-волновая терапия?",
@@ -224,6 +232,56 @@ export default function ShockwaveTherapyPage() {
               <p className="text-gray-700 font-medium">
                 Альтернатива хирургическому лечению
               </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Услуги УВТ */}
+      <section className="py-16 bg-white" aria-labelledby="shockwave-services-heading">
+        <div className="mx-auto px-4" style={{ maxWidth: '83rem' }}>
+          <div className="text-center mb-8">
+            <h2 id="shockwave-services-heading" className="text-3xl font-bold text-gray-900 mb-4">
+              Ударно-волновая терапия — услуги и цены
+            </h2>
+            <p className="text-gray-600 text-sm max-w-2xl mx-auto">
+              Цены носят справочный характер. Актуальную стоимость уточняйте в регистратуре или по телефону{' '}
+              <a href="tel:+74952554450" className="text-purple-600 hover:underline font-medium">+7 (495) 255-44-50</a>.
+            </p>
+          </div>
+          <div className="bg-white rounded-2xl shadow-lg overflow-hidden border border-gray-200 max-w-4xl mx-auto">
+            <div className="bg-gradient-to-r from-purple-600 to-purple-700 px-6 py-4">
+              <h3 className="text-xl font-semibold text-white">Ударно-волновая терапия</h3>
+            </div>
+            <div className="p-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {shockwaveServices.map((service) => (
+                  <div
+                    key={service.code}
+                    className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-300"
+                  >
+                    <div className="flex justify-between items-start gap-3">
+                      <div className="flex-1 min-w-0">
+                        <span className="text-xs text-gray-500 font-mono block mb-1">{service.code}</span>
+                        <h4 className="font-medium text-gray-900 text-sm leading-tight mb-2">
+                          {service.name}
+                        </h4>
+                        <div className="text-purple-600 font-semibold text-lg">
+                          {service.price}
+                        </div>
+                      </div>
+                      <Link
+                        href="https://online.altamed-c.ru/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="ml-3 bg-purple-600 text-white px-3 py-1 rounded-md text-sm hover:bg-purple-700 transition-colors duration-300 flex-shrink-0"
+                      >
+                        Записаться
+                      </Link>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

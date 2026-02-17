@@ -34,23 +34,24 @@ export default function EndoscopyPage() {
     }
   ];
 
+  // Услуги эндоскопии по прайсу (коды и цены актуальны)
   const endoscopyServices = [
     {
       category: 'Эндоскопия верхних отделов ЖКТ',
       services: [
-        { code: "А03.08.003", name: "Эзофагоскопия", price: 5700 },
-        { code: "А03.16.001", name: "Эзофагогастродуоденоскопия", price: 5900 },
-        { code: "А03.16.003", name: "Эзофагогастроскопия", price: 5500 }
+        { code: "A03.08.003", name: "Эзофагоскопия", price: 5990 },
+        { code: "A03.16.001", name: "Эзофагогастродуоденоскопия", price: 6200 },
+        { code: "A03.16.003", name: "Эзофагогастроскопия", price: 5780 }
       ]
     },
     {
       category: 'Биопсия при эндоскопии',
       services: [
-        { code: "А11.16.001", name: "Биопсия пищевода с помощью эндоскопии", price: 2100 },
-        { code: "А11.16.002", name: "Биопсия желудка с помощью эндоскопии", price: 2500 },
-        { code: "А11.16.003", name: "Биопсия двенадцатиперстной кишки с помощью эндоскопии", price: 2500 },
-        { code: "А11.16.002.001", name: "Биопсия желудка с помощью эндоскопии на хеликобактер и экспресс «Хелпил-тест»", price: 2500 },
-        { code: "А11.16.002.002", name: "Биопсия желудка с помощью эндоскопии на хеликобактер с помощью быстрого уреаплазного теста", price: 2500 }
+        { code: "A11.16.003", name: "Биопсия двенадцатиперстной кишки с помощью эндоскопии", price: 2630 },
+        { code: "A11.16.001", name: "Биопсия пищевода с помощью эндоскопии", price: 2210 },
+        { code: "A11.16.002", name: "Биопсия желудка с помощью эндоскопии", price: 2630 },
+        { code: "A11.16.002.001", name: "Биопсия желудка с помощью эндоскопии на хеликобактер и экспресс «Хелпил-тест»", price: 2630 },
+        { code: "A11.16.002.002", name: "Биопсия желудка с помощью эндоскопии на хеликобактер с помощью быстрого уреазного теста", price: 2630 }
       ]
     }
   ];
@@ -222,6 +223,10 @@ export default function EndoscopyPage() {
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Полный спектр эндоскопических исследований и диагностических процедур в Одинцово
             </p>
+            <p className="text-gray-600 text-sm mt-2 max-w-2xl mx-auto">
+              Цены носят справочный характер. Актуальную стоимость уточняйте в регистратуре или по телефону{' '}
+              <a href="tel:+74952554450" className="text-[#6B8190] hover:underline font-medium">+7 (495) 255-44-50</a>.
+            </p>
           </div>
 
           <div className="space-y-8">
@@ -232,9 +237,9 @@ export default function EndoscopyPage() {
                 </div>
                 <div className="p-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {category.services.map((service, serviceIndex) => (
+                    {category.services.map((service) => (
                       <div 
-                        key={serviceIndex}
+                        key={service.code}
                         className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-300"
                       >
                         <div className="flex justify-between items-start mb-2">

@@ -8,31 +8,31 @@ import AppointmentForm from '@/components/AppointmentForm';
 export default function DermatologyPage() {
   const [openAccordion, setOpenAccordion] = useState<number | null>(null);
 
-  // Услуги дерматологии
+  // Услуги дерматологии по прайсу (коды и цены актуальны)
   const dermatologyServices = [
-    { id: 1, name: "Прием (осмотр, консультация) врача-дерматовенеролога первичный", price: "3 100 руб.", image: "/images/yslugi/Dermatology.webp", description: "Первичная консультация и осмотр у врача-дерматовенеролога" },
-    { id: 2, name: "Прием (осмотр, консультация) врача-дерматовенеролога повторный", price: "2 600 руб.", image: "/images/yslugi/Dermatology.webp", description: "Повторная консультация у врача-дерматовенеролога" },
-    { id: 3, name: "Диспансерный прием (осмотр, консультация) врача-дерматовенеролога", price: "3 100 руб.", image: "/images/yslugi/Dermatology.webp", description: "Диспансерный осмотр у врача-дерматовенеролога" },
-    { id: 4, name: "Профилактический прием (осмотр, консультация) врача-дерматовенеролога", price: "2 600 руб.", image: "/images/yslugi/Dermatology.webp", description: "Профилактический осмотр у врача-дерматовенеролога" },
-    { id: 5, name: "Сбор анамнеза и жалоб в дерматологии", price: "500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Сбор анамнеза и жалоб в дерматологии" },
-    { id: 6, name: "Визуальное исследование в дерматологии", price: "500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Визуальное исследование кожных покровов" },
-    { id: 7, name: "Пальпация в дерматологии", price: "500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Пальпаторное исследование кожи" },
-    { id: 8, name: "Определение дермографизма", price: "500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Определение дермографической реакции" },
-    { id: 9, name: "Аускультация в дерматологии", price: "500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Аускультативное исследование в дерматологии" },
-    { id: 10, name: "Определение сальности кожи", price: "500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Определение уровня сальности кожи" },
-    { id: 11, name: "Проведение йодной пробы", price: "500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Проведение йодной пробы для диагностики" },
-    { id: 12, name: "Люминесцентная диагностика (осмотр под лампой Вуда)", price: "1 800 руб.", image: "/images/yslugi/Dermatology.webp", description: "Осмотр кожи под лампой Вуда" },
-    { id: 13, name: "Осмотр кожи под увеличением (дерматоскопия)", price: "500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Дерматоскопическое исследование" },
-    { id: 14, name: "Осмотр кожи через стекло при надавливании (витропрессия)", price: "500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Исследование кожи методом витропрессии" },
-    { id: 15, name: "Соскоб кожи", price: "500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Забор материала для лабораторного исследования" },
-    { id: 16, name: "Удаление камодонов кожи", price: "2 500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Удаление комедонов кожи" },
-    { id: 17, name: "Удаление милиумов кожи", price: "2 500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Удаление милиумов (белых угрей)" },
-    { id: 18, name: "Удаление телеангиоэктазий", price: "4 900 руб.", image: "/images/yslugi/Dermatology.webp", description: "Удаление сосудистых звездочек" },
-    { id: 19, name: "Удаление доброкачественных новообразований кожи методом электрокоагуляции", price: "1 800 руб.", image: "/images/yslugi/Dermatology.webp", description: "Удаление новообразований электрокоагуляцией" },
-    { id: 20, name: "Удаление контагиозных моллюсков кожи", price: "2 500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Удаление контагиозных моллюсков" },
-    { id: 21, name: "Назначение лекарственных препаратов при заболеваниях кожи, подкожно-жировой клетчатки, придатков кожи", price: "2 600 руб.", image: "/images/yslugi/Dermatology.webp", description: "Назначение медикаментозной терапии" },
-    { id: 22, name: "Назначение диетического питания при заболеваниях кожи, подкожно-жировой клетчатки, придатков кожи", price: "2 600 руб.", image: "/images/yslugi/Dermatology.webp", description: "Назначение лечебного питания" },
-    { id: 23, name: "Назначение лечебно-оздоровительного режима при заболеваниях кожи, подкожно-жировой клетчатки, придатков кожи", price: "2 600 руб.", image: "/images/yslugi/Dermatology.webp", description: "Назначение лечебного режима" }
+    { id: 1, code: "B01.008.001", name: "Прием (осмотр, консультация) врача-дерматовенеролога первичный", price: "3 260 руб.", image: "/images/yslugi/Dermatology.webp", description: "Первичная консультация и осмотр у врача-дерматовенеролога" },
+    { id: 2, code: "B01.008.002", name: "Прием (осмотр, консультация) врача-дерматовенеролога повторный", price: "2 730 руб.", image: "/images/yslugi/Dermatology.webp", description: "Повторная консультация у врача-дерматовенеролога" },
+    { id: 3, code: "B04.008.001", name: "Диспансерный прием (осмотр, консультация) врача-дерматовенеролога", price: "2 730 руб.", image: "/images/yslugi/Dermatology.webp", description: "Диспансерный осмотр у врача-дерматовенеролога" },
+    { id: 4, code: "B04.008.002", name: "Профилактический прием (осмотр, консультация) врача-дерматовенеролога", price: "2 730 руб.", image: "/images/yslugi/Dermatology.webp", description: "Профилактический осмотр у врача-дерматовенеролога" },
+    { id: 5, code: "A01.01.001", name: "Сбор анамнеза и жалоб в дерматологии", price: "530 руб.", image: "/images/yslugi/Dermatology.webp", description: "Сбор анамнеза и жалоб в дерматологии" },
+    { id: 6, code: "A02.01.006", name: "Визуальное исследование в дерматологии", price: "1 890 руб.", image: "/images/yslugi/Dermatology.webp", description: "Визуальное исследование кожных покровов" },
+    { id: 7, code: "A01.01.002", name: "Пальпация в дерматологии", price: "530 руб.", image: "/images/yslugi/Dermatology.webp", description: "Пальпаторное исследование кожи" },
+    { id: 8, code: "A02.01.007", name: "Определение дермографизма", price: "530 руб.", image: "/images/yslugi/Dermatology.webp", description: "Определение дермографической реакции" },
+    { id: 9, code: "A01.01.003", name: "Аускультация в дерматологии", price: "530 руб.", image: "/images/yslugi/Dermatology.webp", description: "Аускультативное исследование в дерматологии" },
+    { id: 10, code: "A02.01.008", name: "Определение сальности кожи", price: "530 руб.", image: "/images/yslugi/Dermatology.webp", description: "Определение уровня сальности кожи" },
+    { id: 11, code: "A14.01.008", name: "Проведение йодной пробы", price: "530 руб.", image: "/images/yslugi/Dermatology.webp", description: "Проведение йодной пробы для диагностики" },
+    { id: 12, code: "A14.01.009", name: "Люминесцентная диагностика (осмотр под лампой Вуда)", price: "1 890 руб.", image: "/images/yslugi/Dermatology.webp", description: "Осмотр кожи под лампой Вуда" },
+    { id: 13, code: "A25.01.001", name: "Осмотр кожи под увеличением (дерматоскопия)", price: "1 890 руб.", image: "/images/yslugi/Dermatology.webp", description: "Дерматоскопическое исследование" },
+    { id: 14, code: "A25.01.002", name: "Осмотр кожи через стекло при надавливании (витропрессия)", price: "530 руб.", image: "/images/yslugi/Dermatology.webp", description: "Исследование кожи методом витропрессии" },
+    { id: 15, code: "A14.01.010", name: "Соскоб кожи", price: "530 руб.", image: "/images/yslugi/Dermatology.webp", description: "Забор материала для лабораторного исследования" },
+    { id: 16, code: "A16.01.001", name: "Удаление комедонов кожи", price: "2 500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Удаление комедонов кожи" },
+    { id: 17, code: "A16.01.002", name: "Удаление милиумов кожи", price: "2 500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Удаление милиумов (белых угрей)" },
+    { id: 18, code: "A16.01.003", name: "Удаление телеангиоэктазий", price: "4 900 руб.", image: "/images/yslugi/Dermatology.webp", description: "Удаление сосудистых звездочек" },
+    { id: 19, code: "A16.01.004", name: "Удаление доброкачественных новообразований кожи методом электрокоагуляции", price: "5 150 руб.", image: "/images/yslugi/Dermatology.webp", description: "Удаление новообразований электрокоагуляцией" },
+    { id: 20, code: "A16.01.005", name: "Удаление контагиозных моллюсков кожи", price: "2 500 руб.", image: "/images/yslugi/Dermatology.webp", description: "Удаление контагиозных моллюсков" },
+    { id: 21, code: "B03.01.001", name: "Назначение лекарственных препаратов при заболеваниях кожи, подкожно-жировой клетчатки, придатков кожи", price: "2 730 руб.", image: "/images/yslugi/Dermatology.webp", description: "Назначение медикаментозной терапии" },
+    { id: 22, code: "B03.01.002", name: "Назначение диетического питания при заболеваниях кожи, подкожно-жировой клетчатки, придатков кожи", price: "2 730 руб.", image: "/images/yslugi/Dermatology.webp", description: "Назначение лечебного питания" },
+    { id: 23, code: "B03.01.003", name: "Назначение лечебно-оздоровительного режима при заболеваниях кожи, подкожно-жировой клетчатки, придатков кожи", price: "2 730 руб.", image: "/images/yslugi/Dermatology.webp", description: "Назначение лечебного режима" }
   ];
 
   return (
@@ -207,6 +207,10 @@ export default function DermatologyPage() {
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 Полный спектр услуг дерматологии
+              </p>
+              <p className="mt-4 text-sm text-gray-500 max-w-3xl mx-auto leading-relaxed">
+                Обратите внимание: цены на услуги могут меняться. Мы стараемся своевременно обновлять прайс-лист на сайте, но рекомендуем уточнять актуальную стоимость в регистратуре или по телефону контакт-центра{' '}
+                <a href="tel:+74952554450" className="text-emerald-600 hover:text-emerald-700 font-medium">+7 (495) 255-44-50</a>. Указанные на сайте цены не являются офертой. Медицинская помощь оказывается на основании заключенного договора.
               </p>
             </div>
 

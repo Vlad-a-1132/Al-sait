@@ -2,14 +2,12 @@ import Image from "next/image";
 import AppointmentForm from "@/components/AppointmentForm";
 
 export default function OsteopathyPage() {
-  const prices: Array<{ name: string; price: number }> = [
-    { name: "Прием(осмотр, консультация) врача остеопата первичный", price: 6000 },
-    { name: "Прием(осмотр, консультация) врача остеопата повторный", price: 4500 },
-    { name: "Консультация остеопата и невролога с первичной коррекцией позвоночника", price: 6000 },
-    { name: "Повторный прием остеопата с коррекцией позвоночника", price: 3500 },
-    { name: "Повторный прием остеопата с коррекцией позвоночника дети до 14 лет", price: 3000 },
-    { name: "Прием остеопата детского (дети от 0 до 14 лет) — 60мин.", price: 4000 },
-    { name: "Прием остеопата детского (дети от 0 до 14 лет) — 30мин", price: 2000 },
+  const prices: Array<{ code: string; name: string; price: number }> = [
+    { code: "B01.069.001", name: "Прием (осмотр, консультация) врача остеопата первичный", price: 7000 },
+    { code: "B01.069.002", name: "Прием (осмотр, консультация) врача остеопата повторный", price: 5000 },
+    { code: "B01.069.003", name: "Прием (осмотр, консультация) врача остеопата повторный (дети до 14 лет)", price: 4500 },
+    { code: "B01.069.004", name: "Прием врача остеопата детского (дети от 0 до 14 лет) 60 мин", price: 6500 },
+    { code: "B01.069.005", name: "Прием врача остеопата детского (дети от 0 до 14 лет) 30 мин", price: 3250 },
   ];
 
   const indications = [
@@ -206,17 +204,23 @@ export default function OsteopathyPage() {
       <section className="py-8">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <h3 className="text-2xl md:text-3xl font-bold text-black mb-6">Цены</h3>
+          <p className="text-sm text-gray-500 mb-4 max-w-3xl">
+            Обратите внимание: цены на услуги могут меняться. Рекомендуем уточнять актуальную стоимость в регистратуре или по телефону{' '}
+            <a href="tel:+74952554450" className="text-emerald-600 hover:text-emerald-700 font-medium">+7 (495) 255-44-50</a>. Указанные цены не являются офертой.
+          </p>
           <div className="overflow-x-auto bg-white rounded-[20px] border border-gray-100 shadow-sm">
             <table className="min-w-full divide-y divide-gray-100">
               <thead className="bg-gray-50">
                 <tr>
+                  <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Код</th>
                   <th className="px-4 py-3 text-left text-sm font-semibold text-gray-700">Наименование</th>
                   <th className="px-4 py-3 text-right text-sm font-semibold text-gray-700">Цена, руб.</th>
                 </tr>
               </thead>
               <tbody>
                 {prices.map((row, i) => (
-                  <tr key={i} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                  <tr key={row.code} className={i % 2 === 0 ? "bg-white" : "bg-gray-50"}>
+                    <td className="px-4 py-3 text-sm text-gray-600 font-mono">{row.code}</td>
                     <td className="px-4 py-3 text-sm text-gray-900">{row.name}</td>
                     <td className="px-4 py-3 text-sm text-gray-900 text-right">{row.price.toLocaleString("ru-RU")}</td>
                   </tr>
