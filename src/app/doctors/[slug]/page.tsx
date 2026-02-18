@@ -1133,7 +1133,8 @@ function getDoctorDetails(doctorName: string) {
         '/images/sertifikat/ivanova/ivanova-8.jpg',
         '/images/sertifikat/ivanova/ivanova-9.jpg',
         '/images/sertifikat/ivanova/ivanova-10.jpg',
-        '/images/sertifikat/ivanova/ivanova-11.jpg'
+        '/images/sertifikat/ivanova/ivanova-11.jpg',
+        '/images/doctors/Screenshot_856.png'
       ]
     },
     'Гончаренко Елена Борисовна': {

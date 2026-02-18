@@ -302,16 +302,37 @@ export default function DoctorPageFullContent({
                 Сертификаты
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {doctorDetails.certificates.map((cert: string, index: number) => (
-                  <div key={index} className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                    <Image
-                      src={cert}
-                      alt={`Сертификат ${index + 1}`}
-                      fill
-                      className="object-contain cursor-pointer"
-                    />
-                  </div>
-                ))}
+                {doctorDetails.certificates.map((cert: string, index: number) => {
+                  const isPdf = /\.pdf$/i.test(cert);
+                  if (isPdf) {
+                    return (
+                      <a
+                        key={index}
+                        href={encodeURI(cert)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        download
+                        className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow flex flex-col items-center justify-center gap-2 bg-gray-50 border border-gray-200 p-4 text-emerald-600 hover:bg-gray-100"
+                      >
+                        <svg className="w-12 h-12 text-red-500 flex-shrink-0" fill="currentColor" viewBox="0 0 24 24" aria-hidden>
+                          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8l-6-6zm-1 2 5 5h-5V4zm-3 10.5a1.5 1.5 0 1 1 3 0 1.5 1.5 0 0 1-3 0zm1 0a.5.5 0 1 0 1 0 .5.5 0 0 0-1 0z"/>
+                        </svg>
+                        <span className="font-medium text-center text-sm">Сертификат (PDF)</span>
+                        <span className="text-xs text-gray-500">Открыть / Скачать</span>
+                      </a>
+                    );
+                  }
+                  return (
+                    <div key={index} className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                      <Image
+                        src={cert}
+                        alt={`Сертификат ${index + 1}`}
+                        fill
+                        className="object-contain cursor-pointer"
+                      />
+                    </div>
+                  );
+                })}
               </div>
             </>
           )}

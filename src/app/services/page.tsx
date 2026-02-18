@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import AppointmentForm from '@/components/AppointmentForm';
+import PromoBanner from '@/components/PromoBanner';
 
 export default function ServicesPage() {
   
@@ -758,9 +759,16 @@ export default function ServicesPage() {
 
   return (
     <div className="flex flex-col min-h-full bg-white overflow-x-hidden">
-      {/* Первый контейнер услуг */}
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <PromoBanner
+            title="Услуги клиники Альтамед-С"
+            subtitle="Профессиональная медицинская помощь в Одинцово"
+            image="/images/doctors/10b5648f-6c67-4bb2-ab6a-4aebeebcd2a7%201.png"
+            buttonText="Записаться"
+            buttonLink="https://online.altamed-c.ru/"
+            buttonColor="#266E5E"
+          />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 justify-items-center">
             {firstContainerData.map((service) => (
               service.id === 'allergology' ? (
