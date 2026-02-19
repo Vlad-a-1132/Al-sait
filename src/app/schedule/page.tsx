@@ -245,11 +245,6 @@ export default function SchedulePage() {
 
   const branch2Doctors = [
     {
-      name: "Абдулаев",
-      specialty: "Специалист",
-      schedule: { Monday: { start: "10:00", end: "18:00" }, Tuesday: { start: "10:00", end: "18:00" }, Saturday: { start: "10:00", end: "18:00" }, Sunday: { start: "10:00", end: "18:00" } }
-    },
-    {
       name: "Белянко Игорь Эдуардович",
       specialty: "Кардиолог",
       schedule: { Monday: { start: "08:00", end: "15:00" }, Tuesday: { start: "08:00", end: "15:00" }, Thursday: { start: "08:00", end: "15:00" }, Friday: { start: "08:00", end: "15:00" }, Saturday: { start: "08:00", end: "18:00" } }
