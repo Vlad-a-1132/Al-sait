@@ -50,7 +50,6 @@ export default function PregnancyScreeningPage() {
     "Безопасность для матери и плода",
     "Высокая точность диагностики",
     "Раннее выявление патологий",
-    "Возможность 3D/4D-УЗИ",
     "Профессиональная расшифровка результатов",
     "Психологический комфорт"
   ];
@@ -63,10 +62,6 @@ export default function PregnancyScreeningPage() {
     {
       question: "Безопасно ли УЗИ при беременности?",
       answer: "Да, ультразвуковое исследование абсолютно безопасно для беременной женщины и плода. УЗИ не использует ионизирующее излучение. ВОЗ и международные организации здравоохранения рекомендуют плановые УЗИ-скрининги во время беременности."
-    },
-    {
-      question: "Что такое 3D/4D-УЗИ?",
-      answer: "3D-УЗИ позволяет увидеть объемное изображение плода, а 4D-УЗИ - это трехмерное изображение в реальном времени (движущийся плод). Это безопасные методы, которые дают более наглядное представление о малыше."
     },
     {
       question: "Как часто можно делать УЗИ при беременности?",
@@ -195,7 +190,7 @@ export default function PregnancyScreeningPage() {
           <h2 className="text-3xl font-bold text-gray-900 text-center mb-12">
             Почему «Альтамед-С»?
           </h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-4 relative">
                 <img src="/images/yslugi/star 1.webp" alt="Звезда 1" className="w-full h-full object-contain" />
@@ -214,13 +209,6 @@ export default function PregnancyScreeningPage() {
               <div className="w-16 h-16 mx-auto mb-4 relative">
                 <img src="/images/yslugi/star 1.webp" alt="Звезда 3" className="w-full h-full object-contain" />
                 <span className="absolute inset-0 flex items-center justify-center text-white font-bold text-xl">3</span>
-              </div>
-              <p className="text-gray-700 font-medium">Возможность 3D/4D-УЗИ</p>
-            </div>
-            <div className="text-center">
-              <div className="w-16 h-16 mx-auto mb-4 relative">
-                <img src="/images/yslugi/star 1.webp" alt="Звезда 4" className="w-full h-full object-contain" />
-                <span className="absolute inset-0 flex items-center justify-center text-white font-bold text-xl">4</span>
               </div>
               <p className="text-gray-700 font-medium">Комфортная атмосфера</p>
             </div>
