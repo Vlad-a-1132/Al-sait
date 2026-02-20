@@ -9,6 +9,8 @@ interface PromoBannerProps {
   buttonLink?: string;
   buttonColor?: string;
   doctorImage?: string;
+  /** Когда указан, весь баннер оборачивается в ссылку (без оверлея кнопки) */
+  bannerLink?: string;
 }
 
 export default function PromoBanner({ 
@@ -18,9 +20,10 @@ export default function PromoBanner({
   buttonText = 'Подробнее', 
   buttonLink = '/services',
   buttonColor = '#13AB7B',
-  doctorImage
+  doctorImage,
+  bannerLink
 }: PromoBannerProps) {
-  return (
+  const content = (
     <div className="w-full rounded-[20px] overflow-hidden shadow-lg mb-8 relative">
       <Image
         src={image}
@@ -31,8 +34,8 @@ export default function PromoBanner({
         priority
       />
       
-      {/* Изображение врача или кнопка "Подробнее" */}
-      {doctorImage ? (
+      {/* Изображение врача или кнопка "Подробнее" — скрыты при bannerLink (картинка уже содержит всё) */}
+      {!bannerLink && doctorImage ? (
         <div className="absolute bottom-0 right-4">
           <Image
             src={doctorImage}
@@ -43,7 +46,7 @@ export default function PromoBanner({
             style={{ maxHeight: '200px', width: 'auto', display: 'block' }}
           />
         </div>
-      ) : buttonText ? (
+      ) : !bannerLink && buttonText ? (
         <div className="absolute bottom-4 right-4">
           <Link 
             href={buttonLink}
@@ -56,4 +59,13 @@ export default function PromoBanner({
       ) : null}
     </div>
   );
+
+  if (bannerLink) {
+    return (
+      <Link href={bannerLink} className="block">
+        {content}
+      </Link>
+    );
+  }
+  return content;
 }

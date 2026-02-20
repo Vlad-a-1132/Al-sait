@@ -15,25 +15,6 @@ export default function EndoscopyPage() {
     );
   };
 
-  const procedures = [
-    {
-      title: "Гастроскопия",
-      description: "Исследование пищевода, желудка и двенадцатиперстной кишки"
-    },
-    {
-      title: "Колоноскопия",
-      description: "Осмотр толстой и прямой кишки"
-    },
-    {
-      title: "Бронхоскопия",
-      description: "Исследование дыхательных путей"
-    },
-    {
-      title: "Капсульная эндоскопия",
-      description: "Инновационный метод исследования тонкого кишечника"
-    }
-  ];
-
   // Услуги эндоскопии по прайсу (коды и цены актуальны)
   const endoscopyServices = [
     {
@@ -84,7 +65,7 @@ export default function EndoscopyPage() {
     },
     {
       question: "Как подготовиться к эндоскопии?",
-      answer: "Подготовка зависит от типа исследования. Для гастроскопии требуется голод (6-8 часов), для колоноскопии - очищение кишечника специальными препаратами. Детальную инструкцию вы получите при записи."
+      answer: "Подготовка зависит от типа исследования. Для гастроскопии требуется голод (6-8 часов). Детальную инструкцию вы получите при записи."
     },
     {
       question: "Сколько длится эндоскопия?",
@@ -192,26 +173,6 @@ export default function EndoscopyPage() {
           </div>
         </div>
       </main>
-
-      {/* Виды эндоскопии */}
-      <section className="py-12 bg-gray-50">
-        <div className="mx-auto px-4" style={{ maxWidth: '83rem' }}>
-          <h2 className="text-3xl font-bold text-gray-900 text-center mb-4">
-            Виды эндоскопических исследований в Одинцово
-          </h2>
-          <p className="text-gray-600 text-center mb-12 max-w-3xl mx-auto">
-            Клиника «Альтамед-С» в Одинцово предлагает полный спектр эндоскопических исследований внутренних органов для точной диагностики заболеваний
-          </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {procedures.map((procedure, idx) => (
-              <div key={idx} className="bg-white p-6 rounded-[20px] shadow-md hover:shadow-lg transition-shadow border border-gray-100">
-                <h3 className="text-xl font-semibold text-[#6B8190] mb-3">{procedure.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{procedure.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Прайс-лист */}
       <section className="py-16 bg-white">
@@ -341,10 +302,7 @@ export default function EndoscopyPage() {
           <div className="bg-white rounded-[20px] shadow-lg p-8 mb-8">
             <h3 className="text-2xl font-semibold text-gray-900 mb-4">Скрининговые исследования для профилактики</h3>
             <p className="text-gray-700 mb-4 leading-relaxed">
-              Эндоскопия в Одинцово применяется не только для диагностики, но и для раннего выявления онкологических заболеваний. Рекомендуется всем людям старше 45 лет впервые пройти <strong>колоноскопию</strong> даже при отсутствии симптомов. Это исследование позволяет своевременно обнаружить опасные полипы и злокачественные опухоли толстого кишечника на ранних стадиях.
-            </p>
-            <p className="text-gray-700 leading-relaxed">
-              В странах с высоким уровнем заболеваемости раком желудка (например, Япония) широко применяется скрининговая <strong>гастроскопия</strong>. В России массового скрининга нет, однако специалисты медицинского центра «Альтамед-С» в Одинцово рекомендуют пациентам старшего возраста пройти это исследование для профилактики заболеваний желудочно-кишечного тракта.
+              Эндоскопия в Одинцово применяется не только для диагностики, но и для раннего выявления заболеваний ЖКТ. В странах с высоким уровнем заболеваемости раком желудка (например, Япония) широко применяется скрининговая <strong>гастроскопия</strong>. В России массового скрининга нет, однако специалисты медицинского центра «Альтамед-С» в Одинцово рекомендуют пациентам старшего возраста пройти это исследование для профилактики заболеваний желудочно-кишечного тракта.
             </p>
           </div>
 
@@ -365,51 +323,6 @@ export default function EndoscopyPage() {
                   "Изжога и частая отрыжка",
                   "Тошнота и рвота",
                   "Подозрение на гастрит или язвенную болезнь"
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start">
-                    <div className="w-2 h-2 bg-[#6B8190] rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <p className="text-gray-700">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div className="mb-6">
-              <h4 className="text-xl font-semibold text-[#6B8190] mb-3">Колоноскопия</h4>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                Колоноскопия помогает диагностировать причины таких симптомов, как:
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {[
-                  "Примеси крови, слизи и гноя в кале",
-                  "Хронические запоры и диарея",
-                  "Боли в животе неясного происхождения",
-                  "Вздутие живота",
-                  "Анемия неясной этиологии",
-                  "Потеря веса без видимых причин",
-                  "Наследственная предрасположенность к раку кишечника"
-                ].map((item, idx) => (
-                  <div key={idx} className="flex items-start">
-                    <div className="w-2 h-2 bg-[#6B8190] rounded-full mt-2 mr-3 flex-shrink-0"></div>
-                    <p className="text-gray-700">{item}</p>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            <div>
-              <h4 className="text-xl font-semibold text-[#6B8190] mb-3">Бронхоскопия</h4>
-              <p className="text-gray-700 mb-4 leading-relaxed">
-                Бронхоскопия назначается при следующих состояниях:
-              </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
-                {[
-                  "Частые инфекции органов дыхания",
-                  "Затяжные пневмонии",
-                  "Затруднение дыхания",
-                  "Подозрение на опухоль в дыхательных путях",
-                  "Подозрение на инородное тело",
-                  "Кровохарканье"
                 ].map((item, idx) => (
                   <div key={idx} className="flex items-start">
                     <div className="w-2 h-2 bg-[#6B8190] rounded-full mt-2 mr-3 flex-shrink-0"></div>

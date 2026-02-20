@@ -61,7 +61,7 @@ function SearchContent() {
     { title: 'Проктология', url: '/services/proctology', description: 'Лечение заболеваний прямой кишки', keywords: ['проктология', 'проктолог', 'колопроктолог', 'прямая кишка'] },
     { title: 'УЗИ', url: '/services/ultrasound', description: 'Ультразвуковая диагностика', keywords: ['УЗИ', 'ультразвук', 'ультразвуковая диагностика', 'диагност'] },
     { title: 'Рентген', url: '/services/xray', description: 'Рентгенографические исследования', keywords: ['рентген', 'рентгенография', 'рентгенолог', 'снимок'] },
-    { title: 'Эндоскопия', url: '/services/endoscopy', description: 'Эндоскопические исследования', keywords: ['эндоскопия', 'эндоскоп', 'гастроскопия', 'колоноскопия'] },
+    { title: 'Эндоскопия', url: '/services/endoscopy', description: 'Эндоскопические исследования', keywords: ['эндоскопия', 'эндоскоп', 'гастроскопия'] },
     { title: 'Физиотерапия', url: '/services/physiotherapy', description: 'Физиотерапевтическое лечение', keywords: ['физиотерапия', 'физиотерапевт', 'физиолечение'] },
     { title: 'Остеопатия', url: '/services/osteopathy', description: 'Остеопатическое лечение', keywords: ['остеопатия', 'остеопат', 'мануальный терапевт'] },
     { title: 'Психология', url: '/services/psychology', description: 'Психологическая помощь', keywords: ['психология', 'психолог', 'психотерапия', 'психотерапевт'] },

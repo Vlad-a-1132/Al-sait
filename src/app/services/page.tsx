@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import AppointmentForm from '@/components/AppointmentForm';
+
 export default function ServicesPage() {
   
   // Все медицинские услуги из меню
