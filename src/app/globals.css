@@ -572,3 +572,1333 @@ html.accessibility-mode .text-right {
   position: relative;
   z-index: 2;
 }
+
+/* Dental promo banner SVG animation */
+.dentBanner {
+  font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+}
+.dentBanner .t1 {
+  fill: rgba(255, 255, 255, 0.96);
+  font-size: 22px;
+  font-weight: 760;
+  letter-spacing: 0.25px;
+  opacity: 0;
+  animation: dentFadeOnly 0.85s ease forwards;
+}
+.dentBanner .pillText {
+  fill: rgba(255, 255, 255, 0.86);
+  font-size: 12.4px;
+  font-weight: 700;
+  letter-spacing: 0.22px;
+}
+.dentBanner .chipText {
+  fill: rgba(255, 255, 255, 0.78);
+  font-size: 12.1px;
+  font-weight: 650;
+  letter-spacing: 0.18px;
+}
+.dentBanner .pills {
+  opacity: 0;
+  animation: dentFadeOnly 0.85s ease 0.14s forwards;
+}
+.dentBanner .chips {
+  opacity: 0;
+  animation: dentFadeOnly 0.85s ease 0.26s forwards;
+}
+@keyframes dentFadeOnly {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.dentBanner .sweep {
+  animation: dentSweep 3.2s ease-in-out 0.4s infinite;
+  transform: skewX(-12deg);
+  mix-blend-mode: screen;
+}
+@keyframes dentSweep {
+  0% { transform: translateX(0) skewX(-12deg); opacity: 0; }
+  12% { opacity: 0.9; }
+  50% { opacity: 0.55; }
+  88% { opacity: 0.9; }
+  100% { transform: translateX(1560px) skewX(-12deg); opacity: 0; }
+}
+.dentBanner .xrayGridWrap { opacity: 0.55; }
+.dentBanner .xrayLine {
+  animation: dentXrayLine 2.4s ease-in-out 1.2s infinite;
+}
+@keyframes dentXrayLine {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.75; }
+}
+.dentBanner .xraySweep {
+  animation: dentXraySweep 3s ease-in-out 1s infinite;
+  mix-blend-mode: screen;
+}
+@keyframes dentXraySweep {
+  0% { opacity: 0; transform: translateX(-680px); }
+  15% { opacity: 0.75; }
+  55% { opacity: 0.25; }
+  100% { opacity: 0; transform: translateX(680px); }
+}
+.dentBanner .orbits {
+  animation: dentOrbits 6s ease-in-out 1.2s infinite;
+  transform-origin: 700px 60px;
+}
+@keyframes dentOrbits {
+  0%, 100% { opacity: 0.9; transform: translateY(0); }
+  50% { opacity: 0.65; transform: translateY(2px); }
+}
+.dentBanner .xrayTooth {
+  opacity: 0.12;
+  animation: dentXrayTooth 3.2s ease-in-out 1s infinite;
+}
+@keyframes dentXrayTooth {
+  0% { opacity: 0.08; }
+  25% { opacity: 0.32; }
+  55% { opacity: 0.2; }
+  100% { opacity: 0.08; }
+}
+.dentBanner .pulse {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dentDraw 1.75s cubic-bezier(0.2, 0.9, 0.2, 1) forwards, dentBreathe 2.2s ease-in-out 1.75s infinite;
+}
+.dentBanner .dot {
+  fill: #fff;
+  opacity: 0.92;
+  filter: url(#glow);
+  offset-path: path("M440 92 L520 92 L545 70 L566 112 L590 86 L616 92 L690 92 L715 78 L740 104 L765 92 L870 92 L900 88 L930 92");
+  animation: dentMoveDot 1.75s cubic-bezier(0.2, 0.9, 0.2, 1) forwards, dentDotPulse 1.1s ease-in-out 1.75s infinite;
+}
+@keyframes dentDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes dentBreathe {
+  0%, 100% { opacity: 0.95; }
+  50% { opacity: 0.65; }
+}
+@keyframes dentMoveDot {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}
+@keyframes dentDotPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.22); }
+}
+.dentBanner .tooth {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: dentToothIn 0.6s ease 1s forwards, dentToothFloat 2.8s ease-in-out 2s infinite;
+}
+@keyframes dentToothIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes dentToothFloat {
+  0%, 100% { transform: scale(1) translateY(0); }
+  50% { transform: scale(1) translateY(-4px); }
+}
+.dentBanner .toothPath {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dentStrokeIn 1.1s ease 1.15s forwards;
+}
+.dentBanner .shine {
+  stroke-dasharray: 200;
+  stroke-dashoffset: 200;
+  animation: dentStrokeIn 0.85s ease 1.45s forwards;
+  opacity: 0.95;
+}
+@keyframes dentStrokeIn {
+  to { stroke-dashoffset: 0; }
+}
+.dentBanner .spec {
+  animation: dentSpec 2.6s ease-in-out 1.6s infinite;
+}
+@keyframes dentSpec {
+  0%, 100% { opacity: 0; transform: translateY(0) scale(1); }
+  35% { opacity: 0.55; }
+  55% { opacity: 0.12; transform: translateY(2px) scale(1.04); }
+}
+.dentBanner .scan {
+  opacity: 0;
+  animation: dentScan 1.6s ease-in-out 1.2s infinite;
+}
+@keyframes dentScan {
+  0% { opacity: 0; transform: translateY(-12px); }
+  20% { opacity: 0.85; }
+  50% { opacity: 0.25; }
+  100% { opacity: 0; transform: translateY(16px); }
+}
+.dentBanner .sp {
+  opacity: 0;
+  transform-origin: center;
+}
+.dentBanner .s1 {
+  animation: dentSparkle 2.8s ease-in-out 2s infinite;
+}
+.dentBanner .s2 {
+  animation: dentSparkle 3.2s ease-in-out 2.25s infinite;
+}
+.dentBanner .s3 {
+  animation: dentSparkle 3.5s ease-in-out 2.5s infinite;
+}
+@keyframes dentSparkle {
+  0% { opacity: 0; transform: scale(0.7); }
+  20% { opacity: 0.85; transform: scale(1); }
+  55% { opacity: 0.25; transform: scale(1.18); }
+  100% { opacity: 0; transform: scale(0.7); }
+}
+.dentBanner .docMain {
+  opacity: 0;
+  animation: dentDocIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.95s forwards, dentDocFloat 2.6s ease-in-out 2s infinite;
+}
+@keyframes dentDocIn {
+  from { opacity: 0; transform: translateY(6px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes dentDocFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.dentBanner .gloss {
+  mix-blend-mode: screen;
+  opacity: 0.92;
+}
+.dentBanner .badge {
+  opacity: 0.95;
+  animation: dentBadgePulse 1.4s ease-in-out 2.2s infinite;
+}
+@keyframes dentBadgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+/* flip badge (стаж / рейтинг) */
+.dentBanner .flipBadgeDesk {
+  opacity: 0;
+  animation: dentBadgeIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 1.05s forwards, dentBadgeFloat 2.8s ease-in-out 2s infinite;
+  transform-origin: 940px 48px;
+}
+@keyframes dentBadgeIn {
+  from { opacity: 0; transform: translate(940px, 48px) translateY(6px) scale(0.98); }
+  to { opacity: 1; transform: translate(940px, 48px) translateY(0) scale(1); }
+}
+@keyframes dentBadgeFloat {
+  0%, 100% { transform: translate(940px, 48px) translateY(0); }
+  50% { transform: translate(940px, 48px) translateY(-3px); }
+}
+.dentBanner .badgeSpinDesk {
+  transform-origin: 0 0;
+  animation: dentSpinDesk 3.8s cubic-bezier(0.3, 1, 0.3, 1) 1.6s infinite;
+  opacity: 0.95;
+}
+@keyframes dentSpinDesk {
+  0% { transform: rotate(0deg); }
+  40% { transform: rotate(10deg); }
+  60% { transform: rotate(-8deg); }
+  100% { transform: rotate(360deg); }
+}
+.dentBanner .badgeTDesk {
+  fill: rgba(255, 255, 255, 0.96);
+  font-size: 13.2px;
+  font-weight: 900;
+  letter-spacing: 0.08px;
+}
+.dentBanner .flipBadgeDesk .state.a {
+  opacity: 1;
+  animation: dentShowA 4.4s ease-in-out 1.4s infinite;
+}
+.dentBanner .flipBadgeDesk .state.b {
+  opacity: 0;
+  animation: dentShowB 4.4s ease-in-out 1.4s infinite;
+}
+@keyframes dentShowA {
+  0%, 42% { opacity: 1; }
+  50%, 92% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes dentShowB {
+  0%, 42% { opacity: 0; }
+  50%, 92% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dentBanner .sweep,
+  .dentBanner .pulse,
+  .dentBanner .dot,
+  .dentBanner .docMain,
+  .dentBanner .badge,
+  .dentBanner .tooth,
+  .dentBanner .tooth *,
+  .dentBanner .scan,
+  .dentBanner .spec,
+  .dentBanner .orbits,
+  .dentBanner .xrayTooth,
+  .dentBanner .xrayLine,
+  .dentBanner .xraySweep,
+  .dentBanner .pills,
+  .dentBanner .chips,
+  .dentBanner .flipBadgeDesk,
+  .dentBanner .badgeSpinDesk,
+  .dentBanner .flipBadgeDesk .state.a,
+  .dentBanner .flipBadgeDesk .state.b {
+    animation: none !important;
+  }
+  .dentBanner .pulse {
+    stroke-dashoffset: 0;
+  }
+  .dentBanner .docMain,
+  .dentBanner .tooth,
+  .dentBanner .pills,
+  .dentBanner .chips,
+  .dentBanner .flipBadgeDesk {
+    opacity: 1;
+  }
+  .dentBanner .dot {
+    opacity: 0;
+  }
+  .dentBanner .toothPath,
+  .dentBanner .shine {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* ========== Десктоп баннер имплантолога (implantBanner) ========== */
+.implantBanner {
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+}
+.implantBanner .t1 {
+  fill: rgba(255, 255, 255, 0.96);
+  font-size: 22px;
+  font-weight: 760;
+  letter-spacing: 0.25px;
+  opacity: 0;
+  animation: implantFadeOnly 0.85s ease forwards;
+}
+.implantBanner .pillText {
+  fill: rgba(255, 255, 255, 0.86);
+  font-size: 12.4px;
+  font-weight: 700;
+  letter-spacing: 0.22px;
+}
+.implantBanner .chipText {
+  fill: rgba(255, 255, 255, 0.78);
+  font-size: 12.1px;
+  font-weight: 650;
+  letter-spacing: 0.18px;
+}
+.implantBanner .pills {
+  opacity: 0;
+  animation: implantFadeOnly 0.85s ease 0.14s forwards;
+}
+.implantBanner .chips {
+  opacity: 0;
+  animation: implantFadeOnly 0.85s ease 0.26s forwards;
+}
+@keyframes implantFadeOnly {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.implantBanner .sweep {
+  animation: implantSweep 3.2s ease-in-out 0.4s infinite;
+  transform: skewX(-12deg);
+  mix-blend-mode: screen;
+}
+@keyframes implantSweep {
+  0% { transform: translateX(0) skewX(-12deg); opacity: 0; }
+  12% { opacity: 0.9; }
+  50% { opacity: 0.55; }
+  88% { opacity: 0.9; }
+  100% { transform: translateX(1560px) skewX(-12deg); opacity: 0; }
+}
+.implantBanner .xrayLine {
+  animation: implantXrayLine 2.4s ease-in-out 1.2s infinite;
+}
+@keyframes implantXrayLine {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.75; }
+}
+.implantBanner .xraySweep {
+  animation: implantXraySweep 3s ease-in-out 1s infinite;
+  mix-blend-mode: screen;
+}
+@keyframes implantXraySweep {
+  0% { opacity: 0; transform: translateX(-680px); }
+  15% { opacity: 0.75; }
+  55% { opacity: 0.25; }
+  100% { opacity: 0; transform: translateX(680px); }
+}
+.implantBanner .orbits {
+  animation: implantOrbits 6s ease-in-out 1.2s infinite;
+  transform-origin: 700px 60px;
+}
+@keyframes implantOrbits {
+  0%, 100% { opacity: 0.9; transform: translateY(0); }
+  50% { opacity: 0.65; transform: translateY(2px); }
+}
+.implantBanner .teethPack {
+  animation: implantTeethPolish 6.2s ease-in-out 1.15s infinite;
+}
+@keyframes implantTeethPolish {
+  0%, 60% { opacity: 0.85; }
+  74% { opacity: 1; }
+  100% { opacity: 0.95; }
+}
+.implantBanner #sockEl2 {
+  animation: implantSockA2 7s ease-in-out infinite;
+}
+@keyframes implantSockA2 {
+  0%, 52% { opacity: 1; }
+  62% { opacity: 0; }
+  88% { opacity: 0; }
+  96%, 100% { opacity: 1; }
+}
+.implantBanner #impEl2 {
+  animation: implantImpA2 7s ease-in-out infinite;
+  transform-origin: 165px 130px;
+}
+@keyframes implantImpA2 {
+  0% { opacity: 0; transform: translateY(-150px) rotate(0deg); }
+  8% { opacity: 1; transform: translateY(-110px) rotate(0deg); }
+  43% { opacity: 1; transform: translateY(0) rotate(1080deg); }
+  46% { opacity: 1; transform: translateY(-5px) rotate(1092deg); }
+  49% { opacity: 1; transform: translateY(0) rotate(1080deg); }
+  60% { opacity: 1; transform: translateY(0) rotate(1080deg); }
+  70% { opacity: 0; transform: translateY(0) rotate(1080deg); }
+  100% { opacity: 0; transform: translateY(-150px) rotate(0deg); }
+}
+.implantBanner #crwEl2 {
+  animation: implantCrwA2 7s ease-in-out infinite;
+  transform-origin: 165px 145px;
+}
+@keyframes implantCrwA2 {
+  0%, 52% { opacity: 0; transform: translateY(-120px); }
+  65% { opacity: 1; transform: translateY(0); }
+  67% { opacity: 1; transform: translateY(-4px); }
+  70% { opacity: 1; transform: translateY(0); }
+  88% { opacity: 1; }
+  95%, 100% { opacity: 0; transform: translateY(-120px); }
+}
+.implantBanner .ctaBadgeT {
+  fill: rgba(255, 255, 255, 0.96);
+  font-size: 12.2px;
+  font-weight: 940;
+  letter-spacing: 0.08px;
+}
+.implantBanner .ctaBadge {
+  opacity: 0;
+  animation: implantFadeOnly 0.6s ease 1.02s forwards, implantCtaBadgeFloat 2.8s ease-in-out 2.1s infinite;
+}
+@keyframes implantCtaBadgeFloat {
+  0%, 100% { transform: translate(900px, 50px) scale(0.88) translateY(0); }
+  50% { transform: translate(900px, 50px) scale(0.88) translateY(-2px); }
+}
+.implantBanner .ctaBadgeSpin {
+  transform-origin: 0 0;
+  animation: implantCtaSpin 3.6s cubic-bezier(0.3, 1, 0.3, 1) 1.4s infinite;
+  opacity: 0.95;
+}
+@keyframes implantCtaSpin {
+  0% { transform: rotate(0deg); }
+  40% { transform: rotate(10deg); }
+  60% { transform: rotate(-8deg); }
+  100% { transform: rotate(360deg); }
+}
+.implantBanner .ctaStateA {
+  opacity: 1;
+  animation: implantCtaShowA 4.2s ease-in-out 1.25s infinite;
+}
+.implantBanner .ctaStateB {
+  opacity: 0;
+  animation: implantCtaShowB 4.2s ease-in-out 1.25s infinite;
+}
+@keyframes implantCtaShowA {
+  0%, 42% { opacity: 1; }
+  50%, 92% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes implantCtaShowB {
+  0%, 42% { opacity: 0; }
+  50%, 92% { opacity: 1; }
+  100% { opacity: 0; }
+}
+.implantBanner .ctaSp {
+  opacity: 0;
+  transform-origin: center;
+}
+.implantBanner .ctaSp.c1 {
+  animation: implantCtaSpark 3.4s ease-in-out 1.7s infinite;
+}
+.implantBanner .ctaSp.c2 {
+  animation: implantCtaSpark 3.8s ease-in-out 2s infinite;
+}
+.implantBanner .ctaSp.c3 {
+  animation: implantCtaSpark 4.1s ease-in-out 2.3s infinite;
+}
+@keyframes implantCtaSpark {
+  0% { opacity: 0; transform: scale(0.7); }
+  20% { opacity: 0.85; transform: scale(1); }
+  55% { opacity: 0.25; transform: scale(1.18); }
+  100% { opacity: 0; transform: scale(0.7); }
+}
+.implantBanner .midScene {
+  opacity: 0;
+  transform-origin: -8px -118px;
+  animation: implantMidIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards, implantMidFloat 3.2s ease-in-out 1.8s infinite;
+}
+@keyframes implantMidIn {
+  from { opacity: 0; transform: translate(420px, 12px) translateY(6px) scale(0.504); }
+  to { opacity: 1; transform: translate(420px, 12px) translateY(0) scale(0.504); }
+}
+@keyframes implantMidFloat {
+  0%, 100% { transform: translate(420px, 12px) translateY(0) scale(0.504); }
+  50% { transform: translate(420px, 12px) translateY(-2px) scale(0.504); }
+}
+.implantBanner .ctaBtn {
+  cursor: pointer;
+  opacity: 0;
+  animation: implantFadeOnly 0.6s ease 1.12s forwards, implantCtaFloat 2.6s ease-in-out 2s infinite;
+}
+@keyframes implantCtaFloat {
+  0%, 100% { transform: translate(900px, 122px) translateY(0); }
+  50% { transform: translate(900px, 122px) translateY(-2px); }
+}
+.implantBanner .ctaBtn:hover rect {
+  fill: rgba(94, 243, 196, 0.18);
+  stroke: rgba(94, 243, 196, 0.95);
+}
+.implantBanner .docMain {
+  opacity: 0;
+  animation: implantDocIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.95s forwards, implantDocFloat 2.6s ease-in-out 2s infinite;
+}
+@keyframes implantDocIn {
+  from { opacity: 0; transform: translateY(6px) scale(0.96); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes implantDocFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.implantBanner .gloss {
+  mix-blend-mode: screen;
+  opacity: 0.92;
+}
+.implantBanner .badge {
+  opacity: 0.95;
+  animation: implantBadgePulse 1.4s ease-in-out 2.2s infinite;
+}
+@keyframes implantBadgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .implantBanner .sweep,
+  .implantBanner .xrayLine,
+  .implantBanner .xraySweep,
+  .implantBanner .orbits,
+  .implantBanner .midScene,
+  .implantBanner .docMain,
+  .implantBanner .badge,
+  .implantBanner .teethPack,
+  .implantBanner .ctaBtn,
+  .implantBanner .ctaBadge {
+    animation: none !important;
+  }
+  .implantBanner .t1,
+  .implantBanner .pills,
+  .implantBanner .chips,
+  .implantBanner .midScene,
+  .implantBanner .docMain,
+  .implantBanner .ctaBtn,
+  .implantBanner .ctaBadge {
+    opacity: 1;
+  }
+}
+
+/* ========== Мобильный баннер 580×199 (dentMob580v14) ========== */
+.dentMob580v14 {
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+}
+.dentMob580v14 .h1,
+.dentMob580v14 .h1b {
+  fill: rgba(255, 255, 255, 0.96);
+  font-size: 22px;
+  font-weight: 900;
+  letter-spacing: 0.15px;
+}
+.dentMob580v14 .pillText {
+  fill: rgba(255, 255, 255, 0.9);
+  font-size: 12px;
+  font-weight: 780;
+  letter-spacing: 0.05px;
+}
+.dentMob580v14 .chipText {
+  fill: rgba(255, 255, 255, 0.86);
+  font-size: 12px;
+  font-weight: 740;
+  letter-spacing: 0.05px;
+}
+.dentMob580v14 .badgeT {
+  fill: rgba(255, 255, 255, 0.96);
+  font-size: 13.2px;
+  font-weight: 940;
+  letter-spacing: 0.08px;
+}
+
+.dentMob580v14 .sweep {
+  animation: dentMobSweep 3.2s ease-in-out 0.4s infinite;
+  transform: skewX(-12deg);
+  mix-blend-mode: screen;
+}
+@keyframes dentMobSweep {
+  0% { transform: translateX(0) skewX(-12deg); opacity: 0; }
+  14% { opacity: 0.9; }
+  50% { opacity: 0.55; }
+  86% { opacity: 0.9; }
+  100% { transform: translateX(920px) skewX(-12deg); opacity: 0; }
+}
+
+.dentMob580v14 .xrayLine {
+  animation: dentMobXrayLine 2.2s ease-in-out 1.1s infinite;
+}
+@keyframes dentMobXrayLine {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.82; }
+}
+.dentMob580v14 .xraySweep {
+  animation: dentMobXraySweep 2.8s ease-in-out 1s infinite;
+  mix-blend-mode: screen;
+}
+@keyframes dentMobXraySweep {
+  0% { opacity: 0; transform: translateX(-260px); }
+  15% { opacity: 0.85; }
+  55% { opacity: 0.25; }
+  100% { opacity: 0; transform: translateX(260px); }
+}
+.dentMob580v14 .orbits {
+  animation: dentMobOrbits 5.5s ease-in-out 1s infinite;
+  transform-origin: 320px 40px;
+}
+@keyframes dentMobOrbits {
+  0%, 100% { opacity: 0.85; transform: translateY(0); }
+  50% { opacity: 0.6; transform: translateY(2px); }
+}
+
+.dentMob580v14 .flipBadge {
+  animation: dentMobBadgeFloat 2.8s ease-in-out 1s infinite;
+}
+@keyframes dentMobBadgeFloat {
+  0%, 100% { transform: translate(325px, 46px) translateY(0); }
+  50% { transform: translate(325px, 46px) translateY(-3px); }
+}
+.dentMob580v14 .badgeSpin {
+  transform-origin: 0 0;
+  animation: dentMobSpin 3.6s cubic-bezier(0.3, 1, 0.3, 1) 1.2s infinite;
+  opacity: 0.95;
+}
+@keyframes dentMobSpin {
+  0% { transform: rotate(0deg); }
+  40% { transform: rotate(10deg); }
+  60% { transform: rotate(-8deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.dentMob580v14 .state.a {
+  opacity: 1;
+  animation: dentMobShowA 4.2s ease-in-out 1.1s infinite;
+}
+.dentMob580v14 .state.b {
+  opacity: 0;
+  animation: dentMobShowB 4.2s ease-in-out 1.1s infinite;
+}
+@keyframes dentMobShowA {
+  0%, 42% { opacity: 1; }
+  50%, 92% { opacity: 0; }
+  100% { opacity: 1; }
+}
+@keyframes dentMobShowB {
+  0%, 42% { opacity: 0; }
+  50%, 92% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
+.dentMob580v14 .sp {
+  opacity: 0;
+  transform-origin: center;
+}
+.dentMob580v14 .s1 { animation: dentMobSparkle 3.4s ease-in-out 1.6s infinite; }
+.dentMob580v14 .s2 { animation: dentMobSparkle 3.8s ease-in-out 1.9s infinite; }
+.dentMob580v14 .s3 { animation: dentMobSparkle 4.1s ease-in-out 2.2s infinite; }
+@keyframes dentMobSparkle {
+  0% { opacity: 0; transform: scale(0.7); }
+  20% { opacity: 0.85; transform: scale(1); }
+  55% { opacity: 0.25; transform: scale(1.18); }
+  100% { opacity: 0; transform: scale(0.7); }
+}
+
+.dentMob580v14 .pulse {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dentMobDraw 1.5s cubic-bezier(0.2, 0.9, 0.2, 1) forwards, dentMobBreathe 2s ease-in-out 1.5s infinite;
+}
+.dentMob580v14 .dot {
+  fill: #fff;
+  opacity: 0.95;
+  filter: url(#glow580v14);
+  offset-path: path("M205 112 L240 112 L254 99 L267 126 L282 110 L296 112 L332 112 L345 104 L357 121 L372 112 L402 112 L416 110 L430 112");
+  animation: dentMobMoveDot 1.5s cubic-bezier(0.2, 0.9, 0.2, 1) forwards, dentMobDotPulse 1s ease-in-out 1.5s infinite;
+}
+@keyframes dentMobDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes dentMobBreathe {
+  0%, 100% { opacity: 0.95; }
+  50% { opacity: 0.65; }
+}
+@keyframes dentMobMoveDot {
+  from { offset-distance: 0%; }
+  to { offset-distance: 100%; }
+}
+@keyframes dentMobDotPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.16); }
+}
+
+.dentMob580v14 .tooth {
+  opacity: 0;
+  transform-origin: center;
+  animation: dentMobToothIn 0.55s ease 0.9s forwards, dentMobToothFloat 2.6s ease-in-out 1.8s infinite;
+}
+@keyframes dentMobToothIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes dentMobToothFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+.dentMob580v14 .toothStroke {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: dentMobStrokeIn 1s ease 1.05s forwards;
+}
+@keyframes dentMobStrokeIn {
+  to { stroke-dashoffset: 0; }
+}
+.dentMob580v14 .scan {
+  opacity: 0;
+  animation: dentMobScan 1.5s ease-in-out 1s infinite;
+}
+@keyframes dentMobScan {
+  0% { opacity: 0; transform: translateY(-10px); }
+  20% { opacity: 0.9; }
+  55% { opacity: 0.25; }
+  100% { opacity: 0; transform: translateY(12px); }
+}
+
+.dentMob580v14 .doc {
+  opacity: 0;
+  animation: dentMobDocIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards, dentMobDocFloat 2.6s ease-in-out 1.8s infinite;
+  transform-origin: 498px 76px;
+}
+@keyframes dentMobDocIn {
+  from { opacity: 0; transform: translateY(6px) scale(0.98); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes dentMobDocFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+.dentMob580v14 .doc .badge {
+  opacity: 0.95;
+  animation: dentMobBadgePulse 1.3s ease-in-out 1.9s infinite;
+}
+@keyframes dentMobBadgePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.14); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dentMob580v14 .sweep,
+  .dentMob580v14 .pulse,
+  .dentMob580v14 .dot,
+  .dentMob580v14 .doc,
+  .dentMob580v14 .doc .badge,
+  .dentMob580v14 .tooth,
+  .dentMob580v14 .scan,
+  .dentMob580v14 .orbits,
+  .dentMob580v14 .xrayLine,
+  .dentMob580v14 .xraySweep,
+  .dentMob580v14 .flipBadge,
+  .dentMob580v14 .badgeSpin,
+  .dentMob580v14 .state.a,
+  .dentMob580v14 .state.b,
+  .dentMob580v14 .sparkles .sp {
+    animation: none !important;
+  }
+  .dentMob580v14 .pulse {
+    stroke-dashoffset: 0;
+  }
+  .dentMob580v14 .doc,
+  .dentMob580v14 .tooth {
+    opacity: 1;
+  }
+  .dentMob580v14 .dot {
+    opacity: 0;
+  }
+  .dentMob580v14 .toothStroke {
+    stroke-dashoffset: 0;
+  }
+  .dentMob580v14 .state.a { opacity: 1; }
+  .dentMob580v14 .state.b { opacity: 0; }
+}
+
+/* ========== Ortho promo banner (desktop 1400x200) .orthoPro ========== */
+.orthoPro {
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+}
+.orthoPro .t1 {
+  fill: rgba(255, 255, 255, 0.96);
+  font-size: 28px;
+  font-weight: 840;
+  letter-spacing: 0.25px;
+  opacity: 0;
+  animation: orthoFadeIn 0.85s ease forwards;
+}
+.orthoPro .t2 {
+  fill: rgba(255, 255, 255, 0.74);
+  font-size: 16px;
+  font-weight: 650;
+  letter-spacing: 0.18px;
+  opacity: 0;
+  animation: orthoFadeIn 0.85s ease 0.1s forwards;
+}
+.orthoPro .chipText {
+  fill: rgba(255, 255, 255, 0.82);
+  font-size: 13px;
+  font-weight: 720;
+  letter-spacing: 0.12px;
+}
+.orthoPro .chips {
+  opacity: 0;
+  animation: orthoFadeIn 0.85s ease 0.22s forwards;
+}
+@keyframes orthoFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.orthoPro .sweep {
+  transform: skewX(-12deg);
+  mix-blend-mode: screen;
+  animation: orthoSweep 3.2s ease-in-out 0.35s infinite;
+}
+@keyframes orthoSweep {
+  0% { transform: translateX(0) skewX(-12deg); opacity: 0; }
+  12% { opacity: 0.95; }
+  55% { opacity: 0.4; }
+  88% { opacity: 0.95; }
+  100% { transform: translateX(1900px) skewX(-12deg); opacity: 0; }
+}
+.orthoPro .xrayLine {
+  animation: orthoXrayLine 2.4s ease-in-out 1.1s infinite;
+}
+@keyframes orthoXrayLine {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.82; }
+}
+.orthoPro .xraySweep {
+  mix-blend-mode: screen;
+  animation: orthoXraySweep 3s ease-in-out 1s infinite;
+}
+@keyframes orthoXraySweep {
+  0% { opacity: 0; transform: translateX(-780px); }
+  18% { opacity: 0.82; }
+  55% { opacity: 0.25; }
+  100% { opacity: 0; transform: translateX(780px); }
+}
+.orthoPro .orbits {
+  transform-origin: 860px 76px;
+  animation: orthoOrbits 6s ease-in-out 1s infinite;
+}
+@keyframes orthoOrbits {
+  0%, 100% { opacity: 0.92; transform: translateY(0); }
+  50% { opacity: 0.68; transform: translateY(2px); }
+}
+.orthoPro .orthoScene {
+  opacity: 0;
+  transform-origin: 860px 112px;
+  animation: orthoSceneIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards, orthoSceneFloat 3.2s ease-in-out 1.8s infinite;
+}
+@keyframes orthoSceneIn {
+  from { opacity: 0; transform: translate(860px, 112px) translateY(6px) scale(0.985); }
+  to { opacity: 1; transform: translate(860px, 112px) translateY(0) scale(1); }
+}
+@keyframes orthoSceneFloat {
+  0%, 100% { transform: translate(860px, 112px) translateY(0); }
+  50% { transform: translate(860px, 112px) translateY(-3px); }
+}
+.orthoPro .jawHint {
+  opacity: 0.55;
+  animation: orthoJaw 4.6s ease-in-out 1s infinite;
+}
+@keyframes orthoJaw {
+  0%, 100% { opacity: 0.38; }
+  45% { opacity: 0.62; }
+}
+.orthoPro .upperLip,
+.orthoPro .upperLip2,
+.orthoPro .lowerLip,
+.orthoPro .lowerLip2 {
+  transform-origin: 0 0;
+}
+.orthoPro .upperLip {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  opacity: 0.82;
+  animation: orthoLipDraw 1.05s cubic-bezier(0.2, 0.9, 0.2, 1) 1.05s forwards, orthoLipBiteUp 4.6s ease-in-out 2.1s infinite;
+}
+.orthoPro .upperLip2 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  opacity: 0.55;
+  animation: orthoLipDraw 1.05s cubic-bezier(0.2, 0.9, 0.2, 1) 1.12s forwards, orthoLipGlowUp 4.6s ease-in-out 2.1s infinite;
+}
+.orthoPro .lowerLip {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  opacity: 0.86;
+  animation: orthoLipDraw 1.05s cubic-bezier(0.2, 0.9, 0.2, 1) 1.18s forwards, orthoLipBiteDown 4.6s ease-in-out 2.1s infinite;
+}
+.orthoPro .lowerLip2 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  opacity: 0.52;
+  animation: orthoLipDraw 1.05s cubic-bezier(0.2, 0.9, 0.2, 1) 1.26s forwards, orthoLipGlowDown 4.6s ease-in-out 2.1s infinite;
+}
+@keyframes orthoLipDraw {
+  to { stroke-dashoffset: 0; }
+}
+@keyframes orthoLipBiteUp {
+  0%, 100% { transform: translateY(0); opacity: 0.82; }
+  45% { transform: translateY(1.4px); opacity: 0.7; }
+}
+@keyframes orthoLipBiteDown {
+  0%, 100% { transform: translateY(0); opacity: 0.86; }
+  45% { transform: translateY(-1.2px); opacity: 0.72; }
+}
+@keyframes orthoLipGlowUp {
+  0%, 100% { opacity: 0.42; }
+  45% { opacity: 0.78; }
+}
+@keyframes orthoLipGlowDown {
+  0%, 100% { opacity: 0.38; }
+  45% { opacity: 0.7; }
+}
+.orthoPro .upper .tooth {
+  transform-origin: 0 0;
+  opacity: 1;
+}
+.orthoPro .upper .t1 { transform: translate(0px, 6px) rotate(-6deg); animation: orthoAlign1 5.8s ease-in-out 1.05s infinite; }
+.orthoPro .upper .t2 { transform: translate(52px, -2px) rotate(4deg); animation: orthoAlign2 5.8s ease-in-out 1.05s infinite; }
+.orthoPro .upper .t3 { transform: translate(104px, 8px) rotate(-5deg); animation: orthoAlign3 5.8s ease-in-out 1.05s infinite; }
+.orthoPro .upper .t4 { transform: translate(154px, -6px) rotate(5deg); animation: orthoAlign4 5.8s ease-in-out 1.05s infinite; }
+.orthoPro .upper .t5 { transform: translate(210px, 10px) rotate(-4deg); animation: orthoAlign5 5.8s ease-in-out 1.05s infinite; }
+.orthoPro .upper .t6 { transform: translate(262px, -4px) rotate(4deg); animation: orthoAlign6 5.8s ease-in-out 1.05s infinite; }
+.orthoPro .upper .t7 { transform: translate(314px, 6px) rotate(-3deg); animation: orthoAlign7 5.8s ease-in-out 1.05s infinite; }
+.orthoPro .upper .t8 { transform: translate(368px, -2px) rotate(3deg); animation: orthoAlign8 5.8s ease-in-out 1.05s infinite; }
+@keyframes orthoAlign1 { 0%, 18% { transform: translate(0px, 6px) rotate(-6deg); } 55%, 100% { transform: translate(0px, 0px) rotate(0deg); } }
+@keyframes orthoAlign2 { 0%, 18% { transform: translate(52px, -2px) rotate(4deg); } 55%, 100% { transform: translate(56px, 0px) rotate(0deg); } }
+@keyframes orthoAlign3 { 0%, 18% { transform: translate(104px, 8px) rotate(-5deg); } 55%, 100% { transform: translate(112px, 0px) rotate(0deg); } }
+@keyframes orthoAlign4 { 0%, 18% { transform: translate(154px, -6px) rotate(5deg); } 55%, 100% { transform: translate(168px, 0px) rotate(0deg); } }
+@keyframes orthoAlign5 { 0%, 18% { transform: translate(210px, 10px) rotate(-4deg); } 55%, 100% { transform: translate(224px, 0px) rotate(0deg); } }
+@keyframes orthoAlign6 { 0%, 18% { transform: translate(262px, -4px) rotate(4deg); } 55%, 100% { transform: translate(280px, 0px) rotate(0deg); } }
+@keyframes orthoAlign7 { 0%, 18% { transform: translate(314px, 6px) rotate(-3deg); } 55%, 100% { transform: translate(336px, 0px) rotate(0deg); } }
+@keyframes orthoAlign8 { 0%, 18% { transform: translate(368px, -2px) rotate(3deg); } 55%, 100% { transform: translate(392px, 0px) rotate(0deg); } }
+.orthoPro .br {
+  opacity: 0;
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 1;
+  animation: orthoBracketsIn 5.8s ease-in-out 1.05s infinite;
+}
+.orthoPro .lig {
+  opacity: 0;
+  animation: orthoLigIn 5.8s ease-in-out 1.05s infinite;
+}
+@keyframes orthoBracketsIn {
+  0%, 18% { opacity: 0; fill: rgba(255, 255, 255, 0); }
+  28% { opacity: 1; fill: rgba(210, 220, 230, 0.85); }
+  48% { opacity: 1; fill: rgba(240, 232, 220, 0.92); }
+  55%, 100% { opacity: 1; fill: rgba(210, 220, 230, 0.85); }
+}
+@keyframes orthoLigIn {
+  0%, 18% { opacity: 0; fill: rgba(255, 255, 255, 0); }
+  28% { opacity: 1; fill: rgba(94, 243, 196, 0.92); }
+  48% { opacity: 1; fill: rgba(33, 199, 255, 0.9); }
+  55%, 100% { opacity: 1; fill: rgba(94, 243, 196, 0.92); }
+}
+.orthoPro .wire {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: orthoWireDraw 5.8s cubic-bezier(0.2, 0.9, 0.2, 1) 1.05s infinite;
+}
+@keyframes orthoWireDraw {
+  0%, 18% { stroke-dashoffset: 1000; opacity: 0; }
+  30% { opacity: 1; }
+  55% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0.85; }
+}
+.orthoPro .mountSpark path {
+  animation: orthoSpark 5.8s ease-in-out 1.05s infinite;
+}
+@keyframes orthoSpark {
+  0%, 22% { opacity: 0; transform: scale(0.7); }
+  30% { opacity: 0.95; transform: scale(1); }
+  40% { opacity: 0.12; transform: scale(1.18); }
+  100% { opacity: 0; transform: scale(0.7); }
+}
+.orthoPro .doc {
+  opacity: 0;
+  transform-origin: 1260px 100px;
+  animation: orthoDocIn 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.9s forwards, orthoDocFloat 2.8s ease-in-out 2s infinite;
+}
+@keyframes orthoDocIn {
+  from { opacity: 0; transform: translateY(6px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes orthoDocFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
+.orthoPro .docRing {
+  animation: orthoRingGlow 2.2s ease-in-out 2s infinite;
+}
+@keyframes orthoRingGlow {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.72; }
+}
+.orthoPro .online {
+  opacity: 0.95;
+  animation: orthoOnlinePulse 1.4s ease-in-out 2.2s infinite;
+}
+@keyframes orthoOnlinePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+.orthoPro .p {
+  opacity: 0;
+  transform-origin: center;
+  animation: orthoParticle 4.2s ease-in-out infinite;
+}
+.orthoPro .p1 { animation-delay: 0.6s; }
+.orthoPro .p2 { animation-delay: 1.2s; }
+.orthoPro .p3 { animation-delay: 1.8s; }
+.orthoPro .p4 { animation-delay: 2.4s; }
+@keyframes orthoParticle {
+  0% { opacity: 0; transform: scale(0.7); }
+  18% { opacity: 0.85; transform: scale(1); }
+  55% { opacity: 0.18; transform: scale(1.18); }
+  100% { opacity: 0; transform: scale(0.7); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orthoPro .sweep,
+  .orthoPro .xrayLine,
+  .orthoPro .xraySweep,
+  .orthoPro .orbits,
+  .orthoPro .orthoScene,
+  .orthoPro .upper .tooth,
+  .orthoPro .wire,
+  .orthoPro .br,
+  .orthoPro .lig,
+  .orthoPro .mountSpark path,
+  .orthoPro .doc,
+  .orthoPro .docRing,
+  .orthoPro .online,
+  .orthoPro .p,
+  .orthoPro .upperLip,
+  .orthoPro .upperLip2,
+  .orthoPro .lowerLip,
+  .orthoPro .lowerLip2 {
+    animation: none !important;
+  }
+  .orthoPro .t1,
+  .orthoPro .t2,
+  .orthoPro .chips,
+  .orthoPro .orthoScene,
+  .orthoPro .doc {
+    opacity: 1;
+  }
+  .orthoPro .wire {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  .orthoPro .br,
+  .orthoPro .lig {
+    opacity: 1;
+  }
+}
+
+/* ========== Ortho promo banner mobile 580x199 .orthoProM ========== */
+.orthoProM {
+  font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;
+}
+.orthoProM .t1 {
+  fill: rgba(255, 255, 255, 0.96);
+  font-size: 18px;
+  font-weight: 860;
+  letter-spacing: 0.2px;
+  opacity: 0;
+  animation: orthoMobFadeIn 0.75s ease forwards;
+}
+.orthoProM .t2 {
+  fill: rgba(255, 255, 255, 0.76);
+  font-size: 12.5px;
+  font-weight: 700;
+  letter-spacing: 0.14px;
+  opacity: 0;
+  animation: orthoMobFadeIn 0.75s ease 0.1s forwards;
+}
+.orthoProM .chipText {
+  fill: rgba(255, 255, 255, 0.84);
+  font-size: 11.2px;
+  font-weight: 780;
+  letter-spacing: 0.1px;
+}
+.orthoProM .chips {
+  opacity: 0;
+  animation: orthoMobFadeIn 0.75s ease 0.22s forwards;
+}
+@keyframes orthoMobFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.orthoProM .sweep {
+  transform: skewX(-12deg);
+  mix-blend-mode: screen;
+  animation: orthoMobSweep 3s ease-in-out 0.35s infinite;
+}
+@keyframes orthoMobSweep {
+  0% { transform: translateX(0) skewX(-12deg); opacity: 0; }
+  12% { opacity: 0.95; }
+  55% { opacity: 0.4; }
+  88% { opacity: 0.95; }
+  100% { transform: translateX(860px) skewX(-12deg); opacity: 0; }
+}
+.orthoProM .xrayLine {
+  animation: orthoMobXrayLine 2.2s ease-in-out 1.05s infinite;
+}
+@keyframes orthoMobXrayLine {
+  0%, 100% { opacity: 0.35; }
+  50% { opacity: 0.82; }
+}
+.orthoProM .xraySweep {
+  mix-blend-mode: screen;
+  animation: orthoMobXraySweep 2.8s ease-in-out 1s infinite;
+}
+@keyframes orthoMobXraySweep {
+  0% { opacity: 0; transform: translateX(-520px); }
+  18% { opacity: 0.82; }
+  55% { opacity: 0.25; }
+  100% { opacity: 0; transform: translateX(520px); }
+}
+.orthoProM .orbits {
+  transform-origin: 290px 132px;
+  animation: orthoMobOrbits 6s ease-in-out 1s infinite;
+}
+@keyframes orthoMobOrbits {
+  0%, 100% { opacity: 0.92; transform: translateY(0); }
+  50% { opacity: 0.68; transform: translateY(2px); }
+}
+.orthoProM .orthoScene {
+  opacity: 0;
+  transform-origin: 290px 128px;
+  animation: orthoMobSceneIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.78s forwards, orthoMobSceneFloat 3s ease-in-out 1.7s infinite;
+}
+@keyframes orthoMobSceneIn {
+  from { opacity: 0; transform: translate(290px, 128px) scale(0.62) translateY(6px); }
+  to { opacity: 1; transform: translate(290px, 128px) scale(0.62) translateY(0); }
+}
+@keyframes orthoMobSceneFloat {
+  0%, 100% { transform: translate(290px, 128px) scale(0.62) translateY(0); }
+  50% { transform: translate(290px, 128px) scale(0.62) translateY(-3px); }
+}
+.orthoProM .jawHint {
+  opacity: 0.55;
+  animation: orthoMobJaw 4.6s ease-in-out 1s infinite;
+}
+@keyframes orthoMobJaw {
+  0%, 100% { opacity: 0.38; }
+  45% { opacity: 0.62; }
+}
+.orthoProM .upperLip,
+.orthoProM .upperLip2,
+.orthoProM .lowerLip,
+.orthoProM .lowerLip2 {
+  transform-origin: 0 0;
+}
+.orthoProM .upperLip {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  opacity: 0.82;
+  animation: orthoMobLipDraw 1s cubic-bezier(0.2, 0.9, 0.2, 1) 1s forwards, orthoLipBiteUp 4.6s ease-in-out 2s infinite;
+}
+.orthoProM .upperLip2 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  opacity: 0.55;
+  animation: orthoMobLipDraw 1s cubic-bezier(0.2, 0.9, 0.2, 1) 1.08s forwards, orthoLipGlowUp 4.6s ease-in-out 2s infinite;
+}
+.orthoProM .lowerLip {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  opacity: 0.86;
+  animation: orthoMobLipDraw 1s cubic-bezier(0.2, 0.9, 0.2, 1) 1.14s forwards, orthoLipBiteDown 4.6s ease-in-out 2s infinite;
+}
+.orthoProM .lowerLip2 {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  opacity: 0.52;
+  animation: orthoMobLipDraw 1s cubic-bezier(0.2, 0.9, 0.2, 1) 1.22s forwards, orthoLipGlowDown 4.6s ease-in-out 2s infinite;
+}
+@keyframes orthoMobLipDraw {
+  to { stroke-dashoffset: 0; }
+}
+.orthoProM .upper .tooth {
+  transform-origin: 0 0;
+  opacity: 1;
+}
+.orthoProM .upper .t1 { transform: translate(0px, 6px) rotate(-6deg); animation: orthoMobAlign1 5.8s ease-in-out 1s infinite; }
+.orthoProM .upper .t2 { transform: translate(52px, -2px) rotate(4deg); animation: orthoMobAlign2 5.8s ease-in-out 1s infinite; }
+.orthoProM .upper .t3 { transform: translate(104px, 8px) rotate(-5deg); animation: orthoMobAlign3 5.8s ease-in-out 1s infinite; }
+.orthoProM .upper .t4 { transform: translate(154px, -6px) rotate(5deg); animation: orthoMobAlign4 5.8s ease-in-out 1s infinite; }
+.orthoProM .upper .t5 { transform: translate(210px, 10px) rotate(-4deg); animation: orthoMobAlign5 5.8s ease-in-out 1s infinite; }
+.orthoProM .upper .t6 { transform: translate(262px, -4px) rotate(4deg); animation: orthoMobAlign6 5.8s ease-in-out 1s infinite; }
+.orthoProM .upper .t7 { transform: translate(314px, 6px) rotate(-3deg); animation: orthoMobAlign7 5.8s ease-in-out 1s infinite; }
+.orthoProM .upper .t8 { transform: translate(368px, -2px) rotate(3deg); animation: orthoMobAlign8 5.8s ease-in-out 1s infinite; }
+@keyframes orthoMobAlign1 { 0%, 18% { transform: translate(0px, 6px) rotate(-6deg); } 55%, 100% { transform: translate(0px, 0px) rotate(0deg); } }
+@keyframes orthoMobAlign2 { 0%, 18% { transform: translate(52px, -2px) rotate(4deg); } 55%, 100% { transform: translate(56px, 0px) rotate(0deg); } }
+@keyframes orthoMobAlign3 { 0%, 18% { transform: translate(104px, 8px) rotate(-5deg); } 55%, 100% { transform: translate(112px, 0px) rotate(0deg); } }
+@keyframes orthoMobAlign4 { 0%, 18% { transform: translate(154px, -6px) rotate(5deg); } 55%, 100% { transform: translate(168px, 0px) rotate(0deg); } }
+@keyframes orthoMobAlign5 { 0%, 18% { transform: translate(210px, 10px) rotate(-4deg); } 55%, 100% { transform: translate(224px, 0px) rotate(0deg); } }
+@keyframes orthoMobAlign6 { 0%, 18% { transform: translate(262px, -4px) rotate(4deg); } 55%, 100% { transform: translate(280px, 0px) rotate(0deg); } }
+@keyframes orthoMobAlign7 { 0%, 18% { transform: translate(314px, 6px) rotate(-3deg); } 55%, 100% { transform: translate(336px, 0px) rotate(0deg); } }
+@keyframes orthoMobAlign8 { 0%, 18% { transform: translate(368px, -2px) rotate(3deg); } 55%, 100% { transform: translate(392px, 0px) rotate(0deg); } }
+.orthoProM .br {
+  opacity: 0;
+  stroke: rgba(255, 255, 255, 0.35);
+  stroke-width: 1;
+  animation: orthoMobBracketsIn 5.8s ease-in-out 1s infinite;
+}
+.orthoProM .lig {
+  opacity: 0;
+  animation: orthoMobLigIn 5.8s ease-in-out 1s infinite;
+}
+@keyframes orthoMobBracketsIn {
+  0%, 18% { opacity: 0; fill: rgba(255, 255, 255, 0); }
+  28% { opacity: 1; fill: rgba(210, 220, 230, 0.85); }
+  48% { opacity: 1; fill: rgba(240, 232, 220, 0.92); }
+  55%, 100% { opacity: 1; fill: rgba(210, 220, 230, 0.85); }
+}
+@keyframes orthoMobLigIn {
+  0%, 18% { opacity: 0; fill: rgba(255, 255, 255, 0); }
+  28% { opacity: 1; fill: rgba(94, 243, 196, 0.92); }
+  48% { opacity: 1; fill: rgba(33, 199, 255, 0.9); }
+  55%, 100% { opacity: 1; fill: rgba(94, 243, 196, 0.92); }
+}
+.orthoProM .wire {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: orthoMobWireDraw 5.8s cubic-bezier(0.2, 0.9, 0.2, 1) 1s infinite;
+}
+@keyframes orthoMobWireDraw {
+  0%, 18% { stroke-dashoffset: 1000; opacity: 0; }
+  30% { opacity: 1; }
+  55% { stroke-dashoffset: 0; opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0.85; }
+}
+.orthoProM .mountSpark path {
+  animation: orthoMobSpark 5.8s ease-in-out 1s infinite;
+}
+@keyframes orthoMobSpark {
+  0%, 22% { opacity: 0; transform: scale(0.7); }
+  30% { opacity: 0.95; transform: scale(1); }
+  40% { opacity: 0.12; transform: scale(1.18); }
+  100% { opacity: 0; transform: scale(0.7); }
+}
+.orthoProM .doc {
+  opacity: 0;
+  transform-origin: 520px 60px;
+  animation: orthoMobDocIn 0.65s cubic-bezier(0.16, 1, 0.3, 1) 0.85s forwards, orthoMobDocFloat 2.8s ease-in-out 1.9s infinite;
+}
+@keyframes orthoMobDocIn {
+  from { opacity: 0; transform: translateY(6px) scale(0.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@keyframes orthoMobDocFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+.orthoProM .docRing {
+  animation: orthoRingGlow 2.2s ease-in-out 2s infinite;
+}
+.orthoProM .online {
+  opacity: 0.95;
+  animation: orthoMobOnlinePulse 1.4s ease-in-out 2.1s infinite;
+}
+@keyframes orthoMobOnlinePulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.18); }
+}
+.orthoProM .p {
+  opacity: 0;
+  transform-origin: center;
+  animation: orthoMobParticle 4s ease-in-out infinite;
+}
+.orthoProM .p1 { animation-delay: 0.6s; }
+.orthoProM .p2 { animation-delay: 1.2s; }
+.orthoProM .p3 { animation-delay: 1.8s; }
+.orthoProM .p4 { animation-delay: 2.4s; }
+@keyframes orthoMobParticle {
+  0% { opacity: 0; transform: scale(0.7); }
+  18% { opacity: 0.85; transform: scale(1); }
+  55% { opacity: 0.18; transform: scale(1.18); }
+  100% { opacity: 0; transform: scale(0.7); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .orthoProM .sweep,
+  .orthoProM .xrayLine,
+  .orthoProM .xraySweep,
+  .orthoProM .orbits,
+  .orthoProM .orthoScene,
+  .orthoProM .upper .tooth,
+  .orthoProM .wire,
+  .orthoProM .br,
+  .orthoProM .lig,
+  .orthoProM .mountSpark path,
+  .orthoProM .doc,
+  .orthoProM .docRing,
+  .orthoProM .online,
+  .orthoProM .p,
+  .orthoProM .upperLip,
+  .orthoProM .upperLip2,
+  .orthoProM .lowerLip,
+  .orthoProM .lowerLip2 {
+    animation: none !important;
+  }
+  .orthoProM .t1,
+  .orthoProM .t2,
+  .orthoProM .chips,
+  .orthoProM .orthoScene,
+  .orthoProM .doc {
+    opacity: 1;
+  }
+  .orthoProM .wire {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+  .orthoProM .br,
+  .orthoProM .lig {
+    opacity: 1;
+  }
+}

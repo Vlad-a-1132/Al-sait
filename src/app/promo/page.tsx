@@ -67,15 +67,6 @@ export default function PromoPage() {
       endDate: "31.12.2025",
       title: "День пенсионера",
       description: "Понедельник и Пятница – специальные скидки до 25%"
-    },
-    {
-      id: 8,
-      category: "consultations",
-      image: "/images/fotogelery/23prom (1).png",
-      startDate: "23.02.2026",
-      endDate: "23.02.2026",
-      title: "День защитника Отечества",
-      description: "23 февраля — мужчинам скидка 20% на всё"
     }
   ];
 
