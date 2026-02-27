@@ -11,6 +11,10 @@ interface DoctorPageProps {
   }>;
 }
 
+export function generateStaticParams() {
+  return doctors.map((d: { slug: string }) => ({ slug: d.slug }));
+}
+
 // Функция для получения детальной информации о враче
 function getDoctorDetails(doctorName: string) {
   const details: { [key: string]: any } = {

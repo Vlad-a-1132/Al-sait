@@ -9,12 +9,14 @@ import { Suspense } from "react";
 const inter = Inter({
   subsets: ["latin", "cyrillic"],
   variable: "--font-inter",
+  display: "swap",
 });
 
 const lobster = Lobster({
   subsets: ["latin", "cyrillic"],
   weight: "400",
   variable: "--font-lobster",
+  display: "swap",
 });
 
 export const metadata: Metadata = {

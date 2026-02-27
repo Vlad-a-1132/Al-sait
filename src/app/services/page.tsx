@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import AppointmentForm from '@/components/AppointmentForm';
+import DentalPromoBanner from '@/components/DentalPromoBanner';
 
 export default function ServicesPage() {
   
@@ -760,6 +761,7 @@ export default function ServicesPage() {
     <div className="flex flex-col min-h-full bg-white overflow-x-hidden">
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <DentalPromoBanner />
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 justify-items-center">
             {firstContainerData.map((service) => (
               service.id === 'allergology' ? (
