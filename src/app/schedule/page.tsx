@@ -140,17 +140,22 @@ export default function SchedulePage() {
       return staticDoctors;
     }
     
-    // Создаем Map для быстрого поиска сохраненных врачей
     const savedMap = new Map(savedDoctors.map((doc: any) => [doc.name, doc]));
+    const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] as const;
     
-    // Объединяем: данные из localStorage имеют приоритет, используем статические данные только если врача нет в сохраненных
     const merged = staticDoctors.map((staticDoc: any) => {
-      // Если врач есть в сохраненных данных, используем сохраненные данные
       const savedDoc = savedMap.get(staticDoc.name);
-      return savedDoc || staticDoc;
+      if (!savedDoc) return staticDoc;
+      // По дням: приоритет у сохранённых; если день не задан в saved — берём из статики
+      const staticSched = staticDoc.schedule || {};
+      const savedSched = savedDoc.schedule || {};
+      const schedule: DoctorSchedule = {};
+      days.forEach(day => {
+        schedule[day] = savedSched[day] ?? staticSched[day];
+      });
+      return { ...savedDoc, schedule };
     });
     
-    // Добавляем врачей из сохраненных данных, которых нет в статических
     savedDoctors.forEach((savedDoc: any) => {
       if (!staticDoctors.find((doc: any) => doc.name === savedDoc.name)) {
         merged.push(savedDoc);
@@ -415,7 +420,7 @@ export default function SchedulePage() {
     {
       name: "Крошкин Александр Дмитриевич",
       specialty: "Стоматолог-ортопед",
-      schedule: { Wednesday: { start: "11:00", end: "20:00" }, Sunday: { start: "15:30", end: "20:00" } }
+      schedule: { Wednesday: { start: "15:00", end: "20:00" }, Sunday: { start: "15:30", end: "20:00" } }
     },
     {
       name: "Полетаева (Ужегова) Мария Рашитовна",

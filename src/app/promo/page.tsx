@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link";
+import DentalPromoBanner from "@/components/DentalPromoBanner";
 
 export default function PromoPage() {
   // Данные акций
@@ -92,6 +93,13 @@ export default function PromoPage() {
           <h1 className="text-4xl font-bold text-gray-900">
             Акции
           </h1>
+        </div>
+      </section>
+
+      {/* Баннеры с страницы услуг (имплантация / ортодонтия) */}
+      <section className="py-4">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <DentalPromoBanner />
         </div>
       </section>
 

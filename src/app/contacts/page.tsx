@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, FormEvent } from 'react';
+import DentalPromoBanner from "@/components/DentalPromoBanner";
 
 export default function ContactsPage() {
   const [name, setName] = useState("");
@@ -125,16 +126,10 @@ export default function ContactsPage() {
 
   return (
     <div className="flex flex-col min-h-full">
-      {/* Hero Section */}
-      <section className="bg-blue-50 py-16">
+      {/* Баннеры с страницы услуг (имплантация / ортодонтия) */}
+      <section className="py-4 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold text-blue-900 mb-6">Контакты</h1>
-            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Вы можете связаться с нами любым удобным для вас способом. 
-              Мы всегда готовы ответить на ваши вопросы и помочь вам.
-            </p>
-          </div>
+          <DentalPromoBanner />
         </div>
       </section>
 

@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState, useEffect, useRef, useMemo } from "react";
 import AppointmentForm from "@/components/AppointmentForm";
+import March8HeartScene from "@/components/March8HeartScene";
 import { doctors as defaultDoctors } from "@/data/static-data";
 
 interface Schedule {
@@ -703,6 +704,30 @@ export default function Home() {
                 </Link>
               </div>
              
+            </div>
+          </div>
+
+          {/* Баннер 8 марта: под кнопкой «Все услуги», на всю ширину */}
+          <div className="w-full mt-6 px-4 md:px-0">
+            <div className="march8-sakura-banner">
+              <div className="march8-banner-left" aria-hidden>
+                <March8HeartScene />
+              </div>
+              <div className="march8-sakura-content">
+                <div className="march8-sakura-badge">
+                  <span className="march8-sakura-flower">🌸</span>
+                  <span>8 марта клиника не работает</span>
+                </div>
+                <h2 className="march8-sakura-h2">
+                  С Международным<br />женским днём!
+                </h2>
+                <p className="march8-sakura-p">
+                  Пусть весна принесёт тепло и радость,<br />
+                  здоровье будет крепким,<br />
+                  а каждый день — наполнен улыбками.
+                </p>
+                <div className="march8-sakura-thanks">Спасибо, что доверяете нам!</div>
+              </div>
             </div>
           </div>
         </div>
