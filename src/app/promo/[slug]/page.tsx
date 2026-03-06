@@ -241,39 +241,29 @@ export default function PromoDetailPage() {
         </div>
       </section>
 
-      {/* Banner */}
-      {promo.id === 8 ? (
-        <section className="relative w-full">
-          <img
-            src={promo.image}
-            alt={promo.title}
-            className="w-full h-auto object-cover object-center block"
-          />
-        </section>
-      ) : (
-        <section className="relative bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
-          <div className="absolute inset-0 bg-black opacity-20"></div>
-          <div className="relative mx-auto px-4 py-16 md:py-24" style={{ maxWidth: '83rem' }}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-              <div>
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                  {promo.title}
-                </h1>
-                <p className="text-lg md:text-xl mb-8 text-emerald-100">
-                  {promo.description}
-                </p>
-              </div>
-              <div className="relative">
-                <img 
-                  src={promo.image} 
-                  alt={promo.title} 
-                  className="w-full h-auto rounded-lg shadow-2xl"
-                />
-              </div>
+      {/* Banner — единый hero для всех акций */}
+      <section className="relative bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
+        <div className="absolute inset-0 bg-black opacity-20"></div>
+        <div className="relative mx-auto px-4 py-16 md:py-24" style={{ maxWidth: '83rem' }}>
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                {promo.title}
+              </h1>
+              <p className="text-lg md:text-xl mb-8 text-emerald-100">
+                {promo.description}
+              </p>
+            </div>
+            <div className="relative">
+              <img 
+                src={promo.image} 
+                alt={promo.title} 
+                className="w-full h-auto rounded-lg shadow-2xl"
+              />
             </div>
           </div>
-        </section>
-      )}
+        </div>
+      </section>
 
       {/* Main section */}
       {/* Время работы КТ (только для акции КТ) */}
