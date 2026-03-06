@@ -109,6 +109,13 @@ export default function Home() {
   // Slides data - используем нейтральные пути чтобы избежать блокировки рекламы
   const slides = [
     {
+      title: "Праздничные скидки для женщин",
+      buttonText: "Подробнее",
+      buttonLink: "/promo/promo-8",
+      buttonColor: "#13AB7B",
+      image: "/images/promo/Screenshot_1230.png"
+    },
+    {
       title: "Понедельник и Пятница – специальные скидки до 25%",
       buttonText: "Подробнее",
       buttonLink: "/promo/promo-7",

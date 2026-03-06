@@ -156,10 +156,10 @@ export default function DoctorPageContent({
                   </div>
                   <div>
                     <p className="font-medium text-gray-900 mb-1">
-                      м. «Одинцово»
+                      {doctorName === 'Исаева Екатерина Николаевна' ? 'ул. Крылова, 23' : 'м. «Одинцово»'}
                     </p>
                     <p className="text-sm text-gray-600">
-                      «Альтамед-С» на ул. Можайское шоссе, д. 2
+                      {doctorName === 'Исаева Екатерина Николаевна' ? '«Альтамед-С» на ул. Крылова, 23' : '«Альтамед-С» на ул. Можайское шоссе, д. 2'}
                     </p>
                   </div>
                 </div>

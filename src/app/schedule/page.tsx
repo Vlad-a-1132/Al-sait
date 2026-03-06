@@ -445,7 +445,7 @@ export default function SchedulePage() {
     {
       name: "Чернова Алла Валерьевна",
       specialty: "Стоматолог",
-      schedule: { Thursday: { start: "10:00", end: "17:00" } }
+      schedule: {}
     },
     {
       name: "Ярулова Вероника Юрьевна",

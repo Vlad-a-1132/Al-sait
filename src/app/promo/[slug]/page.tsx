@@ -167,6 +167,24 @@ export default function PromoDetailPage() {
         "Холтер",
         "Гинеколог"
       ]
+    },
+    {
+      id: 8,
+      category: "consultations",
+      image: "/images/promo/Screenshot_1230.png",
+      startDate: "05.03.2025",
+      endDate: "20.03.2025",
+      title: "Праздничные скидки для женщин",
+      description: "15% на консультации и анализы, 25% на комплекс гинекологических процедур",
+      fullDescription: "С 5 по 20 марта в клинике «Альтамед-с» действуют праздничные скидки для женщин. Получите 15% на все консультации врачей и лабораторные анализы. Специальное предложение — скидка 25% при единовременном прохождении комплекса гинекологических процедур: приём врача-гинеколога, УЗИ органов малого таза, забор биоматериала, мазок на флору и кольпоскопия.",
+      details: [
+        "Срок действия акции: с 5 по 20 марта",
+        "Скидка 15% на все консультации врачей",
+        "Скидка 15% на все лабораторные анализы",
+        "Скидка 25% при единовременном прохождении комплекса процедур",
+        "В комплекс входят: приём врача-гинеколога, УЗИ органов малого таза, забор биоматериала, мазок на флору, кольпоскопия",
+        "Записывайтесь заранее на удобное время"
+      ]
     }
   ];
 
@@ -224,28 +242,38 @@ export default function PromoDetailPage() {
       </section>
 
       {/* Banner */}
-      <section className="relative bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
-        <div className="absolute inset-0 bg-black opacity-20"></div>
-        <div className="relative mx-auto px-4 py-16 md:py-24" style={{ maxWidth: '83rem' }}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-                {promo.title}
-              </h1>
-              <p className="text-lg md:text-xl mb-8 text-emerald-100">
-                {promo.description}
-              </p>
-            </div>
-            <div className="relative">
-              <img 
-                src={promo.image} 
-                alt={promo.title} 
-                className="w-full h-auto rounded-lg shadow-2xl"
-              />
+      {promo.id === 8 ? (
+        <section className="relative w-full">
+          <img
+            src={promo.image}
+            alt={promo.title}
+            className="w-full h-auto object-cover object-center block"
+          />
+        </section>
+      ) : (
+        <section className="relative bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
+          <div className="absolute inset-0 bg-black opacity-20"></div>
+          <div className="relative mx-auto px-4 py-16 md:py-24" style={{ maxWidth: '83rem' }}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              <div>
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+                  {promo.title}
+                </h1>
+                <p className="text-lg md:text-xl mb-8 text-emerald-100">
+                  {promo.description}
+                </p>
+              </div>
+              <div className="relative">
+                <img 
+                  src={promo.image} 
+                  alt={promo.title} 
+                  className="w-full h-auto rounded-lg shadow-2xl"
+                />
+              </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* Main section */}
       {/* Время работы КТ (только для акции КТ) */}
@@ -279,6 +307,80 @@ export default function PromoDetailPage() {
           </div>
         </div>
       </section>
+
+      {/* Специальный блок для акции "Праздничные скидки для женщин" */}
+      {promo.id === 8 && (
+        <section className="py-12 bg-gradient-to-br from-rose-50 to-emerald-50">
+          <div className="mx-auto px-4" style={{ maxWidth: '83rem' }}>
+            <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Условия скидок</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+              <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-emerald-500">
+                <div className="flex items-center mb-4">
+                  <div className="w-14 h-14 bg-emerald-500 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-xl">15%</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">Общие скидки</h3>
+                </div>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-center">
+                    <svg className="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    На все консультации врачей
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-5 h-5 text-emerald-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    На все лабораторные анализы
+                  </li>
+                </ul>
+              </div>
+              <div className="bg-white rounded-2xl shadow-lg p-6 border-2 border-rose-500">
+                <div className="flex items-center mb-4">
+                  <div className="w-14 h-14 bg-rose-500 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-xl">25%</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900">Комплекс процедур</h3>
+                </div>
+                <p className="text-sm text-gray-600 mb-3">При единовременном прохождении:</p>
+                <ul className="space-y-2 text-gray-700">
+                  <li className="flex items-center">
+                    <svg className="w-5 h-5 text-rose-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Приём врача-гинеколога
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-5 h-5 text-rose-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    УЗИ органов малого таза
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-5 h-5 text-rose-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Забор биоматериала
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-5 h-5 text-rose-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Мазок на флору
+                  </li>
+                  <li className="flex items-center">
+                    <svg className="w-5 h-5 text-rose-500 mr-2 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    Кольпоскопия
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Специальный блок для акции "День пенсионера" */}
       {promo.id === 7 && (

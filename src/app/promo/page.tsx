@@ -68,6 +68,15 @@ export default function PromoPage() {
       endDate: "31.12.2025",
       title: "День пенсионера",
       description: "Понедельник и Пятница – специальные скидки до 25%"
+    },
+    {
+      id: 8,
+      category: "consultations",
+      image: "/images/promo/Screenshot_1230.png",
+      startDate: "05.03.2025",
+      endDate: "20.03.2025",
+      title: "Праздничные скидки для женщин",
+      description: "15% на консультации и анализы, 25% на комплекс гинекологических процедур"
     }
   ];
 

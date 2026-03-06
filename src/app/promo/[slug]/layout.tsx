@@ -10,6 +10,7 @@ export function generateStaticParams() {
     { slug: 'promo-5' },
     { slug: 'promo-6' },
     { slug: 'promo-7' },
+    { slug: 'promo-8' },
   ];
 }
 
@@ -53,6 +54,11 @@ const promotionsData: Record<string, {
     title: 'День пенсионера',
     description: 'День пенсионера в Одинцово - специальные скидки до 25% на медицинские услуги. Понедельник и Пятница - скидки 20-25% в клинике Альтамед-с.',
     image: '/images/yslugi/task_01kcqt39h1evj89apdf39y58f8_1766030720_img_1.webp',
+  },
+  'promo-8': {
+    title: 'Праздничные скидки для женщин',
+    description: 'Праздничные скидки для женщин с 5 по 20 марта: 15% на консультации и анализы, 25% на комплекс гинекологических процедур в клинике Альтамед-с Одинцово.',
+    image: '/images/promo/Screenshot_1230.png',
   },
 };
 
