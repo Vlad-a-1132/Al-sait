@@ -107,7 +107,6 @@ export default function AdminDashboard() {
     { name: "Иванова Ольга Юрьевна", specialty: "Отоларинголог", schedule: { Monday: { start: "10:00", end: "19:00" }, Tuesday: { start: "10:00", end: "19:00" }, Thursday: { start: "10:00", end: "19:00" }, Saturday: { start: "10:00", end: "17:00" } } },
     { name: "Иванченко Светлана Викторовна", specialty: "Эндокринолог", schedule: { Tuesday: { start: "11:15", end: "19:30" }, Saturday: { start: "09:15", end: "18:00" } } },
     { name: "Костьо Елена Владимировна", specialty: "Косметолог-массажист", schedule: { Monday: { start: "15:00", end: "20:00" }, Tuesday: { start: "10:00", end: "20:00" }, Wednesday: { start: "15:00", end: "20:00" }, Thursday: { start: "15:00", end: "20:00" }, Sunday: { start: "13:30", end: "20:00" } } },
-    { name: "Матулевский Николай Альфредович", specialty: "Терапевт", schedule: { Monday: { start: "08:30", end: "11:00" }, Wednesday: { start: "09:00", end: "13:00" }, Saturday: { start: "09:00", end: "15:00" } } },
     { name: "Никулина Елена Ивановна", specialty: "Детский массажист", schedule: { Thursday: { start: "10:00", end: "20:00" }, Friday: { start: "10:00", end: "20:00" }, Saturday: { start: "10:00", end: "13:30" } } },
     { name: "Павлова Людмила Леонидовна", specialty: "УЗИ", schedule: { Tuesday: { start: "09:00", end: "13:00" } } },
     { name: "Понедельченко Надежда Ивановна", specialty: "Дерматокосметолог", schedule: { Tuesday: { start: "09:00", end: "20:00" }, Sunday: { start: "09:00", end: "17:00" } } },
