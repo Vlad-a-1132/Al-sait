@@ -1149,6 +1149,16 @@ html.accessibility-mode .text-right {
   }
 }
 
+/* Fallback: если анимация не сработала (стили не загрузились), через 2 с центральная сцена и CTA становятся видимыми */
+.implant-banner-wrapper.revealed .implantBanner .midScene,
+.implant-banner-wrapper.revealed .implantBanner .ctaBtn,
+.implant-banner-wrapper.revealed .implantBanner .docMain,
+.implant-banner-wrapper.revealed .implantBanner580 .midScene,
+.implant-banner-wrapper.revealed .implantBanner580 .ctaBtn,
+.implant-banner-wrapper.revealed .implantBanner580 .docMain {
+  opacity: 1;
+}
+
 /* ========== Мобильный баннер имплантации 580×199 (implantBanner580) ========== */
 .implantBanner580 {
   font-family: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Arial;

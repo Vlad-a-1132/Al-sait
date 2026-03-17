@@ -7,8 +7,11 @@ import { OrthoDesktopSVG, OrthoMobileSVG } from './OrthoPromoBanner';
 const DOCTOR_IMAGE = "/images/promo/Abramov Yuno Eriilevich 1.webp";
 const BANNER_INTERVAL_MS = 10000;
 
+const IMPLANT_REVEAL_FALLBACK_MS = 2000;
+
 export default function DentalPromoBanner() {
   const [activeBanner, setActiveBanner] = useState(0);
+  const [implantRevealed, setImplantRevealed] = useState(false);
 
   // Один интервал на всё время жизни: каждые 10 сек переключаем слайд
   useEffect(() => {
@@ -18,10 +21,17 @@ export default function DentalPromoBanner() {
     return () => clearInterval(id);
   }, []);
 
+  // Fallback: если стили .implantBanner не загрузились, центральная сцена остаётся с opacity:0. Через 2 с принудительно показываем.
+  useEffect(() => {
+    if (activeBanner !== 0) return;
+    const t = setTimeout(() => setImplantRevealed(true), IMPLANT_REVEAL_FALLBACK_MS);
+    return () => clearTimeout(t);
+  }, [activeBanner]);
+
   return (
     <div className="w-full max-w-[1400px] mx-auto mb-8 px-0 relative">
       {activeBanner === 0 ? (
-        <>
+        <div className={`implant-banner-wrapper ${implantRevealed ? "revealed" : ""}`}>
           {/* Implant: Desktop 1200x160 — сцена с имплантом и CTA */}
           <Link href="/doctor/abramov-implantolog" className="block hidden md:block w-full max-w-[1200px] mx-auto">
             <ImplantDesktopSVG />
@@ -30,7 +40,7 @@ export default function DentalPromoBanner() {
           <Link href="/doctor/abramov-implantolog" className="block md:hidden w-full max-w-[580px] mx-auto">
             <ImplantMobile580SVG />
           </Link>
-        </>
+        </div>
       ) : (
         <>
           {/* Ortho: Desktop 1400x200 */}
