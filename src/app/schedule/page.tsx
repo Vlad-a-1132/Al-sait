@@ -94,6 +94,7 @@ function DoctorScheduleRow({ name, specialty, schedule }: DoctorScheduleRowProps
 export default function SchedulePage() {
   const [selectedBranch, setSelectedBranch] = useState('branch1');
   const [savedSchedule, setSavedSchedule] = useState<any>(null);
+  const [hydrated, setHydrated] = useState(false);
   
   // Загрузка данных из localStorage с реактивностью
   useEffect(() => {
@@ -112,6 +113,7 @@ export default function SchedulePage() {
     };
     
     setSavedSchedule(loadSavedSchedule());
+    setHydrated(true);
     
     // Слушаем изменения в localStorage
     const handleStorageChange = () => {
@@ -120,19 +122,10 @@ export default function SchedulePage() {
     
     window.addEventListener('storage', handleStorageChange);
     
-    // Также проверяем изменения каждую секунду (для того же окна)
-    const interval = setInterval(() => {
-      const current = loadSavedSchedule();
-      if (JSON.stringify(current) !== JSON.stringify(savedSchedule)) {
-        setSavedSchedule(current);
-      }
-    }, 1000);
-    
     return () => {
       window.removeEventListener('storage', handleStorageChange);
-      clearInterval(interval);
     };
-  }, [savedSchedule]);
+  }, []);
 
   // Функция для объединения статических данных с данными из localStorage
   const mergeDoctorsData = (staticDoctors: any[], savedDoctors: any[] | null | undefined) => {
@@ -153,7 +146,8 @@ export default function SchedulePage() {
       days.forEach(day => {
         schedule[day] = savedSched[day] ?? staticSched[day];
       });
-      return { ...savedDoc, schedule };
+      // Специальность берём из статики, чтобы сохранённые данные не "перетирали" контент сайта
+      return { ...savedDoc, specialty: staticDoc.specialty ?? savedDoc.specialty, schedule };
     });
     
     savedDoctors.forEach((savedDoc: any) => {
@@ -543,46 +537,59 @@ export default function SchedulePage() {
               </button>
             </div>
 
-            {/* Мобильная версия - карточки врачей */}
-            <div className="block md:hidden space-y-3">
-              {(() => {
-                const staticDoctors = selectedBranch === 'branch1' ? branch1Doctors : selectedBranch === 'branch2' ? branch2Doctors : selectedBranch === 'branch3' ? branch3Doctors : branch4Doctors;
-                const saved = savedSchedule?.[selectedBranch];
-                const doctors = mergeDoctorsData(staticDoctors, saved);
-                return doctors.map((doctor: any, index: number) => (
-                  <DoctorCardMobile key={index} {...doctor} />
-                ));
-              })()}
-            </div>
+            {(() => {
+              if (!hydrated) {
+                return (
+                  <div className="py-10 text-center text-gray-500">
+                    Загрузка расписания…
+                  </div>
+                );
+              }
 
-            {/* Десктоп версия - таблица */}
-            <div className="hidden md:block overflow-x-auto">
-              <table className="w-full min-w-[900px]">
-                <thead>
-                  <tr className="bg-gradient-to-r from-emerald-50 to-teal-50 border-b-2 border-emerald-200">
-                    <th className="px-5 py-4 text-left font-bold text-gray-900 text-sm">Врач</th>
-                    <th className="px-5 py-4 text-left font-bold text-gray-900 text-sm">Специальность</th>
-                    <th className="px-4 py-4 text-center font-bold text-gray-900 text-sm w-28">Пн</th>
-                    <th className="px-4 py-4 text-center font-bold text-gray-900 text-sm w-28">Вт</th>
-                    <th className="px-4 py-4 text-center font-bold text-gray-900 text-sm w-28">Ср</th>
-                    <th className="px-4 py-4 text-center font-bold text-gray-900 text-sm w-28">Чт</th>
-                    <th className="px-4 py-4 text-center font-bold text-gray-900 text-sm w-28">Пт</th>
-                    <th className="px-4 py-4 text-center font-bold text-gray-900 text-sm w-28">Сб</th>
-                    <th className="px-4 py-4 text-center font-bold text-gray-900 text-sm w-28">Вс</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {(() => {
-                    const staticDoctors = selectedBranch === 'branch1' ? branch1Doctors : selectedBranch === 'branch2' ? branch2Doctors : selectedBranch === 'branch3' ? branch3Doctors : branch4Doctors;
-                    const saved = savedSchedule?.[selectedBranch];
-                    const doctors = mergeDoctorsData(staticDoctors, saved);
-                    return doctors.map((doctor: any, index: number) => (
-                      <DoctorScheduleRow key={index} {...doctor} />
-                    ));
-                  })()}
-                </tbody>
-              </table>
-            </div>
+              const staticDoctors =
+                selectedBranch === 'branch1' ? branch1Doctors :
+                selectedBranch === 'branch2' ? branch2Doctors :
+                selectedBranch === 'branch3' ? branch3Doctors :
+                branch4Doctors;
+
+              const saved = savedSchedule?.[selectedBranch];
+              const doctors = mergeDoctorsData(staticDoctors, saved);
+
+              return (
+                <>
+                  {/* Мобильная версия - карточки врачей */}
+                  <div className="block md:hidden space-y-3">
+                    {doctors.map((doctor: any, index: number) => (
+                      <DoctorCardMobile key={index} {...doctor} />
+                    ))}
+                  </div>
+
+                  {/* Десктоп версия - таблица */}
+                  <div className="hidden md:block overflow-x-auto">
+                    <table className="w-full min-w-[900px]">
+                      <thead>
+                        <tr className="bg-gradient-to-r from-emerald-50 to-teal-50 border-b-2 border-emerald-200">
+                          <th className="px-5 py-4 text-left font-bold text-gray-900 text-sm">Врач</th>
+                          <th className="px-5 py-4 text-left font-bold text-gray-900 text-sm">Специальность</th>
+                          <th className="px-4 py-4 text-center font-bold text-gray-900 text-sm w-28">Пн</th>
+                          <th className="px-4 py-4 text-center font-bold text-gray-900 text-sm w-28">Вт</th>
+                          <th className="px-4 py-4 text-center font-bold text-gray-900 text-sm w-28">Ср</th>
+                          <th className="px-4 py-4 text-center font-bold text-gray-900 text-sm w-28">Чт</th>
+                          <th className="px-4 py-4 text-center font-bold text-gray-900 text-sm w-28">Пт</th>
+                          <th className="px-4 py-4 text-center font-bold text-gray-900 text-sm w-28">Сб</th>
+                          <th className="px-4 py-4 text-center font-bold text-gray-900 text-sm w-28">Вс</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {doctors.map((doctor: any, index: number) => (
+                          <DoctorScheduleRow key={index} {...doctor} />
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </>
+              );
+            })()}
           </div>
         </div>
       </section>
