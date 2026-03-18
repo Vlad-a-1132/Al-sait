@@ -159,7 +159,7 @@ export default function AdminDashboard() {
     { name: "Прикуле Елена Юрьевна", specialty: "Стоматолог-терапевт", schedule: { Monday: { start: "09:00", end: "15:00" }, Thursday: { start: "09:00", end: "20:00" }, Saturday: { start: "09:00", end: "20:00" } } },
     { name: "Рубцов Роман Владимирович", specialty: "Стоматолог-ортопед", schedule: { Tuesday: { start: "09:00", end: "20:00" }, Thursday: { start: "09:00", end: "20:00" }, Friday: { start: "09:00", end: "20:00" }, Saturday: { start: "09:00", end: "20:00" } } },
     { name: "Рубцова Ольга Юрьевна", specialty: "Стоматолог-хирург", schedule: { Tuesday: { start: "09:00", end: "19:00" }, Thursday: { start: "09:00", end: "19:00" }, Friday: { start: "09:00", end: "19:00" }, Saturday: { start: "09:00", end: "19:00" } } },
-    { name: "Чернова Алла Валерьевна", specialty: "Стоматолог", schedule: { Thursday: { start: "10:00", end: "17:00" } } },
+    { name: "Чернова Алла Валерьевна", specialty: "Стоматолог", schedule: { Tuesday: { start: "09:00", end: "17:00" }, Wednesday: { start: "14:30", end: "20:00" } } },
     { name: "Ярулова Вероника Юрьевна", specialty: "Стоматолог", schedule: { Wednesday: { start: "09:00", end: "18:30" }, Saturday: { start: "09:00", end: "18:30" } } }
   ];
 

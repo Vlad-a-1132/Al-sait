@@ -1011,8 +1011,8 @@
       "photo": "/images/doctors/Chernova Alla Valerievna.webp",
       "description": "Врач стоматолог-терапевт. Окончила Рязанский государственный университет имени акад. И. П. Павлова по специальности «Врач- стоматолог»",
       "schedule": {
-        "Monday": { "start": "09:00", "end": "17:00" },
-        "Tuesday": { "start": "14:30", "end": "20:00" }
+        "Tuesday": { "start": "09:00", "end": "17:00" },
+        "Wednesday": { "start": "14:30", "end": "20:00" }
       },
       "details": {
         "specialization": "Врач стоматолог-терапевт",
