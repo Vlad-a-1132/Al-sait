@@ -38,8 +38,8 @@
       "id": 3,
       "name": "Емельянова Анна Игоревна",
       "slug": "emelyanova-anna-igorevna",
-      "specialization": "Дерматовенеролог, Дерматолог лечение",
-      "specializations": ["Дерматовенеролог", "Дерматолог лечение"],
+      "specialization": "Косметолог, Дерматовенеролог",
+      "specializations": ["Косметолог", "Дерматовенеролог"],
       "experience": 12,
       "photo": "/images/doctors/Emelyanova Anna Igorevna.webp",
       "description": "Врач-дерматовенеролог. Сертифицированный специалист по косметологии и эстетической медицине",
@@ -47,8 +47,8 @@
         "Thursday": { "start": "09:00", "end": "15:00" }
       },
       "details": {
-        "specialization": "Дерматовенеролог",
-        "category": "Врач-дерматовенеролог"
+        "specialization": "Косметолог, Дерматовенеролог",
+        "category": "Врач-косметолог, дерматовенеролог"
       }
     },
     {

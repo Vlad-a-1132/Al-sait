@@ -102,7 +102,7 @@ export default function AdminDashboard() {
     { name: "Белоус Олег Анатольевич", specialty: "Остеопат", schedule: { Tuesday: { start: "08:00", end: "19:00" }, Wednesday: { start: "08:00", end: "19:00" }, Thursday: { start: "08:00", end: "19:00" }, Saturday: { start: "08:00", end: "19:00" }, Sunday: { start: "08:00", end: "19:00" } } },
     { name: "Доброток Альбина Витальевна", specialty: "Педиатр", schedule: { Tuesday: { start: "18:40", end: "20:00" }, Sunday: { start: "10:00", end: "14:00" } } },
     { name: "Дячук Ольга Владимировна", specialty: "Психолог", schedule: { Tuesday: { start: "12:00", end: "16:00" } } },
-    { name: "Емельянова Анна Игоревна", specialty: "Дерматовенеролог", schedule: { Thursday: { start: "09:00", end: "15:00" } } },
+    { name: "Емельянова Анна Игоревна", specialty: "Косметолог, Дерматовенеролог", schedule: { Thursday: { start: "09:00", end: "15:00" } } },
     { name: "Есакова Мария Александровна", specialty: "УЗИ", schedule: { Wednesday: { start: "17:00", end: "20:00" }, Saturday: { start: "08:00", end: "14:00" }, Sunday: { start: "08:00", end: "14:00" } } },
     { name: "Иванова Ольга Юрьевна", specialty: "Отоларинголог", schedule: { Monday: { start: "10:00", end: "19:00" }, Tuesday: { start: "10:00", end: "19:00" }, Thursday: { start: "10:00", end: "19:00" }, Saturday: { start: "10:00", end: "17:00" } } },
     { name: "Иванченко Светлана Викторовна", specialty: "Эндокринолог", schedule: { Tuesday: { start: "11:15", end: "19:30" }, Saturday: { start: "09:15", end: "18:00" } } },

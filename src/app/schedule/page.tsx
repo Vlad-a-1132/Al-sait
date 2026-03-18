@@ -183,7 +183,7 @@ export default function SchedulePage() {
     },
     {
       name: "Емельянова Анна Игоревна",
-      specialty: "Дерматовенеролог",
+      specialty: "Косметолог, Дерматовенеролог",
       schedule: { Thursday: { start: "09:00", end: "15:00" } }
     },
     {
