@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     title: 'Гинеколог в Одинцово - Консультация, диагностика и лечение женских заболеваний | Альтамед-с',
     description: 'Гинеколог в Одинцово - профессиональная диагностика и лечение женских заболеваний. Кольпоскопия, УЗИ, ведение беременности. Запись на прием к гинекологу в клинике Альтамед-СОдинцово.',
     type: 'website',
-    url: 'https://altamed-s.ru/services/gynecology',
+    url: 'https://altamed-c.ru/services/gynecology',
     locale: 'ru_RU',
     siteName: 'Альтамед-с',
     images: [
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
     images: ['/images/images allergoly/gas.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/gynecology',
+    canonical: 'https://altamed-c.ru/services/gynecology',
   },
   robots: {
     index: true,
@@ -70,9 +70,9 @@ export const metadata: Metadata = {
       "@type": "MedicalBusiness",
       "name": "Альтамед-С- Гинекология в Одинцово",
       "description": "Клиника гинекологии в Одинцово. Профессиональная диагностика и лечение женских заболеваний. Кольпоскопия, УЗИ, ведение беременности, радиоволновая хирургия.",
-      "url": "https://altamed-s.ru/services/gynecology",
+      "url": "https://altamed-c.ru/services/gynecology",
       "telephone": "+7 (495) 255-44-50",
-      "email": "info@altamed-s.ru",
+      "email": "info@altamed-c.ru",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Одинцово",

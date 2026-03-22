@@ -19,13 +19,13 @@ export const metadata = {
   openGraph: {
     title: 'Блог - Медицинские статьи и новости | Медицинский центр Альтамед-с',
     description: 'Блог медицинского центра Альтамед-Св Одинцово - медицинские статьи, новости о здоровье, советы врачей, полезная информация.',
-    url: 'https://altamed-s.ru/blog',
+    url: 'https://altamed-c.ru/blog',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/blog',
+    canonical: 'https://altamed-c.ru/blog',
   },
 };
 

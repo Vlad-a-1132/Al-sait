@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'ТЕКАР-терапия в Одинцово - Лечение суставов и позвоночника | Альтамед-с',
     description: 'ТЕКАР-терапия в Одинцово - лечение заболеваний суставов и позвоночника, реабилитация после травм, лечение боли. Безоперационное лечение.',
-    url: 'https://altamed-s.ru/services/tekar-therapy',
+    url: 'https://altamed-c.ru/services/tekar-therapy',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/tekar-therapy',
+    canonical: 'https://altamed-c.ru/services/tekar-therapy',
   },
 };
 

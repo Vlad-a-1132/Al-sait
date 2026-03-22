@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Стоматологические конструкции в Одинцово - Изготовление и ремонт протезов | Альтамед-с',
     description: 'Стоматологические конструкции в Одинцово. Изготовление съемных протезов, коронок, ремонт и коррекция протезов.',
-    url: 'https://altamed-s.ru/services/dentistry/constructions',
+    url: 'https://altamed-c.ru/services/dentistry/constructions',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/constructions',
+    canonical: 'https://altamed-c.ru/services/dentistry/constructions',
   },
 };
 

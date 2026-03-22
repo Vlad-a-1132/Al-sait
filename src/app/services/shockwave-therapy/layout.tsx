@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Ударно-волновая терапия в Одинцово - УВТ, лечение заболеваний суставов | Альтамед-с',
     description: 'Ударно-волновая терапия в Одинцово - УВТ, лечение заболеваний суставов, пяточной шпоры, остеохондроза, артроза. Безоперационное лечение.',
-    url: 'https://altamed-s.ru/services/shockwave-therapy',
+    url: 'https://altamed-c.ru/services/shockwave-therapy',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/services/shockwave-therapy.webp',
+        url: 'https://altamed-c.ru/images/services/shockwave-therapy.webp',
         width: 1200,
         height: 630,
         alt: 'Ударно-волновая терапия в Альтамед-с',
@@ -40,10 +40,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Ударно-волновая терапия в Одинцово - УВТ, лечение суставов | Альтамед-с',
     description: 'Ударно-волновая терапия в Одинцово - УВТ, лечение заболеваний суставов, пяточной шпоры, остеохондроза, артроза.',
-    images: ['https://altamed-s.ru/images/services/shockwave-therapy.webp'],
+    images: ['https://altamed-c.ru/images/services/shockwave-therapy.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/shockwave-therapy',
+    canonical: 'https://altamed-c.ru/services/shockwave-therapy',
   },
 };
 

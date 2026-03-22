@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: 'Дерматолог в Одинцово - Консультация, диагностика и лечение кожных заболеваний | Альтамед-с',
     description: 'Дерматолог в Одинцово - профессиональная диагностика и лечение кожных заболеваний. Дерматоскопия, удаление новообразований, лечение акне. Запись на прием к дерматологу в клинике Альтамед-СОдинцово.',
     type: 'website',
-    url: 'https://altamed-s.ru/services/dermatology',
+    url: 'https://altamed-c.ru/services/dermatology',
     locale: 'ru_RU',
     siteName: 'Альтамед-с',
     images: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     images: ['/images/images allergoly/Dermat1ology.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dermatology',
+    canonical: 'https://altamed-c.ru/services/dermatology',
   },
   robots: {
     index: true,
@@ -69,9 +69,9 @@ export const metadata: Metadata = {
       "@type": "MedicalBusiness",
       "name": "Альтамед-С- Дерматология в Одинцово",
       "description": "Клиника дерматологии в Одинцово. Профессиональная диагностика и лечение кожных заболеваний. Дерматоскопия, удаление новообразований, лечение акне.",
-      "url": "https://altamed-s.ru/services/dermatology",
+      "url": "https://altamed-c.ru/services/dermatology",
       "telephone": "+7 (495) 255-44-50",
-      "email": "info@altamed-s.ru",
+      "email": "info@altamed-c.ru",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Одинцово",

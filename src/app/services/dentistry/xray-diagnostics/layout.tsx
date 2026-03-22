@@ -18,13 +18,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Рентгенологическая диагностика в стоматологии - ОПТГ, ТРГ | Альтамед-с',
     description: 'Рентгенологическая диагностика в стоматологии в Одинцово - ОПТГ, ТРГ (телерентгенография), прицельные снимки, цифровая радиовизиография.',
-    url: 'https://altamed-s.ru/services/dentistry/xray-diagnostics',
+    url: 'https://altamed-c.ru/services/dentistry/xray-diagnostics',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/xray-diagnostics',
+    canonical: 'https://altamed-c.ru/services/dentistry/xray-diagnostics',
   },
 };
 

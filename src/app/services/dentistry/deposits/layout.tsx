@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Удаление зубных отложений в Одинцово - Снятие налета и камня | Альтамед-с',
     description: 'Удаление зубных отложений в Одинцово. Ультразвуковое удаление зубного камня, Air Flow для снятия налета.',
-    url: 'https://altamed-s.ru/services/dentistry/deposits',
+    url: 'https://altamed-c.ru/services/dentistry/deposits',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/deposits',
+    canonical: 'https://altamed-c.ru/services/dentistry/deposits',
   },
 };
 

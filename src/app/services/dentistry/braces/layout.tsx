@@ -19,13 +19,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Брекет-системы в Одинцово - Металлические, керамические, сапфировые брекеты | Альтамед-с',
     description: 'Брекет-системы в Одинцово - металлические, керамические, сапфировые брекеты. Исправление прикуса брекетами.',
-    url: 'https://altamed-s.ru/services/dentistry/braces',
+    url: 'https://altamed-c.ru/services/dentistry/braces',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/braces',
+    canonical: 'https://altamed-c.ru/services/dentistry/braces',
   },
 };
 

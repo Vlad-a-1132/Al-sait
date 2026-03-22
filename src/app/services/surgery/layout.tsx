@@ -28,11 +28,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Хирург в Одинцово - Хирургическое лечение, операции, биопсии | Альтамед-с',
     description: 'Хирург в Одинцово - профессиональная хирургическая помощь: операции, биопсии, удаление новообразований, лечение ран, вросшего ногтя. Консультации хирурга.',
-    url: 'https://altamed-s.ru/services/surgery',
+    url: 'https://altamed-c.ru/services/surgery',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/services/surgery.webp',
+        url: 'https://altamed-c.ru/images/services/surgery.webp',
         width: 1200,
         height: 630,
         alt: 'Хирургия в Альтамед-с',
@@ -45,10 +45,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Хирург в Одинцово - Хирургическое лечение, операции | Альтамед-с',
     description: 'Хирург в Одинцово - профессиональная хирургическая помощь: операции, биопсии, удаление новообразований, лечение ран, вросшего ногтя.',
-    images: ['https://altamed-s.ru/images/services/surgery.webp'],
+    images: ['https://altamed-c.ru/images/services/surgery.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/surgery',
+    canonical: 'https://altamed-c.ru/services/surgery',
   },
 };
 

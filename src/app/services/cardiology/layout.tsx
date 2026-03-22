@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: 'Кардиолог в Одинцово - Консультация, диагностика и лечение сердечно-сосудистых заболеваний | Альтамед-с',
     description: 'Кардиолог в Одинцово - профессиональная диагностика и лечение заболеваний сердца и сосудов. ЭКГ, холтер, лечение гипертонии, аритмии. Запись на прием к кардиологу в клинике Альтамед-СОдинцово.',
     type: 'website',
-    url: 'https://altamed-s.ru/services/cardiology',
+    url: 'https://altamed-c.ru/services/cardiology',
     locale: 'ru_RU',
     siteName: 'Альтамед-с',
     images: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     images: ['/images/images allergoly/kardiolog.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/cardiology',
+    canonical: 'https://altamed-c.ru/services/cardiology',
   },
   robots: {
     index: true,
@@ -69,9 +69,9 @@ export const metadata: Metadata = {
       "@type": "MedicalBusiness",
       "name": "Альтамед-С- Кардиология в Одинцово",
       "description": "Клиника кардиологии в Одинцово. Профессиональная диагностика и лечение заболеваний сердца и сосудов. ЭКГ, холтер, лечение гипертонии, аритмии.",
-      "url": "https://altamed-s.ru/services/cardiology",
+      "url": "https://altamed-c.ru/services/cardiology",
       "telephone": "+7 (495) 255-44-50",
-      "email": "info@altamed-s.ru",
+      "email": "info@altamed-c.ru",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Одинцово",

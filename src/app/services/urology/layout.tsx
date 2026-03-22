@@ -29,11 +29,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Уролог в Одинцово - Лечение простатита, цистита, пиелонефрита | Альтамед-с',
     description: 'Уролог в Одинцово - профессиональная диагностика и лечение заболеваний мочеполовой системы: простатит, цистит, пиелонефрит, мочекаменная болезнь, аденома простаты.',
-    url: 'https://altamed-s.ru/services/urology',
+    url: 'https://altamed-c.ru/services/urology',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/services/urology.webp',
+        url: 'https://altamed-c.ru/images/services/urology.webp',
         width: 1200,
         height: 630,
         alt: 'Урология в Альтамед-с',
@@ -46,10 +46,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Уролог в Одинцово - Лечение простатита, цистита | Альтамед-с',
     description: 'Уролог в Одинцово - профессиональная диагностика и лечение заболеваний мочеполовой системы: простатит, цистит, пиелонефрит, мочекаменная болезнь.',
-    images: ['https://altamed-s.ru/images/services/urology.webp'],
+    images: ['https://altamed-c.ru/images/services/urology.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/urology',
+    canonical: 'https://altamed-c.ru/services/urology',
   },
 };
 

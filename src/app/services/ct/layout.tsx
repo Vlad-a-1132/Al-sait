@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'КТ (Компьютерная томография) в Одинцово - КТ головы, легких, позвоночника | Альтамед-с',
     description: 'КТ (Компьютерная томография) в Одинцово - КТ головы, легких, позвоночника, брюшной полости, суставов. Современное оборудование, опытные врачи-рентгенологи.',
-    url: 'https://altamed-s.ru/services/ct',
+    url: 'https://altamed-c.ru/services/ct',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/img diagnostika/kt22.webp',
+        url: 'https://altamed-c.ru/images/img diagnostika/kt22.webp',
         width: 1200,
         height: 630,
         alt: 'Компьютерная томография в Альтамед-с',
@@ -40,10 +40,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'КТ в Одинцово - Компьютерная томография головы, легких | Альтамед-с',
     description: 'КТ (Компьютерная томография) в Одинцово - КТ головы, легких, позвоночника, брюшной полости, суставов. Современное оборудование.',
-    images: ['https://altamed-s.ru/images/img diagnostika/kt22.webp'],
+    images: ['https://altamed-c.ru/images/img diagnostika/kt22.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/ct',
+    canonical: 'https://altamed-c.ru/services/ct',
   },
 };
 

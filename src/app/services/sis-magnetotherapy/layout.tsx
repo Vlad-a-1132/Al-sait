@@ -18,13 +18,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'SIS-магнитотерапия в Одинцово - Лечение суставов и позвоночника | Альтамед-с',
     description: 'SIS-магнитотерапия в Одинцово - лечение заболеваний суставов и позвоночника, лечение боли, реабилитация, улучшение кровообращения.',
-    url: 'https://altamed-s.ru/services/sis-magnetotherapy',
+    url: 'https://altamed-c.ru/services/sis-magnetotherapy',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/sis-magnetotherapy',
+    canonical: 'https://altamed-c.ru/services/sis-magnetotherapy',
   },
 };
 

@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Скрининг беременности в Одинцово - Пренатальная диагностика, УЗИ беременных | Альтамед-с',
     description: 'Скрининг беременности в Одинцово - пренатальная диагностика, УЗИ беременных, скрининг 1, 2, 3 триместра, определение пола ребенка.',
-    url: 'https://altamed-s.ru/services/pregnancy-screening',
+    url: 'https://altamed-c.ru/services/pregnancy-screening',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/services/pregnancy-screening.webp',
+        url: 'https://altamed-c.ru/images/services/pregnancy-screening.webp',
         width: 1200,
         height: 630,
         alt: 'Скрининг беременности в Альтамед-с',
@@ -40,10 +40,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Скрининг беременности в Одинцово - Пренатальная диагностика | Альтамед-с',
     description: 'Скрининг беременности в Одинцово - пренатальная диагностика, УЗИ беременных, скрининг 1, 2, 3 триместра, определение пола ребенка.',
-    images: ['https://altamed-s.ru/images/services/pregnancy-screening.webp'],
+    images: ['https://altamed-c.ru/images/services/pregnancy-screening.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/pregnancy-screening',
+    canonical: 'https://altamed-c.ru/services/pregnancy-screening',
   },
 };
 

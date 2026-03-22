@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: 'Аллергология в Одинцово - Диагностика и лечение аллергии | Альтамед-с',
     description: 'Профессиональная аллергология в Одинцово. Диагностика аллергических заболеваний, лечение аллергии, консультация аллерголога-иммунолога.',
     type: 'website',
-    url: 'https://altamed-s.ru/services/allergology',
+    url: 'https://altamed-c.ru/services/allergology',
     images: [
       {
         url: '/images/images allergoly/allergoly (2).webp',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     images: ['/images/images allergoly/allergoly (2).webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/allergology',
+    canonical: 'https://altamed-c.ru/services/allergology',
   },
   other: {
     'application/ld+json': JSON.stringify({
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
       "@type": "MedicalBusiness",
       "name": "Альтамед-С- Аллергология",
       "description": "Клиника аллергологии и иммунологии в Одинцово",
-      "url": "https://altamed-s.ru/services/allergology",
+      "url": "https://altamed-c.ru/services/allergology",
       "telephone": "+7 (495) 255-44-50",
       "address": {
         "@type": "PostalAddress",

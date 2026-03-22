@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Укрепление тканей зуба в Одинцово - Фторирование эмали | Альтамед-с',
     description: 'Укрепление тканей зуба в Одинцово. Глубокое фторирование эмали, покрытие фторсодержащими препаратами, запечатывание фиссур.',
-    url: 'https://altamed-s.ru/services/dentistry/strengthening',
+    url: 'https://altamed-c.ru/services/dentistry/strengthening',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/strengthening',
+    canonical: 'https://altamed-c.ru/services/dentistry/strengthening',
   },
 };
 

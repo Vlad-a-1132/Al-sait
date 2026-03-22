@@ -23,11 +23,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Семейный психолог в Одинцово - Семейная психотерапия, помощь в отношениях | Альтамед-с',
     description: 'Семейный психолог в Одинцово - семейная психотерапия, помощь в отношениях, решение семейных конфликтов, детско-родительские отношения.',
-    url: 'https://altamed-s.ru/services/family-psychology',
+    url: 'https://altamed-c.ru/services/family-psychology',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/services/family-psychology.webp',
+        url: 'https://altamed-c.ru/images/services/family-psychology.webp',
         width: 1200,
         height: 630,
         alt: 'Семейная психология в Альтамед-с',
@@ -40,10 +40,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Семейный психолог в Одинцово - Семейная психотерапия | Альтамед-с',
     description: 'Семейный психолог в Одинцово - семейная психотерапия, помощь в отношениях, решение семейных конфликтов, детско-родительские отношения.',
-    images: ['https://altamed-s.ru/images/services/family-psychology.webp'],
+    images: ['https://altamed-c.ru/images/services/family-psychology.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/family-psychology',
+    canonical: 'https://altamed-c.ru/services/family-psychology',
   },
 };
 

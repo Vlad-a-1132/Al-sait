@@ -28,11 +28,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Терапевт в Одинцово - Лечение заболеваний внутренних органов | Альтамед-с',
     description: 'Терапевт в Одинцово - профессиональная диагностика и лечение заболеваний внутренних органов: ОРВИ, грипп, бронхит, пневмония, гипертония, сахарный диабет.',
-    url: 'https://altamed-s.ru/services/therapy',
+    url: 'https://altamed-c.ru/services/therapy',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/services/therapy.webp',
+        url: 'https://altamed-c.ru/images/services/therapy.webp',
         width: 1200,
         height: 630,
         alt: 'Терапия в Альтамед-с',
@@ -45,10 +45,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Терапевт в Одинцово - Лечение заболеваний внутренних органов | Альтамед-с',
     description: 'Терапевт в Одинцово - профессиональная диагностика и лечение заболеваний внутренних органов: ОРВИ, грипп, бронхит, пневмония, гипертония.',
-    images: ['https://altamed-s.ru/images/services/therapy.webp'],
+    images: ['https://altamed-c.ru/images/services/therapy.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/therapy',
+    canonical: 'https://altamed-c.ru/services/therapy',
   },
 };
 

@@ -3,7 +3,7 @@ import { doctors } from '@/data/static-data';
 import { articles } from '@/data/static-data';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://altamed-s.ru';
+  const baseUrl = 'https://altamed-c.ru';
   
   // Статические страницы
   const staticPages: MetadataRoute.Sitemap = [

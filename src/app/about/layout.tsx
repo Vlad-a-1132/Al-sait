@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'О нас - Медицинский центр Альтамед-Св Одинцово',
     description: 'Медицинский центр Альтамед-Св Одинцово - информация о клинике, лицензии, сертификаты, отзывы пациентов, фотогалерея, вакансии, новости.',
-    url: 'https://altamed-s.ru/about',
+    url: 'https://altamed-c.ru/about',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/about',
+    canonical: 'https://altamed-c.ru/about',
   },
 };
 

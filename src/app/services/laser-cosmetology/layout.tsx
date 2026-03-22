@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: 'Лазерная косметология в Одинцово - Лазерная эпиляция, фотоомоложение, удаление татуировок | Альтамед-с',
     description: 'Лазерная косметология в Одинцово - профессиональные процедуры лазерной эпиляции, фотоомоложения, удаления татуировок, фотоокоагуляции сосудов. Современное оборудование в клинике Альтамед-с.',
     type: 'website',
-    url: 'https://altamed-s.ru/services/laser-cosmetology',
+    url: 'https://altamed-c.ru/services/laser-cosmetology',
     locale: 'ru_RU',
     siteName: 'Альтамед-с',
     images: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     images: ['/images/images allergoly/lazer kosmet.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/laser-cosmetology',
+    canonical: 'https://altamed-c.ru/services/laser-cosmetology',
   },
   robots: {
     index: true,
@@ -69,9 +69,9 @@ export const metadata: Metadata = {
       "@type": "MedicalBusiness",
       "name": "Альтамед-С- Лазерная косметология в Одинцово",
       "description": "Клиника лазерной косметологии в Одинцово. Профессиональные процедуры лазерной эпиляции, фотоомоложения, удаления татуировок, фотоокоагуляции сосудов.",
-      "url": "https://altamed-s.ru/services/laser-cosmetology",
+      "url": "https://altamed-c.ru/services/laser-cosmetology",
       "telephone": "+7 (495) 255-44-50",
-      "email": "info@altamed-s.ru",
+      "email": "info@altamed-c.ru",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Одинцово",

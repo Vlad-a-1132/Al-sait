@@ -19,13 +19,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Рентген зубов в Одинцово - Прицельный снимок, ОПТГ | Альтамед-с',
     description: 'Рентген зубов в Одинцово - прицельный снимок зуба, панорамный снимок (ОПТГ), радиовизиография. Современное цифровое оборудование.',
-    url: 'https://altamed-s.ru/services/dentistry/xray',
+    url: 'https://altamed-c.ru/services/dentistry/xray',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/xray',
+    canonical: 'https://altamed-c.ru/services/dentistry/xray',
   },
 };
 

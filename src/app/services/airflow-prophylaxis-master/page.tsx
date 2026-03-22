@@ -634,8 +634,8 @@ export default function AirflowProphylaxisMasterPage() {
                 "@context": "https://schema.org",
                 "@type": "MedicalBusiness",
                 name: "Клиника «Альтамед-С» — AIRFLOW Prophylaxis Master в Одинцово",
-                url: "https://altamed-s.ru/services/airflow-prophylaxis-master",
-                image: "https://altamed-s.ru/images/yslugi/air flow.webp",
+                url: "https://altamed-c.ru/services/airflow-prophylaxis-master",
+                image: "https://altamed-c.ru/images/yslugi/air flow.webp",
                 medicalSpecialty: "Dental",
                 aggregateRating: {
                   "@type": "AggregateRating",
@@ -655,7 +655,7 @@ export default function AirflowProphylaxisMasterPage() {
                 description:
                   "Профессиональная гигиена полости рта по протоколу GBT с использованием швейцарского аппарата AIRFLOW® Prophylaxis Master. Безболезненная процедура для взрослых и детей в Одинцово.",
                 sameAs: [
-                  "https://altamed-s.ru",
+                  "https://altamed-c.ru",
                   "https://yandex.ru/maps/org/altamed_s/1919839667"
                 ]
               })

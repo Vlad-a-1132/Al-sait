@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Поиск по сайту - Медицинский центр Альтамед-Св Одинцово',
     description: 'Поиск по сайту медицинского центра Альтамед-Св Одинцово - найдите нужного врача, услугу или информацию на сайте клиники.',
-    url: 'https://altamed-s.ru/search',
+    url: 'https://altamed-c.ru/search',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/search',
+    canonical: 'https://altamed-c.ru/search',
   },
   robots: {
     index: false,

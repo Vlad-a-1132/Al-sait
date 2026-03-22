@@ -28,11 +28,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Медицинский центр Альтамед-Св Одинцово - Запись к врачу онлайн',
     description: 'Медицинский центр Альтамед-Св Одинцово - многопрофильная клиника с широким спектром медицинских услуг. Запись к врачу онлайн, современное оборудование, опытные специалисты.',
-    url: 'https://altamed-s.ru',
+    url: 'https://altamed-c.ru',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/icons/S.webp',
+        url: 'https://altamed-c.ru/images/icons/S.webp',
         width: 1200,
         height: 630,
         alt: 'Медицинский центр Альтамед-с',
@@ -45,10 +45,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Медицинский центр Альтамед-Св Одинцово - Запись к врачу онлайн',
     description: 'Медицинский центр Альтамед-Св Одинцово - многопрофильная клиника с широким спектром медицинских услуг.',
-    images: ['https://altamed-s.ru/images/icons/S.webp'],
+    images: ['https://altamed-c.ru/images/icons/S.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru',
+    canonical: 'https://altamed-c.ru',
   },
 };
 

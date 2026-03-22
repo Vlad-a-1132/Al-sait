@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Экстренная хирургия в Одинцово - Гнойная хирургия | Альтамед-с',
     description: 'Экстренная и гнойная хирургия в Одинцово. Хирургическая обработка ран, вскрытие абсцессов, лечение альвеолита.',
-    url: 'https://altamed-s.ru/services/dentistry/emergency',
+    url: 'https://altamed-c.ru/services/dentistry/emergency',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/emergency',
+    canonical: 'https://altamed-c.ru/services/dentistry/emergency',
   },
 };
 

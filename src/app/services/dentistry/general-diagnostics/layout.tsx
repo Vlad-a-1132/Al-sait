@@ -18,13 +18,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Диагностика в стоматологии - Консультации, осмотры | Альтамед-с',
     description: 'Диагностика в стоматологии в Одинцово - консультации стоматологов всех специальностей, осмотры, рентген, ОПТГ, КТ челюстей.',
-    url: 'https://altamed-s.ru/services/dentistry/general-diagnostics',
+    url: 'https://altamed-c.ru/services/dentistry/general-diagnostics',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/general-diagnostics',
+    canonical: 'https://altamed-c.ru/services/dentistry/general-diagnostics',
   },
 };
 

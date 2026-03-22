@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'CAD/CAM-технологии в Одинцово - Керамические вкладки, виниры, коронки | Альтамед-с',
     description: 'CAD/CAM-технологии в Одинцово. Керамические вкладки, виниры e-max, коронки из диоксида циркония, прозрачный цирконий Prettau.',
-    url: 'https://altamed-s.ru/services/dentistry/cadcam',
+    url: 'https://altamed-c.ru/services/dentistry/cadcam',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/cadcam',
+    canonical: 'https://altamed-c.ru/services/dentistry/cadcam',
   },
 };
 

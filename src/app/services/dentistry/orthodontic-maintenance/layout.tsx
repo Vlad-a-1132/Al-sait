@@ -16,13 +16,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Обслуживание ортодонтических аппаратов в Одинцово - Ремонт брекетов | Альтамед-с',
     description: 'Обслуживание ортодонтических аппаратов в Одинцово - ремонт брекетов, замена дуг, лигатур.',
-    url: 'https://altamed-s.ru/services/dentistry/orthodontic-maintenance',
+    url: 'https://altamed-c.ru/services/dentistry/orthodontic-maintenance',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/orthodontic-maintenance',
+    canonical: 'https://altamed-c.ru/services/dentistry/orthodontic-maintenance',
   },
 };
 

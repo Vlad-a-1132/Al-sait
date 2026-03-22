@@ -38,11 +38,11 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
     openGraph: {
       title: `${article.title} - Блог | Альтамед-с`,
       description: description,
-      url: `https://altamed-s.ru/blog/${id}`,
+      url: `https://altamed-c.ru/blog/${id}`,
       siteName: 'Альтамед-с',
       images: article.image ? [
         {
-          url: `https://altamed-s.ru${article.image}`,
+          url: `https://altamed-c.ru${article.image}`,
           width: 1200,
           height: 630,
           alt: article.title,
@@ -52,7 +52,7 @@ export async function generateMetadata({ params }: { params: Promise<{ id: strin
       type: 'article',
     },
     alternates: {
-      canonical: `https://altamed-s.ru/blog/${id}`,
+      canonical: `https://altamed-c.ru/blog/${id}`,
     },
   };
 }

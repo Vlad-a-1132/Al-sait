@@ -29,11 +29,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Травматолог-ортопед в Одинцово - Лечение травм, переломов, заболеваний суставов | Альтамед-с',
     description: 'Травматолог-ортопед в Одинцово - лечение травм, переломов, вывихов, заболеваний суставов и позвоночника. Консультации травматолога, рентген, наложение гипса.',
-    url: 'https://altamed-s.ru/services/traumatology',
+    url: 'https://altamed-c.ru/services/traumatology',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/services/traumatology.webp',
+        url: 'https://altamed-c.ru/images/services/traumatology.webp',
         width: 1200,
         height: 630,
         alt: 'Травматология в Альтамед-с',
@@ -46,10 +46,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Травматолог-ортопед в Одинцово - Лечение травм, переломов | Альтамед-с',
     description: 'Травматолог-ортопед в Одинцово - лечение травм, переломов, вывихов, заболеваний суставов и позвоночника. Консультации травматолога.',
-    images: ['https://altamed-s.ru/images/services/traumatology.webp'],
+    images: ['https://altamed-c.ru/images/services/traumatology.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/traumatology',
+    canonical: 'https://altamed-c.ru/services/traumatology',
   },
 };
 

@@ -28,11 +28,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Проктолог в Одинцово - Лечение геморроя, парапроктита, анальных трещин | Альтамед-с',
     description: 'Проктолог в Одинцово - профессиональная диагностика и лечение заболеваний прямой кишки: геморрой, парапроктит, анальные трещины, колит, полипы. Современные методы лечения.',
-    url: 'https://altamed-s.ru/services/proctology',
+    url: 'https://altamed-c.ru/services/proctology',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/services/proctology.webp',
+        url: 'https://altamed-c.ru/images/services/proctology.webp',
         width: 1200,
         height: 630,
         alt: 'Проктология в Альтамед-с',
@@ -45,10 +45,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Проктолог в Одинцово - Лечение геморроя, парапроктита | Альтамед-с',
     description: 'Проктолог в Одинцово - профессиональная диагностика и лечение заболеваний прямой кишки: геморрой, парапроктит, анальные трещины, колит, полипы.',
-    images: ['https://altamed-s.ru/images/services/proctology.webp'],
+    images: ['https://altamed-c.ru/images/services/proctology.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/proctology',
+    canonical: 'https://altamed-c.ru/services/proctology',
   },
 };
 

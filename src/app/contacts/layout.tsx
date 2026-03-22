@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Контакты - Медицинский центр Альтамед-Св Одинцово',
     description: 'Контакты медицинского центра Альтамед-Св Одинцово - адреса клиник, телефоны для записи, график работы, схема проезда. Запись на прием: +7 (495) 255-44-50',
-    url: 'https://altamed-s.ru/contacts',
+    url: 'https://altamed-c.ru/contacts',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/contacts',
+    canonical: 'https://altamed-c.ru/contacts',
   },
 };
 

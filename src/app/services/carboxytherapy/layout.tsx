@@ -19,13 +19,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Карбокситерапия в Одинцово - Уколы углекислого газа, омоложение | Альтамед-с',
     description: 'Карбокситерапия в Одинцово - уколы углекислого газа, омоложение кожи, лечение целлюлита, улучшение микроциркуляции. Безоперационная косметология.',
-    url: 'https://altamed-s.ru/services/carboxytherapy',
+    url: 'https://altamed-c.ru/services/carboxytherapy',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/carboxytherapy',
+    canonical: 'https://altamed-c.ru/services/carboxytherapy',
   },
 };
 

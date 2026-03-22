@@ -28,7 +28,7 @@ export const metadata: Metadata = {
     title: 'Эндокринолог в Одинцово - Лечение заболеваний эндокринной системы, диабета, щитовидной железы | Альтамед-с',
     description: 'Эндокринолог в Одинцово - диагностика и лечение заболеваний щитовидной железы, сахарного диабета, ожирения, гормональных нарушений. Консультация эндокринолога в клинике Альтамед-с.',
     type: 'website',
-    url: 'https://altamed-s.ru/services/endocrinology',
+    url: 'https://altamed-c.ru/services/endocrinology',
     locale: 'ru_RU',
     siteName: 'Альтамед-с',
     images: [
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     images: ['/images/yslugi/endokrinjlog.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/endocrinology',
+    canonical: 'https://altamed-c.ru/services/endocrinology',
   },
   robots: {
     index: true,

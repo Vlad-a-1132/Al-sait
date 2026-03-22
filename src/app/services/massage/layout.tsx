@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Массаж в Одинцово - Лечебный, расслабляющий, детский массаж | Альтамед-с',
     description: 'Массаж в Одинцово - лечебный массаж, расслабляющий массаж, детский массаж, массаж спины, массаж шеи, антицеллюлитный массаж. Профессиональные массажисты.',
-    url: 'https://altamed-s.ru/services/massage',
+    url: 'https://altamed-c.ru/services/massage',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/services/massage.webp',
+        url: 'https://altamed-c.ru/images/services/massage.webp',
         width: 1200,
         height: 630,
         alt: 'Массаж в Альтамед-с',
@@ -43,10 +43,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Массаж в Одинцово - Лечебный, расслабляющий, детский массаж | Альтамед-с',
     description: 'Массаж в Одинцово - лечебный массаж, расслабляющий массаж, детский массаж, массаж спины, массаж шеи, антицеллюлитный массаж.',
-    images: ['https://altamed-s.ru/images/services/massage.webp'],
+    images: ['https://altamed-c.ru/images/services/massage.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/massage',
+    canonical: 'https://altamed-c.ru/services/massage',
   },
 };
 

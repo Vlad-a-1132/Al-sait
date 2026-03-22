@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Акции и спецпредложения - Медицинский центр Альтамед-Св Одинцово',
     description: 'Акции и спецпредложения медицинского центра Альтамед-Св Одинцово - скидки на медицинские услуги, диагностику, анализы, стоматологию.',
-    url: 'https://altamed-s.ru/promo',
+    url: 'https://altamed-c.ru/promo',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/promo',
+    canonical: 'https://altamed-c.ru/promo',
   },
 };
 

@@ -14,13 +14,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Эстетическая стоматология в Одинцово - Отбеливание зубов ZOOM4 | Альтамед-с',
     description: 'Эстетическая стоматология в Одинцово. Профессиональное отбеливание зубов системой PHILIPS ZOOM4.',
-    url: 'https://altamed-s.ru/services/dentistry/aesthetic',
+    url: 'https://altamed-c.ru/services/dentistry/aesthetic',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/aesthetic',
+    canonical: 'https://altamed-c.ru/services/dentistry/aesthetic',
   },
 };
 

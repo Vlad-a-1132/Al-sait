@@ -19,13 +19,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'КТ челюстей в Одинцово - Компьютерная томография для стоматологии | Альтамед-с',
     description: 'КТ челюстей в Одинцово - компьютерная томография для стоматологии, 3D-диагностика перед имплантацией, планирование лечения.',
-    url: 'https://altamed-s.ru/services/dentistry/ct',
+    url: 'https://altamed-c.ru/services/dentistry/ct',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/ct',
+    canonical: 'https://altamed-c.ru/services/dentistry/ct',
   },
 };
 

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     title: 'Невролог в Одинцово - Диагностика и лечение заболеваний нервной системы | Альтамед-с',
     description: 'Профессиональная неврология в Одинцово. Диагностика и лечение заболеваний нервной системы, консультация невролога, рефлексотерапия.',
     type: 'website',
-    url: 'https://altamed-s.ru/services/neurology',
+    url: 'https://altamed-c.ru/services/neurology',
     locale: 'ru_RU',
     siteName: 'Альтамед-с',
     images: [
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     images: ['/images/images allergoly/nevrolog.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/neurology',
+    canonical: 'https://altamed-c.ru/services/neurology',
   },
   robots: {
     index: true,
@@ -64,9 +64,9 @@ export const metadata: Metadata = {
       "@type": "MedicalBusiness",
       "name": "Альтамед-С- Неврология в Одинцово",
       "description": "Клиника неврологии в Одинцово. Профессиональная диагностика и лечение заболеваний нервной системы.",
-      "url": "https://altamed-s.ru/services/neurology",
+      "url": "https://altamed-c.ru/services/neurology",
       "telephone": "+7 (495) 255-44-50",
-      "email": "info@altamed-s.ru",
+      "email": "info@altamed-c.ru",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Одинцово",

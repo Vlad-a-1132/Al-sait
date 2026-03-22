@@ -20,11 +20,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Биорезонансная терапия в Одинцово - Лечение без лекарств, диагностика | Альтамед-с',
     description: 'Биорезонансная терапия в Одинцово - лечение без лекарств, диагностика заболеваний, выявление аллергенов, паразитов. Безболезненный метод лечения.',
-    url: 'https://altamed-s.ru/services/bioresonance',
+    url: 'https://altamed-c.ru/services/bioresonance',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/services/bioresonance.webp',
+        url: 'https://altamed-c.ru/images/services/bioresonance.webp',
         width: 1200,
         height: 630,
         alt: 'Биорезонансная терапия в Альтамед-с',
@@ -37,10 +37,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Биорезонансная терапия в Одинцово - Лечение без лекарств | Альтамед-с',
     description: 'Биорезонансная терапия в Одинцово - лечение без лекарств, диагностика заболеваний, выявление аллергенов, паразитов.',
-    images: ['https://altamed-s.ru/images/services/bioresonance.webp'],
+    images: ['https://altamed-c.ru/images/services/bioresonance.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/bioresonance',
+    canonical: 'https://altamed-c.ru/services/bioresonance',
   },
 };
 

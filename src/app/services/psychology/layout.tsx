@@ -27,11 +27,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Психолог в Одинцово - Психологическая помощь, консультации, терапия | Альтамед-с',
     description: 'Психолог в Одинцово - профессиональная психологическая помощь, консультации психолога, психотерапия, работа с депрессией, тревожностью, стрессом.',
-    url: 'https://altamed-s.ru/services/psychology',
+    url: 'https://altamed-c.ru/services/psychology',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/services/psychology.webp',
+        url: 'https://altamed-c.ru/images/services/psychology.webp',
         width: 1200,
         height: 630,
         alt: 'Психология в Альтамед-с',
@@ -44,10 +44,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Психолог в Одинцово - Психологическая помощь, консультации | Альтамед-с',
     description: 'Психолог в Одинцово - профессиональная психологическая помощь, консультации психолога, психотерапия, работа с депрессией, тревожностью, стрессом.',
-    images: ['https://altamed-s.ru/images/services/psychology.webp'],
+    images: ['https://altamed-c.ru/images/services/psychology.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/psychology',
+    canonical: 'https://altamed-c.ru/services/psychology',
   },
 };
 

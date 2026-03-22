@@ -27,12 +27,12 @@ export const metadata: Metadata = {
     description:
       "Все о гонконгском гриппе H3N2: от симптомов до профилактики. Узнайте, как защитить себя и свою семью. Клиника «Альтамед-С» в Одинцово.",
     type: "article",
-    url: "https://altamed-s.ru/services/gonkongskiy-gripp",
+    url: "https://altamed-c.ru/services/gonkongskiy-gripp",
     locale: "ru_RU",
     siteName: "Альтамед-С",
     images: [
       {
-        url: "https://altamed-s.ru/images/yslugi/h3n2.webp",
+        url: "https://altamed-c.ru/images/yslugi/h3n2.webp",
         width: 1200,
         height: 630,
         alt: "Гонконгский грипп H3N2",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     ],
   },
   alternates: {
-    canonical: "https://altamed-s.ru/services/gonkongskiy-gripp",
+    canonical: "https://altamed-c.ru/services/gonkongskiy-gripp",
   },
   robots: {
     index: true,

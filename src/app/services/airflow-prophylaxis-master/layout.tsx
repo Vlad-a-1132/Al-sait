@@ -22,17 +22,17 @@ export const metadata: Metadata = {
     "безболезненная чистка зубов"
   ],
   alternates: {
-    canonical: "https://altamed-s.ru/services/airflow-prophylaxis-master"
+    canonical: "https://altamed-c.ru/services/airflow-prophylaxis-master"
   },
   openGraph: {
     title: "AIRFLOW Prophylaxis Master - Профессиональная чистка зубов по протоколу GBT в Одинцово | Альтамед-С",
     description:
       "Профессиональная гигиена полости рта по протоколу GBT с использованием швейцарского аппарата AIRFLOW® Prophylaxis Master в Одинцово. Безболезненное удаление биоплёнки и зубных отложений.",
-    url: "https://altamed-s.ru/services/airflow-prophylaxis-master",
+    url: "https://altamed-c.ru/services/airflow-prophylaxis-master",
     type: "article",
     images: [
       {
-        url: "https://altamed-s.ru/images/yslugi/air flow.webp",
+        url: "https://altamed-c.ru/images/yslugi/air flow.webp",
         width: 1200,
         height: 630,
         alt: "AIRFLOW Prophylaxis Master - профессиональная гигиена зубов в Одинцово"

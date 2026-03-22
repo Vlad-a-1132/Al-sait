@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Удаление зубов в Одинцово - Простое и сложное удаление | Альтамед-с',
     description: 'Удаление зубов в Одинцово. Простое и сложное удаление зубов, удаление ретинированных зубов.',
-    url: 'https://altamed-s.ru/services/dentistry/extraction',
+    url: 'https://altamed-c.ru/services/dentistry/extraction',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/extraction',
+    canonical: 'https://altamed-c.ru/services/dentistry/extraction',
   },
 };
 

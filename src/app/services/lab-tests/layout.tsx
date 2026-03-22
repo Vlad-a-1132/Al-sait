@@ -28,11 +28,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Анализы в Одинцово - Лабораторная диагностика, сдача анализов крови | Альтамед-с',
     description: 'Анализы в Одинцово - полный спектр лабораторных исследований: анализы крови, мочи, биохимия, гормоны, онкомаркеры, инфекции. Сдача анализов без очередей, быстрые результаты.',
-    url: 'https://altamed-s.ru/services/lab-tests',
+    url: 'https://altamed-c.ru/services/lab-tests',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/services/lab-tests.webp',
+        url: 'https://altamed-c.ru/images/services/lab-tests.webp',
         width: 1200,
         height: 630,
         alt: 'Лабораторная диагностика в Альтамед-с',
@@ -45,10 +45,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Анализы в Одинцово - Лабораторная диагностика, сдача анализов | Альтамед-с',
     description: 'Анализы в Одинцово - полный спектр лабораторных исследований: анализы крови, мочи, биохимия, гормоны, онкомаркеры, инфекции.',
-    images: ['https://altamed-s.ru/images/services/lab-tests.webp'],
+    images: ['https://altamed-c.ru/images/services/lab-tests.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/lab-tests',
+    canonical: 'https://altamed-c.ru/services/lab-tests',
   },
 };
 

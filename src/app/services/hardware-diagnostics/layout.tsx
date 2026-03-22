@@ -27,11 +27,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Аппаратная диагностика в Одинцово - УЗИ, КТ, МРТ, Рентген, Эндоскопия | Альтамед-с',
     description: 'Аппаратная диагностика в Одинцово - полный спектр диагностических исследований: УЗИ, компьютерная томография (КТ), рентген, эндоскопия, функциональная диагностика. Современное оборудование, опытные врачи.',
-    url: 'https://altamed-s.ru/services/hardware-diagnostics',
+    url: 'https://altamed-c.ru/services/hardware-diagnostics',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/img diagnostika/endoskop.webp',
+        url: 'https://altamed-c.ru/images/img diagnostika/endoskop.webp',
         width: 1200,
         height: 630,
         alt: 'Аппаратная диагностика в Альтамед-с',
@@ -44,10 +44,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Аппаратная диагностика в Одинцово - УЗИ, КТ, МРТ, Рентген | Альтамед-с',
     description: 'Аппаратная диагностика в Одинцово - полный спектр диагностических исследований: УЗИ, компьютерная томография (КТ), рентген, эндоскопия, функциональная диагностика.',
-    images: ['https://altamed-s.ru/images/img diagnostika/endoskop.webp'],
+    images: ['https://altamed-c.ru/images/img diagnostika/endoskop.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/hardware-diagnostics',
+    canonical: 'https://altamed-c.ru/services/hardware-diagnostics',
   },
 };
 

@@ -1873,7 +1873,7 @@ export async function generateMetadata({ params }: DoctorPageProps): Promise<Met
   // Полный URL для изображения
   const imageUrl = doctor.photo.startsWith('http') 
     ? doctor.photo 
-    : `https://altamed-s.ru${doctor.photo}`;
+    : `https://altamed-c.ru${doctor.photo}`;
 
   return {
     title,
@@ -1901,7 +1901,7 @@ export async function generateMetadata({ params }: DoctorPageProps): Promise<Met
       images: [imageUrl],
     },
     alternates: {
-      canonical: `https://altamed-s.ru/doctors/${slug}`,
+      canonical: `https://altamed-c.ru/doctors/${slug}`,
     },
   };
 }
@@ -2259,7 +2259,7 @@ export default async function DoctorPage({ params }: DoctorPageProps) {
       "addressCountry": "RU"
     },
     "image": doctor.photo,
-    "url": `https://altamed-s.ru/doctors/${slug}`
+    "url": `https://altamed-c.ru/doctors/${slug}`
   };
 
   // JSON-LD для хлебных крошек
@@ -2271,19 +2271,19 @@ export default async function DoctorPage({ params }: DoctorPageProps) {
         "@type": "ListItem",
         "position": 1,
         "name": "Главная",
-        "item": "https://altamed-s.ru/"
+        "item": "https://altamed-c.ru/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Врачи",
-        "item": "https://altamed-s.ru/doctors"
+        "item": "https://altamed-c.ru/doctors"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": doctor.name,
-        "item": `https://altamed-s.ru/doctors/${slug}`
+        "item": `https://altamed-c.ru/doctors/${slug}`
       }
     ]
   };

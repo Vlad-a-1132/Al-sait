@@ -18,13 +18,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Расписание врачей - Медицинский центр Альтамед-Св Одинцово',
     description: 'Расписание врачей медицинского центра Альтамед-Св Одинцово - график приема специалистов, доступное время для записи.',
-    url: 'https://altamed-s.ru/schedule',
+    url: 'https://altamed-c.ru/schedule',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/schedule',
+    canonical: 'https://altamed-c.ru/schedule',
   },
 };
 

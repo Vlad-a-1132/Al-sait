@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Терапевтическая стоматология в Одинцово - Лечение зубов, пульпит | Альтамед-с',
     description: 'Терапевтическая стоматология в Одинцово - лечение кариеса, пульпита, периодонтита, лечение корневых каналов, эндодонтия. Современное оборудование, микроскоп.',
-    url: 'https://altamed-s.ru/services/dentistry/therapeutic',
+    url: 'https://altamed-c.ru/services/dentistry/therapeutic',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/therapeutic',
+    canonical: 'https://altamed-c.ru/services/dentistry/therapeutic',
   },
 };
 

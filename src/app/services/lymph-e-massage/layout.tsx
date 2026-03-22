@@ -19,13 +19,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Лимфодренажный массаж в Одинцово - Лимфомассаж, детокс массаж | Альтамед-с',
     description: 'Лимфодренажный массаж в Одинцово - лимфомассаж, детокс массаж, улучшение лимфотока, снятие отеков, коррекция фигуры.',
-    url: 'https://altamed-s.ru/services/lymph-e-massage',
+    url: 'https://altamed-c.ru/services/lymph-e-massage',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/lymph-e-massage',
+    canonical: 'https://altamed-c.ru/services/lymph-e-massage',
   },
 };
 

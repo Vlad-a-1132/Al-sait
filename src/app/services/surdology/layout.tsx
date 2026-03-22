@@ -28,11 +28,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Сурдолог в Одинцово - Лечение нарушений слуха, слухопротезирование | Альтамед-с',
     description: 'Сурдолог в Одинцово - диагностика и лечение нарушений слуха, слухопротезирование, подбор слуховых аппаратов. Консультации сурдолога, аудиометрия, тимпанометрия.',
-    url: 'https://altamed-s.ru/services/surdology',
+    url: 'https://altamed-c.ru/services/surdology',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/services/surdology.webp',
+        url: 'https://altamed-c.ru/images/services/surdology.webp',
         width: 1200,
         height: 630,
         alt: 'Сурдология в Альтамед-с',
@@ -45,10 +45,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Сурдолог в Одинцово - Лечение нарушений слуха | Альтамед-с',
     description: 'Сурдолог в Одинцово - диагностика и лечение нарушений слуха, слухопротезирование, подбор слуховых аппаратов. Консультации сурдолога.',
-    images: ['https://altamed-s.ru/images/services/surdology.webp'],
+    images: ['https://altamed-c.ru/images/services/surdology.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/surdology',
+    canonical: 'https://altamed-c.ru/services/surdology',
   },
 };
 

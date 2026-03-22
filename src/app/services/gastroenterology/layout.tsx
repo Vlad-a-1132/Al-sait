@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: 'Гастроэнтеролог в Одинцово - Консультация, диагностика и лечение ЖКТ | Альтамед-с',
     description: 'Гастроэнтеролог в Одинцово - профессиональная диагностика и лечение заболеваний ЖКТ. Гастроскопия,  УЗИ. Запись на прием к гастроэнтерологу в клинике Альтамед-СОдинцово.',
     type: 'website',
-    url: 'https://altamed-s.ru/services/gastroenterology',
+    url: 'https://altamed-c.ru/services/gastroenterology',
     locale: 'ru_RU',
     siteName: 'Альтамед-с',
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     images: ['/images/images allergoly/gas.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/gastroenterology',
+    canonical: 'https://altamed-c.ru/services/gastroenterology',
   },
   robots: {
     index: true,
@@ -68,9 +68,9 @@ export const metadata: Metadata = {
       "@type": "MedicalBusiness",
       "name": "Альтамед-С- Гастроэнтерология в Одинцово",
       "description": "Клиника гастроэнтерологии в Одинцово. Профессиональная диагностика и лечение заболеваний ЖКТ. Гастроскопия, УЗИ брюшной полости.",
-      "url": "https://altamed-s.ru/services/gastroenterology",
+      "url": "https://altamed-c.ru/services/gastroenterology",
       "telephone": "+7 (495) 255-44-50",
-      "email": "info@altamed-s.ru",
+      "email": "info@altamed-c.ru",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Одинцово",

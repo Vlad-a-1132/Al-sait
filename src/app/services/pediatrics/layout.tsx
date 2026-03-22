@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     title: 'Педиатр в Одинцово - Детский врач, консультация педиатра, лечение детей | Альтамед-с',
     description: 'Педиатр в Одинцово - квалифицированная медицинская помощь детям от рождения до 18 лет. Консультации педиатра, вакцинация, профилактические осмотры. Опытные врачи в клинике Альтамед-с.',
     type: 'website',
-    url: 'https://altamed-s.ru/services/pediatrics',
+    url: 'https://altamed-c.ru/services/pediatrics',
     locale: 'ru_RU',
     siteName: 'Альтамед-с',
     images: [
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     images: ['/images/yslugi/Pediatrician.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/pediatrics',
+    canonical: 'https://altamed-c.ru/services/pediatrics',
   },
   robots: {
     index: true,

@@ -27,11 +27,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Функциональная диагностика в Одинцово - ЭКГ, ЭЭГ, ЭХО КГ, Холтер | Альтамед-с',
     description: 'Функциональная диагностика в Одинцово - ЭКГ, ЭЭГ, ЭХО КГ, холтеровское мониторирование. Оценка функционального состояния органов и систем организма. Современное оборудование, опытные врачи.',
-    url: 'https://altamed-s.ru/services/functional-diagnostics',
+    url: 'https://altamed-c.ru/services/functional-diagnostics',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/img diagnostika/funk diagnostik.webp',
+        url: 'https://altamed-c.ru/images/img diagnostika/funk diagnostik.webp',
         width: 1200,
         height: 630,
         alt: 'Функциональная диагностика в Альтамед-с',
@@ -44,10 +44,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Функциональная диагностика в Одинцово - ЭКГ, ЭЭГ, ЭХО КГ | Альтамед-с',
     description: 'Функциональная диагностика в Одинцово - ЭКГ, ЭЭГ, ЭХО КГ, холтеровское мониторирование. Оценка функционального состояния органов и систем организма.',
-    images: ['https://altamed-s.ru/images/img diagnostika/funk diagnostik.webp'],
+    images: ['https://altamed-c.ru/images/img diagnostika/funk diagnostik.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/functional-diagnostics',
+    canonical: 'https://altamed-c.ru/services/functional-diagnostics',
   },
 };
 

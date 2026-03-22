@@ -18,13 +18,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'HILT-лазер в Одинцово - Высокоинтенсивный лазер, лечение боли | Альтамед-с',
     description: 'HILT-лазер в Одинцово - высокоинтенсивный лазер, лечение боли, лечение заболеваний суставов и позвоночника, спортивных травм.',
-    url: 'https://altamed-s.ru/services/hilt-laser',
+    url: 'https://altamed-c.ru/services/hilt-laser',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/hilt-laser',
+    canonical: 'https://altamed-c.ru/services/hilt-laser',
   },
 };
 

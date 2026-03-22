@@ -30,13 +30,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Врачи - Медицинский центр Альтамед-Св Одинцово',
     description: 'Врачи медицинского центра Альтамед-Св Одинцово - список врачей, специалистов, запись на прием. Опытные врачи всех специальностей.',
-    url: 'https://altamed-s.ru/doctors',
+    url: 'https://altamed-c.ru/doctors',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/doctors',
+    canonical: 'https://altamed-c.ru/doctors',
   },
 };
 

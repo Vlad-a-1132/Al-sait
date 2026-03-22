@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: 'Диагностика в Одинцово - УЗИ, КТ, МРТ, эндоскопия, анализы | Альтамед-с',
     description: 'Диагностика в Одинцово - полный спектр диагностических исследований: УЗИ, КТ, рентген, эндоскопия, лабораторные анализы. Современное оборудование экспертного класса. Быстрая диагностика за 1 день.',
     type: 'website',
-    url: 'https://altamed-s.ru/diagnostics',
+    url: 'https://altamed-c.ru/diagnostics',
     locale: 'ru_RU',
     siteName: 'Альтамед-с',
     images: [
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     images: ['/images/img diagnostika/diagnostics.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/diagnostics',
+    canonical: 'https://altamed-c.ru/diagnostics',
   },
   robots: {
     index: true,

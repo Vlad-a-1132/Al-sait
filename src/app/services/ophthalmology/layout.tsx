@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Офтальмология в Одинцово - Диагностика и лечение глаз | Альтамед-с',
     description: 'Профессиональная офтальмология в Одинцово. Диагностика и лечение заболеваний глаз, коррекция зрения. Консультации офтальмологов, современные методы лечения.',
-    url: 'https://altamed-s.ru/services/ophthalmology',
+    url: 'https://altamed-c.ru/services/ophthalmology',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/images%20allergoly/oftalmologia.webp',
+        url: 'https://altamed-c.ru/images/images%20allergoly/oftalmologia.webp',
         width: 1200,
         height: 630,
         alt: 'Офтальмология в Альтамед-с',
@@ -43,10 +43,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Офтальмология в Одинцово - Диагностика и лечение глаз | Альтамед-с',
     description: 'Профессиональная офтальмология в Одинцово. Диагностика и лечение заболеваний глаз, коррекция зрения. Консультации офтальмологов, современные методы лечения. Запись на прием в клинике Альтамед-с.',
-    images: ['https://altamed-s.ru/images/images%20allergoly/oftalmologia.webp'],
+    images: ['https://altamed-c.ru/images/images%20allergoly/oftalmologia.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/ophthalmology',
+    canonical: 'https://altamed-c.ru/services/ophthalmology',
   },
 };
 

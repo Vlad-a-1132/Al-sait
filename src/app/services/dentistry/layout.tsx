@@ -43,13 +43,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Стоматология в Одинцово - Лечение зубов, имплантация, протезирование | Альтамед-с',
     description: 'Профессиональная стоматология в Одинцово. Лечение кариеса, имплантация зубов, протезирование, отбеливание, детская стоматология, ортодонтия. Современное оборудование, опытные врачи, безболезненное лечение.',
-    url: 'https://altamed-s.ru/services/dentistry',
+    url: 'https://altamed-c.ru/services/dentistry',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
     images: [
       {
-        url: 'https://altamed-s.ru/images/slides/banner%20stom.png',
+        url: 'https://altamed-c.ru/images/slides/banner%20stom.png',
         width: 1200,
         height: 630,
         alt: 'Стоматология в Альтамед-СОдинцово',
@@ -60,10 +60,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Стоматология в Одинцово - Лечение зубов, имплантация, протезирование | Альтамед-с',
     description: 'Профессиональная стоматология в Одинцово. Лечение кариеса, имплантация зубов, протезирование, отбеливание, детская стоматология.',
-    images: ['https://altamed-s.ru/images/slides/banner%20stom.png'],
+    images: ['https://altamed-c.ru/images/slides/banner%20stom.png'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry',
+    canonical: 'https://altamed-c.ru/services/dentistry',
   },
   robots: {
     index: true,

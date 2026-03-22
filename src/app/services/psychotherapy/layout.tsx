@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Психотерапевт в Одинцово - Психотерапия, лечение депрессии, тревожности | Альтамед-с',
     description: 'Психотерапевт в Одинцово - профессиональная психотерапия, лечение депрессии, тревожности, панических атак, фобий. Консультации психотерапевта.',
-    url: 'https://altamed-s.ru/services/psychotherapy',
+    url: 'https://altamed-c.ru/services/psychotherapy',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/services/psychotherapy.webp',
+        url: 'https://altamed-c.ru/images/services/psychotherapy.webp',
         width: 1200,
         height: 630,
         alt: 'Психотерапия в Альтамед-с',
@@ -43,10 +43,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Психотерапевт в Одинцово - Психотерапия, лечение депрессии | Альтамед-с',
     description: 'Психотерапевт в Одинцово - профессиональная психотерапия, лечение депрессии, тревожности, панических атак, фобий.',
-    images: ['https://altamed-s.ru/images/services/psychotherapy.webp'],
+    images: ['https://altamed-c.ru/images/services/psychotherapy.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/psychotherapy',
+    canonical: 'https://altamed-c.ru/services/psychotherapy',
   },
 };
 

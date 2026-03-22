@@ -27,11 +27,11 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Отоларингология в Одинцово - Диагностика и лечение ЛОР-заболеваний | Альтамед-с',
     description: 'Профессиональная отоларингология в Одинцово. Диагностика и лечение заболеваний уха, горла и носа. Консультации ЛОР-врачей, современные методы лечения.',
-    url: 'https://altamed-s.ru/services/otolaryngology',
+    url: 'https://altamed-c.ru/services/otolaryngology',
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-s.ru/images/images%20allergoly/otolaryngologia.webp',
+        url: 'https://altamed-c.ru/images/images%20allergoly/otolaryngologia.webp',
         width: 1200,
         height: 630,
         alt: 'Отоларингология в Альтамед-с',
@@ -44,10 +44,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Отоларингология в Одинцово - Диагностика и лечение ЛОР-заболеваний | Альтамед-с',
     description: 'Профессиональная отоларингология в Одинцово. Диагностика и лечение заболеваний уха, горла и носа. Консультации ЛОР-врачей, современные методы лечения. Запись на прием в клинике Альтамед-с.',
-    images: ['https://altamed-s.ru/images/images%20allergoly/otolaryngologia.webp'],
+    images: ['https://altamed-c.ru/images/images%20allergoly/otolaryngologia.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/otolaryngology',
+    canonical: 'https://altamed-c.ru/services/otolaryngology',
   },
 };
 

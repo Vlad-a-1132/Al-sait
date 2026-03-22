@@ -20,13 +20,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Имплантация зубов в Одинцово - Установка имплантов | Альтамед-с',
     description: 'Имплантация зубов в Одинцово - установка зубных имплантов, протезирование на имплантах, одноэтапная и двухэтапная имплантация.',
-    url: 'https://altamed-s.ru/services/dentistry/implantation',
+    url: 'https://altamed-c.ru/services/dentistry/implantation',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/implantation',
+    canonical: 'https://altamed-c.ru/services/dentistry/implantation',
   },
 };
 

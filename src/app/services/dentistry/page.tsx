@@ -897,7 +897,7 @@ export default function DentistryPage() {
         "postalCode": "143005"
       },
       "telephone": "+7 (495) 255-44-50",
-      "url": "https://altamed-s.ru/services/dentistry",
+      "url": "https://altamed-c.ru/services/dentistry",
       "priceRange": "$$",
       "medicalSpecialty": [
         "Терапевтическая стоматология",

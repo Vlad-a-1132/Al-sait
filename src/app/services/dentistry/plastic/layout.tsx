@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Пластическая хирургия в Одинцово - Пластика мягких тканей | Альтамед-с',
     description: 'Пластическая хирургия в Одинцово. Пластика уздечек, вестибулопластика, гингивопластика, лоскутные операции.',
-    url: 'https://altamed-s.ru/services/dentistry/plastic',
+    url: 'https://altamed-c.ru/services/dentistry/plastic',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/plastic',
+    canonical: 'https://altamed-c.ru/services/dentistry/plastic',
   },
 };
 

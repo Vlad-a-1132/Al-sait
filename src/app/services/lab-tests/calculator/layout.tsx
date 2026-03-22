@@ -15,13 +15,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Калькулятор анализов - Рассчитать стоимость анализов | Альтамед-с',
     description: 'Калькулятор анализов - рассчитайте стоимость лабораторных анализов онлайн. Выберите нужные анализы и узнайте общую стоимость.',
-    url: 'https://altamed-s.ru/services/lab-tests/calculator',
+    url: 'https://altamed-c.ru/services/lab-tests/calculator',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/lab-tests/calculator',
+    canonical: 'https://altamed-c.ru/services/lab-tests/calculator',
   },
   robots: {
     index: true,

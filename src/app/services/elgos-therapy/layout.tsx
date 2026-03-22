@@ -19,13 +19,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Элгос-терапия в Одинцово - Лечение позвоночника и суставов | Альтамед-с',
     description: 'Элгос-терапия в Одинцово - лечение заболеваний позвоночника и суставов, вытяжение позвоночника, декомпрессия межпозвонковых дисков.',
-    url: 'https://altamed-s.ru/services/elgos-therapy',
+    url: 'https://altamed-c.ru/services/elgos-therapy',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/elgos-therapy',
+    canonical: 'https://altamed-c.ru/services/elgos-therapy',
   },
 };
 

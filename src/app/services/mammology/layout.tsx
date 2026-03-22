@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     title: 'Маммолог в Одинцово - Диагностика и лечение заболеваний молочных желез | Альтамед-с',
     description: 'Маммолог в Одинцово - профессиональная диагностика и лечение заболеваний молочных желез. УЗИ молочных желез, маммография, лечение мастопатии. Запись на прием к маммологу в клинике Альтамед-с.',
     type: 'website',
-    url: 'https://altamed-s.ru/services/mammology',
+    url: 'https://altamed-c.ru/services/mammology',
     locale: 'ru_RU',
     siteName: 'Альтамед-с',
     images: [
@@ -46,7 +46,7 @@ export const metadata: Metadata = {
     images: ['/images/images allergoly/mamalogy.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/mammology',
+    canonical: 'https://altamed-c.ru/services/mammology',
   },
   robots: {
     index: true,
@@ -68,9 +68,9 @@ export const metadata: Metadata = {
       "@type": "MedicalBusiness",
       "name": "Альтамед-С- Маммология в Одинцово",
       "description": "Клиника маммологии в Одинцово. Профессиональная диагностика и лечение заболеваний молочных желез. УЗИ молочных желез, маммография, лечение мастопатии.",
-      "url": "https://altamed-s.ru/services/mammology",
+      "url": "https://altamed-c.ru/services/mammology",
       "telephone": "+7 (495) 255-44-50",
-      "email": "info@altamed-s.ru",
+      "email": "info@altamed-c.ru",
       "address": {
         "@type": "PostalAddress",
         "addressLocality": "Одинцово",

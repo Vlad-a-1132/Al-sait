@@ -16,13 +16,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Несъемные ортодонтические аппараты в Одинцово - Ретейнеры, аппарат Forsus | Альтамед-с',
     description: 'Несъемные ортодонтические аппараты в Одинцово - ретейнеры, аппарат Forsus.',
-    url: 'https://altamed-s.ru/services/dentistry/fixed-appliances',
+    url: 'https://altamed-c.ru/services/dentistry/fixed-appliances',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/fixed-appliances',
+    canonical: 'https://altamed-c.ru/services/dentistry/fixed-appliances',
   },
 };
 

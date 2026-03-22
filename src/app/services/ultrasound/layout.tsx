@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     title: 'УЗИ в Одинцово - Ультразвуковая диагностика, УЗИ сосудов, УЗИ сердца, УЗИ детям | Альтамед-с',
     description: 'УЗИ в Одинцово - современная ультразвуковая диагностика сосудов шеи и конечностей, УЗИ малого таза, УЗИ брюшной полости, эхокардиография, УЗИ детям. Более 80 видов УЗИ-исследований. Цены от 900₽.',
     type: 'website',
-    url: 'https://altamed-s.ru/services/ultrasound',
+    url: 'https://altamed-c.ru/services/ultrasound',
     locale: 'ru_RU',
     siteName: 'Альтамед-с',
     images: [
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
     images: ['/images/img diagnostika/yzi.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/ultrasound',
+    canonical: 'https://altamed-c.ru/services/ultrasound',
   },
   robots: {
     index: true,

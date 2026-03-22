@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: 'Реабилитация в Одинцово - Физиотерапия, массаж, психология, остеопатия | Альтамед-с',
     description: 'Реабилитация в Одинцово - комплексное восстановление здоровья с использованием физиотерапии, массажа, психологии, остеопатии, ударно-волновой терапии, биорезонанса. Индивидуальные программы.',
     type: 'website',
-    url: 'https://altamed-s.ru/rehabilitation',
+    url: 'https://altamed-c.ru/rehabilitation',
     locale: 'ru_RU',
     siteName: 'Альтамед-с',
     images: [
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     images: ['/images/yslugi/rehabilitation.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/rehabilitation',
+    canonical: 'https://altamed-c.ru/rehabilitation',
   },
   robots: {
     index: true,

@@ -13,13 +13,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Протезирование зубов в Одинцово - Коронки на имплантатах, All-on-4 | Альтамед-с',
     description: 'Протезирование зубов в Одинцово. Протезирование на имплантатах, коронки из диоксида циркония, металлокерамика, протез All-on-4.',
-    url: 'https://altamed-s.ru/services/dentistry/prosthetics',
+    url: 'https://altamed-c.ru/services/dentistry/prosthetics',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/prosthetics',
+    canonical: 'https://altamed-c.ru/services/dentistry/prosthetics',
   },
 };
 

@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Съемные ортодонтические аппараты в Одинцово - Элайнеры, каппы | Альтамед-с',
     description: 'Съемные ортодонтические аппараты в Одинцово - элайнеры, каппы для исправления прикуса.',
-    url: 'https://altamed-s.ru/services/dentistry/removable-appliances',
+    url: 'https://altamed-c.ru/services/dentistry/removable-appliances',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/dentistry/removable-appliances',
+    canonical: 'https://altamed-c.ru/services/dentistry/removable-appliances',
   },
 };
 

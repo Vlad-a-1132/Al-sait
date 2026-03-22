@@ -19,13 +19,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Вакуумный массаж в Одинцово - Вакуум-терапия, антицеллюлитный массаж | Альтамед-с',
     description: 'Вакуумный массаж в Одинцово - вакуум-терапия, антицеллюлитный массаж, массаж банками, лимфодренажный массаж. Улучшение кровообращения, коррекция фигуры.',
-    url: 'https://altamed-s.ru/services/vacuum-massage',
+    url: 'https://altamed-c.ru/services/vacuum-massage',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/vacuum-massage',
+    canonical: 'https://altamed-c.ru/services/vacuum-massage',
   },
 };
 

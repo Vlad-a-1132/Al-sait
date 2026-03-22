@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     title: 'Рентген в Одинцово - Рентгенография легких, позвоночника, суставов | Альтамед-с',
     description: 'Рентген в Одинцово - современная цифровая рентгенография легких, позвоночника, суставов, костей. Рентген детям, низкая лучевая нагрузка. Цены от 2000₽.',
     type: 'website',
-    url: 'https://altamed-s.ru/services/xray',
+    url: 'https://altamed-c.ru/services/xray',
     locale: 'ru_RU',
     siteName: 'Альтамед-с',
     images: [
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     images: ['/images/img diagnostika/rentgen.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/xray',
+    canonical: 'https://altamed-c.ru/services/xray',
   },
   robots: {
     index: true,

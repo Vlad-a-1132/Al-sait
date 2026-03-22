@@ -16,13 +16,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Колл-центр - Медицинский центр Альтамед-Св Одинцово',
     description: 'Колл-центр медицинского центра Альтамед-Св Одинцово - запись на прием по телефону, консультации, справки о записях.',
-    url: 'https://altamed-s.ru/call-center',
+    url: 'https://altamed-c.ru/call-center',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/call-center',
+    canonical: 'https://altamed-c.ru/call-center',
   },
 };
 

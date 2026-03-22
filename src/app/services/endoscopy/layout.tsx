@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     title: 'Эндоскопия в Одинцово - Гастроскопия (ФГДС) | Альтамед-с',
     description: 'Эндоскопия в Одинцово - гастроскопия на современном оборудовании экспертного класса. Биопсия, диагностика ЖКТ.',
     type: 'website',
-    url: 'https://altamed-s.ru/services/endoscopy',
+    url: 'https://altamed-c.ru/services/endoscopy',
     locale: 'ru_RU',
     siteName: 'Альтамед-с',
     images: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     images: ['/images/img diagnostika/endoskop.webp'],
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/services/endoscopy',
+    canonical: 'https://altamed-c.ru/services/endoscopy',
   },
   robots: {
     index: true,

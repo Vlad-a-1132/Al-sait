@@ -77,11 +77,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title: `${promo.title} - Акции | Альтамед-с`,
       description: promo.description,
-      url: `https://altamed-s.ru/promo/${slug}`,
+      url: `https://altamed-c.ru/promo/${slug}`,
       siteName: 'Альтамед-с',
       images: promo.image ? [
         {
-          url: `https://altamed-s.ru${promo.image}`,
+          url: `https://altamed-c.ru${promo.image}`,
           width: 1200,
           height: 630,
           alt: promo.title,
@@ -91,7 +91,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
       type: 'website',
     },
     alternates: {
-      canonical: `https://altamed-s.ru/promo/${slug}`,
+      canonical: `https://altamed-c.ru/promo/${slug}`,
     },
   };
 }

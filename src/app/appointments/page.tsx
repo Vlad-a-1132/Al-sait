@@ -17,13 +17,13 @@ export const metadata = {
   openGraph: {
     title: 'Запись на прием к врачу онлайн - Медицинский центр Альтамед-Св Одинцово',
     description: 'Запись на прием к врачу онлайн в медицинском центре Альтамед-Св Одинцово. Выберите врача, дату и время, заполните форму записи.',
-    url: 'https://altamed-s.ru/appointments',
+    url: 'https://altamed-c.ru/appointments',
     siteName: 'Альтамед-с',
     locale: 'ru_RU',
     type: 'website',
   },
   alternates: {
-    canonical: 'https://altamed-s.ru/appointments',
+    canonical: 'https://altamed-c.ru/appointments',
   },
 };
 
@@ -94,7 +94,7 @@ export default function AppointmentsPage() {
                 </li>
                 <li className="flex flex-col md:flex-row md:items-start gap-1 md:gap-0">
                   <span className="font-medium md:mr-2">Email:</span>
-                  <a href="mailto:info@altamed-s.ru" className="text-emerald-600 hover:text-emerald-700 transition break-all">info@altamed-s.ru</a>
+                  <a href="mailto:info@altamed-c.ru" className="text-emerald-600 hover:text-emerald-700 transition break-all">info@altamed-c.ru</a>
                 </li>
                 <li className="flex flex-col md:flex-row md:items-start gap-1 md:gap-0">
                   <span className="font-medium md:mr-2">Адрес:</span>
