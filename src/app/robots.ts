@@ -24,6 +24,7 @@ export default function robots(): MetadataRoute.Robots {
           '/search',
           '/call-center',
           '/_next/',
+          '/admin/',
         ],
       },
       {
@@ -34,6 +35,7 @@ export default function robots(): MetadataRoute.Robots {
           '/search',
           '/call-center',
           '/_next/',
+          '/admin/',
         ],
       },
       {
@@ -44,6 +46,7 @@ export default function robots(): MetadataRoute.Robots {
           '/search',
           '/call-center',
           '/_next/',
+          '/admin/',
         ],
       },
     ],

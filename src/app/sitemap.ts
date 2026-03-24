@@ -81,6 +81,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
   ];
 
+  // Подстраницы гинеколог в Одинцово
+  const ginekologPages: MetadataRoute.Sitemap = [
+    '/ginekolog-v-odintsovo/priem-ginekologa',
+    '/ginekolog-v-odintsovo/akusher-ginekolog',
+    '/ginekolog-v-odintsovo/vedenie-beremennosti',
+    '/ginekolog-v-odintsovo/profilakticheskie-osmotry',
+  ].map((path) => ({
+    url: `${baseUrl}${path}`,
+    lastModified: new Date(),
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }));
+
   // SEO-статьи по гинекологии
   const articlePages: MetadataRoute.Sitemap = [
     'kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov',
@@ -119,6 +132,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Страницы услуг
   const servicePages: MetadataRoute.Sitemap = [
+    '/services/priem-ginekologa-odintsovo',
+    '/services/akusher-ginekolog-odintsovo',
+    '/services/vedenie-beremennosti-odintsovo',
+    '/services/profilakticheskiy-osmotr-ginekologa-odintsovo',
     '/services/allergology',
     '/services/cardiology',
     '/services/dermatology',
@@ -212,6 +229,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPages,
+    ...ginekologPages,
     ...articlePages,
     ...servicePages,
     ...doctorPages,
