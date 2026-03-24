@@ -178,7 +178,7 @@ export default function TestGinoPage() {
   const [activeBranch, setActiveBranch] = useState(0);
   const [openVideo, setOpenVideo] = useState<string | null>(null);
   const [showMoreArticles, setShowMoreArticles] = useState(false);
-  return (<main className="min-h-screen pt-20 md:pt-0">
+  return (<main className="min-h-screen pt-0">
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-emerald-50 to-white overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 py-8 sm:py-10 md:py-16">
@@ -268,19 +268,19 @@ export default function TestGinoPage() {
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Цены на приём гинеколога в Одинцово</h2>
             <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
               <div className="lg:col-span-2 order-2 lg:order-1 rounded-2xl border border-gray-200 overflow-hidden bg-white">
-                <div className="overflow-x-auto overflow-y-auto max-h-[360px] sm:max-h-[480px] -mx-4 sm:mx-0 px-4 sm:px-0">
-                  <table className="w-full text-sm sm:text-base min-w-[400px]">
+                <div className="overflow-y-auto max-h-[480px] sm:max-h-[480px]">
+                  <table className="w-full text-sm sm:text-base table-fixed">
                     <thead className="sticky top-0 z-10 bg-gray-100">
                       <tr>
-                        <th className="text-left py-4 px-4 font-semibold text-gray-800">Услуга</th>
-                        <th className="text-right py-4 px-4 font-semibold text-gray-800 w-28 min-w-[7rem]">Цена</th>
+                        <th className="text-left py-4 px-3 sm:px-4 font-semibold text-gray-800 w-[60%] sm:w-auto">Услуга</th>
+                        <th className="text-right py-4 px-3 sm:px-4 font-semibold text-gray-800 w-[40%] sm:w-28">Цена</th>
                       </tr>
                     </thead>
                     <tbody>
                       {GYNECOLOGY_SERVICES_FLAT.map((s, i) => (
                         <tr key={s.code} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50/80'}>
-                          <td className="py-3.5 px-4 text-gray-800 leading-snug">{s.name}</td>
-                          <td className="py-3.5 px-4 text-right font-semibold text-gray-900 whitespace-nowrap">{s.price.includes('запрос') ? s.price : `${s.price.replace(/ руб\.?$/, '')} ₽`}</td>
+                          <td className="py-3.5 px-3 sm:px-4 text-gray-800 leading-snug break-words">{s.name}</td>
+                          <td className="py-3.5 px-3 sm:px-4 text-right font-semibold text-gray-900 whitespace-nowrap">{s.price.includes('запрос') ? s.price : `${s.price.replace(/ руб\.?$/, '')} ₽`}</td>
                         </tr>
                       ))}
                     </tbody>
