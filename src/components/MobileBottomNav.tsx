@@ -12,7 +12,7 @@ export default function MobileBottomNav() {
         {/* Elevated center action */}
         <div className="absolute -top-9 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-white shadow-[0_8px_24px_rgba(0,0,0,0.18)] grid place-items-center">
           <Link
-            href="/appointments"
+            href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer"
             className="w-14 h-14 rounded-full bg-emerald-600 text-white grid place-items-center shadow hover:bg-emerald-700"
             aria-label="Записаться"
           >

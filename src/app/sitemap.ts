@@ -73,7 +73,49 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+    {
+      url: `${baseUrl}/ginekolog-v-odintsovo`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
   ];
+
+  // SEO-статьи по гинекологии
+  const articlePages: MetadataRoute.Sitemap = [
+    'kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov',
+    'kak-podgotovitsya-k-priyomu-ginekologa',
+    'bol-vnizu-zhivota-u-zhenshchin-prichiny',
+    'narushenie-menstrualnogo-tsikla',
+    'vydeleniya-zud-zhzhenie-kogda-k-ginekologu',
+    'chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut',
+    'vedenie-beremennosti-v-odintsovo',
+    'ginekolog-ili-ginekolog-endokrinolog',
+    'vnutrimatochnaya-spiral-ustanovka-i-udalenie',
+    'chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut',
+    'pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit',
+    'biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto',
+    'uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie',
+    'dopplerometriya-pri-beremennosti-kogda-naznachayut-i-chto-pokazyvaet',
+    'pervyy-priem-beremennoy-kak-prohodit-konsultatsiya',
+    'podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya',
+    'kontrastnaya-ehohisterosalpingoskopiya-chto-pokazyvaet-issledovanie',
+    'endometrioz-simptomy-kogda-obraschatsya-i-kak-prohodit-lechenie',
+    'vaginit-simptomy-prichiny-i-kogda-nuzhna-konsultatsiya-ginekologa',
+    'polipy-v-ginekologii-kogda-nuzhno-udalenie-i-kak-prohodit-procedura',
+    'lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya',
+    'kriodestrukciya-sheyki-matki-kogda-primenyaetsya-i-chto-vazhno-znat',
+    'radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury',
+    'udalenie-kondilom-i-papillom-v-intimnoy-zone-kogda-obraschatsya-k-vrachu',
+    'podgotovka-k-eko-zachem-nuzhna-konsultatsiya-akushera-ginekologa',
+    'poslerodovyy-osmotr-u-ginekologa-kogda-prihodit-i-chto-proveryayut',
+    'profilakticheskiy-osmotr-ginekologa-kakie-obsledovaniya-mogut-ponadobitsya',
+  ].map((slug) => ({
+    url: `${baseUrl}/articles/${slug}`,
+    lastModified: new Date(),
+    changeFrequency: 'monthly' as const,
+    priority: 0.8,
+  }));
 
   // Страницы услуг
   const servicePages: MetadataRoute.Sitemap = [
@@ -81,7 +123,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/cardiology',
     '/services/dermatology',
     '/services/gastroenterology',
-    '/services/gynecology',
     '/services/neurology',
     '/services/otolaryngology',
     '/services/ophthalmology',
@@ -171,6 +212,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   return [
     ...staticPages,
+    ...articlePages,
     ...servicePages,
     ...doctorPages,
     ...blogPages,

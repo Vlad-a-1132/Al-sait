@@ -191,7 +191,7 @@ export default function RehabilitationPage() {
               <div className="bg-white p-4 flex flex-col justify-between items-start gap-3">
                 <div className="text-black font-medium text-sm">Реабилитационные программы</div>
                 <Link 
-                  href="/appointments" 
+                  href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" 
                   className="bg-purple-600 text-white rounded-full flex items-center justify-center w-full h-[46px] text-sm hover:bg-purple-700 transition-colors"
                 >
                   Записаться
@@ -217,7 +217,7 @@ export default function RehabilitationPage() {
                 <h2 className="text-2xl md:text-4xl font-bold mb-4">Реабилитация в Одинцово</h2>
                 <p className="text-lg md:text-xl mb-6 max-w-md">Комплексное восстановление здоровья</p>
                 <Link 
-                  href="/appointments" 
+                  href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" 
                   className="bg-purple-600 text-white rounded-full px-8 py-3 font-medium hover:bg-purple-700 transition-colors"
                 >
                   Записаться на консультацию

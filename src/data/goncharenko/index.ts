@@ -52,7 +52,7 @@ export const doctorGoncharenko: DoctorCore = {
     { label: "металл / керамика, брекеты", color: "gray" },
   ],
   ctas: {
-    primary: { label: "Записаться на приём", href: "/appointments" },
+    primary: { label: "Записаться на приём", href: "https://online.altamed-c.ru/" },
     secondary: { label: "Выбрать направление", href: "#directions" },
   },
   trustBadges: [

@@ -1,0 +1,15 @@
+import { Metadata } from 'next';
+import { GYNEC_SEO_PAGES } from '@/data/gynec-seo-pages';
+
+const c = GYNEC_SEO_PAGES['profilakticheskiy-osmotr-ginekologa-odintsovo'];
+
+export const metadata: Metadata = {
+  title: c.title,
+  description: c.description,
+  alternates: { canonical: c.canonical },
+  robots: { index: true, follow: true },
+};
+
+export default function Layout({ children }: { children: React.ReactNode }) {
+  return children;
+}

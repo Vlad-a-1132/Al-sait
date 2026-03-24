@@ -813,7 +813,7 @@ export default function ServicesPage() {
                     </svg>
                   </Link>
                 ) : service.id === 'gynecology' ? (
-                <Link key={service.id} href="/services/gynecology" className="bg-[#F6F8F7] rounded-[20px] hover:shadow-lg border border-gray-200 transition-all duration-300 cursor-pointer group flex items-center justify-between h-[80px] md:h-[100px] w-full max-w-[296.5px] p-0 overflow-hidden">
+                <Link key={service.id} href="/ginekolog-v-odintsovo" className="bg-[#F6F8F7] rounded-[20px] hover:shadow-lg border border-gray-200 transition-all duration-300 cursor-pointer group flex items-center justify-between h-[80px] md:h-[100px] w-full max-w-[296.5px] p-0 overflow-hidden">
                     <img 
                       src="/images/yslugi/Gynecology.webp" 
                       alt="Гинекология" 

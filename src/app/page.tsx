@@ -510,7 +510,7 @@ export default function Home() {
                 </svg>
               </Link>
               
-              <Link href="/services/gynecology" className="bg-[#E8F5E8] p-3 rounded-[20px] flex items-center justify-between h-[80px] relative overflow-hidden">
+              <Link href="/ginekolog-v-odintsovo" className="bg-[#E8F5E8] p-3 rounded-[20px] flex items-center justify-between h-[80px] relative overflow-hidden">
                 <span className="font-medium text-sm text-gray-800">Гинекология</span>
                 <svg className="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -612,7 +612,7 @@ export default function Home() {
                   </svg>
                 </Link>
                 
-                <Link href="/services/gynecology" className="bg-[#F6F8F7] p-4 rounded-[20px] flex items-center justify-between w-full md:w-[224px] h-[89px] relative overflow-hidden">
+                <Link href="/ginekolog-v-odintsovo" className="bg-[#F6F8F7] p-4 rounded-[20px] flex items-center justify-between w-full md:w-[224px] h-[89px] relative overflow-hidden">
                   <span className="font-medium text-sm md:text-base">Гинекология</span>
                   <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />

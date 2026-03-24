@@ -12,7 +12,8 @@ const nextConfig = {
   
   // Image settings
   images: {
-    unoptimized: true,
+    unoptimized: false,
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920],
   },
   
   // Webpack configuration for path aliases

@@ -51,7 +51,7 @@ export const directions: DirectionData[] = [
       { q: "Срок службы имплантатов?", a: "При правильном уходе — десятилетия." },
       { q: "Сколько по времени?", a: "Установка — один визит; полный цикл — несколько месяцев." },
     ],
-    cta: { primaryLabel: "Записаться на консультацию", primaryHref: "/appointments" },
+    cta: { primaryLabel: "Записаться на консультацию", primaryHref: "https://online.altamed-c.ru/" },
     priceBlockIntro: "Стоимость имплантации в клинике «Альтамед-С» формируется индивидуально, но мы фиксируем цены в договоре, чтобы пациент точно понимал итоговую сумму.",
     priceItems: [
       { name: "Внутрикостная дентальная имплантация (винтового) импланта системы Implantium Dentium (без стоимости материала)", price: "36 780 ₽" },
@@ -82,7 +82,7 @@ export const directions: DirectionData[] = [
     ],
     safety: ["Современные материалы", "Контроль"],
     faq: [{ q: "Больно ли?", a: "Под анестезией." }],
-    cta: { primaryLabel: "Записаться", primaryHref: "/appointments" },
+    cta: { primaryLabel: "Записаться", primaryHref: "https://online.altamed-c.ru/" },
     priceItems: [
       { code: "A16.07.041.01", name: "Костная пластика простая (1 сегмент)", price: "73 500 ₽" },
       { code: "A16.07.041.02", name: "Костная пластика сложная (1 сегмент)", price: "94 500 ₽" },
@@ -105,7 +105,7 @@ export const directions: DirectionData[] = [
     ],
     safety: ["Контроль пазухи", "Стерильность"],
     faq: [{ q: "Закрытый или открытый?", a: "Закрытый — через лунку. Открытый — при большом дефиците." }],
-    cta: { primaryLabel: "Записаться", primaryHref: "/appointments" },
+    cta: { primaryLabel: "Записаться", primaryHref: "https://online.altamed-c.ru/" },
     priceItems: [
       { code: "A16.07.055.000.01", name: "Синус-лифтинг (костная пластика, остеопластика) открытый (без стоимости остеоиндуктивного материала)", price: "53 260 ₽" },
       { code: "A16.07.055.000.05", name: "Синус-лифтинг (костная пластика, остеопластика) открытый (со стоимостью остеоиндуктивного материала+мембр.)", price: "90 000 ₽" },
@@ -129,7 +129,7 @@ export const directions: DirectionData[] = [
     ],
     safety: ["Щадящие методики"],
     faq: [{ q: "Как долго заживает?", a: "1–2 недели дискомфорт." }],
-    cta: { primaryLabel: "Записаться", primaryHref: "/appointments" },
+    cta: { primaryLabel: "Записаться", primaryHref: "https://online.altamed-c.ru/" },
     priceItems: [
       { code: "A16.07.040.000.21", name: "Пластика мягких тканей в области имплантанта", price: "9 640 ₽" },
       { code: "A16.07.041.017.01", name: "Пластика мягких тканей простая (1 сегмент)", price: "47 250 ₽" },
@@ -150,7 +150,7 @@ export const directions: DirectionData[] = [
     ],
     safety: ["Отбор по показаниям", "Протокол"],
     faq: [{ q: "Всем ли подходит?", a: "Нет, только при подходящей анатомии." }],
-    cta: { primaryLabel: "Записаться", primaryHref: "/appointments" },
+    cta: { primaryLabel: "Записаться", primaryHref: "https://online.altamed-c.ru/" },
     priceBlock: { from: "от 55 000 ₽", note: "имплант + установка" },
     priceBlockOutro: "Уточните при записи.",
   },
@@ -168,7 +168,7 @@ export const directions: DirectionData[] = [
     ],
     safety: ["Качественные материалы"],
     faq: [{ q: "Срок службы коронки?", a: "При хорошей гигиене — много лет." }],
-    cta: { primaryLabel: "Записаться", primaryHref: "/appointments" },
+    cta: { primaryLabel: "Записаться", primaryHref: "https://online.altamed-c.ru/" },
     priceItems: [
       { code: "A16.07.006.503", name: "Протезирование зуба с использованием имплантата. Коронка из диоксида циркония на имплантате (винтовая фиксация), 1 ед.", price: "45 000 ₽" },
       { code: "A16.07.006.504", name: "Протезирование зуба с использованием имплантата. Коронка из диоксида циркония на имплантате (цементная фиксация), позиционирующий абатмент 1 ед.", price: "45 000 ₽" },
@@ -192,7 +192,7 @@ export const directions: DirectionData[] = [
     ],
     safety: ["Керамика", "Щадящая подготовка"],
     faq: [{ q: "Виниры или коронки?", a: "Виниры — передние зубы. Коронки — при сильном разрушении." }],
-    cta: { primaryLabel: "Записаться", primaryHref: "/appointments" },
+    cta: { primaryLabel: "Записаться", primaryHref: "https://online.altamed-c.ru/" },
     priceItems: [
       { name: "Репанация зуба, искусственной коронки, 1 ед.", price: "Уточняйте" },
       { code: "A16.07.002.517", name: "Восстановление зуба пломбой. Восстановление молочного зуба металлической коронкой, 1 ед.", price: "Уточняйте" },

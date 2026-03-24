@@ -32,7 +32,7 @@ export function FaqByDirection({ direction, generalFaq }: { direction: Direction
           );
         })}
       </ul>
-      <Link href="/appointments" className="mt-6 flex w-full items-center justify-center rounded-2xl bg-[#21C7FF] py-4 font-semibold text-white">Записаться на консультацию</Link>
+      <Link href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="mt-6 flex w-full items-center justify-center rounded-2xl bg-[#21C7FF] py-4 font-semibold text-white">Записаться на консультацию</Link>
     </motion.div>
   );
 }

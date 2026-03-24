@@ -245,7 +245,7 @@ export default function ContactsPage() {
                     <p className="text-gray-900 font-semibold">{contactInfo.workingHours}</p>
                   </div>
                 </div>
-                <Link href="/appointments" className="bg-blue-600 text-white px-5 py-2 rounded-md font-medium hover:bg-blue-700 transition inline-block">
+                <Link href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="bg-blue-600 text-white px-5 py-2 rounded-md font-medium hover:bg-blue-700 transition inline-block">
                   Записаться на прием
                 </Link>
               </div>

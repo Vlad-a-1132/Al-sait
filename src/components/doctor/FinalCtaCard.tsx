@@ -26,6 +26,8 @@ export function FinalCtaCard({ cta }: { cta: { label: string; href: string } }) 
       <motion.div variants={vBtn} initial="rest" whileHover="hover" whileTap="tap">
         <Link
           href={cta.href}
+          target={cta.href.startsWith("http") ? "_blank" : undefined}
+          rel={cta.href.startsWith("http") ? "noopener noreferrer" : undefined}
           className="inline-flex rounded-2xl bg-[#21C7FF] px-8 py-4 font-semibold text-white shadow-lg shadow-[#21C7FF]/25 transition hover:opacity-90"
         >
           {cta.label}

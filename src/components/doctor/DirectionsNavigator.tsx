@@ -210,12 +210,13 @@ export function DirectionsNavigator({
                 <div className="flex flex-wrap items-center gap-3">
                   <motion.a
                     href={activeDirection.cta.primaryHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     variants={vBtn}
                     initial="rest"
                     whileHover="hover"
                     whileTap="tap"
                     className="inline-flex rounded-2xl bg-[#21C7FF] px-6 py-3 font-semibold text-white"
-                    rel="noopener"
                   >
                     {activeDirection.cta.primaryLabel}
                   </motion.a>
@@ -286,12 +287,13 @@ export function DirectionsNavigator({
                 <div className="flex flex-wrap items-center gap-3">
                   <motion.a
                     href={activeDirection.cta.primaryHref}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     variants={vBtn}
                     initial="rest"
                     whileHover="hover"
                     whileTap="tap"
                     className="inline-flex rounded-2xl bg-[#21C7FF] px-6 py-3 font-semibold text-white"
-                    rel="noopener"
                   >
                     {activeDirection.cta.primaryLabel}
                   </motion.a>

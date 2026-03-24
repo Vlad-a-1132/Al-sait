@@ -477,7 +477,7 @@ export default function SchedulePage() {
             </div>
             {/* Right Side - Button */}
             <div className="flex-shrink-0">
-              <a href="/appointments" className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg transition-all shadow-lg hover:shadow-xl">
+              <a href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="inline-block bg-orange-500 hover:bg-orange-600 text-white font-semibold px-6 py-3 md:px-8 md:py-4 rounded-xl text-base md:text-lg transition-all shadow-lg hover:shadow-xl">
                 Записаться на прием
               </a>
             </div>

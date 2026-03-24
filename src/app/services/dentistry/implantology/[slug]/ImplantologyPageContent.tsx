@@ -56,7 +56,7 @@ export function ImplantologyPageContent({ direction, content, seoContent, imageS
               </p>
               <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.3 }}>
                 <Link
-                  href="/appointments"
+                  href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 rounded-full bg-white px-8 py-3.5 font-semibold text-cyan-800 shadow-lg transition hover:bg-cyan-50 hover:shadow-xl"
                 >
                   Записаться на приём
@@ -650,7 +650,7 @@ export function ImplantologyPageContent({ direction, content, seoContent, imageS
               </p>
             </div>
             <Link
-              href="/appointments"
+              href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer"
               className="inline-flex shrink-0 items-center justify-center gap-2 rounded-full bg-white px-8 py-3.5 font-semibold text-cyan-800 shadow-lg transition hover:bg-cyan-50"
             >
               Записаться на приём

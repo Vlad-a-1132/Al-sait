@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
+import { GYNEC_ARTICLES_LIST } from '@/data/gynec-articles-images';
 
 function PatientInfoSection() {
   const [isRegulatoryOpen, setIsRegulatoryOpen] = useState(false);
@@ -1639,6 +1640,7 @@ function PatientInfoSection() {
 function AboutPageContent() {
   const searchParams = useSearchParams();
   const [activeSection, setActiveSection] = useState('photogallery');
+  const [pressTab, setPressTab] = useState<'news' | 'articles' | 'media'>('articles');
   
   // Проверяем, есть ли якорь в URL
   useEffect(() => {
@@ -1833,120 +1835,104 @@ function AboutPageContent() {
         </div>
               )}
 
-              {/* Статьи / Пресс-центр */}
+              {/* Пресс-центр: Новости / Статьи / СМИ */}
               {activeSection === 'news' && (
                 <div className="bg-white rounded-lg shadow-md p-6">
                   <h2 className="text-2xl md:text-3xl font-bold text-black mb-6">Пресс-центр</h2>
                   
                   {/* Навигационные табы */}
                   <div className="flex space-x-3 mb-6">
-                    <button className="bg-emerald-500 text-white py-2 px-6 rounded-full">
+                    <button
+                      type="button"
+                      onClick={() => setPressTab('news')}
+                      className={`py-2 px-6 rounded-full transition-colors ${pressTab === 'news' ? 'bg-emerald-500 text-white' : 'bg-gray-100 text-black hover:bg-gray-200'}`}
+                    >
                       Новости
                     </button>
-                    <button className="bg-gray-100 text-black py-2 px-6 rounded-full">
+                    <button
+                      type="button"
+                      onClick={() => setPressTab('articles')}
+                      className={`py-2 px-6 rounded-full transition-colors ${pressTab === 'articles' ? 'bg-emerald-500 text-white' : 'bg-gray-100 text-black hover:bg-gray-200'}`}
+                    >
                       Статьи
                     </button>
-                    <button className="bg-gray-100 text-black py-2 px-6 rounded-full">
+                    <button
+                      type="button"
+                      onClick={() => setPressTab('media')}
+                      className={`py-2 px-6 rounded-full transition-colors ${pressTab === 'media' ? 'bg-emerald-500 text-white' : 'bg-gray-100 text-black hover:bg-gray-200'}`}
+                    >
                       СМИ
                     </button>
                   </div>
                   
-                  {/* Карточки новостей */}
-                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
-                    {/* Новость 1 */}
-                    <div className="bg-gray-50 rounded-[20px] overflow-hidden">
-                      <div className="relative">
-                        <div className="w-full h-[180px] overflow-hidden">
-                          <Image
-                            src="/images/news/sert-ivanova-1200x831.jpg"
-                            alt="День донора в СМ-Клиника"
-                            width={400}
-                            height={180}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <div className="absolute top-2 right-2 bg-white px-2 py-1 rounded-md text-sm">
-                          06.05.2025
-                        </div>
-                      </div>
-                      <div className="p-4">
-                        <h3 className="font-bold text-lg mb-2 line-clamp-2">Иванова Ольга Юрьевна посетила XXVI Конгресс педиатров России</h3>
-                        <p className="text-sm text-gray-700 mb-4 line-clamp-3">
-                          ВРАЧ СУРДОЛОГ – ОТОРИНОЛАРИНГОЛОГ
-                          Участвовала в научной программе XXVI Конгресса педиатров России с международным участием
-                          «Актуальные проблемы педиатрии»
-                        </p>
-                        <button className="text-black font-medium">
-                          Подробнее
-                        </button>
-                      </div>
+                  {pressTab === 'articles' && (
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 lg:gap-6">
+                      {GYNEC_ARTICLES_LIST.map((a) => (
+                        <Link key={a.url} href={a.url} className="group flex flex-col rounded-xl bg-gray-50 border border-gray-100 shadow-sm hover:border-emerald-200 hover:shadow-md overflow-hidden transition">
+                          <div className="relative aspect-[4/3] bg-gray-200 overflow-hidden">
+                            <Image src={a.image} alt="" fill className="object-cover group-hover:scale-105 transition duration-300" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw" />
+                          </div>
+                          <div className="flex flex-col flex-1 p-4">
+                            <h3 className="font-bold text-gray-900 mb-2 text-sm uppercase tracking-wide leading-snug line-clamp-2">{a.title}</h3>
+                            <p className="text-gray-600 text-sm mb-4 line-clamp-2 flex-1">{a.desc}</p>
+                            <span className="text-emerald-600 font-medium text-sm hover:underline">
+                              Подробнее
+                            </span>
+                          </div>
+                        </Link>
+                      ))}
                     </div>
-                    
-                    {/* Новость 2 */}
-                    <div className="bg-gray-50 rounded-[20px] overflow-hidden">
-                      <div className="relative">
-                        <div className="w-full h-[180px] overflow-hidden">
-                          <Image
-                            src="/images/news/Интервью с Еленой Будко.webp"
-                            alt="Интервью с Еленой Будко"
-                            width={400}
-                            height={180}
-                            className="w-full object-cover"
-                            style={{ height: '341px' }}
-                          />
-                        </div>
-                        <div className="absolute top-2 right-2 bg-white px-2 py-1 rounded-md text-sm">
-                          06.05.2025
-                        </div>
-                      </div>
-                      <div className="p-4">
-                        <h3 className="font-bold text-lg mb-2 line-clamp-2">Интервью с Еленой Будко</h3>
-                        <p className="text-sm text-gray-700 mb-4 line-clamp-3">
-                          Прежде всего, профессия врача – это большая ответственность за здоровье и жизнь другого человека. Грамотный врач должен непрерывно развиваться и расширять свои знания в различных областях медицины
-                        </p>
-                        <button className="text-black font-medium">
-                          Подробнее
-                        </button>
-                      </div>
-                    </div>
-                    
-                    {/* Новость 3 */}
-                    <div className="bg-gray-50 rounded-[20px] overflow-hidden">
-                      <div className="relative">
-                        <div className="w-full h-[180px] overflow-hidden">
-                          <Image
-                            src="/images/news/11222-1-1.webp"
-                            alt="Интервью с Еленой Будко"
-                            width={400}
-                            height={180}
-                            className="w-full h-full object-cover"
-                          />
-                        </div>
-                        <div className="absolute top-2 right-2 bg-white px-2 py-1 rounded-md text-sm">
-                          30.04.2025
-                        </div>
-                      </div>
-                      <div className="p-4">
-                        <h3 className="font-bold text-lg mb-2 line-clamp-2">Высокоинтенсивная магнитотерапия (SIS)</h3>
-                        <p className="text-sm text-gray-700 mb-4 line-clamp-3">
-                          Высокоинтенсивная магнитотерапия (SIS) — это супериндуктивная система, которая состоит из блока управления и специальной катушки. Аппарат создает магнитное поле частотой до 150 Гц. Это запатентованная и уже проверенная в США и западных странах процедура, которая сегодня нашла применение в медицине, реабилитации и спорте. Высокоинтенсивная магнитотерапия помогает облегчить боль, улучшает подвижность суставов, стимулирует заживление переломов костей, вызывает мышечные сокращения и миорелаксацию. Во время процедуры происходят повторяющиеся сокращения мышечных волокон, которые:
-                        </p>
-                        <button className="text-black font-medium">
-                          Подробнее
-                        </button>
-                      </div>
-                    </div>
-                  </div>
+                  )}
                   
-                  {/* Кнопка "Смотреть все" */}
-                  <div className="mt-6">
-                    <button className="bg-gray-100 text-black py-2 px-6 rounded-full flex items-center">
-                      Смотреть все
-                      <svg className="w-4 h-4 ml-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                      </svg>
-                    </button>
-                  </div>
+                  {pressTab === 'news' && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+                      <div className="bg-gray-50 rounded-[20px] overflow-hidden">
+                        <div className="relative">
+                          <div className="w-full h-[180px] overflow-hidden">
+                            <Image src="/images/news/sert-ivanova-1200x831.jpg" alt="Иванова Ольга Юрьевна" width={400} height={180} className="w-full h-full object-cover" />
+                          </div>
+                          <div className="absolute top-2 right-2 bg-white px-2 py-1 rounded-md text-sm">06.05.2025</div>
+                        </div>
+                        <div className="p-4">
+                          <h3 className="font-bold text-lg mb-2 line-clamp-2">Иванова Ольга Юрьевна посетила XXVI Конгресс педиатров России</h3>
+                          <p className="text-sm text-gray-700 mb-4 line-clamp-3">ВРАЧ СУРДОЛОГ – ОТОРИНОЛАРИНГОЛОГ. Участвовала в научной программе XXVI Конгресса педиатров России с международным участием «Актуальные проблемы педиатрии»</p>
+                          <span className="text-black font-medium">Подробнее</span>
+                        </div>
+                      </div>
+                      <div className="bg-gray-50 rounded-[20px] overflow-hidden">
+                        <div className="relative">
+                          <div className="w-full h-[180px] overflow-hidden">
+                            <Image src="/images/news/Интервью с Еленой Будко.webp" alt="Интервью с Еленой Будко" width={400} height={180} className="w-full h-full object-cover" />
+                          </div>
+                          <div className="absolute top-2 right-2 bg-white px-2 py-1 rounded-md text-sm">06.05.2025</div>
+                        </div>
+                        <div className="p-4">
+                          <h3 className="font-bold text-lg mb-2 line-clamp-2">Интервью с Еленой Будко</h3>
+                          <p className="text-sm text-gray-700 mb-4 line-clamp-3">Прежде всего, профессия врача – это большая ответственность за здоровье и жизнь другого человека. Грамотный врач должен непрерывно развиваться.</p>
+                          <span className="text-black font-medium">Подробнее</span>
+                        </div>
+                      </div>
+                      <div className="bg-gray-50 rounded-[20px] overflow-hidden">
+                        <div className="relative">
+                          <div className="w-full h-[180px] overflow-hidden">
+                            <Image src="/images/news/11222-1-1.webp" alt="Магнитотерапия SIS" width={400} height={180} className="w-full h-full object-cover" />
+                          </div>
+                          <div className="absolute top-2 right-2 bg-white px-2 py-1 rounded-md text-sm">30.04.2025</div>
+                        </div>
+                        <div className="p-4">
+                          <h3 className="font-bold text-lg mb-2 line-clamp-2">Высокоинтенсивная магнитотерапия (SIS)</h3>
+                          <p className="text-sm text-gray-700 mb-4 line-clamp-3">Высокоинтенсивная магнитотерапия (SIS) — супериндуктивная система. Помогает облегчить боль, улучшает подвижность суставов, стимулирует заживление.</p>
+                          <span className="text-black font-medium">Подробнее</span>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                  
+                  {pressTab === 'media' && (
+                    <div className="py-12 text-center text-gray-500">
+                      Раздел в разработке
+                    </div>
+                  )}
                 </div>
               )}
 

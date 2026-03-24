@@ -101,7 +101,7 @@ function DoctorPageClient({ data }: { data: PageDataBundle }) {
           </SectionShell>
         )}
         <div className="h-10 md:h-14" />
-        <FinalCtaCard cta={{ label: "Записаться на приём", href: "/appointments" }} />
+        <FinalCtaCard cta={{ label: "Записаться на приём", href: "https://online.altamed-c.ru/" }} />
         <div className="h-16" />
       </div>
     </main>

@@ -52,7 +52,7 @@ export const directions: DirectionData[] = [
       { q: "Сколько носить брекеты?", a: "В среднем 1–2 года в зависимости от случая." },
       { q: "Больно ли ставить брекеты?", a: "Установка безболезненна; возможен дискомфорт в первые дни." },
     ],
-    cta: { primaryLabel: "Записаться на консультацию", primaryHref: "/appointments" },
+    cta: { primaryLabel: "Записаться на консультацию", primaryHref: "https://online.altamed-c.ru/" },
     priceBlock: { from: "от 45 000 ₽", note: "брекет-система" },
     priceItems: [
       { code: "A16.07.048.500", name: "Ортодонтическая коррекция с применением брекет-систем. Вестибулярные брекеты металлические, 1 челюсть", price: "63 910 ₽" },
@@ -85,7 +85,7 @@ export const directions: DirectionData[] = [
     ],
     safety: ["Опыт в гнатологии", "Междисциплинарный подход"],
     faq: [{ q: "Что такое ВНЧС?", a: "Височно-нижнечелюстной сустав. Его дисфункция может вызывать боль, щелчки, ограничение открывания рта." }],
-    cta: { primaryLabel: "Записаться", primaryHref: "/appointments" },
+    cta: { primaryLabel: "Записаться", primaryHref: "https://online.altamed-c.ru/" },
     priceBlock: { from: "от 15 000 ₽", note: "диагностика и план" },
     priceItems: [
       { code: "A06.07.013.004", name: "КТ двух челюстей и ВНЧС", price: "4 830 ₽" },
@@ -116,7 +116,7 @@ export const directions: DirectionData[] = [
     ],
     safety: ["Совместный план с хирургом при необходимости"],
     faq: [{ q: "Когда нужна операция?", a: "При выраженных скелетных аномалиях. Решение после диагностики." }],
-    cta: { primaryLabel: "Записаться", primaryHref: "/appointments" },
+    cta: { primaryLabel: "Записаться", primaryHref: "https://online.altamed-c.ru/" },
     priceBlock: { from: "от 30 000 ₽", note: "зависит от плана" },
     priceBlockOutro: "Уточните при записи.",
   },
@@ -137,7 +137,7 @@ export const directions: DirectionData[] = [
     ],
     safety: ["Сертифицированные системы", "Гигиена под контролем"],
     faq: [{ q: "Керамика или металл?", a: "Керамика менее заметна; металл прочнее и часто дешевле. Выбор по показаниям и пожеланиям." }],
-    cta: { primaryLabel: "Записаться", primaryHref: "/appointments" },
+    cta: { primaryLabel: "Записаться", primaryHref: "https://online.altamed-c.ru/" },
     priceBlock: { from: "от 45 000 ₽", note: "под ключ" },
     priceItems: [
       { code: "A16.07.048.500", name: "Ортодонтическая коррекция с применением брекет-систем. Вестибулярные брекеты металлические, 1 челюсть", price: "63 910 ₽" },
@@ -160,7 +160,7 @@ export const directions: DirectionData[] = [
     ],
     safety: ["Контроль прикуса", "Проверенные системы"],
     faq: [{ q: "Подходят ли элайнеры всем?", a: "Не для всех случаев. Нужна консультация и план." }],
-    cta: { primaryLabel: "Записаться", primaryHref: "/appointments" },
+    cta: { primaryLabel: "Записаться", primaryHref: "https://online.altamed-c.ru/" },
     priceBlock: { from: "от 120 000 ₽", note: "курс лечения" },
   },
   {
@@ -179,7 +179,7 @@ export const directions: DirectionData[] = [
     ],
     safety: ["Щадящие методики", "Учёт роста"],
     faq: [{ q: "С какого возраста вести ребёнка?", a: "Обычно с 5–7 лет — первый осмотр ортодонта." }],
-    cta: { primaryLabel: "Записаться", primaryHref: "/appointments" },
+    cta: { primaryLabel: "Записаться", primaryHref: "https://online.altamed-c.ru/" },
     priceBlock: { from: "от 15 000 ₽", note: "пластинка" },
     priceBlockIntro: "Приёмы врача-стоматолога-ортодонта",
     priceItems: [
@@ -208,7 +208,7 @@ export const directions: DirectionData[] = [
     ],
     safety: ["Снижение риска рецидива"],
     faq: [{ q: "Как долго носить ретейнеры?", a: "Несъёмные — годами; съёмные — по рекомендации врача, часто ночью." }],
-    cta: { primaryLabel: "Записаться", primaryHref: "/appointments" },
+    cta: { primaryLabel: "Записаться", primaryHref: "https://online.altamed-c.ru/" },
     priceBlock: { from: "от 8 000 ₽", note: "ретейнер" },
     priceBlockOutro: "Уточните при записи.",
   },
