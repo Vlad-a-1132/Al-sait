@@ -80,7 +80,7 @@ export default function PriemGinekologaPage() {
               </Link>
             </div>
             <div className="relative aspect-video rounded-2xl overflow-hidden">
-              <Image src="/images/gino/Altamed-С Odintsovo6.webp" alt="Клиника Альтамед-С" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 600px" quality={90} />
+              <Image src="/images/gino/altamed-c-odintsovo6.webp" alt="Клиника Альтамед-С" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 600px" quality={90} />
             </div>
           </div>
         </section>

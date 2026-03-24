@@ -391,7 +391,7 @@ export default function TestGinoPage() {
                 </ul>
               </div>
               <div className="relative aspect-video rounded-2xl overflow-hidden">
-                <Image src="/images/gino/Altamed-С Odintsovo6.webp" alt="Диагностика в клинике" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 600px" quality={92} />
+                <Image src="/images/gino/altamed-c-odintsovo6.webp" alt="Диагностика в клинике" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 600px" quality={92} />
               </div>
             </div>
           </div>
@@ -413,13 +413,13 @@ export default function TestGinoPage() {
             <div className="grid lg:grid-cols-2 gap-8">
               <div>
                 <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-gray-200 mb-3">
-                  <Image src="/images/gino/Altamed-С Odintsovo.webp" alt={ADDRESSES[activeBranch].title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
+                  <Image src="/images/gino/altamed-c-odintsovo.webp" alt={ADDRESSES[activeBranch].title} fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" />
                 </div>
                 <div className="flex gap-2">
                   {[
-                    '/images/gino/Altamed-С Odintsovo1.webp',
-                    '/images/gino/Altamed-С Odintsovo.webp',
-                    '/images/gino/Altamed-C home.webp',
+                    '/images/gino/altamed-c-odintsovo1.webp',
+                    '/images/gino/altamed-c-odintsovo.webp',
+                    '/images/gino/altamed-c-home.webp',
                   ].map((src, i) => (
                     <div key={i} className="relative aspect-video flex-1 rounded-lg overflow-hidden bg-gray-100 min-w-0">
                       <Image src={src} alt="" fill className="object-cover" sizes="150px" />
