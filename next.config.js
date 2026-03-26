@@ -14,6 +14,12 @@ const nextConfig = {
   images: {
     unoptimized: false,
     deviceSizes: [640, 750, 828, 1080, 1200, 1920],
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placehold.co',
+      },
+    ],
   },
   
   // Webpack configuration for path aliases
@@ -30,6 +36,27 @@ const nextConfig = {
     ignoreBuildErrors: false,
   },
   
+  async rewrites() {
+    return [
+      // Статьи остаются физически в /articles/*, но доступны пользователю как /blog/*
+      {
+        source: '/blog/:slug*',
+        destination: '/articles/:slug*',
+      },
+    ];
+  },
+
+  async redirects() {
+    return [
+      // Не даем индексировать и показывать /articles/* пользователю — используем /blog/*
+      {
+        source: '/articles/:slug*',
+        destination: '/blog/:slug*',
+        permanent: true,
+      },
+    ];
+  },
+
   // ESLint settings
   eslint: {
     ignoreDuringBuilds: false,
