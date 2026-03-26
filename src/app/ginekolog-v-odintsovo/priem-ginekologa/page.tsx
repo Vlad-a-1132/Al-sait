@@ -6,7 +6,7 @@ import { DirectionPageShell } from '../_direction-page';
 export const metadata: Metadata = {
   title: 'Приём гинеколога в Одинцово — консультация, осмотр, диагностика | Альтамед-С',
   description: 'Приём гинеколога в Одинцово: консультация, осмотр, диагностика. Опытные врачи, УЗИ и анализы в одной клинике. Запись на приём онлайн и по телефону.',
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
 };
 
 const RELATED = [

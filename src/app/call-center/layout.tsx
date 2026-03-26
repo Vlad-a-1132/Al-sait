@@ -24,6 +24,10 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://altamed-c.ru/call-center',
   },
+  robots: {
+    index: false,
+    follow: false,
+  },
 };
 
 export default function CallCenterLayout({

@@ -6,7 +6,7 @@ import { DirectionPageShell } from '../_direction-page';
 export const metadata: Metadata = {
   title: 'Планирование и ведение беременности в Одинцово — УЗИ, анализы | Альтамед-С',
   description: 'Планирование и ведение беременности в Одинцово. Подготовка к зачатию, УЗИ плода, анализы, наблюдение на всех сроках. Клиника Альтамед-С.',
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
 };
 
 const RELATED = [

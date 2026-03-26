@@ -6,7 +6,7 @@ import { DirectionPageShell } from '../_direction-page';
 export const metadata: Metadata = {
   title: 'Акушер-гинеколог в Одинцово — планирование, беременность, наблюдение | Альтамед-С',
   description: 'Акушер-гинеколог в Одинцово: планирование беременности, ведение беременности, послеродовое наблюдение. Консультации и приём в клинике Альтамед-С.',
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
 };
 
 const RELATED = [

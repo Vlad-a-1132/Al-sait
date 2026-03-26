@@ -6,7 +6,7 @@ import { DirectionPageShell } from '../_direction-page';
 export const metadata: Metadata = {
   title: 'Профилактический осмотр гинеколога в Одинцово — раннее выявление | Альтамед-С',
   description: 'Профилактические осмотры у гинеколога в Одинцово. Регулярный осмотр, раннее выявление заболеваний, мазки на онкоцитологию. Запись в Альтамед-С.',
-  robots: { index: false, follow: false },
+  robots: { index: true, follow: true },
 };
 
 const RELATED = [
