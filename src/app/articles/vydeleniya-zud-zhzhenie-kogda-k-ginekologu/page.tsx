@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Выделения, зуд, жжение: когда к гинекологу | Альтамед-С',
     description: 'Какие изменения выделений, зуд и жжение требуют визита к гинекологу.',
-    url: 'https://altamed-c.ru/articles/vydeleniya-zud-zhzhenie-kogda-k-ginekologu',
+    url: 'https://altamed-c.ru/blog/vydeleniya-zud-zhzhenie-kogda-k-ginekologu',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/vydeleniya-zud-zhzhenie-kogda-k-ginekologu' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/vydeleniya-zud-zhzhenie-kogda-k-ginekologu' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -163,7 +163,7 @@ export default function ArticleVydeleniyaZudZhzhenie() {
                 </div>
               ))}
             </div>
-            <p className="text-gray-700">Подробнее — <Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
+            <p className="text-gray-700">Подробнее — <Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
           </section>
 
           <section id="kandidoz" className="mb-10 scroll-mt-20">
@@ -225,7 +225,7 @@ export default function ArticleVydeleniyaZudZhzhenie() {
               <li><strong>pH влагалища</strong> — при подозрении на БВ (pH &gt; 4,5).</li>
             </ul>
             <p className="mb-4">
-              За 24–48 часов до приёма не использовать свечи, кремы, спринцевания и не иметь половых контактов — иначе мазок будет искажён. Подробнее о подготовке — в статье <Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.
+              За 24–48 часов до приёма не использовать свечи, кремы, спринцевания и не иметь половых контактов — иначе мазок будет искажён. Подробнее о подготовке — в статье <Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.
             </p>
           </section>
 
@@ -301,11 +301,11 @@ export default function ArticleVydeleniyaZudZhzhenie() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/bol-vnizu-zhivota-u-zhenshchin-prichiny">Боль внизу живота у женщин</Link></li>
-                  <li><Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
-                  <li><Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
-                  <li><Link href="/articles/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut">Что показывают мазки у гинеколога</Link></li>
-                  <li><Link href="/articles/vaginit-simptomy-prichiny-i-kogda-nuzhna-konsultatsiya-ginekologa">Вагинит: симптомы и когда нужна консультация</Link></li>
+                  <li><Link href="/blog/bol-vnizu-zhivota-u-zhenshchin-prichiny">Боль внизу живота у женщин</Link></li>
+                  <li><Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
+                  <li><Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
+                  <li><Link href="/blog/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut">Что показывают мазки у гинеколога</Link></li>
+                  <li><Link href="/blog/vaginit-simptomy-prichiny-i-kogda-nuzhna-konsultatsiya-ginekologa">Вагинит: симптомы и когда нужна консультация</Link></li>
                 </ul>
               </div>
             </div>

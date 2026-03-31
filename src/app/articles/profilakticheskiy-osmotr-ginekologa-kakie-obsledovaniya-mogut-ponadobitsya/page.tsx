@@ -4,17 +4,18 @@ import Image from 'next/image';
 import { GYNEC_ARTICLE_IMAGES, GYNEC_HUB_URL, GYNEC_SERVICES } from '@/data/gynec-articles-images';
 
 export const metadata: Metadata = {
-  title: 'Профилактический осмотр у гинеколога: какие обследования могут понадобиться | Альтамед-С',
-  description: 'Профилактический осмотр гинеколога: мазки, кольпоскопия, УЗИ — какие обследования входят в стандарт и когда нужны дополнительные.',
+  title: 'Профилактический осмотр у гинеколога: что входит и какие обследования нужны | Альтамед-С',
+  description:
+    'Что входит в профилактический осмотр у гинеколога: мазки, осмотр, когда нужна кольпоскопия или УЗИ, как часто проходить и как подготовиться.',
   openGraph: {
     title: 'Профилактический осмотр: какие обследования | Альтамед-С',
     description: 'Какие обследования входят в профилактический осмотр гинеколога.',
-    url: 'https://altamed-c.ru/articles/profilakticheskiy-osmotr-ginekologa-kakie-obsledovaniya-mogut-ponadobitsya',
+    url: 'https://altamed-c.ru/blog/profilakticheskiy-osmotr-ginekologa-kakie-obsledovaniya-mogut-ponadobitsya',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/profilakticheskiy-osmotr-ginekologa-kakie-obsledovaniya-mogut-ponadobitsya' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/profilakticheskiy-osmotr-ginekologa-kakie-obsledovaniya-mogut-ponadobitsya' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -118,14 +119,16 @@ export default function ArticleProfilakticheskiyOsmotrObsledovaniya() {
               <li><strong>Мазок на онкоцитологию</strong> — скрининг изменений шейки матки (раз в год при половой жизни).</li>
             </ul>
             <p className="mb-4">
-              Подробнее о мазках — в статье <Link href="/articles/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut">«Что показывают мазки у гинеколога»</Link>.
+              Подробнее о мазках — в статье{' '}
+              <Link href="/blog/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut">«Что показывают мазки у гинеколога»</Link>.
             </p>
           </section>
 
           <section id="kolposkopiya" className="mb-10 scroll-mt-20">
             <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">Когда назначают кольпоскопию</h2>
             <p className="mb-4">
-              Кольпоскопию назначают при изменениях в мазке на онкоцитологию, видимых изменениях на шейке матки, отягощённом анамнезе (ВПЧ, дисплазия в прошлом). Подробнее — в статье <Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">«Что показывает кольпоскопия»</Link>.
+              Кольпоскопию назначают при изменениях в мазке на онкоцитологию, видимых изменениях на шейке матки, отягощённом анамнезе (ВПЧ, дисплазия в прошлом). Подробнее — в статье{' '}
+              <Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">«Что показывает кольпоскопия»</Link>.
             </p>
           </section>
 
@@ -153,19 +156,20 @@ export default function ArticleProfilakticheskiyOsmotrObsledovaniya() {
           <section className="mb-10">
             <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">Как подготовиться</h2>
             <p className="mb-4">
-              За 1–2 дня — без половых контактов, спринцеваний, влагалищных препаратов. Оптимально — первая половина цикла (5–12-й день). Не во время менструации. Подробнее — в статье <Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.
+              За 1–2 дня — без половых контактов, спринцеваний, влагалищных препаратов. Оптимально — первая половина цикла (5–12-й день). Не во время менструации. Подробнее — в статье{' '}
+              <Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.
             </p>
           </section>
 
           <section className="rounded-2xl bg-emerald-50 p-8 text-center mb-10">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Профилактический осмотр в Альтамед-С</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Когда стоит записаться на профилактический осмотр?</h2>
             <p className="text-gray-700 mb-6">
-              В <Link href={GYNEC_HUB_URL}>Альтамед-С</Link> можно записаться на <Link href={GYNEC_SERVICES.profilaktika}>профилактический осмотр</Link>. Мазки, кольпоскопия, УЗИ — в одном месте. Запись — онлайн и по телефону.
+              Если вы давно не были у гинеколога, хотите пройти плановую проверку или уточнить результаты мазков и обследований, удобно записаться на услугу профилактического осмотра.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href={APPOINTMENTS_URL} target="_blank" rel="noopener noreferrer" className="px-8 py-4 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700">
-                Записаться на приём
-              </a>
+              <Link href={GYNEC_SERVICES.profilaktika} className="px-8 py-4 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700">
+                Перейти к услуге →
+              </Link>
               <a href={PHONE_LINK} className="px-8 py-4 border-2 border-emerald-600 text-emerald-600 font-medium rounded-xl hover:bg-emerald-50">
                 +7 (495) 255-44-50
               </a>
@@ -186,10 +190,10 @@ export default function ArticleProfilakticheskiyOsmotrObsledovaniya() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut">Что показывают мазки у гинеколога</Link></li>
-                  <li><Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
-                  <li><Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
-                  <li><Link href="/articles/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу</Link></li>
+                  <li><Link href="/blog/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut">Что показывают мазки у гинеколога</Link></li>
+                  <li><Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
+                  <li><Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
+                  <li><Link href="/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу</Link></li>
                 </ul>
               </div>
             </div>

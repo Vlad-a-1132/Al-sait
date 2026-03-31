@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Послеродовый осмотр у гинеколога | Альтамед-С',
     description: 'Когда приходить на послеродовый осмотр и что проверяют.',
-    url: 'https://altamed-c.ru/articles/poslerodovyy-osmotr-u-ginekologa-kogda-prihodit-i-chto-proveryayut',
+    url: 'https://altamed-c.ru/blog/poslerodovyy-osmotr-u-ginekologa-kogda-prihodit-i-chto-proveryayut',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/poslerodovyy-osmotr-u-ginekologa-kogda-prihodit-i-chto-proveryayut' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/poslerodovyy-osmotr-u-ginekologa-kogda-prihodit-i-chto-proveryayut' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -178,10 +178,10 @@ export default function ArticlePoslerodovyyOsmotr() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/vedenie-beremennosti-v-odintsovo">Ведение беременности в Одинцово</Link></li>
-                  <li><Link href="/articles/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya">Первый приём беременной</Link></li>
-                  <li><Link href="/articles/profilakticheskiy-osmotr-ginekologa-kakie-obsledovaniya-mogut-ponadobitsya">Профилактический осмотр: какие обследования</Link></li>
-                  <li><Link href="/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
+                  <li><Link href="/blog/kak-prohodit-vedenie-beremennosti">Ведение беременности в Одинцово</Link></li>
+                  <li><Link href="/blog/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya">Первый приём беременной</Link></li>
+                  <li><Link href="/blog/profilakticheskiy-osmotr-ginekologa-kakie-obsledovaniya-mogut-ponadobitsya">Профилактический осмотр: какие обследования</Link></li>
+                  <li><Link href="/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
                 </ul>
               </div>
             </div>

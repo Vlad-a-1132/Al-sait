@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Вагинит: симптомы и когда к гинекологу | Альтамед-С',
     description: 'Вагинит — симптомы, причины, когда нужна консультация гинеколога и лечение.',
-    url: 'https://altamed-c.ru/articles/vaginit-simptomy-prichiny-i-kogda-nuzhna-konsultatsiya-ginekologa',
+    url: 'https://altamed-c.ru/blog/vaginit-simptomy-prichiny-i-kogda-nuzhna-konsultatsiya-ginekologa',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/vaginit-simptomy-prichiny-i-kogda-nuzhna-konsultatsiya-ginekologa' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/vaginit-simptomy-prichiny-i-kogda-nuzhna-konsultatsiya-ginekologa' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -159,7 +159,7 @@ export default function ArticleVaginit() {
                 </div>
               ))}
             </div>
-            <p className="text-gray-700">Подробнее — <Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
+            <p className="text-gray-700">Подробнее — <Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
           </section>
 
           <section id="simptomy" className="mb-10 scroll-mt-20">
@@ -172,7 +172,7 @@ export default function ArticleVaginit() {
               <li>Иногда — боль при мочеиспускании.</li>
             </ul>
             <p className="mb-4">
-              Симптомы могут быть выражены по-разному. Иногда вагинит протекает почти незаметно. Подробнее о выделениях и зуде — в статье <Link href="/articles/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">«Выделения, зуд, жжение: когда к гинекологу»</Link>.
+              Симптомы могут быть выражены по-разному. Иногда вагинит протекает почти незаметно. Подробнее о выделениях и зуде — в статье <Link href="/blog/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">«Выделения, зуд, жжение: когда к гинекологу»</Link>.
             </p>
           </section>
 
@@ -194,7 +194,7 @@ export default function ArticleVaginit() {
               Запишитесь к <Link href={GYNEC_SERVICES.priem}>гинекологу</Link>, если появились необычные выделения, зуд, жжение или дискомфорт. Не начинайте лечение «свечами от молочницы» или спринцеванием без осмотра — это может смазать картину и усложнить диагностику.
             </p>
             <p className="mb-4">
-              Врач возьмёт мазок на флору, при необходимости — ПЦР на ИППП, и подберёт лечение по результатам. Подробнее о мазках — в статье <Link href="/articles/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut">«Что показывают мазки у гинеколога»</Link>.
+              Врач возьмёт мазок на флору, при необходимости — ПЦР на ИППП, и подберёт лечение по результатам. Подробнее о мазках — в статье <Link href="/blog/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut">«Что показывают мазки у гинеколога»</Link>.
             </p>
           </section>
 
@@ -251,10 +251,10 @@ export default function ArticleVaginit() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">Выделения, зуд, жжение: когда к гинекологу</Link></li>
-                  <li><Link href="/articles/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut">Что показывают мазки у гинеколога</Link></li>
-                  <li><Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
-                  <li><Link href="/articles/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу</Link></li>
+                  <li><Link href="/blog/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">Выделения, зуд, жжение: когда к гинекологу</Link></li>
+                  <li><Link href="/blog/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut">Что показывают мазки у гинеколога</Link></li>
+                  <li><Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
+                  <li><Link href="/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу</Link></li>
                 </ul>
               </div>
             </div>

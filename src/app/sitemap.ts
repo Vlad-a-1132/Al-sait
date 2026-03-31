@@ -45,7 +45,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/udalenie-kondilom-i-papillom-v-intimnoy-zone-kogda-obraschatsya-k-vrachu',
     '/blog/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie',
     '/blog/vaginit-simptomy-prichiny-i-kogda-nuzhna-konsultatsiya-ginekologa',
-    '/blog/vedenie-beremennosti-v-odintsovo',
+    '/blog/kak-prohodit-vedenie-beremennosti',
     '/blog/vnutrimatochnaya-spiral-ustanovka-i-udalenie',
     '/blog/vydeleniya-zud-zhzhenie-kogda-k-ginekologu',
     '/blog',

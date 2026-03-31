@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Радиоволновая биопсия шейки матки | Альтамед-С',
     description: 'Радиоволновая биопсия — особенности процедуры, подготовка и реабилитация.',
-    url: 'https://altamed-c.ru/articles/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury',
+    url: 'https://altamed-c.ru/blog/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -99,7 +99,7 @@ export default function ArticleRadiovolnovayaBiopsiyaSheykiMatki() {
             </div>
             <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">Когда назначают</h2>
             <p className="mb-4">
-              Радиоволновую биопсию выполняют при изменениях по результатам <Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопии</Link> и мазка на онкоцитологию — для уточнения диагноза. Также радиоволновой метод используют для удаления полипов, кондилом, лечения дисплазии. Подробнее о биопсии — в статье <Link href="/articles/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">«Биопсия шейки матки»</Link>.
+              Радиоволновую биопсию выполняют при изменениях по результатам <Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопии</Link> и мазка на онкоцитологию — для уточнения диагноза. Также радиоволновой метод используют для удаления полипов, кондилом, лечения дисплазии. Подробнее о биопсии — в статье <Link href="/blog/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">«Биопсия шейки матки»</Link>.
             </p>
           </section>
 
@@ -188,11 +188,11 @@ export default function ArticleRadiovolnovayaBiopsiyaSheykiMatki() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">Биопсия шейки матки</Link></li>
-                  <li><Link href="/articles/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya">Лечение заболеваний шейки матки</Link></li>
-                  <li><Link href="/articles/udalenie-kondilom-i-papillom-v-intimnoy-zone-kogda-obraschatsya-k-vrachu">Удаление кондилом и папиллом</Link></li>
-                  <li><Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
-                  <li><Link href="/articles/kriodestrukciya-sheyki-matki-kogda-primenyaetsya-i-chto-vazhno-znat">Криодеструкция шейки матки</Link></li>
+                  <li><Link href="/blog/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">Биопсия шейки матки</Link></li>
+                  <li><Link href="/blog/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya">Лечение заболеваний шейки матки</Link></li>
+                  <li><Link href="/blog/udalenie-kondilom-i-papillom-v-intimnoy-zone-kogda-obraschatsya-k-vrachu">Удаление кондилом и папиллом</Link></li>
+                  <li><Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
+                  <li><Link href="/blog/kriodestrukciya-sheyki-matki-kogda-primenyaetsya-i-chto-vazhno-znat">Криодеструкция шейки матки</Link></li>
                 </ul>
               </div>
             </div>

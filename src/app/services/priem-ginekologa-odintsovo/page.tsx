@@ -38,10 +38,10 @@ export default function PriemGinekologaOdintsovoPage() {
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             <div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-3 sm:mb-4">
-                Приём гинеколога в Одинцово — консультация, осмотр и диагностика
+                Приём гинеколога: первичный и повторный — как проходит и что входит
               </h1>
               <p className="text-gray-700 text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed">
-                Приём гинеколога в Альтамед-С — консультация, осмотр и первичная диагностика по вопросам женского здоровья. К врачу обращаются при нарушениях цикла, болях, выделениях, дискомфорте, для профилактического осмотра и планирования беременности. Мазки, УЗИ, кольпоскопия — многие исследования в день приёма.
+                Как проходит приём гинеколога: первичная и повторная консультация, осмотр, мазки, возможные обследования. Что взять с собой и как подготовиться.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-4 sm:mb-6">
                 <Link href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center px-5 py-3.5 sm:px-6 sm:py-3 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition shadow-lg shadow-emerald-900/20 min-h-[44px]">
@@ -132,7 +132,7 @@ export default function PriemGinekologaOdintsovoPage() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Чем приём гинеколога отличается от акушера-гинеколога</h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            Обычный приём гинеколога охватывает общие вопросы женского здоровья: профилактические осмотры, боли внизу живота, нарушения цикла, необычные выделения, зуд, жжение, подбор контрацепции, диагностика воспалительных заболеваний, кольпоскопия, УЗИ, вопросы подростковой гинекологии.
+            Обычный приём гинеколога охватывает общие вопросы женского здоровья: профилактические осмотры, боли внизу живота, нарушения цикла, необычные выделения, зуд, жжение, подбор контрацепции, диагностика воспалительных заболеваний, кольпоскопия, УЗИ.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
             К акушеру-гинекологу логичнее записаться, когда речь идёт о планировании беременности, уже наступившей беременности, ведении беременности, наблюдении после родов или подготовке к ЭКО. Акушер-гинеколог делает акцент на репродуктивном здоровье и сопровождении на этих этапах.
@@ -295,7 +295,6 @@ export default function PriemGinekologaOdintsovoPage() {
             <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">УЗИ и анализы в клинике</strong> — консультация и обследования в одном месте.</div></li>
             <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Опытные гинекологи</strong> — врачи со стажем до 43 лет.</div></li>
             <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Запись онлайн и по телефону</strong> — удобно подобрать время.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Взрослые и подростки</strong> — приём женщин всех возрастов и девочек-подростков.</div></li>
           </ul>
         </div>
       </section>
@@ -405,12 +404,12 @@ export default function PriemGinekologaOdintsovoPage() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Полезные статьи</h2>
           <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-gray-700">
-            <li><Link href="/articles/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov" className="text-emerald-600 hover:underline">Когда нужно записаться к гинекологу: 10 симптомов</Link></li>
-            <li><Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa" className="text-emerald-600 hover:underline">Как подготовиться к приёму гинеколога</Link></li>
-            <li><Link href="/articles/bol-vnizu-zhivota-u-zhenshchin-prichiny" className="text-emerald-600 hover:underline">Боль внизу живота у женщин</Link></li>
-            <li><Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut" className="text-emerald-600 hover:underline">Что показывает кольпоскопия</Link></li>
-            <li><Link href="/articles/vydeleniya-zud-zhzhenie-kogda-k-ginekologu" className="text-emerald-600 hover:underline">Выделения, зуд, жжение</Link></li>
-            <li><Link href="/articles/ginekolog-ili-ginekolog-endokrinolog" className="text-emerald-600 hover:underline">Гинеколог или гинеколог-эндокринолог</Link></li>
+            <li><Link href="/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov" className="text-emerald-600 hover:underline">Когда нужно записаться к гинекологу: 10 симптомов</Link></li>
+            <li><Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa" className="text-emerald-600 hover:underline">Как подготовиться к приёму гинеколога</Link></li>
+            <li><Link href="/blog/bol-vnizu-zhivota-u-zhenshchin-prichiny" className="text-emerald-600 hover:underline">Боль внизу живота у женщин</Link></li>
+            <li><Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut" className="text-emerald-600 hover:underline">Что показывает кольпоскопия</Link></li>
+            <li><Link href="/blog/vydeleniya-zud-zhzhenie-kogda-k-ginekologu" className="text-emerald-600 hover:underline">Выделения, зуд, жжение</Link></li>
+            <li><Link href="/blog/ginekolog-ili-ginekolog-endokrinolog" className="text-emerald-600 hover:underline">Гинеколог или гинеколог-эндокринолог</Link></li>
           </ul>
         </div>
       </section>

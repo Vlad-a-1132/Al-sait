@@ -1650,16 +1650,38 @@ function AboutPageContent() {
     }
   }, [searchParams]);
   
-  // Фотогалерея — используем реально существующие файлы из public/images/gino
   const galleryImages = [
-    '/images/gino/Altamed-С Odintsovo.webp',
-    '/images/gino/Altamed-С Odintsovo1.webp',
-    '/images/gino/Altamed-С Odintsovo6.webp',
+    // Первые 3 — используем ASCII-имена (на проде стабильнее, чем кириллица в имени файла)
     '/images/gino/altamed-c-odintsovo.webp',
     '/images/gino/altamed-c-odintsovo1.webp',
     '/images/gino/altamed-c-odintsovo6.webp',
-    '/images/gino/Altamed-C home.webp',
-    '/images/gino/altamed-c-home.webp',
+    '/images/fotogelery/Altamed-С Odintsovo2.webp',
+    '/images/fotogelery/Altamed-С Odintsovo3.webp',
+    '/images/fotogelery/Altamed-С Odintsovo4.webp',
+    '/images/fotogelery/Altamed-С Odintsovo5.webp',
+    '/images/fotogelery/Altamed-С Odintsovo6.webp',
+    '/images/fotogelery/Altamed-С Odintsovo7.webp',
+    '/images/fotogelery/Altamed-С Odintsovo8.webp',
+    '/images/fotogelery/Altamed-С Odintsovo9.webp',
+    '/images/fotogelery/Altamed-С Odintsovo10.webp',
+    '/images/fotogelery/Altamed-С Odintsovo11.webp',
+    '/images/fotogelery/Altamed-С Odintsovo12.webp',
+    '/images/fotogelery/Altamed-С Odintsovo13.webp',
+    '/images/fotogelery/Altamed-С Odintsovo14.webp',
+    '/images/fotogelery/Altamed-С Odintsovo15.webp',
+    '/images/fotogelery/Altamed-С Odintsovo16.webp',
+    '/images/fotogelery/Altamed-С Odintsovo17.webp',
+    '/images/fotogelery/Altamed-С Odintsovo18.webp',
+    '/images/fotogelery/Altamed-С Odintsovo19.webp',
+    '/images/fotogelery/Altamed-С Odintsovo20.webp',
+    '/images/fotogelery/Altamed-С Odintsovo21.webp',
+    '/images/fotogelery/Altamed-С Odintsovo22.webp',
+    '/images/fotogelery/Altamed-С Odintsovo23.webp',
+    '/images/fotogelery/Altamed-С Odintsovo24.webp',
+    '/images/fotogelery/Altamed-С Odintsovo25.webp',
+    '/images/fotogelery/Altamed-С Odintsovo26.webp',
+    '/images/fotogelery/kt-Altamed-C.webp',
+    '/images/fotogelery/Altamed-C home.webp',
   ];
 
   return (

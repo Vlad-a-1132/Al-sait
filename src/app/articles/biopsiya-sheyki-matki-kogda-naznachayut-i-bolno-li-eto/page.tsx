@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Биопсия шейки матки: когда назначают и больно ли | Альтамед-С',
     description: 'Биопсия шейки матки — показания, подготовка, как проходит и что показывают результаты.',
-    url: 'https://altamed-c.ru/articles/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto',
+    url: 'https://altamed-c.ru/blog/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -98,7 +98,7 @@ export default function ArticleBiopsiyaSheykiMatki() {
               </div>
             </div>
             <p className="mb-4">
-              Биопсию назначают, если при <Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопии</Link> или по результатам мазка на онкоцитологию выявлены изменения, требующие уточнения. Например: атипичные участки при кольпоскопии, ASC-US, LSIL, HSIL в цитологии, подозрительные полипы, лейкоплакия.
+              Биопсию назначают, если при <Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопии</Link> или по результатам мазка на онкоцитологию выявлены изменения, требующие уточнения. Например: атипичные участки при кольпоскопии, ASC-US, LSIL, HSIL в цитологии, подозрительные полипы, лейкоплакия.
             </p>
             <p className="mb-4">
               Биопсия даёт точный диагноз — доброкачественные изменения, дисплазия (предрак) разной степени, рак. От этого зависит дальнейшая тактика: наблюдение, лечение шейки матки, консультация онколога.
@@ -138,7 +138,7 @@ export default function ArticleBiopsiyaSheykiMatki() {
               Биопсию проводят в первой половине цикла (после месячных, до овуляции). За 2 дня — без половых контактов, спринцеваний, вагинальных препаратов. Мазки на флору должны быть в норме; при воспалении сначала проводят лечение.
             </p>
             <p className="mb-4">
-              О подготовке к гинекологическим процедурам — в статье <Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.
+              О подготовке к гинекологическим процедурам — в статье <Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.
             </p>
           </section>
 
@@ -204,11 +204,11 @@ export default function ArticleBiopsiyaSheykiMatki() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
-                  <li><Link href="/articles/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut">Что показывают мазки у гинеколога</Link></li>
-                  <li><Link href="/articles/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury">Радиоволновая биопсия шейки матки</Link></li>
-                  <li><Link href="/articles/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya">Лечение заболеваний шейки матки</Link></li>
-                  <li><Link href="/articles/kriodestrukciya-sheyki-matki-kogda-primenyaetsya-i-chto-vazhno-znat">Криодеструкция шейки матки</Link></li>
+                  <li><Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
+                  <li><Link href="/blog/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut">Что показывают мазки у гинеколога</Link></li>
+                  <li><Link href="/blog/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury">Радиоволновая биопсия шейки матки</Link></li>
+                  <li><Link href="/blog/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya">Лечение заболеваний шейки матки</Link></li>
+                  <li><Link href="/blog/kriodestrukciya-sheyki-matki-kogda-primenyaetsya-i-chto-vazhno-znat">Криодеструкция шейки матки</Link></li>
                 </ul>
               </div>
             </div>

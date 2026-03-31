@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Полипы в гинекологии: когда удаление | Альтамед-С',
     description: 'Полипы — когда нужно удаление, как проходит процедура и реабилитация.',
-    url: 'https://altamed-c.ru/articles/polipy-v-ginekologii-kogda-nuzhno-udalenie-i-kak-prohodit-procedura',
+    url: 'https://altamed-c.ru/blog/polipy-v-ginekologii-kogda-nuzhno-udalenie-i-kak-prohodit-procedura',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/polipy-v-ginekologii-kogda-nuzhno-udalenie-i-kak-prohodit-procedura' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/polipy-v-ginekologii-kogda-nuzhno-udalenie-i-kak-prohodit-procedura' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -134,7 +134,7 @@ export default function ArticlePolipyVGinekologii() {
               Полипы шейки матки и цервикального канала удаляют амбулаторно — радиоволновым методом, петлёй или щипцами. Полипы эндометрия — гистероскопия под контролем зрения: в полость матки вводят гистероскоп, полип удаляют и отправляют на гистологию. Процедуру проводят под местной анестезией или кратковременным наркозом.
             </p>
             <p className="mb-4">
-              Восстановление — несколько дней лёгких выделений, 2–4 недели без половых контактов, бани, бассейна. Подробнее о методах лечения шейки матки — в статье <Link href="/articles/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya">«Лечение заболеваний шейки матки»</Link>.
+              Восстановление — несколько дней лёгких выделений, 2–4 недели без половых контактов, бани, бассейна. Подробнее о методах лечения шейки матки — в статье <Link href="/blog/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya">«Лечение заболеваний шейки матки»</Link>.
             </p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-6">
               {['Результаты УЗИ и мазков', 'Первая половина цикла', 'За 1–2 дня без половых контактов', 'Пустой мочевой пузырь для УЗИ'].map((item, i) => (
@@ -189,11 +189,11 @@ export default function ArticlePolipyVGinekologii() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya">Лечение заболеваний шейки матки</Link></li>
-                  <li><Link href="/articles/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">Биопсия шейки матки</Link></li>
-                  <li><Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
-                  <li><Link href="/articles/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit">Пайпель-биопсия эндометрия</Link></li>
-                  <li><Link href="/articles/kriodestrukciya-sheyki-matki-kogda-primenyaetsya-i-chto-vazhno-znat">Криодеструкция шейки матки</Link></li>
+                  <li><Link href="/blog/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya">Лечение заболеваний шейки матки</Link></li>
+                  <li><Link href="/blog/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">Биопсия шейки матки</Link></li>
+                  <li><Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
+                  <li><Link href="/blog/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit">Пайпель-биопсия эндометрия</Link></li>
+                  <li><Link href="/blog/kriodestrukciya-sheyki-matki-kogda-primenyaetsya-i-chto-vazhno-znat">Криодеструкция шейки матки</Link></li>
                 </ul>
               </div>
             </div>

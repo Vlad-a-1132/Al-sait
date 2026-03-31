@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Нарушение менструального цикла | Альтамед-С',
     description: 'Когда сбой цикла — норма, а когда нужна консультация гинеколога или гинеколога-эндокринолога.',
-    url: 'https://altamed-c.ru/articles/narushenie-menstrualnogo-tsikla',
+    url: 'https://altamed-c.ru/blog/narushenie-menstrualnogo-tsikla',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/narushenie-menstrualnogo-tsikla' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/narushenie-menstrualnogo-tsikla' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -146,7 +146,7 @@ export default function ArticleNarushenieTsikla() {
               Задержки повторяются 2–3 цикла подряд; цикл стал нерегулярным после периода стабильности; месячные отсутствуют 2–3 месяца; задержка сочетается с другими симптомами (прибавка веса, рост волос по мужскому типу, акне). Первый шаг — исключить беременность (тест, при необходимости УЗИ и ХГЧ). Далее — осмотр, УЗИ малого таза, анализы на гормоны (ФСГ, ЛГ, эстрадиол, прогестерон, пролактин, ТТГ).
             </p>
             <p className="mb-4">
-              При подозрении на гормональную природу гинеколог направляет к <Link href={GYNEC_SERVICES.priem}>гинекологу</Link>. Подробнее о выборе специалиста — в статье <Link href="/articles/ginekolog-ili-ginekolog-endokrinolog">«Гинеколог или гинеколог-эндокринолог»</Link>.
+              При подозрении на гормональную природу гинеколог направляет к <Link href={GYNEC_SERVICES.priem}>гинекологу</Link>. Подробнее о выборе специалиста — в статье <Link href="/blog/ginekolog-ili-ginekolog-endokrinolog">«Гинеколог или гинеколог-эндокринолог»</Link>.
             </p>
           </section>
 
@@ -233,7 +233,7 @@ export default function ArticleNarushenieTsikla() {
                 </div>
               ))}
             </div>
-            <p className="text-gray-700">Подробнее — <Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
+            <p className="text-gray-700">Подробнее — <Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
           </section>
 
           <section className="mb-10">
@@ -302,11 +302,11 @@ export default function ArticleNarushenieTsikla() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/ginekolog-ili-ginekolog-endokrinolog">Гинеколог или гинеколог-эндокринолог</Link></li>
-                  <li><Link href="/articles/bol-vnizu-zhivota-u-zhenshchin-prichiny">Боль внизу живота у женщин</Link></li>
-                  <li><Link href="/articles/vedenie-beremennosti-v-odintsovo">Ведение беременности в Одинцово</Link></li>
-                  <li><Link href="/articles/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу</Link></li>
-                  <li><Link href="/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
+                  <li><Link href="/blog/ginekolog-ili-ginekolog-endokrinolog">Гинеколог или гинеколог-эндокринолог</Link></li>
+                  <li><Link href="/blog/bol-vnizu-zhivota-u-zhenshchin-prichiny">Боль внизу живота у женщин</Link></li>
+                  <li><Link href="/blog/kak-prohodit-vedenie-beremennosti">Ведение беременности в Одинцово</Link></li>
+                  <li><Link href="/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу</Link></li>
+                  <li><Link href="/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
                 </ul>
               </div>
             </div>

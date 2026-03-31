@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Подготовка к ЭКО: консультация акушера-гинеколога | Альтамед-С',
     description: 'Зачем консультация акушера-гинеколога при подготовке к ЭКО и какие обследования нужны.',
-    url: 'https://altamed-c.ru/articles/podgotovka-k-eko-zachem-nuzhna-konsultatsiya-akushera-ginekologa',
+    url: 'https://altamed-c.ru/blog/podgotovka-k-eko-zachem-nuzhna-konsultatsiya-akushera-ginekologa',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/podgotovka-k-eko-zachem-nuzhna-konsultatsiya-akushera-ginekologa' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/podgotovka-k-eko-zachem-nuzhna-konsultatsiya-akushera-ginekologa' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -103,7 +103,7 @@ export default function ArticlePodgotovkaKEko() {
           <section id="zachem" className="mb-10 scroll-mt-20">
             <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">Зачем консультация акушера-гинеколога</h2>
             <p className="mb-4">
-              Репродуктолог ведёт программу ЭКО, но гинеколог проверяет: состояние матки и яичников (УЗИ), проходимость труб при необходимости (<Link href="/articles/kontrastnaya-ehohisterosalpingoskopiya-chto-pokazyvaet-issledovanie">эхогистеросальпингоскопия</Link>), мазки на флору и онкоцитологию, исключение полипов и гиперплазии эндометрия (<Link href="/articles/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit">пайпель-биопсия</Link> при показаниях). Выявление и лечение воспалений, патологии шейки матки до протокола снижает риски осложнений.
+              Репродуктолог ведёт программу ЭКО, но гинеколог проверяет: состояние матки и яичников (УЗИ), проходимость труб при необходимости (<Link href="/blog/kontrastnaya-ehohisterosalpingoskopiya-chto-pokazyvaet-issledovanie">эхогистеросальпингоскопия</Link>), мазки на флору и онкоцитологию, исключение полипов и гиперплазии эндометрия (<Link href="/blog/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit">пайпель-биопсия</Link> при показаниях). Выявление и лечение воспалений, патологии шейки матки до протокола снижает риски осложнений.
             </p>
           </section>
 
@@ -126,7 +126,7 @@ export default function ArticlePodgotovkaKEko() {
           <section className="mb-10">
             <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">Подготовка к беременности</h2>
             <p className="mb-4">
-              Общие принципы подготовки к зачатию — фолиевая кислота, коррекция веса, отказ от вредных привычек — актуальны и для ЭКО. Подробнее — в статье <Link href="/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">«Подготовка к беременности»</Link>.
+              Общие принципы подготовки к зачатию — фолиевая кислота, коррекция веса, отказ от вредных привычек — актуальны и для ЭКО. Подробнее — в статье <Link href="/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">«Подготовка к беременности»</Link>.
             </p>
           </section>
 
@@ -173,10 +173,10 @@ export default function ArticlePodgotovkaKEko() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
-                  <li><Link href="/articles/kontrastnaya-ehohisterosalpingoskopiya-chto-pokazyvaet-issledovanie">Эхогистеросальпингоскопия</Link></li>
-                  <li><Link href="/articles/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit">Пайпель-биопсия эндометрия</Link></li>
-                  <li><Link href="/articles/vedenie-beremennosti-v-odintsovo">Ведение беременности в Одинцово</Link></li>
+                  <li><Link href="/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
+                  <li><Link href="/blog/kontrastnaya-ehohisterosalpingoskopiya-chto-pokazyvaet-issledovanie">Эхогистеросальпингоскопия</Link></li>
+                  <li><Link href="/blog/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit">Пайпель-биопсия эндометрия</Link></li>
+                  <li><Link href="/blog/kak-prohodit-vedenie-beremennosti">Ведение беременности в Одинцово</Link></li>
                 </ul>
               </div>
             </div>

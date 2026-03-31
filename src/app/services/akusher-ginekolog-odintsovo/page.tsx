@@ -587,11 +587,11 @@ export default function AkusherGinekologOdintsovoPage() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Полезные статьи</h2>
           <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-gray-700">
-            <li><Link href="/articles/vedenie-beremennosti-v-odintsovo" className="text-emerald-600 hover:underline">Ведение беременности в Одинцово</Link></li>
-            <li><Link href="/articles/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya" className="text-emerald-600 hover:underline">Первый приём беременной</Link></li>
-            <li><Link href="/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya" className="text-emerald-600 hover:underline">Подготовка к беременности</Link></li>
-            <li><Link href="/articles/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie" className="text-emerald-600 hover:underline">УЗИ при беременности</Link></li>
-            <li><Link href="/articles/poslerodovyy-osmotr-u-ginekologa-kogda-prihodit-i-chto-proveryayut" className="text-emerald-600 hover:underline">Послеродовый осмотр</Link></li>
+            <li><Link href="/blog/kak-prohodit-vedenie-beremennosti" className="text-emerald-600 hover:underline">Ведение беременности в Одинцово</Link></li>
+            <li><Link href="/blog/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya" className="text-emerald-600 hover:underline">Первый приём беременной</Link></li>
+            <li><Link href="/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya" className="text-emerald-600 hover:underline">Подготовка к беременности</Link></li>
+            <li><Link href="/blog/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie" className="text-emerald-600 hover:underline">УЗИ при беременности</Link></li>
+            <li><Link href="/blog/poslerodovyy-osmotr-u-ginekologa-kogda-prihodit-i-chto-proveryayut" className="text-emerald-600 hover:underline">Послеродовый осмотр</Link></li>
           </ul>
         </div>
       </section>

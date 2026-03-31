@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Гинеколог или гинеколог-эндокринолог | Альтамед-С',
     description: 'К кому записаться: гинеколог или гинеколог-эндокринолог.',
-    url: 'https://altamed-c.ru/articles/ginekolog-ili-ginekolog-endokrinolog',
+    url: 'https://altamed-c.ru/blog/ginekolog-ili-ginekolog-endokrinolog',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/ginekolog-ili-ginekolog-endokrinolog' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/ginekolog-ili-ginekolog-endokrinolog' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -116,7 +116,7 @@ export default function ArticleGinekologEndokrinolog() {
           <section className="mb-10">
             <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">Кому подходит обычный гинеколог</h2>
             <p className="mb-4">
-              К гинекологу стоит записаться при: профилактическом осмотре; болях внизу живота; воспалительных заболеваниях, выделениях, зуде, жжении; подборе контрацепции (в том числе <Link href="/articles/vnutrimatochnaya-spiral-ustanovka-i-udalenie">внутриматочной спирали</Link>); ведении беременности; необходимости кольпоскопии, мазков, УЗИ; большинстве «стандартных» гинекологических жалоб.
+              К гинекологу стоит записаться при: профилактическом осмотре; болях внизу живота; воспалительных заболеваниях, выделениях, зуде, жжении; подборе контрацепции (в том числе <Link href="/blog/vnutrimatochnaya-spiral-ustanovka-i-udalenie">внутриматочной спирали</Link>); ведении беременности; необходимости кольпоскопии, мазков, УЗИ; большинстве «стандартных» гинекологических жалоб.
             </p>
             <p>
               Обычный гинеколог — это первый специалист, к которому обращаются при любых вопросах женского здоровья. При необходимости он направит к гинекологу-эндокринологу.
@@ -219,10 +219,10 @@ export default function ArticleGinekologEndokrinolog() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/narushenie-menstrualnogo-tsikla">Нарушение менструального цикла</Link></li>
-                  <li><Link href="/articles/vedenie-beremennosti-v-odintsovo">Ведение беременности в Одинцово</Link></li>
-                  <li><Link href="/articles/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу</Link></li>
-                  <li><Link href="/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
+                  <li><Link href="/blog/narushenie-menstrualnogo-tsikla">Нарушение менструального цикла</Link></li>
+                  <li><Link href="/blog/kak-prohodit-vedenie-beremennosti">Ведение беременности в Одинцово</Link></li>
+                  <li><Link href="/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу</Link></li>
+                  <li><Link href="/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
                 </ul>
               </div>
             </div>

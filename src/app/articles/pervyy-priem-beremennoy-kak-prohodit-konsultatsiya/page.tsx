@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Первый приём беременной: как проходит | Альтамед-С',
     description: 'Первый приём беременной — когда идти, как проходит консультация и что назначит врач.',
-    url: 'https://altamed-c.ru/articles/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya',
+    url: 'https://altamed-c.ru/blog/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -107,7 +107,7 @@ export default function ArticlePervyyPriemBeremennoy() {
               Запишитесь в ближайшие 1–2 недели после положительного теста. Оптимально — на 6–8-й неделе по акушерскому сроку (от первого дня последних месячных). На этом сроке УЗИ уже покажет сердцебиение плода и позволит исключить внематочную беременность.
             </p>
             <p className="mb-4">
-              При болях, кровянистых выделениях, предыдущих выкидышах или ЭКО — запишитесь как можно раньше. Подробнее о ведении беременности — в статье <Link href="/articles/vedenie-beremennosti-v-odintsovo">«Ведение беременности в Одинцово»</Link>.
+              При болях, кровянистых выделениях, предыдущих выкидышах или ЭКО — запишитесь как можно раньше. Подробнее о ведении беременности — в статье <Link href="/blog/kak-prohodit-vedenie-beremennosti">«Ведение беременности в Одинцово»</Link>.
             </p>
           </section>
 
@@ -185,10 +185,10 @@ export default function ArticlePervyyPriemBeremennoy() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/vedenie-beremennosti-v-odintsovo">Ведение беременности в Одинцово</Link></li>
-                  <li><Link href="/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
-                  <li><Link href="/articles/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie">УЗИ при беременности</Link></li>
-                  <li><Link href="/articles/dopplerometriya-pri-beremennosti-kogda-naznachayut-i-chto-pokazyvaet">Допплерометрия при беременности</Link></li>
+                  <li><Link href="/blog/kak-prohodit-vedenie-beremennosti">Ведение беременности в Одинцово</Link></li>
+                  <li><Link href="/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
+                  <li><Link href="/blog/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie">УЗИ при беременности</Link></li>
+                  <li><Link href="/blog/dopplerometriya-pri-beremennosti-kogda-naznachayut-i-chto-pokazyvaet">Допплерометрия при беременности</Link></li>
                 </ul>
               </div>
             </div>

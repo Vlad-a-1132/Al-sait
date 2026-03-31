@@ -48,6 +48,12 @@ const nextConfig = {
 
   async redirects() {
     return [
+      // Redirect old pregnancy article slug to new one (public URL)
+      {
+        source: '/blog/vedenie-beremennosti-v-odintsovo',
+        destination: '/blog/kak-prohodit-vedenie-beremennosti',
+        permanent: true,
+      },
       // Не даем индексировать и показывать /articles/* пользователю — используем /blog/*
       {
         source: '/articles/:slug*',

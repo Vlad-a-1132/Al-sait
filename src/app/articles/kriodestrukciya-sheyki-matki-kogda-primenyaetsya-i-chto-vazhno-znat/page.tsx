@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Криодеструкция шейки матки | Альтамед-С',
     description: 'Криодеструкция — когда применяется, как проходит и что важно знать.',
-    url: 'https://altamed-c.ru/articles/kriodestrukciya-sheyki-matki-kogda-primenyaetsya-i-chto-vazhno-znat',
+    url: 'https://altamed-c.ru/blog/kriodestrukciya-sheyki-matki-kogda-primenyaetsya-i-chto-vazhno-znat',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/kriodestrukciya-sheyki-matki-kogda-primenyaetsya-i-chto-vazhno-znat' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/kriodestrukciya-sheyki-matki-kogda-primenyaetsya-i-chto-vazhno-znat' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -100,7 +100,7 @@ export default function ArticleKriodestrukciyaSheykiMatki() {
             </div>
             <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">Когда применяют</h2>
             <p className="mb-4">
-              Криодеструкцию используют при доброкачественных изменениях: эрозия (эктопия) шейки матки без дисплазии, небольшие кисты наботовых желёз. Перед процедурой обязательны <Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопия</Link> и мазок на онкоцитологию — при дисплазии криодеструкция не показана, нужна биопсия и при необходимости иссечение.
+              Криодеструкцию используют при доброкачественных изменениях: эрозия (эктопия) шейки матки без дисплазии, небольшие кисты наботовых желёз. Перед процедурой обязательны <Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопия</Link> и мазок на онкоцитологию — при дисплазии криодеструкция не показана, нужна биопсия и при необходимости иссечение.
             </p>
           </section>
 
@@ -131,7 +131,7 @@ export default function ArticleKriodestrukciyaSheykiMatki() {
                 </div>
               ))}
             </div>
-            <p className="text-gray-700">Подробнее — <Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
+            <p className="text-gray-700">Подробнее — <Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
           </section>
 
           <section className="mb-10">
@@ -192,11 +192,11 @@ export default function ArticleKriodestrukciyaSheykiMatki() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya">Лечение заболеваний шейки матки</Link></li>
-                  <li><Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
-                  <li><Link href="/articles/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">Биопсия шейки матки</Link></li>
-                  <li><Link href="/articles/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury">Радиоволновая биопсия шейки матки</Link></li>
-                  <li><Link href="/articles/polipy-v-ginekologii-kogda-nuzhno-udalenie-i-kak-prohodit-procedura">Полипы в гинекологии</Link></li>
+                  <li><Link href="/blog/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya">Лечение заболеваний шейки матки</Link></li>
+                  <li><Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
+                  <li><Link href="/blog/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">Биопсия шейки матки</Link></li>
+                  <li><Link href="/blog/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury">Радиоволновая биопсия шейки матки</Link></li>
+                  <li><Link href="/blog/polipy-v-ginekologii-kogda-nuzhno-udalenie-i-kak-prohodit-procedura">Полипы в гинекологии</Link></li>
                 </ul>
               </div>
             </div>

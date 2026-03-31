@@ -4,22 +4,24 @@ import Image from 'next/image';
 import { GYNEC_ARTICLE_IMAGES, GYNEC_HUB_URL, GYNEC_SERVICES } from '@/data/gynec-articles-images';
 
 export const metadata: Metadata = {
-  title: 'Ведение беременности в Одинцово: как проходит наблюдение | Альтамед-С',
-  description: 'Как проходит ведение беременности в Одинцово, какие обследования и консультации нужны будущей маме, когда вставать на наблюдение.',
+  title: 'Как проходит ведение беременности: график визитов, анализы и УЗИ | Альтамед-С',
+  description:
+    'Как проходит ведение беременности: когда вставать на учёт, как часто посещать врача, какие анализы и УЗИ назначают, когда обращаться вне плана.',
   openGraph: {
-    title: 'Ведение беременности в Одинцово | Альтамед-С',
-    description: 'Наблюдение беременности: консультации, УЗИ, анализы, когда вставать на учёт.',
-    url: 'https://altamed-c.ru/articles/vedenie-beremennosti-v-odintsovo',
+    title: 'Как проходит ведение беременности | Альтамед-С',
+    description: 'График визитов, анализы и УЗИ при ведении беременности: по триместрам и по ситуации.',
+    url: 'https://altamed-c.ru/blog/kak-prohodit-vedenie-beremennosti',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/vedenie-beremennosti-v-odintsovo' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/kak-prohodit-vedenie-beremennosti' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
 const APPOINTMENTS_URL = 'https://online.altamed-c.ru/';
-const HERO_IMAGE = GYNEC_ARTICLE_IMAGES['vedenie-beremennosti-v-odintsovo'] ?? '/images/images allergoly/ginokologia.webp';
+const HERO_IMAGE =
+  GYNEC_ARTICLE_IMAGES['kak-prohodit-vedenie-beremennosti'] ?? '/images/images allergoly/ginokologia.webp';
 
 export default function ArticleVedenieBeremennosti() {
   return (
@@ -43,7 +45,7 @@ export default function ArticleVedenieBeremennosti() {
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             <div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-3 sm:mb-4">
-                Ведение беременности в Одинцово: как проходит наблюдение будущей мамы
+                Как проходит ведение беременности: визиты, анализы и УЗИ по триместрам
               </h1>
               <p className="text-gray-700 text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed">
                 Ведение беременности — это комплекс консультаций, анализов и исследований, позволяющий контролировать развитие плода, состояние будущей мамы и вовремя корректировать тактику при выявлении рисков. Регулярное наблюдение снижает частоту осложнений и помогает подготовиться к родам.
@@ -276,11 +278,11 @@ export default function ArticleVedenieBeremennosti() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie">УЗИ при беременности</Link></li>
-                  <li><Link href="/articles/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya">Первый приём беременной</Link></li>
-                  <li><Link href="/articles/dopplerometriya-pri-beremennosti-kogda-naznachayut-i-chto-pokazyvaet">Допплерометрия при беременности</Link></li>
-                  <li><Link href="/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
-                  <li><Link href="/articles/poslerodovyy-osmotr-u-ginekologa-kogda-prihodit-i-chto-proveryayut">Послеродовый осмотр</Link></li>
+                  <li><Link href="/blog/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie">УЗИ при беременности</Link></li>
+                  <li><Link href="/blog/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya">Первый приём беременной</Link></li>
+                  <li><Link href="/blog/dopplerometriya-pri-beremennosti-kogda-naznachayut-i-chto-pokazyvaet">Допплерометрия при беременности</Link></li>
+                  <li><Link href="/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
+                  <li><Link href="/blog/poslerodovyy-osmotr-u-ginekologa-kogda-prihodit-i-chto-proveryayut">Послеродовый осмотр</Link></li>
                 </ul>
               </div>
             </div>

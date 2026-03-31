@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Удаление кондилом и папиллом в интимной зоне | Альтамед-С',
     description: 'Когда обращаться к врачу при кондиломах и папилломах, как проходит удаление.',
-    url: 'https://altamed-c.ru/articles/udalenie-kondilom-i-papillom-v-intimnoy-zone-kogda-obraschatsya-k-vrachu',
+    url: 'https://altamed-c.ru/blog/udalenie-kondilom-i-papillom-v-intimnoy-zone-kogda-obraschatsya-k-vrachu',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/udalenie-kondilom-i-papillom-v-intimnoy-zone-kogda-obraschatsya-k-vrachu' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/udalenie-kondilom-i-papillom-v-intimnoy-zone-kogda-obraschatsya-k-vrachu' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -113,7 +113,7 @@ export default function ArticleUdalenieKondilomIPapillom() {
           <section id="metody" className="mb-10 scroll-mt-20">
             <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">Методы удаления</h2>
             <p className="mb-4">
-              Радиоволновой метод (аппарат «Сургитрон»), лазер, криодеструкция, электрокоагуляция. Выбор зависит от количества, размера, локализации. При множественных кондиломах иногда сочетают удаление с противовирусной терапией. Подробнее о радиоволновом методе — в статье <Link href="/articles/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury">«Радиоволновая биопсия шейки матки»</Link>.
+              Радиоволновой метод (аппарат «Сургитрон»), лазер, криодеструкция, электрокоагуляция. Выбор зависит от количества, размера, локализации. При множественных кондиломах иногда сочетают удаление с противовирусной терапией. Подробнее о радиоволновом методе — в статье <Link href="/blog/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury">«Радиоволновая биопсия шейки матки»</Link>.
             </p>
           </section>
 
@@ -196,11 +196,11 @@ export default function ArticleUdalenieKondilomIPapillom() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut">Что показывают мазки у гинеколога</Link></li>
-                  <li><Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
-                  <li><Link href="/articles/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya">Лечение заболеваний шейки матки</Link></li>
-                  <li><Link href="/articles/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury">Радиоволновая биопсия шейки матки</Link></li>
-                  <li><Link href="/articles/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">Выделения, зуд, жжение: когда к гинекологу</Link></li>
+                  <li><Link href="/blog/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut">Что показывают мазки у гинеколога</Link></li>
+                  <li><Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
+                  <li><Link href="/blog/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya">Лечение заболеваний шейки матки</Link></li>
+                  <li><Link href="/blog/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury">Радиоволновая биопсия шейки матки</Link></li>
+                  <li><Link href="/blog/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">Выделения, зуд, жжение: когда к гинекологу</Link></li>
                 </ul>
               </div>
             </div>

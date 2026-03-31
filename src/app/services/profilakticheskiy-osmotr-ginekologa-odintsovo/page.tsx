@@ -288,11 +288,11 @@ export default function ProfilakticheskiyOsmotrGinekologaOdintsovoPage() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Полезные статьи</h2>
           <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-gray-700">
-            <li><Link href="/articles/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov" className="text-emerald-600 hover:underline">Когда нужно записаться к гинекологу: 10 симптомов</Link></li>
-            <li><Link href="/articles/profilakticheskiy-osmotr-ginekologa-kakie-obsledovaniya-mogut-ponadobitsya" className="text-emerald-600 hover:underline">Профилактический осмотр: какие обследования</Link></li>
-            <li><Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut" className="text-emerald-600 hover:underline">Что показывает кольпоскопия</Link></li>
-            <li><Link href="/articles/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut" className="text-emerald-600 hover:underline">Что показывают мазки у гинеколога</Link></li>
-            <li><Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa" className="text-emerald-600 hover:underline">Как подготовиться к приёму гинеколога</Link></li>
+            <li><Link href="/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov" className="text-emerald-600 hover:underline">Когда нужно записаться к гинекологу: 10 симптомов</Link></li>
+            <li><Link href="/blog/profilakticheskiy-osmotr-ginekologa-kakie-obsledovaniya-mogut-ponadobitsya" className="text-emerald-600 hover:underline">Профилактический осмотр: какие обследования</Link></li>
+            <li><Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut" className="text-emerald-600 hover:underline">Что показывает кольпоскопия</Link></li>
+            <li><Link href="/blog/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut" className="text-emerald-600 hover:underline">Что показывают мазки у гинеколога</Link></li>
+            <li><Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa" className="text-emerald-600 hover:underline">Как подготовиться к приёму гинеколога</Link></li>
           </ul>
         </div>
       </section>
@@ -310,7 +310,7 @@ export default function ProfilakticheskiyOsmotrGinekologaOdintsovoPage() {
               <span className="font-semibold text-emerald-600">Гинеколог в Одинцово</span>
               <p className="text-gray-600 text-sm mt-1">Общее направление.</p>
             </Link>
-            <Link href="/articles/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov" className="block rounded-2xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition">
+            <Link href="/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov" className="block rounded-2xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition">
               <span className="font-semibold text-emerald-600">Когда записаться к гинекологу — 10 симптомов</span>
               <p className="text-gray-600 text-sm mt-1">Признаки, при которых нужна консультация.</p>
             </Link>

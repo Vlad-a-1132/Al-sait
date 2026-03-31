@@ -5,6 +5,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { doctors } from '@/data/static-data';
 
+const BASE_URL = 'https://altamed-c.ru';
+
 const WHY_CARDS = [
   { icon: 'clock', title: 'Ежедневно\n08:00–21:00', desc: 'С утра до вечера, в выходные и праздники' },
   { icon: 'star', title: 'Рейтинг\n4,8', desc: 'Высокие оценки на ПроДокторов и в Яндексе' },
@@ -30,7 +32,7 @@ const DOCTOR_EXTRA = {
     branch: 'оба филиала',
   },
   'brigadirova-elena-mikhailovna': {
-    competencies: ['профилактические осмотры', 'подбор контрацепции', 'подростковая гинекология'],
+    competencies: ['профилактические осмотры', 'подбор контрацепции'],
     branch: 'оба филиала',
   },
 };
@@ -43,18 +45,11 @@ const ANCHORS = [
   { id: 'faq', label: 'FAQ' },
 ];
 
-const TRUST_FACTS = [
-  '3 врача-гинеколога в Одинцово',
-  'стаж до 43 лет',
-  '2 филиала в городе',
-  'приём взрослых и подростков',
-];
-
 const DIRECTIONS = [
-  { title: 'Приём гинеколога', short: 'Консультация, осмотр, диагностика', url: '/services/priem-ginekologa-odintsovo', image: '/images/blog/task_01kmevvzkgedjsr3sqhp1tbp7j_1774320514_img_1.webp' },
-  { title: 'Акушер-гинеколог', short: 'Планирование, беременность, наблюдение', url: '/services/akusher-ginekolog-odintsovo', image: '/images/blog/task_01kmevwgw4fjf8d6qepyfbdfnm_1774320530_img_0.webp' },
-  { title: 'Планирование и ведение беременности', short: 'Подготовка к зачатию, УЗИ, анализы', url: '/services/vedenie-beremennosti-odintsovo', image: '/images/blog/Screenshot_1559.png' },
-  { title: 'Профилактические осмотры', short: 'Регулярный осмотр, раннее выявление', url: '/services/profilakticheskiy-osmotr-ginekologa-odintsovo', image: '/images/blog/task_01kmewx9vpem3tg59gafhbr63m_1774321601_img_1.webp' },
+  { title: 'Приём гинеколога', short: 'Как проходит консультация, осмотр и диагностика', url: '/services/priem-ginekologa-odintsovo', image: '/images/blog/task_01kmevvzkgedjsr3sqhp1tbp7j_1774320514_img_1.webp', cta: 'Как проходит приём' },
+  { title: 'Акушер-гинеколог', short: 'Планирование беременности и наблюдение', url: '/services/akusher-ginekolog-odintsovo', image: '/images/blog/task_01kmevwgw4fjf8d6qepyfbdfnm_1774320530_img_0.webp', cta: 'Кому подойдёт' },
+  { title: 'Ведение беременности', short: 'Программа наблюдения по триместрам', url: '/services/vedenie-beremennosti-odintsovo', image: '/images/blog/Screenshot_1559.png', cta: 'Ведение по триместрам' },
+  { title: 'Профилактический осмотр', short: 'Check-up, мазки, кольпоскопия, УЗИ', url: '/services/profilakticheskiy-osmotr-ginekologa-odintsovo', image: '/images/blog/task_01kmewx9vpem3tg59gafhbr63m_1774321601_img_1.webp', cta: 'Что входит в осмотр' },
 ];
 
 const GYNECOLOGY_SERVICES_FLAT: { code: number; name: string; price: string }[] = (() => {
@@ -87,33 +82,23 @@ const DIAGNOSTICS = [
   'профилактические обследования',
 ];
 
-const QUESTION_GROUPS = [
-  { title: 'Боли и дискомфорт', items: ['боли внизу живота', 'дискомфорт, зуд, жжение', 'необычные выделения'] },
-  { title: 'Цикл и гормоны', items: ['нарушения менструального цикла', 'гормональные нарушения', 'симптомы, требующие консультации гинеколога-эндокринолога'] },
-  { title: 'Планирование беременности', items: ['подготовка к беременности', 'наблюдение во время беременности'] },
-  { title: 'Профилактика', items: ['профилактический осмотр', 'подбор контрацепции'] },
-  { title: 'Другое', items: ['воспалительные заболевания', 'вопросы подростковой гинекологии'] },
-];
-
-const WHY_CHOOSE = [
-  '3 врача-гинеколога в Одинцово',
-  'стаж специалистов до 43 лет',
-  '2 филиала в городе',
-  'диагностика и анализы в одной клинике',
-  'приём взрослых и подростков',
-  'запись онлайн и по телефону ежедневно',
+const WHEN_TO_BOOK = [
+  'боли внизу живота',
+  'нарушения менструального цикла',
+  'зуд, жжение, необычные выделения',
+  'кровянистые выделения вне цикла',
+  'боль при половом контакте',
+  'вопросы по беременности или подготовке к зачатию',
+  'профилактический осмотр',
 ];
 
 const FAQ_ITEMS = [
-  { q: 'Когда нужно записаться к гинекологу?', a: 'При болях, нарушениях цикла, дискомфорте, необычных выделениях, а также для профилактического осмотра и планирования беременности.' },
-  { q: 'Как подготовиться к приёму гинеколога?', a: 'Обычно особой подготовки не требуется. За 1–2 дня до визита лучше воздержаться от половых контактов и использования местных препаратов. Приём возможен в любой день цикла, кроме дней менструации.' },
-  { q: 'Можно ли записаться на профилактический осмотр?', a: 'Да, профилактический осмотр — одно из основных направлений. Рекомендуется проходить его не реже раза в год.' },
-  { q: 'В каких филиалах принимает гинеколог в Одинцово?', a: 'Гинекологи ведут приём в обоих филиалах: на бульваре Маршала Крылова (д. 23) и на Можайском шоссе (д. 141).' },
-  { q: 'Можно ли сразу пройти УЗИ и анализы?', a: 'Да, в клинике можно сдать анализы и пройти УЗИ в день приёма. Врач при необходимости назначит обследования, и многие из них доступны в том же медцентре.' },
-  { q: 'Какой врач нужен: гинеколог, акушер-гинеколог или гинеколог-эндокринолог?', a: 'Для общего осмотра и большинства вопросов подойдёт приём гинеколога. Акушер-гинеколог — при планировании или ведении беременности. Гинеколог-эндокринолог — при нарушениях цикла, гормональных проблемах, симптомах менопаузы.' },
-  { q: 'Можно ли записаться к акушеру-гинекологу?', a: 'Да, в клинике доступны консультации по вопросам репродуктивного здоровья, подготовки и ведения беременности.' },
-  { q: 'Есть ли детский гинеколог?', a: 'Да, в клинике можно записаться на консультацию по вопросам детской и подростковой гинекологии.' },
-  { q: 'Сколько стоит приём гинеколога в Одинцово?', a: 'Стоимость зависит от типа консультации и объёма обследования. Первичный приём — от 3 780 ₽. Актуальные цены указаны на странице и уточняются при записи.' },
+  { q: 'Сколько стоит первичный приём гинеколога в Одинцово?', a: 'Первичный приём — от 3 780 ₽. Полный прайс указан на странице, точную стоимость можно уточнить при записи.' },
+  { q: 'Можно ли пройти УЗИ и анализы в день обращения?', a: 'Да, в клинике можно пройти УЗИ и сдать анализы в день приёма — врач назначит обследования при необходимости.' },
+  { q: 'Когда нужно срочно обратиться к гинекологу?', a: 'Если есть сильная боль, кровянистые выделения вне цикла или резкое ухудшение самочувствия — лучше обратиться как можно скорее.' },
+  { q: 'К кому записаться: к гинекологу, акушеру-гинекологу или гинекологу-эндокринологу?', a: 'Для большинства вопросов подойдёт приём гинеколога. Акушер-гинеколог — при планировании или ведении беременности. Гинеколог-эндокринолог — при нарушениях цикла и гормональных симптомах.' },
+  { q: 'В каких филиалах в Одинцово принимает гинеколог?', a: 'Приём ведётся в обоих филиалах: на бульваре Маршала Крылова (д. 23) и на Можайском шоссе (д. 141).' },
+  { q: 'Можно ли записаться на профилактический осмотр?', a: 'Да, профилактический осмотр доступен. Обычно его рекомендуют проходить регулярно.' },
 ];
 
 const VIDEO_ITEMS = [
@@ -178,17 +163,68 @@ export default function TestGinoPage() {
   const [activeBranch, setActiveBranch] = useState(0);
   const [openVideo, setOpenVideo] = useState<string | null>(null);
   const [showMoreArticles, setShowMoreArticles] = useState(false);
+  const [showAllPrices, setShowAllPrices] = useState(true);
+
+  const KEY_PRICE_NAMES = new Set([
+    'Приём акушера-гинеколога первичный',
+    'Приём акушера-гинеколога повторный',
+    'Приём беременной первичный',
+    'Кольпоскопия',
+    'Взятие мазков',
+    'УЗИ при беременности',
+    'Ведение беременности',
+  ]);
+
+  const keyPrices = GYNECOLOGY_SERVICES_FLAT.filter((s) => KEY_PRICE_NAMES.has(s.name));
+  const breadcrumbsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Главная', item: `${BASE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Гинеколог в Одинцово', item: `${BASE_URL}/ginekolog-v-odintsovo` },
+    ],
+  };
+
+  const relatedDirectionsJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: 'Связанные направления',
+    itemListElement: DIRECTIONS.map((d, idx) => ({
+      '@type': 'ListItem',
+      position: idx + 1,
+      item: {
+        '@type': 'WebPage',
+        name: d.title,
+        url: `${BASE_URL}${d.url}`,
+      },
+    })),
+  };
+
   return (<main className="min-h-screen pt-0">
+      <script
+        type="application/ld+json"
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([breadcrumbsJsonLd, relatedDirectionsJsonLd]) }}
+      />
       {/* Hero */}
       <section className="relative bg-gradient-to-br from-emerald-50 to-white overflow-hidden">
         <div className="max-w-[1400px] mx-auto px-4 py-8 sm:py-10 md:py-16">
+          <nav aria-label="breadcrumb" className="mb-4 text-sm text-gray-600">
+            <ol className="flex flex-wrap items-center gap-2">
+              <li>
+                <Link href="/" className="hover:underline text-emerald-700">Главная</Link>
+              </li>
+              <li className="text-gray-400">/</li>
+              <li aria-current="page" className="text-gray-700">Гинеколог в Одинцово</li>
+            </ol>
+          </nav>
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             <div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
                 Гинеколог в Одинцово — приём, диагностика и лечение в Альтамед-С
               </h1>
               <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                Приём взрослых и подростков. Консультации гинеколога, акушера-гинеколога. Диагностика, УЗИ, анализы и запись в удобное время.
+                Приём взрослых, консультации гинеколога и акушера-гинеколога, диагностика, УЗИ и анализы в одном месте.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-4 sm:mb-6">
                 <Link href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-5 py-3.5 sm:px-6 sm:py-3 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition shadow-lg shadow-emerald-900/20 min-h-[44px]">
@@ -210,12 +246,58 @@ export default function TestGinoPage() {
                 <Image src="/images/images allergoly/ginokologia.webp" alt="Гинеколог в Одинцово — Альтамед-С" fill className="object-cover" priority sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px" quality={92} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
-              <div className="absolute -bottom-3 sm:-bottom-4 left-0 right-0 sm:left-0 sm:right-auto sm:w-64 p-3 sm:p-4 rounded-xl bg-white/95 backdrop-blur shadow-lg border border-gray-100">
-                <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 text-sm">
-                  <div><span className="text-amber-500 font-bold">4.8</span> рейтинг</div>
-                  <div>3 врача-гинеколога</div>
-                  <div>2 филиала</div>
-                  <div className="text-emerald-600 font-medium">Приём на неделе</div>
+              <div className="static mt-3 sm:mt-0 sm:absolute sm:-bottom-4 left-0 right-0 sm:left-0 sm:right-auto w-full sm:w-[340px] p-2.5 sm:p-4 rounded-2xl bg-white/95 backdrop-blur shadow-xl border border-gray-100">
+                <div className="grid grid-cols-2 gap-2 sm:gap-3 text-[13px] sm:text-sm">
+                  {[
+                    {
+                      title: 'Приём взрослых',
+                      icon: (
+                        <svg className="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+                          <circle cx="12" cy="7" r="4" />
+                        </svg>
+                      ),
+                    },
+                    {
+                      title: '2 филиала в Одинцово',
+                      icon: (
+                        <svg className="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                          <path d="M3 21h18" />
+                          <path d="M7 21V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14" />
+                          <path d="M9 9h.01M9 12h.01M9 15h.01M15 9h.01M15 12h.01M15 15h.01" />
+                        </svg>
+                      ),
+                    },
+                    {
+                      title: 'Приём от 3 780 ₽',
+                      icon: (
+                        <svg className="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                          <path d="M12 1v22" />
+                          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6" />
+                        </svg>
+                      ),
+                    },
+                    {
+                      title: 'УЗИ и анализы в одном месте',
+                      icon: (
+                        <svg className="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
+                          <path d="M9 3H6a2 2 0 0 0-2 2v3" />
+                          <path d="M15 3h3a2 2 0 0 1 2 2v3" />
+                          <path d="M9 21H6a2 2 0 0 1-2-2v-3" />
+                          <path d="M15 21h3a2 2 0 0 0 2-2v-3" />
+                          <path d="M7 12h10" />
+                          <path d="M12 7v10" />
+                        </svg>
+                      ),
+                    },
+                  ].map((it) => (
+                    <div key={it.title} className="flex items-start gap-2 sm:gap-2.5 p-2 sm:p-2.5 rounded-xl bg-gray-50/80 border border-gray-100">
+                      <span className="mt-0.5 w-8 h-8 sm:w-7 sm:h-7 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0">
+                        {it.icon}
+                      </span>
+                      <span className="text-gray-800 font-medium leading-snug">{it.title}</span>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
@@ -226,7 +308,7 @@ export default function TestGinoPage() {
       {/* Почему обращаются в Альтамед-С */}
       <section className="py-8 sm:py-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-4">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8">Почему обращаются в Альтамед-С</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6 sm:mb-8">Почему пациенты выбирают Альтамед-С</h2>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
             {WHY_CARDS.map((c) => (
               <div key={c.title} className="flex items-start gap-3 sm:gap-4 p-3 sm:p-5 rounded-xl bg-slate-100/70 min-h-[100px] sm:min-h-[120px]">
@@ -243,19 +325,38 @@ export default function TestGinoPage() {
         </div>
       </section>
 
-        {/* С какими вопросами обращаются */}
+        {/* Когда стоит записаться */}
         <section className="py-8 sm:py-12 bg-gray-50/50 scroll-mt-20">
           <div className="max-w-[1400px] mx-auto px-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">С какими вопросами обращаются к гинекологу</h2>
-            <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-              {QUESTION_GROUPS.map((g) => (
-                <div key={g.title} className="rounded-xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md transition">
-                  <h3 className="font-semibold text-gray-900 mb-2">{g.title}</h3>
-                  <ul className="space-y-1 text-gray-600 text-sm">
-                    {g.items.map((i) => (
-                      <li key={i}>· {i}</li>
-                    ))}
-                  </ul>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Когда стоит записаться к гинекологу</h2>
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {WHEN_TO_BOOK.map((t) => (
+                <div key={t} className="rounded-xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md transition">
+                  <div className="flex items-start gap-3">
+                    <span className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 font-bold flex-shrink-0">✓</span>
+                    <p className="text-gray-800 font-medium leading-snug mb-0">{t}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Что входит в приём */}
+        <section className="py-8 sm:py-12 bg-white">
+          <div className="max-w-[1400px] mx-auto px-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Что входит в приём гинеколога</h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              {[
+                'сбор жалоб и анамнеза',
+                'осмотр',
+                'рекомендации врача',
+                'при необходимости мазки, УЗИ и анализы',
+                'план лечения или дообследования',
+              ].map((s) => (
+                <div key={s} className="flex gap-3 p-4 rounded-xl bg-gray-50 border border-gray-100">
+                  <span className="text-emerald-600">✓</span>
+                  <span className="text-gray-700">{s}</span>
                 </div>
               ))}
             </div>
@@ -266,8 +367,32 @@ export default function TestGinoPage() {
         <section id="tseny" className="py-8 sm:py-12 scroll-mt-20">
           <div className="max-w-[1400px] mx-auto px-4">
             <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Цены на приём гинеколога в Одинцово</h2>
+            <div className="mb-6">
+              <h3 className="font-semibold text-gray-900 mb-3">Ключевые услуги</h3>
+              <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                {keyPrices.map((s) => (
+                  <div key={s.code} className="rounded-xl p-4 bg-white border border-gray-100 shadow-sm">
+                    <p className="text-gray-800 font-medium leading-snug mb-1">{s.name}</p>
+                    <p className="text-gray-900 font-bold mb-0">
+                      {s.price.includes('запрос') ? s.price : `${s.price.replace(/ руб\.?$/, '')} ₽`}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
             <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
               <div className="lg:col-span-2 order-2 lg:order-1 rounded-2xl border border-gray-200 overflow-hidden bg-white">
+                <div className="flex items-center justify-between gap-4 p-4 border-b border-gray-100 bg-white">
+                  <p className="font-semibold text-gray-900 mb-0">Полный прайс</p>
+                  <button
+                    type="button"
+                    onClick={() => setShowAllPrices((v) => !v)}
+                    className="px-4 py-2 rounded-xl border border-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-50 transition"
+                  >
+                    {showAllPrices ? 'Скрыть' : 'Показать'}
+                  </button>
+                </div>
+                {showAllPrices && (
                 <div className="overflow-y-auto max-h-[480px] sm:max-h-[480px]">
                   <table className="w-full text-sm sm:text-base table-fixed">
                     <thead className="sticky top-0 z-10 bg-gray-100">
@@ -286,6 +411,7 @@ export default function TestGinoPage() {
                     </tbody>
                   </table>
                 </div>
+                )}
               </div>
               <div className="flex flex-col items-center rounded-2xl p-5 sm:p-6 bg-white border border-gray-200 shadow-sm order-1 lg:order-2">
                 <div className="w-24 h-24 sm:w-32 sm:h-32 mb-4 relative">
@@ -337,8 +463,16 @@ export default function TestGinoPage() {
                 );
               })}
             </div>
+            <div className="mt-8 flex flex-col sm:flex-row justify-center gap-3">
+              <a href="#vrachi" className="px-6 py-3.5 border-2 border-emerald-600 text-emerald-600 font-medium rounded-xl hover:bg-emerald-50 transition text-center">
+                Выбрать врача
+              </a>
+              <Link href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="px-6 py-3.5 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition text-center">
+                Записаться к врачу
+              </Link>
+            </div>
             <p className="text-gray-600 mt-8 text-center text-sm">
-              В клинике ведут приём врачи разных профилей — можно записаться к гинекологу, акушеру-гинекологу или специалисту по детской гинекологии.
+              В клинике ведут приём врачи разных профилей — можно записаться к гинекологу или акушеру-гинекологу.
             </p>
           </div>
         </section>
@@ -346,7 +480,8 @@ export default function TestGinoPage() {
         {/* Направления — сервисные карточки */}
         <section id="napravleniya" className="py-12 scroll-mt-8">
           <div className="max-w-[1400px] mx-auto px-4">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Приём по основным направлениям</h2>
+            <h2 className="text-2xl font-bold text-gray-900 mb-2">Связанные направления</h2>
+            <p className="text-gray-600 mb-6">Быстрые ссылки на основные услуги — выберите нужное направление.</p>
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {DIRECTIONS.map((d) => (
                 <div key={d.title} className="group rounded-2xl overflow-hidden border-2 border-gray-100 hover:border-emerald-200 hover:bg-emerald-50/30 transition bg-white">
@@ -360,11 +495,15 @@ export default function TestGinoPage() {
                     </div>
                   )}
                   <div className="p-6 pt-4">
-                    <h3 className="font-bold text-gray-900 mb-2">{d.title}</h3>
+                    <h3 className="font-bold text-gray-900 mb-2">
+                      <Link href={d.url} className="hover:underline">
+                        {d.title}
+                      </Link>
+                    </h3>
                     <p className="text-gray-600 text-sm mb-4">{d.short}</p>
                     <div className="flex flex-wrap gap-3">
                       <Link href={d.url} className="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-emerald-600 border border-emerald-600 rounded-xl hover:bg-emerald-50 transition">
-                        Подробнее
+                        {'cta' in d && d.cta ? d.cta : d.title}
                       </Link>
                       <Link href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-4 py-2.5 text-sm font-medium text-white bg-emerald-600 rounded-xl hover:bg-emerald-700 transition">
                         Записаться
@@ -401,7 +540,12 @@ export default function TestGinoPage() {
         <section id="adresa" className="py-12 scroll-mt-8">
           <div className="max-w-[1400px] mx-auto px-4">
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
-              <h2 className="text-2xl font-bold text-gray-900 uppercase tracking-tight">Филиалы в Одинцово</h2>
+              <div>
+                <h2 className="text-2xl font-bold text-gray-900 uppercase tracking-tight">Филиалы в Одинцово</h2>
+                <p className="text-gray-600 text-sm mt-1">
+                  Выберите удобный адрес для записи — оба филиала работают по графику <span className="font-medium text-gray-800">{ADDRESSES[0].hours}</span>.
+                </p>
+              </div>
               <div className="flex gap-2">
                 {ADDRESSES.map((addr, i) => (
                   <button key={addr.title} onClick={() => setActiveBranch(i)} className={`px-5 py-2.5 font-medium rounded-full text-sm transition ${activeBranch === i ? 'bg-emerald-600 text-white' : 'bg-gray-100 text-gray-600 hover:bg-gray-200'}`}>
@@ -450,7 +594,7 @@ export default function TestGinoPage() {
                   </a>
                 </div>
                 <p className="font-medium text-gray-900 mb-2">Оказывается помощь по следующим направлениям:</p>
-                <p className="text-gray-600 text-sm mb-3">гинекология, акушерство, ведение беременности, детская гинекология, гинеколог-эндокринолог, УЗИ, лабораторная диагностика, кольпоскопия и другие процедуры.</p>
+                <p className="text-gray-600 text-sm mb-3">гинекология, акушерство, ведение беременности, гинеколог-эндокринолог, УЗИ, лабораторная диагностика, кольпоскопия и другие процедуры.</p>
                 <p className="text-gray-600 text-sm mb-4">Массаж, больничные листы, УЗИ-диагностика — в одном медцентре. Подробнее об услугах — <Link href="#tseny" className="text-emerald-600 hover:underline">раздел «Цены» ниже</Link>.</p>
                 <p className="font-medium text-gray-900 mb-2">Режим работы:</p>
                 <p className="text-gray-600 text-sm mb-4">{ADDRESSES[activeBranch].hours}</p>
@@ -458,9 +602,30 @@ export default function TestGinoPage() {
                   <svg className="w-5 h-5 text-emerald-600 flex-shrink-0 mt-0.5" fill="currentColor" viewBox="0 0 20 20"><path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" /></svg>
                   <div>
                     <p className="text-gray-800 font-medium">{ADDRESSES[activeBranch].address}</p>
-                    <a href={ADDRESSES[activeBranch].mapLink} target="_blank" rel="noopener noreferrer" className="text-emerald-600 text-sm font-medium hover:underline mt-1 inline-block">
-                      Смотреть на карте →
-                    </a>
+                    <div className="mt-3 flex flex-col sm:flex-row gap-2">
+                      <Link
+                        href="https://online.altamed-c.ru/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-3 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition text-center"
+                      >
+                        Записаться в клинику
+                      </Link>
+                      <a
+                        href={PHONE_LINK}
+                        className="px-4 py-3 border-2 border-emerald-600 text-emerald-600 font-medium rounded-xl hover:bg-emerald-50 transition text-center"
+                      >
+                        Позвонить
+                      </a>
+                      <a
+                        href={ADDRESSES[activeBranch].mapLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="px-4 py-3 border border-gray-200 text-gray-700 font-medium rounded-xl hover:bg-gray-50 transition text-center"
+                      >
+                        Смотреть на карте →
+                      </a>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -514,42 +679,13 @@ export default function TestGinoPage() {
           );
         })()}
 
-        {/* Почему выбирают — с фото */}
-        <section className="py-12 bg-gray-50/50">
-          <div className="max-w-[1400px] mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden order-2 lg:order-1">
-                <Image src="/images/images allergoly/ginokologia.webp" alt="Приём в Альтамед-С" fill className="object-cover" sizes="(max-width: 1024px) 100vw, 50vw" quality={95} />
-              </div>
-              <div className="order-1 lg:order-2">
-                <h2 className="text-2xl font-bold text-gray-900 mb-6">Почему обращаются в Альтамед-С</h2>
-                <div className="grid sm:grid-cols-2 gap-4">
-                  {WHY_CHOOSE.map((w) => (
-                    <div key={w} className="flex items-center gap-3">
-                      <span className="w-8 h-8 rounded-full bg-emerald-100 flex items-center justify-center text-emerald-600 flex-shrink-0">✓</span>
-                      <span className="text-gray-700">{w}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
         {/* Как проходит приём */}
         <section className="py-8 sm:py-12">
           <div className="max-w-[1400px] mx-auto px-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Как проходит приём гинеколога</h2>
-            <p className="text-gray-700 mb-4">Первичный приём обычно включает:</p>
-            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {['сбор жалоб и анамнеза', 'уточнение симптомов и состояния', 'осмотр', 'назначение УЗИ и анализов при необходимости', 'рекомендации по лечению и наблюдению'].map((s) => (
-                <div key={s} className="flex gap-3 p-4 rounded-xl bg-gray-50">
-                  <span className="text-emerald-600">✓</span>
-                  <span className="text-gray-700">{s}</span>
-                </div>
-              ))}
-            </div>
-            <p className="text-gray-600 mt-6">Консультация проходит деликатно, спокойно и понятно для пациентки.</p>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Как проходит приём</h2>
+            <p className="text-gray-700 mb-4">
+              На приёме врач уточняет жалобы и анамнез, проводит осмотр, при необходимости назначает мазки, УЗИ и анализы. По итогам вы получаете рекомендации и план дальнейших действий.
+            </p>
           </div>
         </section>
 
@@ -611,7 +747,7 @@ export default function TestGinoPage() {
             </p>
             <div className="flex flex-col sm:flex-row flex-wrap justify-center gap-3 sm:gap-4">
               <Link href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="px-6 sm:px-8 py-4 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 shadow-lg shadow-emerald-900/20 min-h-[44px] flex items-center justify-center">
-                Записаться онлайн
+                Записаться к гинекологу в Одинцово
               </Link>
               <a href={PHONE_LINK} className="px-6 sm:px-8 py-4 border-2 border-emerald-600 text-emerald-600 font-medium rounded-xl hover:bg-emerald-50 min-h-[44px] flex items-center justify-center">
                 Позвонить

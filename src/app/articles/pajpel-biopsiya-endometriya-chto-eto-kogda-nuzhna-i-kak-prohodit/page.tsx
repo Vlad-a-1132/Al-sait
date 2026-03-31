@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Пайпель-биопсия эндометрия | Альтамед-С',
     description: 'Пайпель-биопсия эндометрия: показания, подготовка, как проходит процедура и что показывают результаты.',
-    url: 'https://altamed-c.ru/articles/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit',
+    url: 'https://altamed-c.ru/blog/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -219,11 +219,11 @@ export default function ArticlePajpelBiopsiya() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/endometrioz-simptomy-kogda-obraschatsya-i-kak-prohodit-lechenie">Эндометриоз: симптомы и лечение</Link></li>
-                  <li><Link href="/articles/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">Биопсия шейки матки</Link></li>
-                  <li><Link href="/articles/kontrastnaya-ehohisterosalpingoskopiya-chto-pokazyvaet-issledovanie">Контрастная эхогистеросальпингоскопия</Link></li>
-                  <li><Link href="/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
-                  <li><Link href="/articles/polipy-v-ginekologii-kogda-nuzhno-udalenie-i-kak-prohodit-procedura">Полипы в гинекологии</Link></li>
+                  <li><Link href="/blog/endometrioz-simptomy-kogda-obraschatsya-i-kak-prohodit-lechenie">Эндометриоз: симптомы и лечение</Link></li>
+                  <li><Link href="/blog/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">Биопсия шейки матки</Link></li>
+                  <li><Link href="/blog/kontrastnaya-ehohisterosalpingoskopiya-chto-pokazyvaet-issledovanie">Контрастная эхогистеросальпингоскопия</Link></li>
+                  <li><Link href="/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
+                  <li><Link href="/blog/polipy-v-ginekologii-kogda-nuzhno-udalenie-i-kak-prohodit-procedura">Полипы в гинекологии</Link></li>
                 </ul>
               </div>
             </div>

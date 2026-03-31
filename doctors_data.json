@@ -21,7 +21,7 @@
       "specialization": "Отоларинголог, Сурдолог",
       "specializations": ["Отоларинголог", "Сурдолог"],
       "experience": 15,
-      "photo": "/images/doctors/Balyan Maria Maisovna Altamed-С.webp",
+      "photo": "/images/doctors/balyan-maria-maisovna.webp",
       "description": "Врач-оториноларинголог, сурдолог. Врач высшей квалификационной категории",
       "schedule": {
         "Wednesday": { "start": "17:30", "end": "20:00" },
@@ -673,17 +673,17 @@
       "slug": "pak-larisa-konstantinovna",
       "specialization": "Невролог",
       "specializations": ["Невролог"],
-      "experience": 34,
+      "experience": 35,
       "photo": "/images/doctors/Pak Larisa Konstantinovna.webp",
-      "description": "Врач невролог высшей категории. Стаж работы врачом неврологом с 1990 года. Опыт работы по иглотерапии 15 лет",
+      "description": "Врач-невролог высшей категории. Стаж 35 лет. Иглорефлексотерапевт, фитотерапевт.",
       "schedule": {
         "Wednesday": { "start": "17:00", "end": "20:00" },
         "Friday": { "start": "17:00", "end": "20:00" }
       },
       "details": {
-        "specialization": "Врач невролог",
-        "category": "Врач невролог высшей категории",
-        "experience": "Стаж работы врачом неврологом с 1990 года"
+        "specialization": "Врач-невролог",
+        "category": "Врач-невролог высшей категории",
+        "experience": "Стаж 35 лет"
       }
     },
     {

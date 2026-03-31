@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Подготовка к беременности: какие обследования | Альтамед-С',
     description: 'Какие обследования нужны при подготовке к беременности — анализы, УЗИ, консультации.',
-    url: 'https://altamed-c.ru/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya',
+    url: 'https://altamed-c.ru/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -120,7 +120,7 @@ export default function ArticlePodgotovkaKBeremennosti() {
               <li>Мазок на флору, онкоцитологию.</li>
             </ul>
             <p className="mb-4">
-              При нерегулярном цикле, предыдущих выкидышах или бесплодии — расширенная панель гормонов, УЗИ органов малого таза, при необходимости — оценка проходимости труб (например, <Link href="/articles/kontrastnaya-ehohisterosalpingoskopiya-chto-pokazyvaet-issledovanie">эхогистеросальпингоскопия</Link>). При подготовке к ЭКО — отдельный план обследований.
+              При нерегулярном цикле, предыдущих выкидышах или бесплодии — расширенная панель гормонов, УЗИ органов малого таза, при необходимости — оценка проходимости труб (например, <Link href="/blog/kontrastnaya-ehohisterosalpingoskopiya-chto-pokazyvaet-issledovanie">эхогистеросальпингоскопия</Link>). При подготовке к ЭКО — отдельный план обследований.
             </p>
           </section>
 
@@ -134,7 +134,7 @@ export default function ArticlePodgotovkaKBeremennosti() {
           <section className="mb-10">
             <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">УЗИ и дополнительные методы</h2>
             <p className="mb-4">
-              УЗИ органов малого таза — оценка матки, яичников, выявление миом, кист, аномалий. При подозрении на полипы или гиперплазию эндометрия — <Link href="/articles/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit">пайпель-биопсия</Link>. При бесплодии — проверка проходимости маточных труб.
+              УЗИ органов малого таза — оценка матки, яичников, выявление миом, кист, аномалий. При подозрении на полипы или гиперплазию эндометрия — <Link href="/blog/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit">пайпель-биопсия</Link>. При бесплодии — проверка проходимости маточных труб.
             </p>
           </section>
 
@@ -188,10 +188,10 @@ export default function ArticlePodgotovkaKBeremennosti() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya">Первый приём беременной</Link></li>
-                  <li><Link href="/articles/vedenie-beremennosti-v-odintsovo">Ведение беременности в Одинцово</Link></li>
-                  <li><Link href="/articles/ginekolog-ili-ginekolog-endokrinolog">Гинеколог или гинеколог-эндокринолог</Link></li>
-                  <li><Link href="/articles/podgotovka-k-eko-zachem-nuzhna-konsultatsiya-akushera-ginekologa">Подготовка к ЭКО</Link></li>
+                  <li><Link href="/blog/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya">Первый приём беременной</Link></li>
+                  <li><Link href="/blog/kak-prohodit-vedenie-beremennosti">Ведение беременности в Одинцово</Link></li>
+                  <li><Link href="/blog/ginekolog-ili-ginekolog-endokrinolog">Гинеколог или гинеколог-эндокринолог</Link></li>
+                  <li><Link href="/blog/podgotovka-k-eko-zachem-nuzhna-konsultatsiya-akushera-ginekologa">Подготовка к ЭКО</Link></li>
                 </ul>
               </div>
             </div>

@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Эхогистеросальпингоскопия: что показывает | Альтамед-С',
     description: 'Контрастная эхогистеросальпингоскопия — оценка проходимости маточных труб.',
-    url: 'https://altamed-c.ru/articles/kontrastnaya-ehohisterosalpingoskopiya-chto-pokazyvaet-issledovanie',
+    url: 'https://altamed-c.ru/blog/kontrastnaya-ehohisterosalpingoskopiya-chto-pokazyvaet-issledovanie',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/kontrastnaya-ehohisterosalpingoskopiya-chto-pokazyvaet-issledovanie' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/kontrastnaya-ehohisterosalpingoskopiya-chto-pokazyvaet-issledovanie' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -137,7 +137,7 @@ export default function ArticleEhohisterosalpingoskopiya() {
                 </div>
               ))}
             </div>
-            <p className="text-gray-700">Подробнее — <Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
+            <p className="text-gray-700">Подробнее — <Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
           </section>
 
           <section className="mb-10">
@@ -193,10 +193,10 @@ export default function ArticleEhohisterosalpingoskopiya() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
-                  <li><Link href="/articles/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit">Пайпель-биопсия эндометрия</Link></li>
-                  <li><Link href="/articles/endometrioz-simptomy-kogda-obraschatsya-i-kak-prohodit-lechenie">Эндометриоз</Link></li>
-                  <li><Link href="/articles/podgotovka-k-eko-zachem-nuzhna-konsultatsiya-akushera-ginekologa">Подготовка к ЭКО</Link></li>
+                  <li><Link href="/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
+                  <li><Link href="/blog/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit">Пайпель-биопсия эндометрия</Link></li>
+                  <li><Link href="/blog/endometrioz-simptomy-kogda-obraschatsya-i-kak-prohodit-lechenie">Эндометриоз</Link></li>
+                  <li><Link href="/blog/podgotovka-k-eko-zachem-nuzhna-konsultatsiya-akushera-ginekologa">Подготовка к ЭКО</Link></li>
                 </ul>
               </div>
             </div>

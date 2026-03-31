@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Когда нужно записаться к гинекологу: 10 симптомов | Альтамед-С',
     description: 'Разбираем 10 симптомов, при которых нужна консультация гинеколога: боли, нарушения цикла, выделения, зуд и другие признаки.',
-    url: 'https://altamed-c.ru/articles/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov',
+    url: 'https://altamed-c.ru/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -192,7 +192,7 @@ export default function ArticleGinekolog10Simptomov() {
                 </div>
               ))}
             </div>
-            <p className="text-gray-700">Подробнее — <Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
+            <p className="text-gray-700">Подробнее — <Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
           </section>
 
           {/* Самолечение */}
@@ -221,7 +221,7 @@ export default function ArticleGinekolog10Simptomov() {
               </div>
               <div className="rounded-xl p-4 bg-gray-50 border border-gray-100">
                 <dt className="font-semibold text-gray-900 mb-1">К кому идти — гинекологу или гинекологу-эндокринологу?</dt>
-                <dd className="text-gray-700 mb-0">При большинстве жалоб — к гинекологу. Он при необходимости направит к эндокринологу. Подробнее — <Link href="/articles/ginekolog-ili-ginekolog-endokrinolog">«Гинеколог или гинеколог-эндокринолог»</Link>.</dd>
+                <dd className="text-gray-700 mb-0">При большинстве жалоб — к гинекологу. Он при необходимости направит к эндокринологу. Подробнее — <Link href="/blog/ginekolog-ili-ginekolog-endokrinolog">«Гинеколог или гинеколог-эндокринолог»</Link>.</dd>
               </div>
               <div className="rounded-xl p-4 bg-gray-50 border border-gray-100">
                 <dt className="font-semibold text-gray-900 mb-1">Можно ли прийти без жалоб, «просто провериться»?</dt>
@@ -269,11 +269,11 @@ export default function ArticleGinekolog10Simptomov() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/bol-vnizu-zhivota-u-zhenshchin-prichiny">Боль внизу живота у женщин</Link></li>
-                  <li><Link href="/articles/narushenie-menstrualnogo-tsikla">Нарушение менструального цикла</Link></li>
-                  <li><Link href="/articles/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">Выделения, зуд, жжение</Link></li>
-                  <li><Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
-                  <li><Link href="/articles/vedenie-beremennosti-v-odintsovo">Ведение беременности в Одинцово</Link></li>
+                  <li><Link href="/blog/bol-vnizu-zhivota-u-zhenshchin-prichiny">Боль внизу живота у женщин</Link></li>
+                  <li><Link href="/blog/narushenie-menstrualnogo-tsikla">Нарушение менструального цикла</Link></li>
+                  <li><Link href="/blog/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">Выделения, зуд, жжение</Link></li>
+                  <li><Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
+                  <li><Link href="/blog/kak-prohodit-vedenie-beremennosti">Ведение беременности в Одинцово</Link></li>
                 </ul>
               </div>
             </div>

@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Мазки у гинеколога: что показывают и когда назначают | Альтамед-С',
     description: 'Мазки на флору и онкоцитологию — зачем нужны, как подготовиться и когда обращаться.',
-    url: 'https://altamed-c.ru/articles/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut',
+    url: 'https://altamed-c.ru/blog/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/chto-pokazyvayut-mazki-u-ginekologa-i-kogda-ih-naznachayut' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -114,10 +114,10 @@ export default function ArticleMazkiUGinekologa() {
           <section className="mb-10">
             <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">Когда назначают мазки</h2>
             <p className="mb-4">
-              Мазок на флору назначают при жалобах на выделения, зуд, жжение, при профилактическом осмотре, перед плановыми операциями, при подготовке к беременности. Подробнее — в статье <Link href="/articles/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">«Выделения, зуд, жжение: когда к гинекологу»</Link>.
+              Мазок на флору назначают при жалобах на выделения, зуд, жжение, при профилактическом осмотре, перед плановыми операциями, при подготовке к беременности. Подробнее — в статье <Link href="/blog/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">«Выделения, зуд, жжение: когда к гинекологу»</Link>.
             </p>
             <p className="mb-4">
-              Мазок на онкоцитологию входит в стандарт <Link href={GYNEC_SERVICES.profilaktika}>профилактического осмотра</Link> — рекомендуется раз в год при половой жизни. При изменениях в мазке врач может назначить <Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопию</Link> для детального осмотра шейки матки.
+              Мазок на онкоцитологию входит в стандарт <Link href={GYNEC_SERVICES.profilaktika}>профилактического осмотра</Link> — рекомендуется раз в год при половой жизни. При изменениях в мазке врач может назначить <Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопию</Link> для детального осмотра шейки матки.
             </p>
           </section>
 
@@ -163,7 +163,7 @@ export default function ArticleMazkiUGinekologa() {
               ))}
             </div>
             <p className="mb-4">
-              За 1–2 дня до визита воздержаться от половых контактов, спринцеваний, влагалищных свечей и кремов. Оптимально — не во время менструации. Лучше — первая половина цикла (5–12-й день). Подробнее о подготовке — в статье <Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.
+              За 1–2 дня до визита воздержаться от половых контактов, спринцеваний, влагалищных свечей и кремов. Оптимально — не во время менструации. Лучше — первая половина цикла (5–12-й день). Подробнее о подготовке — в статье <Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.
             </p>
           </section>
 
@@ -228,11 +228,11 @@ export default function ArticleMazkiUGinekologa() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">Выделения, зуд, жжение: когда к гинекологу</Link></li>
-                  <li><Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
-                  <li><Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
-                  <li><Link href="/articles/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">Биопсия шейки матки</Link></li>
-                  <li><Link href="/articles/bol-vnizu-zhivota-u-zhenshchin-prichiny">Боль внизу живота у женщин</Link></li>
+                  <li><Link href="/blog/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">Выделения, зуд, жжение: когда к гинекологу</Link></li>
+                  <li><Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
+                  <li><Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
+                  <li><Link href="/blog/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">Биопсия шейки матки</Link></li>
+                  <li><Link href="/blog/bol-vnizu-zhivota-u-zhenshchin-prichiny">Боль внизу живота у женщин</Link></li>
                 </ul>
               </div>
             </div>

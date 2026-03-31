@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Внутриматочная спираль: установка и удаление | Альтамед-С',
     description: 'ВМС: кому подходит, как устанавливают и удаляют.',
-    url: 'https://altamed-c.ru/articles/vnutrimatochnaya-spiral-ustanovka-i-udalenie',
+    url: 'https://altamed-c.ru/blog/vnutrimatochnaya-spiral-ustanovka-i-udalenie',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/vnutrimatochnaya-spiral-ustanovka-i-udalenie' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/vnutrimatochnaya-spiral-ustanovka-i-udalenie' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -251,10 +251,10 @@ export default function ArticleVnutrimatochnayaSpiral() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
-                  <li><Link href="/articles/ginekolog-ili-ginekolog-endokrinolog">Гинеколог или гинеколог-эндокринолог</Link></li>
-                  <li><Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
-                  <li><Link href="/articles/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу</Link></li>
+                  <li><Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
+                  <li><Link href="/blog/ginekolog-ili-ginekolog-endokrinolog">Гинеколог или гинеколог-эндокринолог</Link></li>
+                  <li><Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
+                  <li><Link href="/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу</Link></li>
                 </ul>
               </div>
             </div>

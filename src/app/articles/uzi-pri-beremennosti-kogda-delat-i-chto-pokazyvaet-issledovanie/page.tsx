@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'УЗИ при беременности: когда делать | Альтамед-С',
     description: 'УЗИ плода — плановые скрининги, что показывают и когда проходить исследование.',
-    url: 'https://altamed-c.ru/articles/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie',
+    url: 'https://altamed-c.ru/blog/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -108,7 +108,7 @@ export default function ArticleUziPriBeremennosti() {
               Первое плановое УЗИ — в 11–14 недель. Подтверждают маточную беременность, уточняют срок, считают сердцебиение плода, оценивают копчико-теменной размер (КТР), толщину воротникового пространства (ТВП) — маркер хромосомных аномалий. Смотрят место прикрепления плаценты, исключают грубые пороки. При многоплодной беременности определяют тип двойни.
             </p>
             <p className="mb-4">
-              Раньше 11 недель УЗИ делают по показаниям: боли, кровянистые выделения, неясный срок, подозрение на внематочную беременность. Подробнее о первом визите — в статье <Link href="/articles/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya">«Первый приём беременной»</Link>.
+              Раньше 11 недель УЗИ делают по показаниям: боли, кровянистые выделения, неясный срок, подозрение на внематочную беременность. Подробнее о первом визите — в статье <Link href="/blog/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya">«Первый приём беременной»</Link>.
             </p>
           </section>
 
@@ -122,7 +122,7 @@ export default function ArticleUziPriBeremennosti() {
           <section id="trimestr3" className="mb-10 scroll-mt-20">
             <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">УЗИ в III триместре (30–34 недели)</h2>
             <p className="mb-4">
-              Третий скрининг — размеры плода, предлежание, положение плаценты, зрелость плаценты, количество вод. Оценивают рост и пропорции. При необходимости проводят допплерометрию — исследование кровотока в сосудах плода и матки. Подробнее — в статье <Link href="/articles/dopplerometriya-pri-beremennosti-kogda-naznachayut-i-chto-pokazyvaet">«Допплерометрия при беременности»</Link>.
+              Третий скрининг — размеры плода, предлежание, положение плаценты, зрелость плаценты, количество вод. Оценивают рост и пропорции. При необходимости проводят допплерометрию — исследование кровотока в сосудах плода и матки. Подробнее — в статье <Link href="/blog/dopplerometriya-pri-beremennosti-kogda-naznachayut-i-chto-pokazyvaet">«Допплерометрия при беременности»</Link>.
             </p>
           </section>
 
@@ -180,10 +180,10 @@ export default function ArticleUziPriBeremennosti() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/vedenie-beremennosti-v-odintsovo">Ведение беременности в Одинцово</Link></li>
-                  <li><Link href="/articles/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya">Первый приём беременной</Link></li>
-                  <li><Link href="/articles/dopplerometriya-pri-beremennosti-kogda-naznachayut-i-chto-pokazyvaet">Допплерометрия при беременности</Link></li>
-                  <li><Link href="/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
+                  <li><Link href="/blog/kak-prohodit-vedenie-beremennosti">Ведение беременности в Одинцово</Link></li>
+                  <li><Link href="/blog/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya">Первый приём беременной</Link></li>
+                  <li><Link href="/blog/dopplerometriya-pri-beremennosti-kogda-naznachayut-i-chto-pokazyvaet">Допплерометрия при беременности</Link></li>
+                  <li><Link href="/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
                 </ul>
               </div>
             </div>

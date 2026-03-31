@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Кольпоскопия: что показывает и когда назначают | Альтамед-С',
     description: 'Подробно об исследовании шейки матки и показаниях к процедуре.',
-    url: 'https://altamed-c.ru/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut',
+    url: 'https://altamed-c.ru/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -113,7 +113,7 @@ export default function ArticleKolposkopiya() {
               <li>При визуальном осмотре видны эрозия, эктопия, лейкоплакия, подозрительные участки;</li>
               <li>Контактные кровянистые выделения (после полового акта);</li>
               <li>Выявление ВПЧ высокого онкогенного риска при сохранной цитологии;</li>
-              <li>Подготовка к установке <Link href="/articles/vnutrimatochnaya-spiral-ustanovka-i-udalenie">внутриматочной спирали</Link>;</li>
+              <li>Подготовка к установке <Link href="/blog/vnutrimatochnaya-spiral-ustanovka-i-udalenie">внутриматочной спирали</Link>;</li>
               <li>Контроль после лечения (диатермокоагуляция, криодеструкция, конизация);</li>
               <li>Профилактический осмотр по рекомендации врача.</li>
             </ul>
@@ -158,7 +158,7 @@ export default function ArticleKolposkopiya() {
             </div>
             <h3 className="text-lg font-bold text-gray-900 mt-6 mb-3">Подготовка</h3>
             <p className="mb-4">
-              За 24–48 часов: без половых контактов, спринцеваний, вагинальных свечей и кремов. Оптимальный день — 5–12‑й день цикла (первая половина, после месячных). Диета не нужна. Подробнее о подготовке к приёму — в статье <Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.
+              За 24–48 часов: без половых контактов, спринцеваний, вагинальных свечей и кремов. Оптимальный день — 5–12‑й день цикла (первая половина, после месячных). Диета не нужна. Подробнее о подготовке к приёму — в статье <Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.
             </p>
             <h3 className="text-lg font-bold text-gray-900 mt-6 mb-3">Длительность</h3>
             <p className="mb-4">
@@ -240,11 +240,11 @@ export default function ArticleKolposkopiya() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">Выделения, зуд, жжение: когда к гинекологу</Link></li>
-                  <li><Link href="/articles/vnutrimatochnaya-spiral-ustanovka-i-udalenie">Внутриматочная спираль: установка и удаление</Link></li>
-                  <li><Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
-                  <li><Link href="/articles/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу</Link></li>
-                  <li><Link href="/articles/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">Биопсия шейки матки</Link></li>
+                  <li><Link href="/blog/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">Выделения, зуд, жжение: когда к гинекологу</Link></li>
+                  <li><Link href="/blog/vnutrimatochnaya-spiral-ustanovka-i-udalenie">Внутриматочная спираль: установка и удаление</Link></li>
+                  <li><Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
+                  <li><Link href="/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу</Link></li>
+                  <li><Link href="/blog/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">Биопсия шейки матки</Link></li>
                 </ul>
               </div>
             </div>

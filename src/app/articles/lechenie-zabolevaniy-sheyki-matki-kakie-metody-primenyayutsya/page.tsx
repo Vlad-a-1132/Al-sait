@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Лечение заболеваний шейки матки | Альтамед-С',
     description: 'Какие методы применяются при лечении заболеваний шейки матки.',
-    url: 'https://altamed-c.ru/articles/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya',
+    url: 'https://altamed-c.ru/blog/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/lechenie-zabolevaniy-sheyki-matki-kakie-metody-primenyayutsya' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -103,14 +103,14 @@ export default function ArticleLechenieZabolevaniySheykiMatki() {
           <section id="kriodestrukciya" className="mb-10 scroll-mt-20">
             <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">Криодеструкция</h2>
             <p className="mb-4">
-              Воздействие жидким азотом — ткань замораживается и отторгается. Метод подходит для доброкачественных изменений (эрозия, эктопия без дисплазии). Подробнее — в статье <Link href="/articles/kriodestrukciya-sheyki-matki-kogda-primenyaetsya-i-chto-vazhno-znat">«Криодеструкция шейки матки»</Link>.
+              Воздействие жидким азотом — ткань замораживается и отторгается. Метод подходит для доброкачественных изменений (эрозия, эктопия без дисплазии). Подробнее — в статье <Link href="/blog/kriodestrukciya-sheyki-matki-kogda-primenyaetsya-i-chto-vazhno-znat">«Криодеструкция шейки матки»</Link>.
             </p>
           </section>
 
           <section id="radiovolnovaya" className="mb-10 scroll-mt-20">
             <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">Радиоволновая хирургия</h2>
             <p className="mb-4">
-              Аппараты «Сургитрон» и аналоги — бесконтактное иссечение радиоволной. Применяют для удаления полипов, кондилом, биопсии, лечения дисплазии. Меньше кровотечений, более точное иссечение. Подробнее — в статье <Link href="/articles/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury">«Радиоволновая биопсия шейки матки»</Link>.
+              Аппараты «Сургитрон» и аналоги — бесконтактное иссечение радиоволной. Применяют для удаления полипов, кондилом, биопсии, лечения дисплазии. Меньше кровотечений, более точное иссечение. Подробнее — в статье <Link href="/blog/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury">«Радиоволновая биопсия шейки матки»</Link>.
             </p>
           </section>
 
@@ -131,7 +131,7 @@ export default function ArticleLechenieZabolevaniySheykiMatki() {
           <section id="metod" className="mb-10 scroll-mt-20">
             <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">Когда какой метод</h2>
             <p className="mb-4">
-              Выбор зависит от диагноза (доброкачественное изменение, дисплазия, полип), возраста, планов на беременность. При дисплазии высокой степени может потребоваться конизация с гистологией. Тактику определяет врач после <Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопии</Link> и <Link href="/articles/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">биопсии</Link>.
+              Выбор зависит от диагноза (доброкачественное изменение, дисплазия, полип), возраста, планов на беременность. При дисплазии высокой степени может потребоваться конизация с гистологией. Тактику определяет врач после <Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопии</Link> и <Link href="/blog/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">биопсии</Link>.
             </p>
           </section>
 
@@ -171,11 +171,11 @@ export default function ArticleLechenieZabolevaniySheykiMatki() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/kriodestrukciya-sheyki-matki-kogda-primenyaetsya-i-chto-vazhno-znat">Криодеструкция шейки матки</Link></li>
-                  <li><Link href="/articles/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury">Радиоволновая биопсия шейки матки</Link></li>
-                  <li><Link href="/articles/polipy-v-ginekologii-kogda-nuzhno-udalenie-i-kak-prohodit-procedura">Полипы в гинекологии</Link></li>
-                  <li><Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
-                  <li><Link href="/articles/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">Биопсия шейки матки</Link></li>
+                  <li><Link href="/blog/kriodestrukciya-sheyki-matki-kogda-primenyaetsya-i-chto-vazhno-znat">Криодеструкция шейки матки</Link></li>
+                  <li><Link href="/blog/radiovolnovaya-biopsiya-sheyki-matki-osobennosti-procedury">Радиоволновая биопсия шейки матки</Link></li>
+                  <li><Link href="/blog/polipy-v-ginekologii-kogda-nuzhno-udalenie-i-kak-prohodit-procedura">Полипы в гинекологии</Link></li>
+                  <li><Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">Что показывает кольпоскопия</Link></li>
+                  <li><Link href="/blog/biopsiya-sheyki-matki-kogda-naznachayut-i-bolno-li-eto">Биопсия шейки матки</Link></li>
                 </ul>
               </div>
             </div>

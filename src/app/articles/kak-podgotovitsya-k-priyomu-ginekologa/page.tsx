@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Как подготовиться к приёму гинеколога | Альтамед-С',
     description: 'Что можно и нельзя перед визитом к гинекологу, как подготовиться, что взять с собой.',
-    url: 'https://altamed-c.ru/articles/kak-podgotovitsya-k-priyomu-ginekologa',
+    url: 'https://altamed-c.ru/blog/kak-podgotovitsya-k-priyomu-ginekologa',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/kak-podgotovitsya-k-priyomu-ginekologa' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/kak-podgotovitsya-k-priyomu-ginekologa' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -126,7 +126,7 @@ export default function ArticleKakPodgotovitsya() {
             <h2 className="text-xl font-bold text-gray-900 mt-8 mb-4">Когда лучше записываться по циклу</h2>
             <h3 className="text-lg font-bold text-gray-900 mt-6 mb-3">Оптимальный период: 5–14‑й день</h3>
             <p className="mb-4">
-              Идеальное окно — первая половина цикла: после окончания менструации и до овуляции. В эти дни шейка матки лучше видна, мазки информативнее, а при необходимости можно сразу провести <Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопию</Link>.
+              Идеальное окно — первая половина цикла: после окончания менструации и до овуляции. В эти дни шейка матки лучше видна, мазки информативнее, а при необходимости можно сразу провести <Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопию</Link>.
             </p>
             <h3 className="text-lg font-bold text-gray-900 mt-6 mb-3">Когда записываться вне зависимости от цикла</h3>
             <p className="mb-4">
@@ -197,7 +197,7 @@ export default function ArticleKakPodgotovitsya() {
             </p>
             <h3 className="text-lg font-bold text-gray-900 mt-6 mb-3">Назначения</h3>
             <p className="mb-4">
-              По результатам осмотра может быть рекомендовано УЗИ, анализ крови на гормоны, <Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопия</Link>, консультация <Link href="/services/priem-ginekologa-odintsovo">гинеколога</Link> или <Link href="/services/akusher-ginekolog-odintsovo">акушера-гинеколога</Link>. План озвучивается в конце приёма.
+              По результатам осмотра может быть рекомендовано УЗИ, анализ крови на гормоны, <Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопия</Link>, консультация <Link href="/services/priem-ginekologa-odintsovo">гинеколога</Link> или <Link href="/services/akusher-ginekolog-odintsovo">акушера-гинеколога</Link>. План озвучивается в конце приёма.
             </p>
           </section>
 
@@ -279,11 +279,11 @@ export default function ArticleKakPodgotovitsya() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу: 10 симптомов</Link></li>
-                  <li><Link href="/articles/bol-vnizu-zhivota-u-zhenshchin-prichiny">Боль внизу живота у женщин: причины</Link></li>
-                  <li><Link href="/articles/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">Выделения, зуд, жжение: когда к гинекологу</Link></li>
-                  <li><Link href="/articles/ginekolog-ili-ginekolog-endokrinolog">Гинеколог или гинеколог-эндокринолог: к кому записаться</Link></li>
-                  <li><Link href="/articles/vedenie-beremennosti-v-odintsovo">Ведение беременности в Одинцово</Link></li>
+                  <li><Link href="/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу: 10 симптомов</Link></li>
+                  <li><Link href="/blog/bol-vnizu-zhivota-u-zhenshchin-prichiny">Боль внизу живота у женщин: причины</Link></li>
+                  <li><Link href="/blog/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">Выделения, зуд, жжение: когда к гинекологу</Link></li>
+                  <li><Link href="/blog/ginekolog-ili-ginekolog-endokrinolog">Гинеколог или гинеколог-эндокринолог: к кому записаться</Link></li>
+                  <li><Link href="/blog/kak-prohodit-vedenie-beremennosti">Ведение беременности в Одинцово</Link></li>
                 </ul>
               </div>
             </div>

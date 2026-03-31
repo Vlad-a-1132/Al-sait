@@ -339,11 +339,11 @@ export default function VedenieBeremennostiOdintsovoPage() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Полезные статьи</h2>
           <ul className="grid sm:grid-cols-2 lg:grid-cols-3 gap-3 text-gray-700">
-            <li><Link href="/articles/vedenie-beremennosti-v-odintsovo" className="text-emerald-600 hover:underline">Ведение беременности в Одинцово</Link></li>
-            <li><Link href="/articles/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya" className="text-emerald-600 hover:underline">Первый приём беременной</Link></li>
-            <li><Link href="/articles/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie" className="text-emerald-600 hover:underline">УЗИ при беременности</Link></li>
-            <li><Link href="/articles/dopplerometriya-pri-beremennosti-kogda-naznachayut-i-chto-pokazyvaet" className="text-emerald-600 hover:underline">Допплерометрия при беременности</Link></li>
-            <li><Link href="/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya" className="text-emerald-600 hover:underline">Подготовка к беременности</Link></li>
+            <li><Link href="/blog/kak-prohodit-vedenie-beremennosti" className="text-emerald-600 hover:underline">Ведение беременности в Одинцово</Link></li>
+            <li><Link href="/blog/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya" className="text-emerald-600 hover:underline">Первый приём беременной</Link></li>
+            <li><Link href="/blog/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie" className="text-emerald-600 hover:underline">УЗИ при беременности</Link></li>
+            <li><Link href="/blog/dopplerometriya-pri-beremennosti-kogda-naznachayut-i-chto-pokazyvaet" className="text-emerald-600 hover:underline">Допплерометрия при беременности</Link></li>
+            <li><Link href="/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya" className="text-emerald-600 hover:underline">Подготовка к беременности</Link></li>
           </ul>
         </div>
       </section>
@@ -361,9 +361,9 @@ export default function VedenieBeremennostiOdintsovoPage() {
               <span className="font-semibold text-emerald-600">Гинеколог в Одинцово</span>
               <p className="text-gray-600 text-sm mt-1">Общее направление гинекологии.</p>
             </Link>
-            <Link href="/articles/vedenie-beremennosti-v-odintsovo" className="block rounded-2xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition">
-              <span className="font-semibold text-emerald-600">Ведение беременности в Одинцово — статья</span>
-              <p className="text-gray-600 text-sm mt-1">Подробно о программе наблюдения.</p>
+            <Link href="/blog/kak-prohodit-vedenie-beremennosti" className="block rounded-2xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition">
+              <span className="font-semibold text-emerald-600">Как проходит ведение беременности — статья</span>
+              <p className="text-gray-600 text-sm mt-1">График визитов, анализы и УЗИ по триместрам.</p>
             </Link>
           </div>
         </div>

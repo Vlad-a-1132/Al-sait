@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Эндометриоз: симптомы и лечение | Альтамед-С',
     description: 'Эндометриоз — симптомы, диагностика, когда обращаться к гинекологу и как проходит лечение.',
-    url: 'https://altamed-c.ru/articles/endometrioz-simptomy-kogda-obraschatsya-i-kak-prohodit-lechenie',
+    url: 'https://altamed-c.ru/blog/endometrioz-simptomy-kogda-obraschatsya-i-kak-prohodit-lechenie',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/endometrioz-simptomy-kogda-obraschatsya-i-kak-prohodit-lechenie' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/endometrioz-simptomy-kogda-obraschatsya-i-kak-prohodit-lechenie' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -175,7 +175,7 @@ export default function ArticleEndometrioz() {
                 </div>
               ))}
             </div>
-            <p className="text-gray-700">Подробнее — <Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
+            <p className="text-gray-700">Подробнее — <Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
           </section>
 
           <section id="obrashchatsya" className="mb-10 scroll-mt-20">
@@ -184,7 +184,7 @@ export default function ArticleEndometrioz() {
               Обратитесь к <Link href={GYNEC_SERVICES.priem}>гинекологу</Link>, если месячные стали болезненными, боли не снимаются обычными препаратами, есть боли при половом акте, при дефекации или мочеиспускании во время месячных. При планировании беременности и длительном ненаступлении зачатия — тоже повод для обследования.
             </p>
             <p className="mb-4">
-              Подробнее о том, когда стоит записаться к гинекологу — в статье <Link href="/articles/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">«Когда нужно записаться к гинекологу: 10 симптомов»</Link>. О болях внизу живота — в статье <Link href="/articles/bol-vnizu-zhivota-u-zhenshchin-prichiny">«Боль внизу живота у женщин»</Link>.
+              Подробнее о том, когда стоит записаться к гинекологу — в статье <Link href="/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">«Когда нужно записаться к гинекологу: 10 симптомов»</Link>. О болях внизу живота — в статье <Link href="/blog/bol-vnizu-zhivota-u-zhenshchin-prichiny">«Боль внизу живота у женщин»</Link>.
             </p>
           </section>
 
@@ -248,11 +248,11 @@ export default function ArticleEndometrioz() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/bol-vnizu-zhivota-u-zhenshchin-prichiny">Боль внизу живота у женщин</Link></li>
-                  <li><Link href="/articles/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit">Пайпель-биопсия эндометрия</Link></li>
-                  <li><Link href="/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
-                  <li><Link href="/articles/narushenie-menstrualnogo-tsikla">Нарушение менструального цикла</Link></li>
-                  <li><Link href="/articles/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу</Link></li>
+                  <li><Link href="/blog/bol-vnizu-zhivota-u-zhenshchin-prichiny">Боль внизу живота у женщин</Link></li>
+                  <li><Link href="/blog/pajpel-biopsiya-endometriya-chto-eto-kogda-nuzhna-i-kak-prohodit">Пайпель-биопсия эндометрия</Link></li>
+                  <li><Link href="/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
+                  <li><Link href="/blog/narushenie-menstrualnogo-tsikla">Нарушение менструального цикла</Link></li>
+                  <li><Link href="/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу</Link></li>
                 </ul>
               </div>
             </div>

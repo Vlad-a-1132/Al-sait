@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Допплерометрия при беременности | Альтамед-С',
     description: 'Допплерометрия при беременности: показания, когда назначают и что показывает исследование.',
-    url: 'https://altamed-c.ru/articles/dopplerometriya-pri-beremennosti-kogda-naznachayut-i-chto-pokazyvaet',
+    url: 'https://altamed-c.ru/blog/dopplerometriya-pri-beremennosti-kogda-naznachayut-i-chto-pokazyvaet',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/dopplerometriya-pri-beremennosti-kogda-naznachayut-i-chto-pokazyvaet' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/dopplerometriya-pri-beremennosti-kogda-naznachayut-i-chto-pokazyvaet' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -133,7 +133,7 @@ export default function ArticleDopplerometriyaPriBeremennosti() {
               Допплерометрию проводят так же, как УЗИ при беременности — трансабдоминально, датчиком по животу. Никакой особой подготовки не требуется. Процедура занимает 15–30 минут. Безопасна для матери и плода.
             </p>
             <p className="mb-4">
-              В <Link href={GYNEC_SERVICES.vedenie}>Альтамед-С</Link> проводят УЗИ плода и допплерометрию. Подробнее об УЗИ при беременности — в статье <Link href="/articles/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie">«УЗИ при беременности»</Link>.
+              В <Link href={GYNEC_SERVICES.vedenie}>Альтамед-С</Link> проводят УЗИ плода и допплерометрию. Подробнее об УЗИ при беременности — в статье <Link href="/blog/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie">«УЗИ при беременности»</Link>.
             </p>
           </section>
 
@@ -180,10 +180,10 @@ export default function ArticleDopplerometriyaPriBeremennosti() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie">УЗИ при беременности</Link></li>
-                  <li><Link href="/articles/vedenie-beremennosti-v-odintsovo">Ведение беременности в Одинцово</Link></li>
-                  <li><Link href="/articles/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya">Первый приём беременной</Link></li>
-                  <li><Link href="/articles/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
+                  <li><Link href="/blog/uzi-pri-beremennosti-kogda-delat-i-chto-pokazyvaet-issledovanie">УЗИ при беременности</Link></li>
+                  <li><Link href="/blog/kak-prohodit-vedenie-beremennosti">Ведение беременности в Одинцово</Link></li>
+                  <li><Link href="/blog/pervyy-priem-beremennoy-kak-prohodit-konsultatsiya">Первый приём беременной</Link></li>
+                  <li><Link href="/blog/podgotovka-k-beremennosti-kakie-obsledovaniya-mogut-ponadobitsya">Подготовка к беременности</Link></li>
                 </ul>
               </div>
             </div>

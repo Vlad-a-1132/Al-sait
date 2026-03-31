@@ -9,12 +9,12 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Боль внизу живота у женщин: причины | Альтамед-С',
     description: 'Когда боль внизу живота связана с гинекологией и когда нужна консультация врача.',
-    url: 'https://altamed-c.ru/articles/bol-vnizu-zhivota-u-zhenshchin-prichiny',
+    url: 'https://altamed-c.ru/blog/bol-vnizu-zhivota-u-zhenshchin-prichiny',
     siteName: 'Альтамед-С',
     locale: 'ru_RU',
     type: 'article',
   },
-  alternates: { canonical: 'https://altamed-c.ru/articles/bol-vnizu-zhivota-u-zhenshchin-prichiny' },
+  alternates: { canonical: 'https://altamed-c.ru/blog/bol-vnizu-zhivota-u-zhenshchin-prichiny' },
 };
 
 const PHONE_LINK = 'tel:+74952554450';
@@ -140,7 +140,7 @@ export default function ArticleBolVnizuZhivota() {
               Умеренная тянущая боль за 1–2 дня до месячных и в первые дни — распространённое явление. Связана с сокращениями матки и действием простагландинов. Если боль резко усилилась по сравнению с прежними циклами, длится дольше или не снимается привычными средствами — стоит обратиться к врачу.
             </p>
             <p className="mb-4">
-              Сильная дисменорея (болезненные месячные) может указывать на эндометриоз, аденомиоз, миому. <Link href={GYNEC_SERVICES.priem}>гинеколог</Link> при необходимости подключается к обследованию, особенно при сочетании с <Link href="/articles/narushenie-menstrualnogo-tsikla">нарушениями цикла</Link>.
+              Сильная дисменорея (болезненные месячные) может указывать на эндометриоз, аденомиоз, миому. <Link href={GYNEC_SERVICES.priem}>гинеколог</Link> при необходимости подключается к обследованию, особенно при сочетании с <Link href="/blog/narushenie-menstrualnogo-tsikla">нарушениями цикла</Link>.
             </p>
           </section>
 
@@ -171,7 +171,7 @@ export default function ArticleBolVnizuZhivota() {
               Боль внизу живота + изменение выделений (цвет, запах, количество) — типичная картина воспаления: аднексит, эндометрит, обострение хронической инфекции. Мазки, ПЦР на ИППП, УЗИ помогают уточнить диагноз. Самолечение свечами «от воспаления» без обследования маскирует картину и может привести к хронизации и осложнениям.
             </p>
             <p>
-              Подробнее о том, какие выделения требуют консультации, читайте в статье <Link href="/articles/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">«Выделения, зуд, жжение: когда к гинекологу»</Link>.
+              Подробнее о том, какие выделения требуют консультации, читайте в статье <Link href="/blog/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">«Выделения, зуд, жжение: когда к гинекологу»</Link>.
             </p>
           </section>
 
@@ -198,7 +198,7 @@ export default function ArticleBolVnizuZhivota() {
               Кратковременный дискомфорт из‑за мышечного напряжения или недостаточного увлажнения — не редкость. Если боль регулярная, интенсивная, сопровождается кровянистыми выделениями — нужен осмотр. Возможные причины: воспаление, эндометриоз, спайки, недостаточная эластичность тканей (например, после родов или при атрофии в менопаузе).
             </p>
             <p className="mb-4">
-              При подозрении на патологию шейки матки врач может назначить <Link href="/articles/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопию</Link>.
+              При подозрении на патологию шейки матки врач может назначить <Link href="/blog/chto-pokazyvaet-kolposkopiya-i-kogda-ee-naznachayut">кольпоскопию</Link>.
             </p>
           </section>
 
@@ -239,7 +239,7 @@ export default function ArticleBolVnizuZhivota() {
                 </div>
               ))}
             </div>
-            <p className="text-gray-700">Подробнее — <Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
+            <p className="text-gray-700">Подробнее — <Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">«Как подготовиться к приёму гинеколога»</Link>.</p>
           </section>
 
           <section className="mb-10">
@@ -297,11 +297,11 @@ export default function ArticleBolVnizuZhivota() {
               <div>
                 <p className="font-semibold text-gray-900 mb-2">Статьи</p>
                 <ul className="space-y-1 text-gray-700">
-                  <li><Link href="/articles/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">Выделения, зуд, жжение: когда к гинекологу</Link></li>
-                  <li><Link href="/articles/narushenie-menstrualnogo-tsikla">Нарушение менструального цикла</Link></li>
-                  <li><Link href="/articles/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
-                  <li><Link href="/articles/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу: 10 симптомов</Link></li>
-                  <li><Link href="/articles/vedenie-beremennosti-v-odintsovo">Ведение беременности в Одинцово</Link></li>
+                  <li><Link href="/blog/vydeleniya-zud-zhzhenie-kogda-k-ginekologu">Выделения, зуд, жжение: когда к гинекологу</Link></li>
+                  <li><Link href="/blog/narushenie-menstrualnogo-tsikla">Нарушение менструального цикла</Link></li>
+                  <li><Link href="/blog/kak-podgotovitsya-k-priyomu-ginekologa">Как подготовиться к приёму гинеколога</Link></li>
+                  <li><Link href="/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov">Когда нужно записаться к гинекологу: 10 симптомов</Link></li>
+                  <li><Link href="/blog/kak-prohodit-vedenie-beremennosti">Ведение беременности в Одинцово</Link></li>
                 </ul>
               </div>
             </div>
