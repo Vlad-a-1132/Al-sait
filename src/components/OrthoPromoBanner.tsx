@@ -4,7 +4,7 @@ const ORTHO_DOCTOR_IMAGE = "/images/doctors/Goncharenko Elena Borisovna (2)-Phot
 
 export function OrthoDesktopSVG() {
   return (
-    <svg className="orthoPro w-full h-auto" width="1400" height="200" viewBox="0 0 1400 200" role="img" aria-label="Ортодонтия и гнатология — брекеты, выравнивание прикуса">
+    <svg className="orthoPro w-full h-auto" width="1400" height="200" viewBox="0 0 1400 200" role="img" aria-label="Ортодонтия — брекеты, выравнивание прикуса">
       <defs>
         <radialGradient id="orthoBgRad" cx="18%" cy="52%" r="92%">
           <stop offset="0" stopColor="#0F2B34" />
@@ -101,8 +101,8 @@ export function OrthoDesktopSVG() {
       </g>
 
       <g className="txt">
-        <text className="t1" x="74" y="74">Ортодонтия и гнатология</text>
-        <text className="t2" x="74" y="104">исправление аномалий прикуса • челюстные дефекты • ВНЧС</text>
+        <text className="t1" x="74" y="74">Ортодонтия</text>
+        <text className="t2" x="74" y="104">исправление аномалий прикуса • брекеты • элайнеры</text>
         <g className="chips" transform="translate(74 144)">
           <g className="chip" transform="translate(0 0)">
             <rect x="0" y={-14} width={152} height={28} rx={14} fill="rgba(33,199,255,.08)" stroke="rgba(33,199,255,.22)" />
@@ -110,12 +110,6 @@ export function OrthoDesktopSVG() {
             <text className="chipText" x={36} y={5}>Врач-ортодонт</text>
           </g>
           <g className="chip" transform="translate(166 0)">
-            <rect x="0" y={-14} width={112} height={28} rx={14} fill="rgba(94,243,196,.08)" stroke="rgba(94,243,196,.22)" />
-            <path d="M18 -4 C14 -2 14 2 18 4 C22 2 22 -2 18 -4 Z" fill="none" stroke="rgba(255,255,255,.72)" strokeWidth={2} />
-            <path d="M18 4 V10" stroke="rgba(255,255,255,.72)" strokeWidth={2} strokeLinecap="round" />
-            <text className="chipText" x={38} y={5}>Гнатолог</text>
-          </g>
-          <g className="chip" transform="translate(292 0)">
             <rect x="0" y={-14} width={226} height={28} rx={14} fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.14)" />
             <path d="M18 -6 h10 v12 h-10 z M22 -6 v12" fill="none" stroke="rgba(255,255,255,.75)" strokeWidth={2} />
             <text className="chipText" x={44} y={5}>металл / керамика • брекеты</text>
@@ -185,7 +179,7 @@ export function OrthoDesktopSVG() {
 
 export function OrthoMobileSVG() {
   return (
-    <svg className="orthoProM w-full h-auto" width="580" height="199" viewBox="0 0 580 199" role="img" aria-label="Ортодонтия и гнатология — брекеты (mobile)">
+    <svg className="orthoProM w-full h-auto" width="580" height="199" viewBox="0 0 580 199" role="img" aria-label="Ортодонтия — брекеты (mobile)">
       <defs>
         <radialGradient id="bgRadM" cx="20%" cy="52%" r="92%">
           <stop offset="0" stopColor="#0F2B34" />
@@ -269,19 +263,13 @@ export function OrthoMobileSVG() {
       </g>
 
       <g className="txt">
-        <text className="t1" x="22" y="52">Ортодонтия и гнатология</text>
-        <text className="t2" x="22" y="74">аномалии прикуса • дефекты челюсти • ВНЧС</text>
+        <text className="t1" x="22" y="52">Ортодонтия</text>
+        <text className="t2" x="22" y="74">аномалии прикуса • брекеты • элайнеры</text>
         <g className="chips" transform="translate(22 98)">
           <g className="chip" transform="translate(0 0)">
             <rect x="0" y={-13} width={152} height={26} rx={13} fill="rgba(33,199,255,.09)" stroke="rgba(33,199,255,.24)" />
             <path d="M14 4 L22 -4 L24 -2 L16 6 Z" fill="rgba(255,255,255,.80)" />
             <text className="chipText" x={36} y={5}>Врач-ортодонт</text>
-          </g>
-          <g className="chip" transform="translate(166 0)">
-            <rect x="0" y={-13} width={108} height={26} rx={13} fill="rgba(94,243,196,.09)" stroke="rgba(94,243,196,.24)" />
-            <path d="M18 -4 C14 -2 14 2 18 4 C22 2 22 -2 18 -4 Z" fill="none" stroke="rgba(255,255,255,.72)" strokeWidth={2} />
-            <path d="M18 4 V10" stroke="rgba(255,255,255,.72)" strokeWidth={2} strokeLinecap="round" />
-            <text className="chipText" x={38} y={5}>Гнатолог</text>
           </g>
           <g className="chip" transform="translate(0 32)">
             <rect x="0" y={-13} width={258} height={26} rx={13} fill="rgba(255,255,255,.06)" stroke="rgba(255,255,255,.14)" />

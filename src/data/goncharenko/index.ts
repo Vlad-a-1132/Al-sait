@@ -19,8 +19,7 @@ export const casesGoncharenko: CaseItem[] = [
   { id: "2", directionId: "braces", title: "Керамические брекеты", tag: "Керамика" },
   { id: "3", directionId: "aligners", title: "Элайнеры", tag: "Элайнеры" },
   { id: "4", directionId: "children-ortho", title: "Пластинка у ребёнка", tag: "Дети" },
-  { id: "5", directionId: "gnathology-vnjc", title: "Лечение ВНЧС", tag: "Гнатология" },
-  { id: "6", directionId: "jaw-defects", title: "Подготовка к протезированию", tag: "Челюсть" },
+  { id: "5", directionId: "jaw-defects", title: "Подготовка к протезированию", tag: "Челюсть" },
 ];
 
 export interface DoctorCore {
@@ -41,14 +40,13 @@ export const doctorGoncharenko: DoctorCore = {
   slug: "goncharenko-ortodont",
   clinicName: "Альтамед-С",
   fullName: "Гончаренко Елена Борисовна",
-  specialization: "Врач-ортодонт, гнатолог высшей квалификационной категории",
-  tagline: "Ортодонтия и гнатология",
+  specialization: "Врач-ортодонт высшей квалификационной категории",
+  tagline: "Ортодонтия",
   experienceYears: 27,
   rating: 5,
   photoSrc: "/images/doctors/Goncharenko Elena Borisovna (2)-Photoroom 1.png",
   chips: [
     { label: "Врач-ортодонт", color: "cyan" },
-    { label: "Гнатолог", color: "mint" },
     { label: "металл / керамика, брекеты", color: "gray" },
   ],
   ctas: {
