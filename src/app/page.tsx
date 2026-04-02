@@ -189,38 +189,11 @@ export default function Home() {
   const [galleryIndex, setGalleryIndex] = useState(0);
   const galleryTouchStartX = useRef<number | null>(null);
   const galleryImages = useMemo(() => {
-    // All images in fotogelery. First image must be home; others shuffled.
-    const home = "/images/fotogelery/Altamed-C home.webp";
-    const others = [
-      "/images/fotogelery/kt-Altamed-C.webp",
-      "/images/fotogelery/Altamed-С Odintsovo.webp",
-      "/images/fotogelery/Altamed-С Odintsovo1.webp",
-      "/images/fotogelery/Altamed-С Odintsovo2.webp",
-      "/images/fotogelery/Altamed-С Odintsovo3.webp",
-      "/images/fotogelery/Altamed-С Odintsovo4.webp",
-      "/images/fotogelery/Altamed-С Odintsovo5.webp",
-      "/images/fotogelery/Altamed-С Odintsovo6.webp",
-      "/images/fotogelery/Altamed-С Odintsovo7.webp",
-      "/images/fotogelery/Altamed-С Odintsovo8.webp",
-      "/images/fotogelery/Altamed-С Odintsovo9.webp",
-      "/images/fotogelery/Altamed-С Odintsovo10.webp",
-      "/images/fotogelery/Altamed-С Odintsovo11.webp",
-      "/images/fotogelery/Altamed-С Odintsovo12.webp",
-      "/images/fotogelery/Altamed-С Odintsovo13.webp",
-      "/images/fotogelery/Altamed-С Odintsovo14.webp",
-      "/images/fotogelery/Altamed-С Odintsovo15.webp",
-      "/images/fotogelery/Altamed-С Odintsovo16.webp",
-      "/images/fotogelery/Altamed-С Odintsovo17.webp",
-      "/images/fotogelery/Altamed-С Odintsovo18.webp",
-      "/images/fotogelery/Altamed-С Odintsovo19.webp",
-      "/images/fotogelery/Altamed-С Odintsovo20.webp",
-      "/images/fotogelery/Altamed-С Odintsovo21.webp",
-      "/images/fotogelery/Altamed-С Odintsovo22.webp",
-      "/images/fotogelery/Altamed-С Odintsovo23.webp",
-      "/images/fotogelery/Altamed-С Odintsovo24.webp",
-      "/images/fotogelery/Altamed-С Odintsovo25.webp",
-      "/images/fotogelery/Altamed-С Odintsovo26.webp",
-    ];
+    const home = "/images/fotogelery/altamed-gallery-home.webp";
+    const od = Array.from({ length: 27 }, (_, i) =>
+      `/images/fotogelery/gallery-odintsovo-${String(i).padStart(2, "0")}.webp`
+    );
+    const others = ["/images/fotogelery/kt-Altamed-C.webp", ...od];
     // Shuffle others with Fisher–Yates
     for (let i = others.length - 1; i > 0; i -= 1) {
       const j = Math.floor(Math.random() * (i + 1));
