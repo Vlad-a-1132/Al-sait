@@ -172,16 +172,6 @@ const PATIENT_REVIEWS: PatientReview[] = [
     doctorSlug: 'peregudova-nina-alekseevna',
   },
   {
-    author: 'Татьяна',
-    date: '15.03.2020',
-    rating: 5.0,
-    text:
-      'Администраторы на ресепшн грубые. Кассовые чеки дают только если его требовать, видимо черная бухгалтерия. Из врачей нормальная только Перегудова. От остальных толку никакого.\n\nМесто приёма — Альтамед-С, бульвар Маршала Крылова, 23',
-    sourceLabel: 'Яндекс Карты',
-    sourceUrl: YANDEX_MEDICINE_PEREGUDOVA_REVIEWS_URL,
-    doctorSlug: 'peregudova-nina-alekseevna',
-  },
-  {
     author: 'Александр Роскошный',
     date: '20.12.2022',
     rating: 5.0,
@@ -215,16 +205,6 @@ const PATIENT_REVIEWS: PatientReview[] = [
     date: '09.01.2025',
     rating: 5.0,
     text: 'Замечательный, внимательный, высокопрофессиональный доктор! Я очень рада, что попала на приём к Ольге Юрьевне!',
-    sourceLabel: 'Яндекс Карты',
-    sourceUrl: YANDEX_MEDICINE_PANOVA_REVIEWS_URL,
-    doctorSlug: 'panova-olga-yurievna',
-  },
-  {
-    author: 'Наоми Ашур',
-    date: '19.12.2023',
-    rating: 5.0,
-    text:
-      'Была на приёме у Пановой Ольги Юрьевны, врач гинеколог. Врач очень тактичная, приятная, нет дискомфорта на приёме. Помогла решить мою проблему быстро и с первого раза. Рекомендую данного специалиста!\n\nМесто приёма — Семейный доктор, Профсоюзная улица, 127Б',
     sourceLabel: 'Яндекс Карты',
     sourceUrl: YANDEX_MEDICINE_PANOVA_REVIEWS_URL,
     doctorSlug: 'panova-olga-yurievna',
@@ -336,16 +316,6 @@ const PATIENT_REVIEWS: PatientReview[] = [
     doctorSlug: 'panova-olga-yurievna',
   },
   {
-    author: 'Мария',
-    date: '15.08.2017',
-    rating: 5.0,
-    text:
-      'Всё было хорошо, она очень хороший специалист. Елена Михайловна — молодец! Просто цены в этой клинике дороговаты.\n\nКлиника: Альтамед-С',
-    sourceLabel: 'Сбер Здоровье',
-    sourceUrl: DOC_DOC_BRIGADIROVA_REVIEWS_URL,
-    doctorSlug: 'brigadirova-elena-mikhailovna',
-  },
-  {
     author: 'Вероника',
     date: '29.04.2017',
     rating: 5.0,
@@ -381,26 +351,6 @@ const PATIENT_REVIEWS: PatientReview[] = [
     rating: 5.0,
     text:
       'Могу сказать, что меня на приёме всё удовлетворило! Всё отлично и я буду туда ещё обращаться! Нина Алексеевна я знаю уже 12 лет и она меня очень устраивает! Она внимательная и профессиональная!\n\nКлиника: Альтамед-С',
-    sourceLabel: 'Сбер Здоровье',
-    sourceUrl: DOC_DOC_PEREGUDOVA_REVIEWS_URL,
-    doctorSlug: 'peregudova-nina-alekseevna',
-  },
-  {
-    author: 'Наталья',
-    date: '01.02.2016',
-    rating: 5.0,
-    text:
-      'Компетентность и профессиональные навыки мне сложно оценить, потому что я не специалист. А в целом нормальное впечатление осталось о приёме, у меня нет никаких жалоб. Спасибо врачу за внимание!\n\nКлиника: Альтамед+ на Союзной',
-    sourceLabel: 'Сбер Здоровье',
-    sourceUrl: DOC_DOC_PEREGUDOVA_REVIEWS_URL,
-    doctorSlug: 'peregudova-nina-alekseevna',
-  },
-  {
-    author: 'Алина',
-    date: '02.07.2015',
-    rating: 5.0,
-    text:
-      'Мне понравилось, что доктор понятно мне объяснила, что с здоровьем, как мне с этим бороться, что делать, чтобы болезнь в дальнейшем отступила. Врач была вежлива, компетентна, доброжелательна.\n\nКлиника: Альтамед+ на Союзной',
     sourceLabel: 'Сбер Здоровье',
     sourceUrl: DOC_DOC_PEREGUDOVA_REVIEWS_URL,
     doctorSlug: 'peregudova-nina-alekseevna',
