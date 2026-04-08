@@ -252,9 +252,7 @@ export default function DoctorsPage() {
                           className="object-cover"
                         />
                       ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-50 to-blue-50">
-                          <span className="text-lg font-bold text-emerald-700">{getInitials(doctor.name) || 'В'}</span>
-                        </div>
+                        <div className="w-full h-full bg-gradient-to-br from-emerald-50 to-blue-50" aria-label="Фото отсутствует" />
                       )}
                     </div>
                     <div className="flex-1 min-w-0">
