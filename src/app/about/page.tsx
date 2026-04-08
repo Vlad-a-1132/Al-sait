@@ -6,6 +6,11 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { GYNEC_ARTICLES_LIST } from '@/data/gynec-articles-images';
 
+/** PDF в `public/images/documents` (кириллическое имя файла). */
+const DOC_ZHNVLP_2023_CYRILLIC =
+  '/images/documents/' +
+  encodeURIComponent('Перечень жнвлп для медицинского применения на 2023 год.pdf');
+
 function PatientInfoSection() {
   const [isRegulatoryOpen, setIsRegulatoryOpen] = useState(false);
   const [isPaidServicesOpen, setIsPaidServicesOpen] = useState(false);
@@ -15,6 +20,7 @@ function PatientInfoSection() {
   const [isSoutOpen, setIsSoutOpen] = useState(false);
   const [isAppointmentMethodsOpen, setIsAppointmentMethodsOpen] = useState(false);
   const [isLateArrivalRulesOpen, setIsLateArrivalRulesOpen] = useState(false);
+  const [isServiceScopeOpen, setIsServiceScopeOpen] = useState(false);
 
   return (
     <div className="bg-white rounded-lg shadow-md p-6">
@@ -63,6 +69,13 @@ function PatientInfoSection() {
                   <a href="https://www.rospotrebnadzor.ru" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">
                     www.rospotrebnadzor.ru
                   </a>
+                </li>
+                <li>
+                  <strong>Официальный интернет-портал правовой информации:</strong>{' '}
+                  <a href="http://pravo.gov.ru" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700 underline">
+                    pravo.gov.ru
+                  </a>
+                  {' '}(актуальные редакции федеральных законов и иных НПА)
                 </li>
               </ul>
 
@@ -350,16 +363,30 @@ function PatientInfoSection() {
                         Перечень жизненно необходимых и важнейших лекарственных препаратов для медицинского применения на 2023 год
                       </p>
                     </div>
-                    <a 
-                      href="/images/documents/perechen-zhnvlp-dlya-mediczinskogo-primeneniya-na-2023-god.pdf" 
-                      target="_blank" 
-                      className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
-                    >
-                      Скачать файл
-                      <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                      </svg>
-                    </a>
+                    <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-2 sm:gap-3">
+                      <a
+                        href="/images/documents/perechen-zhnvlp-dlya-mediczinskogo-primeneniya-na-2023-god.pdf"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
+                      >
+                        Скачать файл (латинское имя)
+                        <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                      </a>
+                      <a
+                        href={DOC_ZHNVLP_2023_CYRILLIC}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
+                      >
+                        Скачать копию с сайта (PDF)
+                        <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        </svg>
+                      </a>
+                    </div>
                   </div>
                 </div>
 
@@ -1559,7 +1586,7 @@ function PatientInfoSection() {
                       </a>.
                     </p>
                     <p className="text-gray-700">
-                      В соответствующем разделе вы можете выбрать врача, ознакомиться с расписанием и забронировать подходящий временной slot.
+                      В соответствующем разделе вы можете выбрать врача, ознакомиться с расписанием и забронировать подходящий временной слот.
                     </p>
                   </div>
 
@@ -1628,6 +1655,73 @@ function PatientInfoSection() {
                     </a>
                   </div>
                 </div>
+              </div>
+            </div>
+          )}
+        </div>
+
+        {/* Госпитализация, доступная среда, вакцинация, лекарственное обеспечение */}
+        <div className="border border-gray-200 rounded-lg">
+          <button
+            type="button"
+            onClick={() => setIsServiceScopeOpen(!isServiceScopeOpen)}
+            className="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-colors group"
+          >
+            <span className="text-gray-700 group-hover:text-emerald-600 font-medium text-left">
+              Госпитализация, доступная среда, вакцинация и лекарственное обеспечение
+            </span>
+            <svg
+              className={`w-5 h-5 text-gray-400 transition-transform flex-shrink-0 ml-2 ${isServiceScopeOpen ? 'rotate-180' : ''}`}
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+            </svg>
+          </button>
+          {isServiceScopeOpen && (
+            <div className="px-4 pb-4 border-t border-gray-200 text-gray-700 text-sm space-y-6 pt-4">
+              <div>
+                <h4 className="text-base font-semibold text-gray-900 mb-2">Госпитализация</h4>
+                <p className="leading-relaxed">
+                  ООО «Альтамед-С» оказывает амбулаторную медицинскую помощь. Стационарных услуг и госпитализации на базе клиники нет; отдельные правила и сроки госпитализации к деятельности организации не применяются.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-base font-semibold text-gray-900 mb-2">Доступная среда</h4>
+                <p className="leading-relaxed mb-2">
+                  У входа в здание предусмотрен пандус для маломобильных граждан. Тактильных указателей и специализированных табличек для слепых и слабовидящих на объектах клиники нет.
+                </p>
+                <p className="leading-relaxed">
+                  Порядок сопровождения и дополнительную помощь при посещении уточняйте в регистратуре при записи на приём.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-base font-semibold text-gray-900 mb-2">Вакцинация</h4>
+                <p className="leading-relaxed">
+                  Профилактические прививки на базе клиники не проводятся; календарный график вакцинации не ведётся.
+                </p>
+              </div>
+              <div>
+                <h4 className="text-base font-semibold text-gray-900 mb-2">Лекарственное обеспечение</h4>
+                <p className="leading-relaxed mb-3">
+                  Перечень жизненно необходимых и важнейших лекарственных препаратов для медицинского применения (ЖНВЛП) на 2023 год доступен для скачивания в разделе «Нормативные документы» выше на этой странице и по прямой ссылке:{' '}
+                  <a
+                    href={DOC_ZHNVLP_2023_CYRILLIC}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-emerald-600 hover:text-emerald-700 font-medium underline"
+                  >
+                    Перечень ЖНВЛП для медицинского применения на 2023 год (PDF)
+                  </a>
+                  .
+                </p>
+                <p className="leading-relaxed mb-3">
+                  Перечень лекарственных препаратов, предназначенных для лечения редких (орфанных) заболеваний, утверждается уполномоченными органами; актуальную редакцию можно получить из официальных источников или уточнить в регистратуре клиники.
+                </p>
+                <p className="leading-relaxed">
+                  Отпуск лекарственных препаратов бесплатно или со скидкой 50% на базе ООО «Альтамед-С» не осуществляется.
+                </p>
               </div>
             </div>
           )}
@@ -2134,6 +2228,56 @@ function AboutPageContent() {
               {activeSection === 'licenses' && (
                 <div className="bg-white rounded-lg shadow-md p-6">
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Лицензии</h2>
+                  <div className="mb-8 p-4 bg-gray-50 rounded-lg border border-gray-200 text-gray-800 text-sm space-y-3">
+                    <p className="font-semibold text-gray-900">
+                      Сведения о лицензии на осуществление медицинской деятельности (по выписке из реестра лицензий)
+                    </p>
+                    <p className="text-gray-600 text-xs">
+                      Дата и время формирования выписки в реестре: 27.02.2025, 15:05. Проверка подлинности электронного документа, двумерный штриховой код и усиленная квалифицированная электронная подпись содержатся в файле PDF «Выписка из реестра Альтамед-С» ниже.
+                    </p>
+                    <dl className="grid gap-2 sm:grid-cols-1">
+                      <div className="flex flex-col sm:flex-row sm:gap-2">
+                        <dt className="text-gray-600 shrink-0 sm:min-w-[220px]">Статус лицензии</dt>
+                        <dd className="font-medium text-gray-900">действует (на дату выписки)</dd>
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:gap-2">
+                        <dt className="text-gray-600 shrink-0 sm:min-w-[220px]">Регистрационный номер</dt>
+                        <dd className="font-medium text-gray-900">Л041-01162-50/00349801</dd>
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:gap-2">
+                        <dt className="text-gray-600 shrink-0 sm:min-w-[220px]">Дата предоставления лицензии</dt>
+                        <dd className="font-medium text-gray-900">04.09.2020</dd>
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:gap-2">
+                        <dt className="text-gray-600 shrink-0 sm:min-w-[220px]">Лицензирующий орган</dt>
+                        <dd className="font-medium text-gray-900">Министерство здравоохранения Московской области</dd>
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:gap-2">
+                        <dt className="text-gray-600 shrink-0 sm:min-w-[220px]">Лицензиат</dt>
+                        <dd className="font-medium text-gray-900">
+                          Общество с ограниченной ответственностью «Альтамед-С» (ООО «Альтамед-С»), ИНН 5032035051, ОГРН 1025004063193
+                        </dd>
+                      </div>
+                      <div className="flex flex-col sm:flex-row sm:gap-2">
+                        <dt className="text-gray-600 shrink-0 sm:min-w-[220px]">Адрес в реестре</dt>
+                        <dd className="font-medium text-gray-900">
+                          143005, Россия, Московская область, г. Одинцово, бульвар Маршала Крылова, д. 23
+                        </dd>
+                      </div>
+                    </dl>
+                    <p className="text-gray-600 text-xs pt-1">
+                      Срок действия лицензии и полный перечень адресов и видов работ приведены в актуальной выписке из реестра лицензий (PDF). Самостоятельная проверка:{' '}
+                      <a
+                        href="https://roszdravnadzor.gov.ru/services/licenses"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-emerald-600 hover:text-emerald-700 underline font-medium"
+                      >
+                        реестр лицензий Росздравнадзора
+                      </a>
+                      .
+                    </p>
+                  </div>
                   <div className="space-y-4">
                     <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
                       <a href="/images/documents/vypiska-egryul (1).pdf" target="_blank" className="flex items-center justify-between group">

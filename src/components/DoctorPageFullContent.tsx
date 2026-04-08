@@ -11,7 +11,7 @@ interface Doctor {
   slug: string;
   specialization: string;
   experience?: number;
-  photo: string;
+  photo?: string;
   description: string;
 }
 
@@ -33,6 +33,13 @@ export default function DoctorPageFullContent({
   const { schedule, details: doctorDetails } = useDoctorData(doctorName, defaultSchedule, defaultDetails);
   const hasSchedule = Object.keys(schedule).length > 0;
   const currentSpecialization = doctorDetails?.specialization || specialization;
+  const hasPhoto = !!doctor.photo;
+  const initials = doctor.name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((p) => p[0]?.toUpperCase())
+    .join("");
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -43,12 +50,20 @@ export default function DoctorPageFullContent({
             {/* Doctor Photo */}
             <div className="flex-shrink-0 flex justify-center md:justify-start">
               <div className="w-full max-w-[280px] md:w-48 h-[360px] md:h-64 relative rounded-2xl overflow-hidden">
-                <Image
-                  src={doctor.photo}
-                  alt={`${currentSpecialization} ${doctor.name} в клинике Альтамед-СОдинцово`}
-                  fill
-                  className="object-cover"
-                />
+                {hasPhoto ? (
+                  <Image
+                    src={doctor.photo}
+                    alt={`${currentSpecialization} ${doctor.name} в клинике Альтамед-С Одинцово`}
+                    fill
+                    className="object-cover"
+                  />
+                ) : (
+                  <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-50 to-blue-50">
+                    <div className="w-24 h-24 rounded-full bg-white/70 border border-emerald-100 flex items-center justify-center">
+                      <span className="text-2xl font-bold text-emerald-700">{initials || 'В'}</span>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 

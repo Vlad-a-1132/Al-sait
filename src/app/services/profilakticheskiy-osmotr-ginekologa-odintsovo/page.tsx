@@ -14,6 +14,11 @@ const GYNECOLOGISTS = doctors.filter(
     d.specialization?.toLowerCase().includes('акушер')
 );
 
+const PROF_DOCTOR_SLUGS = ['brigadirova-elena-mikhailovna', 'peregudova-nina-alekseevna', 'panova-olga-yurievna'] as const;
+const profGynecologists = PROF_DOCTOR_SLUGS.map((slug) => GYNECOLOGISTS.find((d) => d.slug === slug)).filter(
+  (d): d is (typeof GYNECOLOGISTS)[number] => Boolean(d)
+);
+
 export default function ProfilakticheskiyOsmotrGinekologaOdintsovoPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -41,7 +46,8 @@ export default function ProfilakticheskiyOsmotrGinekologaOdintsovoPage() {
                 Профилактический осмотр гинеколога в Одинцово
               </h1>
               <p className="text-gray-700 text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed">
-                Профилактический осмотр у гинеколога — важная часть заботы о женском здоровье даже при отсутствии жалоб. Регулярная консультация помогает вовремя заметить изменения. В Альтамед-С — осмотр, мазки, кольпоскопия и УЗИ в день приёма.
+                Плановый визит, когда нет острых жалоб: регулярный контроль, скрининг и спокойствие по состоянию здоровья. При болях, выделениях или сбое цикла удобнее начать с{' '}
+                <Link href="/services/priem-ginekologa-odintsovo" className="text-emerald-700 font-medium hover:underline">приёма гинеколога по симптомам</Link>. В Альтамед-С — осмотр, мазки, при необходимости кольпоскопия и УЗИ.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-4 sm:mb-6">
                 <Link href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center px-5 py-3.5 sm:px-6 sm:py-3 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition shadow-lg shadow-emerald-900/20 min-h-[44px]">
@@ -66,15 +72,27 @@ export default function ProfilakticheskiyOsmotrGinekologaOdintsovoPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
               <div className="absolute -bottom-3 sm:-bottom-4 left-0 right-0 sm:left-0 sm:right-auto sm:w-64 p-3 sm:p-4 rounded-xl bg-white/95 backdrop-blur shadow-lg border border-gray-100">
-                <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 text-sm">
-                  <div><span className="text-amber-500 font-bold">4.8</span> рейтинг</div>
-                  <div>3 врача-гинеколога</div>
-                  <div>2 филиала</div>
-                  <div className="text-emerald-600 font-medium">Приём на неделе</div>
+                <div className="space-y-2 text-sm text-gray-800">
+                  <p className="font-medium leading-snug">Плановый контроль без острых жалоб</p>
+                  <p className="text-gray-600 leading-snug">Мазки и кольпоскопия по показаниям в клинике</p>
                 </div>
               </div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Акцент: без жалоб */}
+      <section className="py-10 sm:py-12 md:py-14 bg-gray-50/50">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Когда визит именно про плановый контроль</h2>
+          <p className="text-gray-700 mb-4 leading-relaxed max-w-3xl">
+            Профилактический осмотр рассчитан на ситуацию, когда нет выраженных жалоб: регулярный check-up, мазки, осмотр и обсуждение даты следующего визита. Это не замена срочному приёму при болях, кровянистых выделениях или сильном дискомфорте.
+          </p>
+          <p className="text-gray-700 leading-relaxed max-w-3xl">
+            Если симптомы выходят на первый план, логичнее начать с{' '}
+            <Link href="/services/priem-ginekologa-odintsovo" className="text-emerald-700 font-medium hover:underline">приёма гинеколога по жалобам</Link> — там акцент на диагностике и тактике при острых и настойчивых проявлениях.
+          </p>
         </div>
       </section>
 
@@ -85,7 +103,7 @@ export default function ProfilakticheskiyOsmotrGinekologaOdintsovoPage() {
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
               <h3 className="font-semibold text-gray-900 mb-2">Беседа с врачом</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">Уточнение жалоб, особенностей цикла, метода контрацепции. Возможность задать вопросы о женском здоровье.</p>
+              <p className="text-gray-600 text-sm leading-relaxed">Анамнез и плановый контроль: цикл, контрацепция, последний осмотр. Вопросы по здоровью; при выраженных жалобах врач оценит, не нужен ли формат приёма по симптомам.</p>
             </div>
             <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
               <h3 className="font-semibold text-gray-900 mb-2">Осмотр в зеркалах</h3>
@@ -140,9 +158,12 @@ export default function ProfilakticheskiyOsmotrGinekologaOdintsovoPage() {
               <h3 className="font-semibold text-gray-900 mb-2">Давно не были у гинеколога</h3>
               <p className="text-gray-700 text-sm leading-relaxed">Если прошло больше года с последнего осмотра — повод запланировать визит. Не стоит откладывать из-за «некогда» или «ничего не беспокоит».</p>
             </div>
-            <div className="rounded-2xl p-5 sm:p-6 border border-gray-100 bg-white shadow-sm hover:shadow-md hover:border-emerald-50 transition">
+            <div className="rounded-2xl p-5 sm:p-6 border border-gray-100 bg-gray-50/80 shadow-sm">
               <h3 className="font-semibold text-gray-900 mb-2">Перед планированием беременности</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">Подготовка к зачатию часто включает профилактический осмотр и базовые обследования. Врач оценит состояние и даст рекомендации.</p>
+              <p className="text-gray-600 text-sm leading-relaxed">
+                Базовый осмотр может входить в подготовку к зачатию, но отдельный сценарий «планирование и консультация до беременности» удобнее закрывать на приёме{' '}
+                <Link href="/services/akusher-ginekolog-odintsovo" className="text-emerald-700 font-medium hover:underline">акушера-гинеколога</Link>. Здесь приоритет — плановый гинекологический контроль без острых жалоб.
+              </p>
             </div>
             <div className="rounded-2xl p-5 sm:p-6 border border-gray-100 bg-white shadow-sm hover:shadow-md hover:border-emerald-50 transition">
               <h3 className="font-semibold text-gray-900 mb-2">Незначительные изменения цикла</h3>
@@ -157,7 +178,7 @@ export default function ProfilakticheskiyOsmotrGinekologaOdintsovoPage() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Как проходит профилактический приём</h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            Приём начинается с беседы. Врач уточняет, есть ли жалобы, как проходят месячные, какой метод контрацепции используется, когда был последний осмотр.
+            Приём начинается с беседы в логике планового контроля: цикл, контрацепция, дата прошлого осмотра. Если жалобы выходят на первый план, врач подстроит приём под ситуацию или порекомендует маршрут «приём гинеколога».
           </p>
           <ul className="space-y-3 text-gray-700 mb-6">
             <li className="flex items-start gap-2"><span className="text-emerald-600 flex-shrink-0">✓</span><strong className="text-gray-900">Осмотр в зеркалах</strong> — оценка шейки матки и слизистых;</li>
@@ -188,12 +209,11 @@ export default function ProfilakticheskiyOsmotrGinekologaOdintsovoPage() {
       {/* Почему обращаются в Альтамед-С */}
       <section className="py-10 sm:py-12 md:py-14 bg-gray-50/50">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Почему обращаются в Альтамед-С</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Плановый контроль и раннее выявление изменений</h2>
           <ul className="space-y-3 text-gray-700">
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Профилактический осмотр в Одинцово</strong> — не нужно ехать в другой район.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Два филиала</strong> — выбор удобного адреса.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Мазки и кольпоскопия в клинике</strong> — всё в одном месте.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Опытные гинекологи</strong> — врачи со стажем до 43 лет.</div></li>
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Регулярный осмотр и мазки</strong> — привычный формат раз в год без острых жалоб.</div></li>
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Кольпоскопия по показаниям</strong> — в том же медцентре.</div></li>
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Два филиала в Одинцово</strong> — выбор адреса.</div></li>
             <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Запись ежедневно</strong> — онлайн и по телефону с 8:00 до 21:00.</div></li>
           </ul>
         </div>
@@ -230,12 +250,12 @@ export default function ProfilakticheskiyOsmotrGinekologaOdintsovoPage() {
       {/* Врачи */}
       <section id="vrachi" className="py-10 sm:py-12 md:py-14 bg-gray-50/50 scroll-mt-20">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Врачи-гинекологи</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">К кому записаться на профилактику</h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
-            В Альтамед-С ведут приём гинекологи с опытом работы. Записаться на профилактический осмотр можно к любому специалисту.
+            Ниже — порядок, удобный для планового осмотра; полный список гинекологов — на странице направления «Гинеколог в Одинцово».
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-            {GYNECOLOGISTS.map((d) => (
+            {profGynecologists.map((d) => (
               <div key={d.id} className="rounded-2xl p-6 bg-white border border-gray-100 shadow-sm hover:shadow-lg transition">
                 <div className="relative w-24 h-24 rounded-full overflow-hidden bg-gray-100 mb-4 ring-2 ring-white shadow-md">
                   <Image src={d.photo} alt={d.name} fill className="object-cover" sizes="96px" />
@@ -262,11 +282,12 @@ export default function ProfilakticheskiyOsmotrGinekologaOdintsovoPage() {
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Часто задаваемые вопросы</h2>
           <div className="space-y-3">
             {[
-              { q: 'Нужно ли идти к гинекологу без жалоб?', a: 'Да. Профилактический осмотр рекомендован не реже раза в год даже при отсутствии жалоб. Это позволяет вовремя выявить изменения.' },
+              { q: 'Нужно ли идти к гинекологу без жалоб?', a: 'Да — это и есть задача профилактического осмотра: плановый контроль раз в год и скрининг, даже если ничего не беспокоит.' },
               { q: 'Как часто проходить профилактический осмотр?', a: 'Не реже одного раза в год. При наличии факторов риска или хронических заболеваний врач может рекомендовать чаще.' },
               { q: 'Что входит в консультацию?', a: 'Беседа, осмотр в зеркалах, взятие мазков. При необходимости — кольпоскопия, УЗИ. Объём определяет врач.' },
               { q: 'Нужно ли сдавать анализы заранее?', a: 'Нет. Мазки берут на приёме. Дополнительные анализы врач назначит при необходимости.' },
-              { q: 'Можно ли записаться просто для проверки?', a: 'Да. Профилактический осмотр — одна из основных причин обращения. Запись доступна онлайн и по телефону.' },
+              { q: 'Можно ли записаться просто для проверки?', a: 'Да. Это типичный сценарий профилактического осмотра — плановая проверка без острых жалоб.' },
+              { q: 'Появились жалобы — куда записаться?', a: 'Боль, необычные выделения, выраженный сбой цикла логичнее разбирать на приёме гинеколога по симптомам — там акцент на диагностике и тактике.' },
               { q: 'В какой день цикла лучше записываться?', a: 'Оптимально — первая половина цикла (5–12-й день), после месячных. Но приём возможен в любой день, кроме менструации.' },
             ].map((f, i) => (
               <div key={i} className="rounded-2xl border border-gray-100 overflow-hidden bg-white shadow-sm hover:border-emerald-100 transition">
@@ -308,7 +329,7 @@ export default function ProfilakticheskiyOsmotrGinekologaOdintsovoPage() {
             </Link>
             <Link href="/ginekolog-v-odintsovo" className="block rounded-2xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition">
               <span className="font-semibold text-emerald-600">Гинеколог в Одинцово</span>
-              <p className="text-gray-600 text-sm mt-1">Общее направление.</p>
+              <p className="text-gray-600 text-sm mt-1">Хаб направления: врачи, филиалы, выбор сценария.</p>
             </Link>
             <Link href="/blog/kogda-nuzhno-zapisatsya-k-ginekologu-10-simptomov" className="block rounded-2xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition">
               <span className="font-semibold text-emerald-600">Когда записаться к гинекологу — 10 симптомов</span>

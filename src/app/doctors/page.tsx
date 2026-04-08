@@ -5,6 +5,15 @@ import Image from 'next/image';
 import { useState, useMemo, useEffect } from 'react';
 import { doctors as defaultDoctors } from '../../data/static-data';
 
+function getInitials(name: string) {
+  return name
+    .split(/\s+/)
+    .filter(Boolean)
+    .slice(0, 2)
+    .map((p) => p[0]?.toUpperCase())
+    .join('');
+}
+
 export default function DoctorsPage() {
   const [searchName, setSearchName] = useState('');
   const [audienceFilter, setAudienceFilter] = useState<'all' | 'adults' | 'children'>('all');
@@ -235,12 +244,18 @@ export default function DoctorsPage() {
                   {/* Doctor Photo - Large rectangular with rounded corners on left */}
                   <div className="flex items-start p-4 gap-4">
                     <div className="relative w-[134px] h-[150px] rounded-2xl overflow-hidden flex-shrink-0 shadow-lg">
-                      <Image 
-                        src={doctor.photo || 'https://placehold.co/100x100/EAECFF/333?text=Dr'} 
-                        alt={doctor.name}
-                        fill
-                        className="object-cover"
-                      />
+                      {doctor.photo ? (
+                        <Image
+                          src={doctor.photo}
+                          alt={doctor.name}
+                          fill
+                          className="object-cover"
+                        />
+                      ) : (
+                        <div className="w-full h-full flex items-center justify-center bg-gradient-to-br from-emerald-50 to-blue-50">
+                          <span className="text-lg font-bold text-emerald-700">{getInitials(doctor.name) || 'В'}</span>
+                        </div>
+                      )}
                     </div>
                     <div className="flex-1 min-w-0">
                       {/* Name */}

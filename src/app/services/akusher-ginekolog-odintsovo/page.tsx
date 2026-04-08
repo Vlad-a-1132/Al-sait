@@ -14,6 +14,11 @@ const GYNECOLOGISTS = doctors.filter(
     d.specialization?.toLowerCase().includes('акушер')
 );
 
+const AKUSHER_DOCTOR_SLUGS = ['panova-olga-yurievna', 'peregudova-nina-alekseevna', 'brigadirova-elena-mikhailovna'] as const;
+const akusherGynecologists = AKUSHER_DOCTOR_SLUGS.map((slug) => GYNECOLOGISTS.find((d) => d.slug === slug)).filter(
+  (d): d is (typeof GYNECOLOGISTS)[number] => Boolean(d)
+);
+
 export default function AkusherGinekologOdintsovoPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -38,10 +43,11 @@ export default function AkusherGinekologOdintsovoPage() {
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             <div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-3 sm:mb-4">
-                Акушер-гинеколог в Одинцово — планирование беременности, наблюдение и ведение
+                Акушер-гинеколог в Одинцово — специалист по репродуктивному здоровью
               </h1>
               <p className="text-gray-700 text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed">
-                Консультации акушера-гинеколога по планированию беременности, подготовке к зачатию, ведению беременности и наблюдению после родов. В Альтамед-С — приём, УЗИ при беременности, анализы и рекомендации в одном медцентре.
+                Планирование зачатия, ранняя беременность, акушерские вопросы и послеродовый период. Регулярное наблюдение по срокам и графику — на странице{' '}
+                <Link href="/services/vedenie-beremennosti-odintsovo" className="text-emerald-700 font-medium hover:underline">ведения беременности</Link>. В Альтамед-С — приём, УЗИ и анализы в одном медцентре.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-4 sm:mb-6">
                 <Link href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center px-5 py-3.5 sm:px-6 sm:py-3 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition shadow-lg shadow-emerald-900/20 min-h-[44px]">
@@ -51,7 +57,7 @@ export default function AkusherGinekologOdintsovoPage() {
                   Позвонить в клинику
                 </a>
               </div>
-              <p className="text-gray-700 font-semibold mb-3 sm:mb-4">Приём беременной первичный — от 3 150 ₽ · Ведение беременности — от 2 630 ₽</p>
+              <p className="text-gray-700 font-semibold mb-3 sm:mb-4">Консультация акушера-гинеколога: первичный — от 3 780 ₽ · повторный — от 2 840 ₽ · приём беременной — от 3 150 ₽ / 2 630 ₽</p>
               <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
                 <a href="#kogda" className="text-emerald-600 hover:underline py-1">Когда обращаться</a>
                 <a href="#chto-vhodit" className="text-emerald-600 hover:underline py-1">Что входит</a>
@@ -66,11 +72,9 @@ export default function AkusherGinekologOdintsovoPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
               <div className="absolute -bottom-3 sm:-bottom-4 left-0 right-0 sm:left-0 sm:right-auto sm:w-64 p-3 sm:p-4 rounded-xl bg-white/95 backdrop-blur shadow-lg border border-gray-100">
-                <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 text-sm">
-                  <div><span className="text-amber-500 font-bold">4.8</span> рейтинг</div>
-                  <div>3 врача-гинеколога</div>
-                  <div>2 филиала</div>
-                  <div className="text-emerald-600 font-medium">Приём на неделе</div>
+                <div className="space-y-2 text-sm text-gray-800">
+                  <p className="font-medium leading-snug">Планирование, ранняя беременность, послеродовый период</p>
+                  <p className="text-gray-600 leading-snug">УЗИ и анализы в клинике по показаниям</p>
                 </div>
               </div>
             </div>
@@ -81,19 +85,15 @@ export default function AkusherGinekologOdintsovoPage() {
       {/* 2. Краткий оффер под hero */}
       <section className="py-10 sm:py-12 md:py-14 bg-white">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-lg font-semibold text-gray-900 mb-6">Что доступно в Альтамед-С</h2>
+          <h2 className="text-lg font-semibold text-gray-900 mb-6">С какими запросами к акушеру-гинекологу</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
               <h3 className="font-semibold text-gray-900 mb-2">Планирование беременности</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">Консультация до зачатия, оценка состояния здоровья, рекомендации по обследованиям и подготовке к зачатию.</p>
+              <p className="text-gray-600 text-sm leading-relaxed">Консультация до зачатия, оценка состояния здоровья, рекомендации по обследованиям и подготовке к зачатию (включая обсуждение цикла и факторов, влияющих на вынашивание).</p>
             </div>
             <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">Наблюдение во время беременности</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">Регулярные консультации, контроль самочувствия и ведение беременности на разных сроках.</p>
-            </div>
-            <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">УЗИ и анализы</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">УЗИ плода по триместрам, допплерометрия и лабораторная диагностика в клинике.</p>
+              <h3 className="font-semibold text-gray-900 mb-2">Положительный тест и ранняя беременность</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">Первый визит после подтверждения беременности: срок, самочувствие, маршрут обследований на ближайшие недели.</p>
             </div>
             <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
               <h3 className="font-semibold text-gray-900 mb-2">Послеродовый контроль</h3>
@@ -104,8 +104,14 @@ export default function AkusherGinekologOdintsovoPage() {
               <p className="text-gray-600 text-sm leading-relaxed">Вопросы зачатия, трудностей с наступлением беременности и подготовки к ЭКО.</p>
             </div>
             <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">Помощь на этапе подготовки к зачатию</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">Обсуждение цикла, хронических состояний и факторов, влияющих на вынашивание.</p>
+              <h3 className="font-semibold text-gray-900 mb-2">УЗИ и анализы по показаниям</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">Исследования в клинике на этапе консультации. Полный график УЗИ по триместрам и программа наблюдения — на странице{' '}
+                <Link href="/services/vedenie-beremennosti-odintsovo" className="text-emerald-700 font-medium hover:underline">ведения беременности</Link>.</p>
+            </div>
+            <div className="rounded-2xl p-5 sm:p-6 bg-gray-50/80 border border-gray-100 shadow-sm">
+              <h3 className="font-semibold text-gray-900 mb-2">Наблюдение по графику на всех сроках</h3>
+              <p className="text-gray-600 text-sm leading-relaxed mb-3">Это отдельная услуга с планом визитов и обследований — не дублируем её здесь подробно.</p>
+              <Link href="/services/vedenie-beremennosti-odintsovo" className="text-emerald-700 font-medium text-sm hover:underline">Перейти к программе ведения →</Link>
             </div>
           </div>
         </div>
@@ -122,7 +128,7 @@ export default function AkusherGinekologOdintsovoPage() {
             К этому специалисту обращаются не только после подтверждения беременности. Консультация может быть полезна ещё до зачатия, если женщина хочет подготовиться к беременности, пройти обследования, обсудить цикл, хронические заболевания, перенесённые состояния и факторы, которые могут повлиять на вынашивание.
           </p>
           <p className="text-gray-700 leading-relaxed">
-            На каких этапах жизни женщины нужен акушер-гинеколог: при планировании семьи, на этапе подготовки к зачатию, при уже наступившей беременности, во время ведения беременности по триместрам и в послеродовом периоде. При каких запросах к нему обращаются: планирование беременности, положительный тест на беременность, необходимость выбора врача для наблюдения, вопросы по срокам и обследованиям, нестабильный цикл при планировании зачатия, контроль состояния после родов, подготовка к ЭКО, оценка репродуктивного здоровья.
+            Обращаются при планировании семьи, подготовке к зачатию, на ранних сроках беременности, при вопросах по самочувствию и обследованиям, после родов, при подготовке к ЭКО. Систематическое наблюдение по триместрам и плану визитов оформляется в рамках услуги <Link href="/services/vedenie-beremennosti-odintsovo" className="text-emerald-700 font-medium hover:underline">ведения беременности</Link>.
           </p>
         </div>
       </section>
@@ -135,7 +141,7 @@ export default function AkusherGinekologOdintsovoPage() {
             Обычного приёма гинеколога бывает достаточно, когда женщина обращается с общими вопросами женского здоровья: профилактический осмотр, нарушения цикла без связи с беременностью, боли, выделения, подбор контрацепции, диагностика гинекологических заболеваний.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            К акушеру-гинекологу логичнее записаться, когда речь идёт о планировании беременности, уже наступившей беременности, ведении беременности, наблюдении после родов, подготовке к ЭКО или трудностях с зачатием. Врач акушер-гинеколог делает акцент на репродуктивном здоровье и сопровождении на этих этапах.
+            К акушеру-гинекологу логичнее записаться, когда речь о планировании зачатия, ранней беременности, акушерских вопросах, послеродовом периоде, подготовке к ЭКО или трудностях с зачатием. Регулярное ведение по графику на всех сроках — отдельный маршрут: <Link href="/services/vedenie-beremennosti-odintsovo" className="text-emerald-700 font-medium hover:underline">программа ведения беременности</Link>.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
             Если пациентка не уверена, к кому идти, можно начать с общей консультации гинеколога — он оценит ситуацию и при необходимости порекомендует акушера-гинеколога. Либо записаться напрямую к акушеру-гинекологу, указав при записи цель визита — администратор поможет подобрать специалиста.
@@ -157,8 +163,8 @@ export default function AkusherGinekologOdintsovoPage() {
               <p className="text-gray-700 text-sm leading-relaxed">Беременность подтверждена — нужен первый визит для оценки срока, самочувствия и составления маршрута наблюдения.</p>
             </div>
             <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-50 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">Ведение беременности</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">Требуется регулярное наблюдение — плановые визиты по графику, контроль обследований и самочувствия.</p>
+              <h3 className="font-semibold text-gray-900 mb-2">Программа ведения по графику</h3>
+              <p className="text-gray-700 text-sm leading-relaxed">Нужны плановые визиты по срокам и согласованный маршрут — услуга <Link href="/services/vedenie-beremennosti-odintsovo" className="text-emerald-700 font-medium hover:underline">ведения беременности</Link>.</p>
             </div>
             <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-50 transition">
               <h3 className="font-semibold text-gray-900 mb-2">Подготовка к ЭКО</h3>
@@ -268,42 +274,16 @@ export default function AkusherGinekologOdintsovoPage() {
         </div>
       </section>
 
-      {/* 10. Наблюдение по триместрам */}
+      {/* 10. Наблюдение по срокам — ссылка на программу ведения */}
       <section className="py-10 sm:py-12 bg-white">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Наблюдение по триместрам</h2>
-          <p className="text-gray-700 mb-6 leading-relaxed">
-            Ведение беременности — это регулярное наблюдение за состоянием женщины и развитием беременности на разных сроках. Объём и частота консультаций определяются индивидуально.
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Наблюдение по срокам беременности</h2>
+          <p className="text-gray-700 mb-4 leading-relaxed">
+            Подробный разбор визитов, УЗИ и обследований по триместрам — на странице программы ведения. Здесь акцент на роли акушера-гинеколога и первичных консультациях; дальнейший график вы согласуете с врачом в рамках ведения.
           </p>
-          <div className="space-y-5">
-            <div className="rounded-xl p-5 bg-gray-50 border border-gray-100">
-              <h3 className="font-semibold text-gray-900 mb-3">Первый триместр</h3>
-              <p className="text-gray-700 text-sm leading-relaxed mb-2">
-                На ранних сроках особенно важно подтвердить беременность, оценить самочувствие, обсудить жалобы и выстроить план наблюдения. В этот период часто возникает больше всего вопросов: какие обследования нужны, когда делать УЗИ, на что обращать внимание и в каких случаях лучше связаться с врачом раньше планового визита.
-              </p>
-              <p className="text-gray-700 text-sm leading-relaxed">
-                Могут обсуждаться УЗИ для подтверждения маточной беременности, скрининг первого триместра, анализы по сроку.
-              </p>
-            </div>
-            <div className="rounded-xl p-5 bg-gray-50 border border-gray-100">
-              <h3 className="font-semibold text-gray-900 mb-3">Второй триместр</h3>
-              <p className="text-gray-700 text-sm leading-relaxed mb-2">
-                Во втором триместре наблюдение обычно становится более плановым и спокойным, но при этом остаётся важным контроль состояния женщины и данных обследований. На этом этапе могут обсуждаться результаты УЗИ второго триместра, скрининга, общее самочувствие, образ жизни и динамика беременности.
-              </p>
-              <p className="text-gray-700 text-sm leading-relaxed">
-                Врач оценивает развитие плода, состояние будущей мамы и при необходимости рекомендует дополнительные обследования.
-              </p>
-            </div>
-            <div className="rounded-xl p-5 bg-gray-50 border border-gray-100">
-              <h3 className="font-semibold text-gray-900 mb-3">Третий триместр</h3>
-              <p className="text-gray-700 text-sm leading-relaxed mb-2">
-                На поздних сроках особенно важно наблюдать изменения самочувствия, контролировать результаты исследований и своевременно обсуждать вопросы, связанные с предстоящими родами и завершением беременности.
-              </p>
-              <p className="text-gray-700 text-sm leading-relaxed">
-                Регулярный контакт с врачом помогает лучше понимать своё состояние. Могут назначаться УЗИ третьего триместра, допплерометрия по показаниям.
-              </p>
-            </div>
-          </div>
+          <Link href="/services/vedenie-beremennosti-odintsovo" className="inline-flex items-center px-5 py-2.5 bg-emerald-100 text-emerald-700 font-medium rounded-xl hover:bg-emerald-200 transition">
+            Программа ведения беременности в Одинцово →
+          </Link>
         </div>
       </section>
 
@@ -397,10 +377,11 @@ export default function AkusherGinekologOdintsovoPage() {
             Для многих пациенток важно, чтобы консультация и диагностика были доступны в одной клинике. Это упрощает ведение беременности и помогает не растягивать маршрут обследований.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            В Альтамед-С доступны: УЗИ плода в I триместре; УЗИ плода во II триместре; УЗИ плода в III триместре; допплерометрия — оценка кровотока у плода по показаниям; лабораторная диагностика — анализы крови, мочи, мазки по плану ведения; консультации в динамике.
+            В Альтамед-С доступны УЗИ по срокам, допплерометрия по показаниям и лабораторная диагностика. На консультации акушера-гинеколога врач подскажет, какие исследования уместны сейчас; полный маршрут по триместрам описан на странице{' '}
+            <Link href="/services/vedenie-beremennosti-odintsovo" className="text-emerald-700 font-medium hover:underline">ведения беременности</Link>.
           </p>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            УЗИ при беременности позволяют отслеживать развитие плода, состояние матки и плаценты. Конкретный объём обследований определяется врачом с учётом срока беременности, жалоб и текущей клинической ситуации.
+            Объём УЗИ и анализов определяется индивидуально — с учётом срока, жалоб и динамики.
           </p>
         </div>
       </section>
@@ -458,16 +439,13 @@ export default function AkusherGinekologOdintsovoPage() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Почему обращаются в Альтамед-С</h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
-            Консультация акушера-гинеколога — это не только вопрос цены приёма, но и удобства, доверия и понятного маршрута. Для пациентки важно, чтобы в одном месте можно было получить консультацию, пройти обследования и при необходимости продолжить наблюдение.
+            На этом направлении важны врачи, которые регулярно ведут вопросы планирования, ранней беременности и послеродового периода — и могут назначить обследования в той же клинике.
           </p>
           <ul className="space-y-3 text-gray-700">
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Приём акушера-гинеколога в Одинцово</strong> — не нужно ехать в другой район.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Два филиала клиники</strong> — можно выбрать удобный адрес.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">УЗИ и лабораторная диагностика в клинике</strong> — консультация и обследования в одном месте.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Опытные специалисты</strong> — врачи с опытом ведения беременности и планирования.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Запись онлайн и по телефону</strong> — удобно подобрать время.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Наблюдение на разных этапах</strong> — до беременности, во время и после родов.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Удобный маршрут пациента</strong> — возможность подобрать врача и филиал, наблюдение в динамике.</div></li>
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Акушерско-гинекологический приём</strong> — планирование, ранняя беременность, послеродовье, репродуктивные вопросы.</div></li>
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">УЗИ и анализы в клинике</strong> — по показаниям на этапе консультации.</div></li>
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Два филиала в Одинцово</strong> — выбор адреса.</div></li>
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Запись онлайн и по телефону</strong> — ежедневно.</div></li>
           </ul>
         </div>
       </section>
@@ -489,17 +467,18 @@ export default function AkusherGinekologOdintsovoPage() {
                 </tr>
               </thead>
               <tbody>
+                <tr className="bg-white"><td className="py-3 px-4 text-gray-800">Приём акушера-гинеколога первичный</td><td className="py-3 px-4 text-right font-semibold">3 780 ₽</td></tr>
+                <tr className="bg-gray-50/50"><td className="py-3 px-4 text-gray-800">Приём акушера-гинеколога повторный</td><td className="py-3 px-4 text-right font-semibold">2 840 ₽</td></tr>
                 <tr className="bg-white"><td className="py-3 px-4 text-gray-800">Приём беременной первичный</td><td className="py-3 px-4 text-right font-semibold">от 3 150 ₽</td></tr>
                 <tr className="bg-gray-50/50"><td className="py-3 px-4 text-gray-800">Приём беременной повторный</td><td className="py-3 px-4 text-right font-semibold">от 2 630 ₽</td></tr>
-                <tr className="bg-white"><td className="py-3 px-4 text-gray-800">Ведение беременности</td><td className="py-3 px-4 text-right font-semibold">от 2 630 ₽</td></tr>
-                <tr className="bg-gray-50/50"><td className="py-3 px-4 text-gray-800">УЗИ плода в I триместре</td><td className="py-3 px-4 text-right font-semibold">от 1 890 ₽</td></tr>
-                <tr className="bg-white"><td className="py-3 px-4 text-gray-800">УЗИ плода во II триместре</td><td className="py-3 px-4 text-right font-semibold">от 2 210 ₽</td></tr>
-                <tr className="bg-gray-50/50"><td className="py-3 px-4 text-gray-800">УЗИ плода в III триместре</td><td className="py-3 px-4 text-right font-semibold">от 2 420 ₽</td></tr>
-                <tr className="bg-white"><td className="py-3 px-4 text-gray-800">Допплерометрия</td><td className="py-3 px-4 text-right font-semibold">от 2 630 ₽</td></tr>
+                <tr className="bg-white"><td className="py-3 px-4 text-gray-800">УЗИ плода в I триместре</td><td className="py-3 px-4 text-right font-semibold">от 1 890 ₽</td></tr>
               </tbody>
             </table>
           </div>
-          <p className="text-gray-600 text-sm mb-4">Актуальные цены уточняйте при записи. Полный прайс доступен на странице услуг.</p>
+          <p className="text-gray-600 text-sm mb-4">
+            Стоимость ведения беременности по программе — на странице{' '}
+            <Link href="/services/vedenie-beremennosti-odintsovo#tseny" className="text-emerald-700 font-medium hover:underline">ведения беременности</Link>. Актуальные цены уточняйте при записи; полный прайс — в общем разделе.
+          </p>
           <Link href="/ginekolog-v-odintsovo#tseny" className="inline-flex items-center px-5 py-2.5 bg-emerald-100 text-emerald-700 font-medium rounded-xl hover:bg-emerald-200 transition">
             Смотреть все цены →
           </Link>
@@ -509,15 +488,16 @@ export default function AkusherGinekologOdintsovoPage() {
       {/* 20. Врачи-акушеры-гинекологи */}
       <section id="vrachi" className="py-10 sm:py-12 bg-white scroll-mt-20">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Врачи-акушеры-гинекологи</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Врачи для акушерско-гинекологического приёма</h2>
           <p className="text-gray-700 mb-4 leading-relaxed">
-            В Альтамед-С ведут приём акушеры-гинекологи, которые помогают пациенткам на этапе планирования беременности, во время вынашивания ребёнка и после родов. Выбрать врача можно по филиалу, времени приёма, стажу и профилю работы.
+            Ниже — порядок, удобный для типичных запросов этой страницы: планирование и репродуктивные вопросы, ранняя беременность и послеродовый период. Полный список — на странице направления «Гинеколог в Одинцово».
           </p>
           <p className="text-gray-700 mb-6 leading-relaxed">
-            Наблюдаться у одного врача всю беременность удобно — специалист видит картину в динамике и лучше понимает особенности течения. Если вы не уверены, к какому врачу записаться, администратор поможет подобрать специалиста с учётом вашей ситуации и цели визита.
+            Регулярное наблюдение по срокам оформляют в рамках{' '}
+            <Link href="/services/vedenie-beremennosti-odintsovo" className="text-emerald-700 font-medium hover:underline">программы ведения беременности</Link>. Администратор поможет подобрать врача с учётом цели визита.
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-            {GYNECOLOGISTS.map((d) => (
+            {akusherGynecologists.map((d) => (
               <div key={d.id} className="rounded-2xl p-6 bg-white border border-gray-100 shadow-sm hover:shadow-lg transition">
                 <div className="relative w-24 h-24 rounded-full overflow-hidden bg-gray-200 mb-4">
                   <Image src={d.photo} alt={d.name} fill className="object-cover" sizes="96px" />
@@ -557,8 +537,8 @@ export default function AkusherGinekologOdintsovoPage() {
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Часто задаваемые вопросы</h2>
           <div className="space-y-3">
             {[
-              { q: 'Чем акушер-гинеколог отличается от гинеколога?', a: 'Акушер-гинеколог делает акцент на репродуктивном здоровье, планировании беременности, наблюдении во время беременности и послеродовом периоде. Гинеколог общего профиля занимается более широким кругом вопросов женского здоровья — профилактические осмотры, нарушения цикла, боли, выделения, диагностика заболеваний.' },
-              { q: 'Когда приходить при беременности?', a: 'После подтверждения беременности лучше не откладывать первый визит — желательно в течение 1–2 недель. Врач поможет определить срок, оценить самочувствие и выстроить маршрут дальнейшего наблюдения.' },
+              { q: 'Чем акушер-гинеколог отличается от гинеколога?', a: 'Гинеколог общего профиля — жалобы, цикл, воспаления, контрацепция, диагностика вне акушерского сценария. Акушер-гинеколог — планирование, ранняя беременность, акушерские вопросы, послеродовый период. Регулярное наблюдение по графику на всех сроках — страница «Ведение беременности».' },
+              { q: 'Когда приходить при беременности?', a: 'Первый визит — в течение 1–2 недель после подтверждения: срок, самочувствие, старт маршрута. Дальнейший график визитов и обследований — в программе ведения беременности.' },
               { q: 'Можно ли наблюдаться у одного врача всю беременность?', a: 'Да. Во многих случаях это удобно, потому что врач видит картину в динамике и лучше понимает особенности течения беременности у конкретной пациентки.' },
               { q: 'Какие обследования могут понадобиться?', a: 'Объём зависит от ситуации. Врач может рекомендовать УЗИ по триместрам, лабораторные анализы, допплерометрию и другие обследования по показаниям. Конкретный план определяется на консультации.' },
               { q: 'Нужен ли послеродовый визит?', a: 'Да. Послеродовая консультация помогает оценить восстановление, обсудить самочувствие, цикл, контрацепцию и определить дальнейшую тактику наблюдения.' },
@@ -613,8 +593,8 @@ export default function AkusherGinekologOdintsovoPage() {
               <p className="text-gray-600 text-sm mt-1">Консультация, осмотр, первичная диагностика по вопросам женского здоровья.</p>
             </Link>
             <Link href="/services/vedenie-beremennosti-odintsovo" className="block rounded-2xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition">
-              <span className="font-semibold text-emerald-600">Планирование и ведение беременности</span>
-              <p className="text-gray-600 text-sm mt-1">Подготовка к зачатию, наблюдение на разных сроках беременности.</p>
+              <span className="font-semibold text-emerald-600">Ведение беременности (программа по срокам)</span>
+              <p className="text-gray-600 text-sm mt-1">График визитов, УЗИ по триместрам, анализы.</p>
             </Link>
             <Link href="/services/profilakticheskiy-osmotr-ginekologa-odintsovo" className="block rounded-2xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition">
               <span className="font-semibold text-emerald-600">Профилактические осмотры</span>

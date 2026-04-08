@@ -161,6 +161,16 @@ export default function SchedulePage() {
 
   const branch1Doctors = [
     {
+      name: "Молостов Александр Венедиктович",
+      specialty: "Кардиолог",
+      schedule: {
+        Monday: { start: "10:00", end: "15:00" },
+        Wednesday: { start: "10:00", end: "18:00" },
+        Thursday: { start: "10:00", end: "14:00" },
+        Sunday: { start: "10:00", end: "18:00" }
+      }
+    },
+    {
       name: "Балян Мария Маисовна",
       specialty: "Отоларинголог, Сурдолог",
       schedule: { Wednesday: { start: "17:30", end: "20:00" }, Friday: { start: "17:30", end: "20:00" }, Sunday: { start: "10:00", end: "14:00" } }

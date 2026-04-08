@@ -14,6 +14,11 @@ const GYNECOLOGISTS = doctors.filter(
     d.specialization?.toLowerCase().includes('акушер')
 );
 
+const PRIEM_DOCTOR_SLUGS = ['brigadirova-elena-mikhailovna', 'panova-olga-yurievna', 'peregudova-nina-alekseevna'] as const;
+const priemGynecologists = PRIEM_DOCTOR_SLUGS.map((slug) => GYNECOLOGISTS.find((d) => d.slug === slug)).filter(
+  (d): d is (typeof GYNECOLOGISTS)[number] => Boolean(d)
+);
+
 export default function PriemGinekologaOdintsovoPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -41,7 +46,7 @@ export default function PriemGinekologaOdintsovoPage() {
                 Приём гинеколога: первичный и повторный — как проходит и что входит
               </h1>
               <p className="text-gray-700 text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed">
-                Как проходит приём гинеколога: первичная и повторная консультация, осмотр, мазки, возможные обследования. Что взять с собой и как подготовиться.
+                Первичный и повторный приём: консультация, осмотр, мазки, УЗИ и другие обследования по показаниям. Акцент на жалобах, диагностике и плане лечения — не на программе ведения беременности.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-4 sm:mb-6">
                 <Link href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center px-5 py-3.5 sm:px-6 sm:py-3 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition shadow-lg shadow-emerald-900/20 min-h-[44px]">
@@ -66,11 +71,9 @@ export default function PriemGinekologaOdintsovoPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
               <div className="absolute -bottom-3 sm:-bottom-4 left-0 right-0 sm:left-0 sm:right-auto sm:w-64 p-3 sm:p-4 rounded-xl bg-white/95 backdrop-blur shadow-lg border border-gray-100">
-                <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 text-sm">
-                  <div><span className="text-amber-500 font-bold">4.8</span> рейтинг</div>
-                  <div>3 врача-гинеколога</div>
-                  <div>2 филиала</div>
-                  <div className="text-emerald-600 font-medium">Приём на неделе</div>
+                <div className="space-y-2 text-sm text-gray-800">
+                  <p className="font-medium leading-snug">Осмотр, мазки и УЗИ — в одном визите по показаниям</p>
+                  <p className="text-gray-600 leading-snug">Два филиала в Одинцово</p>
                 </div>
               </div>
             </div>
@@ -78,75 +81,10 @@ export default function PriemGinekologaOdintsovoPage() {
         </div>
       </section>
 
-      {/* Что доступно в Альтамед-С */}
-      <section className="py-10 sm:py-12 md:py-14 bg-white">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Что доступно в Альтамед-С</h2>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">Консультация и осмотр</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">Сбор жалоб, анамнеза, осмотр в зеркалах. Врач оценивает состояние, даёт рекомендации и при необходимости назначает обследования.</p>
-            </div>
-            <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">Мазки и кольпоскопия</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">Взятие мазков на флору и онкоцитологию, кольпоскопия простая и расширенная — в клинике в день приёма.</p>
-            </div>
-            <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">УЗИ и анализы</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">УЗИ органов малого таза, лабораторная диагностика — инфекции, гормоны по показаниям. Обследования в одном медцентре.</p>
-            </div>
-            <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">Подбор контрацепции</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">Консультация по методам контрацепции, внутриматочная спираль, подбор препаратов с учётом особенностей здоровья.</p>
-            </div>
-            <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">Профилактический осмотр</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">Регулярный осмотр без жалоб — раннее выявление изменений, контроль женского здоровья, обсуждение вопросов.</p>
-            </div>
-            <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">Планирование беременности</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">Подготовка к зачатию — оценка состояния, рекомендации по обследованиям, при необходимости направление к акушеру-гинекологу.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Чем занимается гинеколог */}
+      {/* Кому подходит консультация — сразу под hero */}
       <section className="py-10 sm:py-12 md:py-14 bg-gray-50/50">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Чем занимается гинеколог</h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            Гинеколог — врач, специализирующийся на женском репродуктивном здоровье. К нему обращаются с широким спектром вопросов: от профилактического осмотра до диагностики и лечения гинекологических заболеваний, нарушений менструального цикла, воспалительных процессов, проблем с зачатием, подбора контрацепции.
-          </p>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            На приёме гинеколог собирает анамнез, проводит осмотр, при необходимости назначает мазки, УЗИ, кольпоскопию, анализы крови на гормоны и инфекции. По результатам даёт рекомендации, составляет план лечения или дополнительного обследования, при показаниях направляет к узким специалистам — гинекологу-эндокринологу, акушеру-гинекологу.
-          </p>
-          <p className="text-gray-700 leading-relaxed">
-            Регулярное наблюдение у гинеколога помогает вовремя заметить изменения, предотвратить развитие заболеваний и сохранить репродуктивное здоровье. Профилактический осмотр рекомендован не реже раза в год даже при отсутствии жалоб.
-          </p>
-        </div>
-      </section>
-
-      {/* Чем приём гинеколога отличается от акушера-гинеколога */}
-      <section className="py-10 sm:py-12 md:py-14 bg-white">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Чем приём гинеколога отличается от акушера-гинеколога</h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            Обычный приём гинеколога охватывает общие вопросы женского здоровья: профилактические осмотры, боли внизу живота, нарушения цикла, необычные выделения, зуд, жжение, подбор контрацепции, диагностика воспалительных заболеваний, кольпоскопия, УЗИ.
-          </p>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            К акушеру-гинекологу логичнее записаться, когда речь идёт о планировании беременности, уже наступившей беременности, ведении беременности, наблюдении после родов или подготовке к ЭКО. Акушер-гинеколог делает акцент на репродуктивном здоровье и сопровождении на этих этапах.
-          </p>
-          <p className="text-gray-700 leading-relaxed">
-            Если вы не уверены, к кому идти, можно начать с приёма гинеколога — он оценит ситуацию и при необходимости порекомендует акушера-гинеколога или гинеколога-эндокринолога. Либо записаться к нужному специалисту, указав цель визита при записи.
-          </p>
-        </div>
-      </section>
-
-      {/* Кому подходит консультация */}
-      <section className="py-10 sm:py-12 md:py-14 bg-gray-50/50">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Кому подходит консультация гинеколога</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">С какими жалобами и ситуациями приходят на приём</h2>
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-50 transition">
               <h3 className="font-semibold text-gray-900 mb-2">Боли внизу живота</h3>
@@ -165,22 +103,78 @@ export default function PriemGinekologaOdintsovoPage() {
               <p className="text-gray-700 text-sm leading-relaxed">«Мазня» между циклами, после полового акта — требуют оценки специалиста.</p>
             </div>
             <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-50 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">Профилактический осмотр</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">Регулярная проверка без жалоб — рекомендуется не реже раза в год.</p>
-            </div>
-            <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-50 transition">
               <h3 className="font-semibold text-gray-900 mb-2">Подбор контрацепции</h3>
               <p className="text-gray-700 text-sm leading-relaxed">Обсуждение методов, установка ВМС, подбор препаратов с учётом здоровья.</p>
-            </div>
-            <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-50 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">Планирование беременности</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">Подготовка к зачатию — оценка состояния, рекомендации, при необходимости направление к акушеру-гинекологу.</p>
             </div>
             <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-50 transition">
               <h3 className="font-semibold text-gray-900 mb-2">Контроль после лечения</h3>
               <p className="text-gray-700 text-sm leading-relaxed">Оценка эффективности терапии, контроль результатов мазков, кольпоскопии, УЗИ.</p>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Что доступно в Альтамед-С */}
+      <section className="py-10 sm:py-12 md:py-14 bg-white">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Дополнительно в клинике</h2>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
+              <h3 className="font-semibold text-gray-900 mb-2">Консультация и осмотр</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">Сбор жалоб, анамнеза, осмотр в зеркалах. Врач оценивает состояние, даёт рекомендации и при необходимости назначает обследования.</p>
+            </div>
+            <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
+              <h3 className="font-semibold text-gray-900 mb-2">Мазки и кольпоскопия</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">Взятие мазков на флору и онкоцитологию, кольпоскопия простая и расширенная — в клинике в день приёма.</p>
+            </div>
+            <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
+              <h3 className="font-semibold text-gray-900 mb-2">УЗИ и анализы</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">УЗИ органов малого таза, лабораторная диагностика — инфекции, гормоны по показаниям. Обследования в одном медцентре.</p>
+            </div>
+            <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
+              <h3 className="font-semibold text-gray-900 mb-2">Подбор контрацепции</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">Консультация по методам контрацепции, внутриматочная спираль, подбор препаратов с учётом особенностей здоровья.</p>
+            </div>
+          </div>
+          <p className="text-gray-600 text-sm mt-6 max-w-3xl rounded-xl bg-gray-50/80 border border-gray-100 p-4">
+            Плановый осмотр без жалоб —{' '}
+            <Link href="/services/profilakticheskiy-osmotr-ginekologa-odintsovo" className="text-emerald-700 font-medium hover:underline">профилактический осмотр</Link>. Планирование зачатия и ранняя беременность —{' '}
+            <Link href="/services/akusher-ginekolog-odintsovo" className="text-emerald-700 font-medium hover:underline">акушер-гинеколог</Link>. Наблюдение по графику —{' '}
+            <Link href="/services/vedenie-beremennosti-odintsovo" className="text-emerald-700 font-medium hover:underline">ведение беременности</Link>.
+          </p>
+        </div>
+      </section>
+
+      {/* Чем занимается гинеколог */}
+      <section className="py-10 sm:py-12 md:py-14 bg-gray-50/50">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Чем занимается гинеколог</h2>
+          <p className="text-gray-700 mb-4 leading-relaxed">
+            На приёме гинеколога разбирают жалобы и симптомы: боли, цикл, выделения, дискомфорт, подбирают контрацепцию, назначают диагностику и лечение гинекологических заболеваний.
+          </p>
+          <p className="text-gray-700 mb-4 leading-relaxed">
+            Врач собирает анамнез, проводит осмотр, при необходимости назначает мазки, УЗИ, кольпоскопию, анализы. По результатам — рекомендации и план; при показаниях направление к гинекологу-эндокринологу или акушеру-гинекологу.
+          </p>
+          <p className="text-gray-700 leading-relaxed">
+            Плановый осмотр без жалоб оформляют как профилактический приём; программа ведения беременности — на отдельной странице услуги.
+          </p>
+        </div>
+      </section>
+
+      {/* Чем приём гинеколога отличается от акушера-гинеколога */}
+      <section className="py-10 sm:py-12 md:py-14 bg-white">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Чем приём гинеколога отличается от акушера-гинеколога</h2>
+          <p className="text-gray-700 mb-4 leading-relaxed">
+            Приём гинеколога на этой странице — про жалобы и диагностику: боли внизу живота, нарушения цикла, необычные выделения, зуд, жжение, подбор контрацепции, воспалительные процессы, кольпоскопия, УЗИ. Плановый осмотр без жалоб — отдельная услуга.
+          </p>
+          <p className="text-gray-700 mb-4 leading-relaxed">
+            К акушеру-гинекологу логичнее при планировании зачатия, на ранних сроках беременности, при акушерских вопросах, после родов или при подготовке к ЭКО. Регулярное ведение по графику на всех сроках — услуга{' '}
+            <Link href="/services/vedenie-beremennosti-odintsovo" className="text-emerald-700 font-medium hover:underline">ведения беременности</Link>.
+          </p>
+          <p className="text-gray-700 leading-relaxed">
+            Если вы не уверены, к кому идти, можно начать с приёма гинеколога — он оценит ситуацию и при необходимости порекомендует акушера-гинеколога или гинеколога-эндокринолога. Либо записаться к нужному специалисту, указав цель визита при записи.
+          </p>
         </div>
       </section>
 
@@ -209,15 +203,12 @@ export default function PriemGinekologaOdintsovoPage() {
               <h3 className="font-semibold text-gray-900 mb-2">Изменения выделений</h3>
               <p className="text-gray-700 text-sm leading-relaxed">Необычный цвет, запах, консистенция — повод для осмотра. Врач назначит анализы при необходимости.</p>
             </div>
-            <div className="rounded-2xl p-5 sm:p-6 border border-gray-100 bg-white shadow-sm hover:shadow-md hover:border-emerald-50 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">Профилактический визит</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">Рекомендуется проходить осмотр не реже раза в год, даже при отсутствии жалоб. Это помогает вовремя выявить изменения, обсудить вопросы контрацепции, цикла и женского здоровья.</p>
-            </div>
-            <div className="rounded-2xl p-5 sm:p-6 border border-gray-100 bg-white shadow-sm hover:shadow-md hover:border-emerald-50 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">Подготовка к беременности</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">Перед планированием зачатия полезно пройти консультацию, обсудить обследования и получить рекомендации. При необходимости гинеколог направит к акушеру-гинекологу для ведения беременности.</p>
-            </div>
           </div>
+          <p className="text-gray-600 text-sm mt-6 max-w-3xl">
+            Плановый осмотр без жалоб —{' '}
+            <Link href="/services/profilakticheskiy-osmotr-ginekologa-odintsovo" className="text-emerald-700 font-medium hover:underline">профилактический осмотр</Link>. Подготовка к зачатию и ранняя беременность —{' '}
+            <Link href="/services/akusher-ginekolog-odintsovo" className="text-emerald-700 font-medium hover:underline">акушер-гинеколог</Link>.
+          </p>
         </div>
       </section>
 
@@ -285,16 +276,15 @@ export default function PriemGinekologaOdintsovoPage() {
         </div>
       </section>
 
-      {/* Почему обращаются в Альтамед-С */}
+      {/* Почему удобно пройти осмотр и диагностику здесь */}
       <section className="py-10 sm:py-12 md:py-14 bg-white">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Почему обращаются в Альтамед-С</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Осмотр и диагностика в одном месте</h2>
           <ul className="space-y-3 text-gray-700">
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Приём гинеколога в Одинцово</strong> — не нужно ехать в другой район.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Два филиала клиники</strong> — можно выбрать удобный адрес.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">УЗИ и анализы в клинике</strong> — консультация и обследования в одном месте.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Опытные гинекологи</strong> — врачи со стажем до 43 лет.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Запись онлайн и по телефону</strong> — удобно подобрать время.</div></li>
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Мазки и УЗИ по показаниям</strong> — многие исследования можно пройти в день приёма, без лишних поездок.</div></li>
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Кольпоскопия в клинике</strong> — при необходимости в том же медцентре.</div></li>
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Два филиала в Одинцово</strong> — можно выбрать удобный адрес.</div></li>
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Запись онлайн и по телефону</strong> — ежедневно.</div></li>
           </ul>
         </div>
       </section>
@@ -320,6 +310,7 @@ export default function PriemGinekologaOdintsovoPage() {
                 <tr className="bg-white"><td className="py-3 px-4 text-gray-800">Взятие мазков</td><td className="py-3 px-4 text-right font-semibold">530 ₽</td></tr>
                 <tr className="bg-gray-50/50"><td className="py-3 px-4 text-gray-800">Кольпоскопия</td><td className="py-3 px-4 text-right font-semibold">1 890 ₽</td></tr>
                 <tr className="bg-white"><td className="py-3 px-4 text-gray-800">Кольпоскопия расширенная</td><td className="py-3 px-4 text-right font-semibold">2 100 ₽</td></tr>
+                <tr className="bg-gray-50/50"><td className="py-3 px-4 text-gray-800">УЗИ органов малого таза</td><td className="py-3 px-4 text-right font-semibold text-sm">уточняйте при записи</td></tr>
               </tbody>
             </table>
           </div>
@@ -333,12 +324,12 @@ export default function PriemGinekologaOdintsovoPage() {
       {/* Врачи */}
       <section id="vrachi" className="py-10 sm:py-12 md:py-14 bg-white scroll-mt-20">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Врачи-гинекологи</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Гинекологи для приёма по жалобам и диагностике</h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
-            В Альтамед-С ведут приём гинекологи с опытом работы. Выбрать врача можно по филиалу, времени приёма и стажу. Записаться можно к любому специалисту — администратор поможет подобрать удобное время.
+            Ниже — врачи, к которым можно записаться на консультацию по симптомам и обследованиям. Полный список и карточки — на странице направления «Гинеколог в Одинцово».
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-            {GYNECOLOGISTS.map((d) => (
+            {priemGynecologists.map((d) => (
               <div key={d.id} className="rounded-2xl p-6 bg-white border border-gray-100 shadow-sm hover:shadow-lg transition">
                 <div className="relative w-24 h-24 rounded-full overflow-hidden bg-gray-100 mb-4 ring-2 ring-white shadow-md">
                   <Image src={d.photo} alt={d.name} fill className="object-cover" sizes="96px" />
@@ -378,12 +369,12 @@ export default function PriemGinekologaOdintsovoPage() {
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Часто задаваемые вопросы</h2>
           <div className="space-y-3">
             {[
-              { q: 'Когда нужно записаться к гинекологу?', a: 'При болях, нарушениях цикла, дискомфорте, необычных выделениях, а также для профилактического осмотра и планирования беременности. Любые сомнения — повод для консультации.' },
-              { q: 'Можно ли прийти на профилактический осмотр?', a: 'Да. Профилактический осмотр — одно из основных направлений. Рекомендуется проходить его не реже раза в год даже при отсутствии жалоб.' },
+              { q: 'Когда нужно записаться к гинекологу?', a: 'При болях, нарушениях цикла, дискомфорте, необычных или кровянистых выделениях, для контроля после лечения. Плановый check-up без жалоб — отдельная услуга «Профилактический осмотр». Планирование и беременность — у акушера-гинеколога и в программе ведения.' },
+              { q: 'Можно ли прийти на профилактический осмотр?', a: 'Эта страница про приём по жалобам и диагностике. Плановый осмотр без острых жалоб — на странице «Профилактический осмотр гинеколога в Одинцово».' },
               { q: 'Что взять с собой на приём?', a: 'Паспорт, при наличии — результаты предыдущих обследований. Особой подготовки не требуется. За 1–2 дня до визита лучше воздержаться от половых контактов и использования местных препаратов.' },
               { q: 'Можно ли пройти УЗИ и анализы в день приёма?', a: 'Да. В клинике можно сдать анализы и пройти УЗИ. Врач при необходимости назначит обследования, многие из них доступны в том же медцентре.' },
               { q: 'Чем отличается первичный приём от повторного?', a: 'Первичный приём включает сбор анамнеза, осмотр и первичную оценку. Повторный — для контроля лечения, обсуждения результатов обследований и корректировки тактики.' },
-              { q: 'Нужен ли гинеколог или акушер-гинеколог?', a: 'Для общего осмотра, болей, нарушений цикла, выделений, контрацепции — гинеколог. Для планирования беременности, ведения беременности, послеродового наблюдения — акушер-гинеколог.' },
+              { q: 'Нужен ли гинеколог или акушер-гинеколог?', a: 'Боли, цикл, выделения, контрацепция, диагностика — приём гинеколога. Планирование зачатия, ранняя беременность, акушерские вопросы, послеродовый период — акушер-гинеколог (страница услуги «Акушер-гинеколог в Одинцово»). Регулярное наблюдение по графику на всех сроках — «Ведение беременности».' },
             ].map((f, i) => (
               <div key={i} className="rounded-2xl border border-gray-100 overflow-hidden bg-white shadow-sm hover:border-emerald-100 transition">
                 <button type="button" onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition" aria-expanded={openFaq === i}>
@@ -428,11 +419,11 @@ export default function PriemGinekologaOdintsovoPage() {
             </Link>
             <Link href="/services/akusher-ginekolog-odintsovo" className="block rounded-2xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition">
               <span className="font-semibold text-emerald-600">Акушер-гинеколог</span>
-              <p className="text-gray-600 text-sm mt-1">Планирование беременности, ведение беременности, послеродовое наблюдение.</p>
+              <p className="text-gray-600 text-sm mt-1">Планирование, ранняя беременность, акушерские вопросы, послеродовый период.</p>
             </Link>
             <Link href="/services/vedenie-beremennosti-odintsovo" className="block rounded-2xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition">
               <span className="font-semibold text-emerald-600">Ведение беременности</span>
-              <p className="text-gray-600 text-sm mt-1">Наблюдение на всех сроках, УЗИ, анализы.</p>
+              <p className="text-gray-600 text-sm mt-1">Программа наблюдения по срокам: график визитов, УЗИ, анализы.</p>
             </Link>
             <Link href="/services/profilakticheskiy-osmotr-ginekologa-odintsovo" className="block rounded-2xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition">
               <span className="font-semibold text-emerald-600">Профилактические осмотры</span>

@@ -55,15 +55,20 @@ export default function ContactsPage() {
       setIsSubmitting(false);
     }
   };
+  const legalAddress =
+    '143005, г. Одинцово, бульвар Маршала Крылова, д. 23';
+
   const addresses = [
     {
       title: 'Клиника на бульваре Маршала Крылова',
-      address: '143005, Московская область, Одинцовский городской округ, г.Одинцово, бульвар Маршала Крылова, д.23, пом.I',
+      address:
+        '143005, Московская обл., Одинцовский городской округ, г. Одинцово, бульвар Маршала Крылова, д. 23, пом. 1',
       mapLink: 'https://yandex.ru/maps/?rtext=~55.680564,37.291079&rtt=auto',
     },
     {
       title: 'Клиника на Можайском шоссе',
-      address: '143005, Московская область, Одинцовский городской округ, г.Одинцово, ул. Можайское шоссе, д.141, пом.4',
+      address:
+        '143005, Московская обл., Одинцовский городской округ, г. Одинцово, Можайское шоссе, д. 141, пом. 4',
       mapLink: 'https://yandex.ru/maps/?rtext=~55.676321,37.306184&rtt=auto',
     },
   ];
@@ -184,6 +189,22 @@ export default function ContactsPage() {
       {/* Addresses Section */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 space-y-6 max-w-3xl">
+            <div>
+              <h2 className="text-xl font-bold text-gray-900 mb-2">Юридический адрес</h2>
+              <p className="text-gray-600 leading-relaxed">
+                {legalAddress} (ООО «Альтамед-С»).
+              </p>
+            </div>
+            <div>
+              <h2 className="text-xl font-bold text-gray-900 mb-2">
+                Адреса оказания медицинской помощи (фактическое расположение филиалов)
+              </h2>
+              <p className="text-gray-600 leading-relaxed text-sm">
+                Ниже указаны адреса приёма пациентов; схемы проезда — по ссылкам «проложить маршрут» в карточках филиалов.
+              </p>
+            </div>
+          </div>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-12">
             {addresses.map((address, index) => (
               <div key={index} className="bg-white p-8 rounded-xl shadow-sm">

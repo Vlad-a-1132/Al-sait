@@ -38,6 +38,7 @@ const DOCTOR_EXTRA = {
 };
 
 const ANCHORS = [
+  { id: 'marshrut', label: 'Сценарии' },
   { id: 'tseny', label: 'Цены' },
   { id: 'vrachi', label: 'Врачи' },
   { id: 'napravleniya', label: 'Направления' },
@@ -46,10 +47,10 @@ const ANCHORS = [
 ];
 
 const DIRECTIONS = [
-  { title: 'Приём гинеколога', short: 'Как проходит консультация, осмотр и диагностика', url: '/services/priem-ginekologa-odintsovo', image: '/images/blog/task_01kmevvzkgedjsr3sqhp1tbp7j_1774320514_img_1.webp', cta: 'Как проходит приём' },
-  { title: 'Акушер-гинеколог', short: 'Планирование беременности и наблюдение', url: '/services/akusher-ginekolog-odintsovo', image: '/images/blog/task_01kmevwgw4fjf8d6qepyfbdfnm_1774320530_img_0.webp', cta: 'Кому подойдёт' },
-  { title: 'Ведение беременности', short: 'Программа наблюдения по триместрам', url: '/services/vedenie-beremennosti-odintsovo', image: '/images/blog/Screenshot_1559.png', cta: 'Ведение по триместрам' },
-  { title: 'Профилактический осмотр', short: 'Check-up, мазки, кольпоскопия, УЗИ', url: '/services/profilakticheskiy-osmotr-ginekologa-odintsovo', image: '/images/blog/task_01kmewx9vpem3tg59gafhbr63m_1774321601_img_1.webp', cta: 'Что входит в осмотр' },
+  { title: 'Приём гинеколога', short: 'Жалобы, осмотр, мазки, УЗИ и диагностика', url: '/services/priem-ginekologa-odintsovo', image: '/images/blog/task_01kmevvzkgedjsr3sqhp1tbp7j_1774320514_img_1.webp', cta: 'Консультация и приём' },
+  { title: 'Акушер-гинеколог', short: 'Планирование, ранняя беременность, акушерские вопросы', url: '/services/akusher-ginekolog-odintsovo', image: '/images/blog/task_01kmevwgw4fjf8d6qepyfbdfnm_1774320530_img_0.webp', cta: 'Кому нужен специалист' },
+  { title: 'Ведение беременности', short: 'Программа наблюдения по срокам и графику', url: '/services/vedenie-beremennosti-odintsovo', image: '/images/blog/Screenshot_1559.png', cta: 'Программа ведения' },
+  { title: 'Профилактический осмотр', short: 'Плановый контроль без острых жалоб', url: '/services/profilakticheskiy-osmotr-ginekologa-odintsovo', image: '/images/blog/task_01kmewx9vpem3tg59gafhbr63m_1774321601_img_1.webp', cta: 'Плановый check-up' },
 ];
 
 const GYNECOLOGY_SERVICES_FLAT: { code: number; name: string; price: string }[] = (() => {
@@ -88,17 +89,15 @@ const WHEN_TO_BOOK = [
   'зуд, жжение, необычные выделения',
   'кровянистые выделения вне цикла',
   'боль при половом контакте',
-  'вопросы по беременности или подготовке к зачатию',
-  'профилактический осмотр',
 ];
 
 const FAQ_ITEMS = [
   { q: 'Сколько стоит первичный приём гинеколога в Одинцово?', a: 'Первичный приём — от 3 780 ₽. Полный прайс указан на странице, точную стоимость можно уточнить при записи.' },
   { q: 'Можно ли пройти УЗИ и анализы в день обращения?', a: 'Да, в клинике можно пройти УЗИ и сдать анализы в день приёма — врач назначит обследования при необходимости.' },
   { q: 'Когда нужно срочно обратиться к гинекологу?', a: 'Если есть сильная боль, кровянистые выделения вне цикла или резкое ухудшение самочувствия — лучше обратиться как можно скорее.' },
-  { q: 'К кому записаться: к гинекологу, акушеру-гинекологу или гинекологу-эндокринологу?', a: 'Для большинства вопросов подойдёт приём гинеколога. Акушер-гинеколог — при планировании или ведении беременности. Гинеколог-эндокринолог — при нарушениях цикла и гормональных симптомах.' },
+  { q: 'К кому записаться: к гинекологу, акушеру-гинекологу или гинекологу-эндокринологу?', a: 'По жалобам, циклу, выделениям — приём гинеколога. Планирование зачатия, ранняя беременность и акушерские вопросы — акушер-гинеколог. Регулярное наблюдение беременности по графику — отдельная услуга «Ведение беременности». Гинеколог-эндокринолог — при выраженных гормональных нарушениях цикла.' },
   { q: 'В каких филиалах в Одинцово принимает гинеколог?', a: 'Приём ведётся в обоих филиалах: на бульваре Маршала Крылова (д. 23) и на Можайском шоссе (д. 141).' },
-  { q: 'Можно ли записаться на профилактический осмотр?', a: 'Да, профилактический осмотр доступен. Обычно его рекомендуют проходить регулярно.' },
+  { q: 'Можно ли записаться на профилактический осмотр?', a: 'Да — на странице услуги «Профилактический осмотр гинеколога в Одинцово». Там акцент на плановом контроле без острых жалоб; при симптомах удобнее сценарий «Приём гинеколога».' },
 ];
 
 type ReviewSource = {
@@ -747,11 +746,9 @@ export default function TestGinoPage() {
   const KEY_PRICE_NAMES = new Set([
     'Приём акушера-гинеколога первичный',
     'Приём акушера-гинеколога повторный',
-    'Приём беременной первичный',
     'Кольпоскопия',
+    'Кольпоскопия расширенная',
     'Взятие мазков',
-    'УЗИ при беременности',
-    'Ведение беременности',
   ]);
 
   const keyPrices = GYNECOLOGY_SERVICES_FLAT.filter((s) => KEY_PRICE_NAMES.has(s.name));
@@ -849,10 +846,10 @@ export default function TestGinoPage() {
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             <div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 leading-tight">
-                Гинеколог в Одинцово — приём, диагностика и лечение в Альтамед-С
+                Гинеколог в Одинцово — врачи, филиалы и запись в Альтамед-С
               </h1>
               <p className="text-base sm:text-lg text-gray-700 mb-4 sm:mb-6">
-                Приём взрослых, консультации гинеколога и акушера-гинеколога, диагностика, УЗИ и анализы в одном месте.
+                Ориентир по клинике и адресам. Узкие сценарии — на отдельных страницах услуг; ниже блок «Сценарии» помогает выбрать нужный маршрут без дублирования текстов услуг.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-4 sm:mb-6">
                 <Link href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center px-5 py-3.5 sm:px-6 sm:py-3 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition shadow-lg shadow-emerald-900/20 min-h-[44px]">
@@ -953,6 +950,32 @@ export default function TestGinoPage() {
         </div>
       </section>
 
+        {/* Сценарии: куда записаться */}
+        <section id="marshrut" className="py-8 sm:py-12 bg-white scroll-mt-20">
+          <div className="max-w-[1400px] mx-auto px-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-2 sm:mb-3">Куда записаться в рамках гинекологии</h2>
+            <p className="text-gray-600 mb-6 text-sm sm:text-base">Выберите ситуацию — откроется страница услуги с подробным описанием и записью.</p>
+            <div className="grid gap-4 sm:grid-cols-2">
+              <Link href="/services/priem-ginekologa-odintsovo" className="rounded-xl p-5 bg-gray-50 border border-gray-100 shadow-sm hover:border-emerald-200 hover:bg-emerald-50/20 transition block text-left">
+                <h3 className="font-semibold text-emerald-700 mb-1">Есть жалобы или нужна консультация по симптомам</h3>
+                <p className="text-gray-600 text-sm">Приём гинеколога — осмотр, мазки, УЗИ, диагностика и план лечения.</p>
+              </Link>
+              <Link href="/services/akusher-ginekolog-odintsovo" className="rounded-xl p-5 bg-gray-50 border border-gray-100 shadow-sm hover:border-emerald-200 hover:bg-emerald-50/20 transition block text-left">
+                <h3 className="font-semibold text-emerald-700 mb-1">Планирование беременности, ранний срок или акушерские вопросы</h3>
+                <p className="text-gray-600 text-sm">Акушер-гинеколог — подготовка к зачатию, первые визиты, послеродовый период.</p>
+              </Link>
+              <Link href="/services/vedenie-beremennosti-odintsovo" className="rounded-xl p-5 bg-gray-50 border border-gray-100 shadow-sm hover:border-emerald-200 hover:bg-emerald-50/20 transition block text-left">
+                <h3 className="font-semibold text-emerald-700 mb-1">Наблюдение беременности по графику</h3>
+                <p className="text-gray-600 text-sm">Программа ведения — плановые визиты, УЗИ по срокам, анализы.</p>
+              </Link>
+              <Link href="/services/profilakticheskiy-osmotr-ginekologa-odintsovo" className="rounded-xl p-5 bg-gray-50 border border-gray-100 shadow-sm hover:border-emerald-200 hover:bg-emerald-50/20 transition block text-left">
+                <h3 className="font-semibold text-emerald-700 mb-1">Осмотр без жалоб, плановый контроль</h3>
+                <p className="text-gray-600 text-sm">Профилактический осмотр — скрининг, мазки, регулярная проверка.</p>
+              </Link>
+            </div>
+          </div>
+        </section>
+
         {/* Когда стоит записаться */}
         <section className="py-8 sm:py-12 bg-gray-50/50 scroll-mt-20">
           <div className="max-w-[1400px] mx-auto px-4">
@@ -973,7 +996,8 @@ export default function TestGinoPage() {
         {/* Что входит в приём */}
         <section className="py-8 sm:py-12 bg-white">
           <div className="max-w-[1400px] mx-auto px-4">
-            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Что входит в приём гинеколога</h2>
+            <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Что обычно входит в приём</h2>
+            <p className="text-gray-600 mb-4 text-sm sm:text-base max-w-3xl">Кратко о формате консультации; подробные этапы, подготовка и FAQ — на странице <Link href="/services/priem-ginekologa-odintsovo" className="text-emerald-700 font-medium hover:underline">приёма гинеколога</Link>.</p>
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {[
                 'сбор жалоб и анамнеза',

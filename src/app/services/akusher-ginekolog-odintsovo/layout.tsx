@@ -1,10 +1,21 @@
 import { Metadata } from 'next';
+import { GYNEC_SEO_PAGES } from '@/data/gynec-seo-pages';
+
+const c = GYNEC_SEO_PAGES['akusher-ginekolog-odintsovo'];
 
 export const metadata: Metadata = {
-  title: 'Акушер-гинеколог в Одинцово — планирование, беременность, наблюдение | Альтамед-С',
-  description: 'Приём акушера-гинеколога в Одинцово в Альтамед-С. Планирование беременности, подготовка к зачатию, ведение беременности, УЗИ, анализы, наблюдение после родов и консультации по репродуктивному здоровью.',
-  alternates: { canonical: 'https://altamed-c.ru/services/akusher-ginekolog-odintsovo' },
+  title: c.title,
+  description: c.description,
+  alternates: { canonical: c.canonical },
   robots: { index: true, follow: true },
+  openGraph: {
+    title: c.title,
+    description: c.description,
+    url: c.canonical,
+    siteName: 'Альтамед-С',
+    locale: 'ru_RU',
+    type: 'website',
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

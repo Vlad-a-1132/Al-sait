@@ -14,6 +14,11 @@ const GYNECOLOGISTS = doctors.filter(
     d.specialization?.toLowerCase().includes('акушер')
 );
 
+const VEDENIE_DOCTOR_SLUGS = ['peregudova-nina-alekseevna', 'panova-olga-yurievna', 'brigadirova-elena-mikhailovna'] as const;
+const vedenieGynecologists = VEDENIE_DOCTOR_SLUGS.map((slug) => GYNECOLOGISTS.find((d) => d.slug === slug)).filter(
+  (d): d is (typeof GYNECOLOGISTS)[number] => Boolean(d)
+);
+
 export default function VedenieBeremennostiOdintsovoPage() {
   const [openFaq, setOpenFaq] = useState<number | null>(null);
 
@@ -38,10 +43,11 @@ export default function VedenieBeremennostiOdintsovoPage() {
           <div className="grid lg:grid-cols-2 gap-6 lg:gap-12 items-center">
             <div>
               <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight mb-3 sm:mb-4">
-                Планирование и ведение беременности в Одинцово
+                Ведение беременности в Одинцово — программа наблюдения
               </h1>
               <p className="text-gray-700 text-base sm:text-lg mb-4 sm:mb-6 leading-relaxed">
-                Программа ведения беременности в Альтамед-С — наблюдение у акушера-гинеколога на всех сроках. Консультации по графику, УЗИ по триместрам, анализы и подготовка к родам в одном медцентре.
+                Согласованный маршрут: плановые визиты к акушеру-гинекологу по срокам, УЗИ по триместрам, анализы и контроль в динамике — в одном медцентре. Подготовку к зачатию до беременности удобнее начать с приёма{' '}
+                <Link href="/services/akusher-ginekolog-odintsovo" className="text-emerald-700 font-medium hover:underline">акушера-гинеколога</Link>.
               </p>
               <div className="flex flex-col sm:flex-row flex-wrap gap-3 mb-4 sm:mb-6">
                 <Link href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="inline-flex justify-center items-center px-5 py-3.5 sm:px-6 sm:py-3 bg-emerald-600 text-white font-medium rounded-xl hover:bg-emerald-700 transition shadow-lg shadow-emerald-900/20 min-h-[44px]">
@@ -66,11 +72,9 @@ export default function VedenieBeremennostiOdintsovoPage() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
               </div>
               <div className="absolute -bottom-3 sm:-bottom-4 left-0 right-0 sm:left-0 sm:right-auto sm:w-64 p-3 sm:p-4 rounded-xl bg-white/95 backdrop-blur shadow-lg border border-gray-100">
-                <div className="grid grid-cols-2 sm:grid-cols-2 gap-2 text-sm">
-                  <div><span className="text-amber-500 font-bold">4.8</span> рейтинг</div>
-                  <div>3 врача-гинеколога</div>
-                  <div>2 филиала</div>
-                  <div className="text-emerald-600 font-medium">Приём на неделе</div>
+                <div className="space-y-2 text-sm text-gray-800">
+                  <p className="font-medium leading-snug">График визитов и обследований по срокам</p>
+                  <p className="text-gray-600 leading-snug">Наблюдение у одного врача в рамках программы</p>
                 </div>
               </div>
             </div>
@@ -84,8 +88,8 @@ export default function VedenieBeremennostiOdintsovoPage() {
           <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Что входит в программу ведения беременности</h2>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">Подготовка к зачатию</h3>
-              <p className="text-gray-600 text-sm leading-relaxed">Консультация до беременности, оценка здоровья, рекомендации по обследованиям и приёму фолиевой кислоты.</p>
+              <h3 className="font-semibold text-gray-900 mb-2">Связь с этапом до беременности</h3>
+              <p className="text-gray-600 text-sm leading-relaxed">Подготовку к зачатию обычно обсуждают на приёме <Link href="/services/akusher-ginekolog-odintsovo" className="text-emerald-700 font-medium hover:underline">акушера-гинеколога</Link>. После наступления беременности программа ведения продолжает маршрут по срокам.</p>
             </div>
             <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
               <h3 className="font-semibold text-gray-900 mb-2">Плановые консультации</h3>
@@ -106,43 +110,6 @@ export default function VedenieBeremennostiOdintsovoPage() {
             <div className="rounded-2xl p-5 sm:p-6 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-100 transition">
               <h3 className="font-semibold text-gray-900 mb-2">Подготовка к родам</h3>
               <p className="text-gray-600 text-sm leading-relaxed">Обсуждение родоразрешения, выбор роддома, рекомендации на поздних сроках.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Чем ведение беременности в платной клинике удобно */}
-      <section className="py-10 sm:py-12 md:py-14 bg-gray-50/50">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Чем ведение беременности в платной клинике удобно</h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            Ведение беременности в Альтамед-С — это наблюдение у акушера-гинеколога по индивидуальному графику. Будущая мама может выбрать врача, наблюдаться у одного специалиста на всех сроках и проходить обследования в одной клинике, без очередей и потери времени.
-          </p>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            Программа ведения строится с учётом срока беременности, анамнеза и особенностей течения. Врач определяет график визитов, объём обследований и при необходимости корректирует тактику. Можно оформить ведение в платной клинике и рожать в выбранном роддоме — это распространённая практика.
-          </p>
-          <p className="text-gray-700 leading-relaxed">
-            Консультации, УЗИ, анализы — всё в одном месте. Это удобно для работающих женщин и тех, кто ценит комфорт и понятный маршрут наблюдения.
-          </p>
-        </div>
-      </section>
-
-      {/* Когда стоит встать на учёт */}
-      <section id="kogda" className="py-10 sm:py-12 md:py-14 bg-white scroll-mt-20">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Когда стоит встать на учёт по беременности</h2>
-          <div className="space-y-6">
-            <div className="rounded-2xl p-5 sm:p-6 border border-gray-100 bg-white shadow-sm hover:shadow-md hover:border-emerald-50 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">Сразу после положительного теста</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">Рекомендуется записаться в течение 1–2 недель. Врач подтвердит маточную беременность, определит срок, исключит внематочную и выстроит план наблюдения. Раннее обращение позволяет пройти первый скрининг (11–14 недель) в нужное окно.</p>
-            </div>
-            <div className="rounded-2xl p-5 sm:p-6 border border-gray-100 bg-white shadow-sm hover:shadow-md hover:border-emerald-50 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">До 12 недель — оптимально</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">Постановка на учёт до 12 недель даёт возможность пройти все скрининговые исследования в срок. Первый скрининг (УЗИ + биохимия) проводится в 11–14 недель — если встать позже, можно пропустить важное окно.</p>
-            </div>
-            <div className="rounded-2xl p-5 sm:p-6 border border-gray-100 bg-white shadow-sm hover:shadow-md hover:border-emerald-50 transition">
-              <h3 className="font-semibold text-gray-900 mb-2">При планировании — до зачатия</h3>
-              <p className="text-gray-700 text-sm leading-relaxed">Консультация до беременности помогает оценить состояние, обсудить обследования и подготовиться к зачатию. Врач порекомендует приём фолиевой кислоты, при необходимости — анализы на инфекции, УЗИ органов малого таза.</p>
             </div>
           </div>
         </div>
@@ -221,18 +188,40 @@ export default function VedenieBeremennostiOdintsovoPage() {
         </div>
       </section>
 
-      {/* Почему обращаются в Альтамед-С */}
+      {/* Чем ведение беременности в платной клинике удобно */}
       <section className="py-10 sm:py-12 md:py-14 bg-white">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Почему обращаются в Альтамед-С</h2>
-          <ul className="space-y-3 text-gray-700">
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Ведение беременности в Одинцово</strong> — не нужно ехать в другой район.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Два филиала</strong> — выбор удобного адреса.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">УЗИ и анализы в клинике</strong> — всё в одном месте.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Опытные акушеры-гинекологи</strong> — врачи со стажем до 43 лет.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Наблюдение у одного врача</strong> — удобно и понятно.</div></li>
-            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Запись онлайн и по телефону</strong> — ежедневно.</div></li>
-          </ul>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Чем ведение беременности в платной клинике удобно</h2>
+          <p className="text-gray-700 mb-4 leading-relaxed">
+            Ведение беременности в Альтамед-С — это наблюдение у акушера-гинеколога по индивидуальному графику. Будущая мама может выбрать врача, наблюдаться у одного специалиста на всех сроках и проходить обследования в одной клинике, без очередей и потери времени.
+          </p>
+          <p className="text-gray-700 mb-4 leading-relaxed">
+            Программа ведения строится с учётом срока беременности, анамнеза и особенностей течения. Врач определяет график визитов, объём обследований и при необходимости корректирует тактику. Можно оформить ведение в платной клинике и рожать в выбранном роддоме — это распространённая практика.
+          </p>
+          <p className="text-gray-700 leading-relaxed">
+            Консультации, УЗИ, анализы — всё в одном месте. Это удобно для работающих женщин и тех, кто ценит комфорт и понятный маршрут наблюдения.
+          </p>
+        </div>
+      </section>
+
+      {/* Когда стоит встать на учёт */}
+      <section id="kogda" className="py-10 sm:py-12 md:py-14 bg-gray-50/50 scroll-mt-20">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Когда стоит встать на учёт по беременности</h2>
+          <div className="space-y-6">
+            <div className="rounded-2xl p-5 sm:p-6 border border-gray-100 bg-white shadow-sm hover:shadow-md hover:border-emerald-50 transition">
+              <h3 className="font-semibold text-gray-900 mb-2">Сразу после положительного теста</h3>
+              <p className="text-gray-700 text-sm leading-relaxed">Рекомендуется записаться в течение 1–2 недель. Врач подтвердит маточную беременность, определит срок, исключит внематочную и выстроит план наблюдения. Раннее обращение позволяет пройти первый скрининг (11–14 недель) в нужное окно.</p>
+            </div>
+            <div className="rounded-2xl p-5 sm:p-6 border border-gray-100 bg-white shadow-sm hover:shadow-md hover:border-emerald-50 transition">
+              <h3 className="font-semibold text-gray-900 mb-2">До 12 недель — оптимально</h3>
+              <p className="text-gray-700 text-sm leading-relaxed">Постановка на учёт до 12 недель даёт возможность пройти все скрининговые исследования в срок. Первый скрининг (УЗИ + биохимия) проводится в 11–14 недель — если встать позже, можно пропустить важное окно.</p>
+            </div>
+            <div className="rounded-2xl p-5 sm:p-6 border border-gray-100 bg-white shadow-sm hover:shadow-md hover:border-emerald-50 transition">
+              <h3 className="font-semibold text-gray-900 mb-2">До наступления беременности</h3>
+              <p className="text-gray-700 text-sm leading-relaxed">Вопросы подготовки к зачатию до положительного теста удобнее закрыть на приёме <Link href="/services/akusher-ginekolog-odintsovo" className="text-emerald-700 font-medium hover:underline">акушера-гинеколога</Link>. Когда беременность подтверждена, график ведения строится на этой странице услуги.</p>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -266,15 +255,55 @@ export default function VedenieBeremennostiOdintsovoPage() {
         </div>
       </section>
 
-      {/* Врачи */}
-      <section id="vrachi" className="py-10 sm:py-12 md:py-14 bg-white scroll-mt-20">
+      {/* Как подготовиться к первому визиту */}
+      <section className="py-10 sm:py-12 md:py-14 bg-gray-50/50">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Врачи-акушеры-гинекологи</h2>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Как подготовиться к первому визиту</h2>
+          <p className="text-gray-700 mb-4 leading-relaxed">
+            Взять с собой: паспорт, дату последней менструации, при наличии — результаты предыдущих УЗИ и анализов. Можно записать вопросы к врачу. Подготовки к приёму не требуется.
+          </p>
+          <p className="text-gray-700 leading-relaxed">
+            Врач уточнит особенности цикла, предыдущие беременности, хронические заболевания, принимаемые препараты. Обсудит УЗИ для подтверждения маточной беременности, анализы и план наблюдения.
+          </p>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section id="faq" className="py-10 sm:py-12 md:py-14 bg-white scroll-mt-20">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Часто задаваемые вопросы</h2>
+          <div className="space-y-3">
+            {[
+              { q: 'Когда впервые обращаться после положительного теста?', a: 'Рекомендуется в течение 1–2 недель. Врач подтвердит маточную беременность, определит срок и зафиксирует маршрут программы ведения (график визитов и обследований).' },
+              { q: 'Что включает ведение беременности?', a: 'Согласованный маршрут: регулярные визиты по сроку, осмотры, УЗИ по триместрам, анализы и мазки по плану. Объём определяется индивидуально.' },
+              { q: 'Можно ли пройти УЗИ в клинике?', a: 'Да. В клинике выполняют УЗИ плода в I, II и III триместрах, а также допплерометрию.' },
+              { q: 'Как часто нужны визиты?', a: 'График определяет врач. Обычно в I триместре — реже, во II и III — чаще. При осложнениях частота может быть увеличена.' },
+              { q: 'Можно ли рожать в выбранном роддоме?', a: 'Да. Ведение в платной клинике не обязывает рожать в определённом месте. Можно выбрать роддом по желанию.' },
+            ].map((f, i) => (
+              <div key={i} className="rounded-2xl border border-gray-100 overflow-hidden bg-white shadow-sm hover:border-emerald-100 transition">
+                <button type="button" onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition" aria-expanded={openFaq === i}>
+                  <span className="font-semibold text-gray-900 pr-4">{f.q}</span>
+                  <span className={`text-emerald-600 flex-shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`}>
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                  </span>
+                </button>
+                {openFaq === i && <div className="px-4 pb-4 pt-0"><p className="text-gray-700 text-sm leading-relaxed">{f.a}</p></div>}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Врачи */}
+      <section id="vrachi" className="py-10 sm:py-12 md:py-14 bg-gray-50/50 scroll-mt-20">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Врачи для программы ведения</h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
-            В Альтамед-С ведут приём акушеры-гинекологи, которые помогают на этапе планирования, во время беременности и после родов. Наблюдаться у одного врача всю беременность удобно — специалист видит картину в динамике.
+            Ниже — акушеры-гинекологи, к которым можно встать на наблюдение; порядок ориентирован на типичный маршрут программы. Вопросы до беременности удобнее начать на приёме{' '}
+            <Link href="/services/akusher-ginekolog-odintsovo" className="text-emerald-700 font-medium hover:underline">акушера-гинеколога</Link>. Полный список — на странице «Гинеколог в Одинцово».
           </p>
           <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
-            {GYNECOLOGISTS.map((d) => (
+            {vedenieGynecologists.map((d) => (
               <div key={d.id} className="rounded-2xl p-6 bg-white border border-gray-100 shadow-sm hover:shadow-lg transition">
                 <div className="relative w-24 h-24 rounded-full overflow-hidden bg-gray-100 mb-4 ring-2 ring-white shadow-md">
                   <Image src={d.photo} alt={d.name} fill className="object-cover" sizes="96px" />
@@ -295,42 +324,17 @@ export default function VedenieBeremennostiOdintsovoPage() {
         </div>
       </section>
 
-      {/* Как подготовиться к первому визиту */}
-      <section className="py-10 sm:py-12 md:py-14 bg-gray-50/50">
+      {/* Почему выбирают программу ведения */}
+      <section className="py-10 sm:py-12 md:py-14 bg-white">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Как подготовиться к первому визиту</h2>
-          <p className="text-gray-700 mb-4 leading-relaxed">
-            Взять с собой: паспорт, дату последней менструации, при наличии — результаты предыдущих УЗИ и анализов. Можно записать вопросы к врачу. Подготовки к приёму не требуется.
-          </p>
-          <p className="text-gray-700 leading-relaxed">
-            Врач уточнит особенности цикла, предыдущие беременности, хронические заболевания, принимаемые препараты. Обсудит УЗИ для подтверждения маточной беременности, анализы и план наблюдения.
-          </p>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section id="faq" className="py-10 sm:py-12 md:py-14 bg-white scroll-mt-20">
-        <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
-          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">Часто задаваемые вопросы</h2>
-          <div className="space-y-3">
-            {[
-              { q: 'Когда впервые обращаться после положительного теста?', a: 'Рекомендуется в течение 1–2 недель. Врач подтвердит маточную беременность, определит срок и составит план наблюдения.' },
-              { q: 'Что включает ведение беременности?', a: 'Регулярные визиты по графику, осмотры, УЗИ по триместрам, анализы и мазки. Объём определяется индивидуально с учётом срока и анамнеза.' },
-              { q: 'Можно ли пройти УЗИ в клинике?', a: 'Да. В клинике выполняют УЗИ плода в I, II и III триместрах, а также допплерометрию.' },
-              { q: 'Как часто нужны визиты?', a: 'График определяет врач. Обычно в I триместре — реже, во II и III — чаще. При осложнениях частота может быть увеличена.' },
-              { q: 'Можно ли рожать в выбранном роддоме?', a: 'Да. Ведение в платной клинике не обязывает рожать в определённом месте. Можно выбрать роддом по желанию.' },
-            ].map((f, i) => (
-              <div key={i} className="rounded-2xl border border-gray-100 overflow-hidden bg-white shadow-sm hover:border-emerald-100 transition">
-                <button type="button" onClick={() => setOpenFaq(openFaq === i ? null : i)} className="w-full flex items-center justify-between p-4 text-left hover:bg-gray-50 transition" aria-expanded={openFaq === i}>
-                  <span className="font-semibold text-gray-900 pr-4">{f.q}</span>
-                  <span className={`text-emerald-600 flex-shrink-0 transition-transform ${openFaq === i ? 'rotate-180' : ''}`}>
-                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
-                  </span>
-                </button>
-                {openFaq === i && <div className="px-4 pb-4 pt-0"><p className="text-gray-700 text-sm leading-relaxed">{f.a}</p></div>}
-              </div>
-            ))}
-          </div>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-900 mb-6">График наблюдения и один врач</h2>
+          <ul className="space-y-3 text-gray-700">
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Согласованный график</strong> — визиты и обследования по срокам, а не разовый приём.</div></li>
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Наблюдение у одного специалиста</strong> — врач видит динамику на всех этапах программы.</div></li>
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">УЗИ и анализы в клинике</strong> — по плану ведения, без лишних переездов.</div></li>
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Два филиала в Одинцово</strong> — выбор адреса.</div></li>
+            <li className="flex items-start gap-3"><span className="text-emerald-600 flex-shrink-0">✓</span><div><strong className="text-gray-900">Запись онлайн и по телефону</strong> — ежедневно.</div></li>
+          </ul>
         </div>
       </section>
 
@@ -353,13 +357,13 @@ export default function VedenieBeremennostiOdintsovoPage() {
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6">
           <h2 className="text-xl font-bold text-gray-900 mb-4">Связанные направления</h2>
           <div className="space-y-4">
-            <Link href="/services/akusher-ginekolog-odintsovo" className="block rounded-2xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition">
-              <span className="font-semibold text-emerald-600">Акушер-гинеколог</span>
-              <p className="text-gray-600 text-sm mt-1">Планирование, беременность, послеродовое наблюдение.</p>
-            </Link>
             <Link href="/ginekolog-v-odintsovo" className="block rounded-2xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition">
               <span className="font-semibold text-emerald-600">Гинеколог в Одинцово</span>
-              <p className="text-gray-600 text-sm mt-1">Общее направление гинекологии.</p>
+              <p className="text-gray-600 text-sm mt-1">Хаб направления: врачи, филиалы, сценарии записи.</p>
+            </Link>
+            <Link href="/services/akusher-ginekolog-odintsovo" className="block rounded-2xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition">
+              <span className="font-semibold text-emerald-600">Акушер-гинеколог</span>
+              <p className="text-gray-600 text-sm mt-1">До и вне графика ведения: планирование, ранние сроки, послеродовый период.</p>
             </Link>
             <Link href="/blog/kak-prohodit-vedenie-beremennosti" className="block rounded-2xl p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-emerald-200 transition">
               <span className="font-semibold text-emerald-600">Как проходит ведение беременности — статья</span>
