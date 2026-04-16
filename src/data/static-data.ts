@@ -52,7 +52,7 @@ export const doctors = [
   { id: 51, name: "Рыжов Андрей Иванович", slug: "ryzhov-andrey-ivanovich", specialization: "Отоларинголог", experience: 23, photo: "/images/doctors/Ryzhov Andrey Ivanovich.webp", description: "Врач оториноларинголог. Стаж с 2001 года" },
   { id: 52, name: "Чернова Алла Валерьевна", slug: "chernova-alla-valerievna", specialization: "Стоматолог", experience: 15, photo: "/images/doctors/Chernova Alla Valerievna.webp", description: "Врач стоматолог-терапевт. Окончила Рязанский государственный университет имени акад. И. П. Павлова по специальности «Врач- стоматолог»" },
   { id: 53, name: "Исаева Екатерина Николаевна", slug: "isaeva-ekaterina-nikolaevna", specialization: "Гигиенист стоматологический, Стоматология профилактическая", experience: 6, photo: "/images/doctors/isaeva-ekaterina-nikolaevna.jpg", description: "Квалифицированный гигиенист в области профилактики заболеваний полости рта и поддержания здоровья зубов и десен. Профессиональная гигиена, подбор средств ухода. Стаж с 2019 года." },
-  { id: 54, name: "Молостов Александр Венедиктович", slug: "molostov-aleksandr-venedikhtovich", specialization: "Кардиолог", photo: "", description: "Врач-кардиолог" }
+  { id: 54, name: "Молостов Александр Венедиктович", slug: "molostov-aleksandr-venedikhtovich", specialization: "Терапевт, Кардиолог", photo: "/images/doctors/Молостов.jpg", description: "Врач-терапевт, врач-кардиолог" }
 ];
 
 export const services = [

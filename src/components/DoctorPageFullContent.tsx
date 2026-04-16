@@ -23,6 +23,15 @@ interface DoctorPageFullContentProps {
   specialization: string;
 }
 
+/** Путь/URL картинки для next/image; иначе это текст (например описание сертификата). */
+function isRenderableImageSrc(value: string): boolean {
+  const t = value.trim();
+  if (!t) return false;
+  if (/^https?:\/\//i.test(t)) return true;
+  if (t.startsWith("/")) return true;
+  return /\.(png|jpe?g|webp|gif|svg)(\?.*)?$/i.test(t);
+}
+
 export default function DoctorPageFullContent({ 
   doctor, 
   doctorName, 
@@ -62,7 +71,7 @@ export default function DoctorPageFullContent({
               <h1 className="text-3xl font-bold text-gray-900 mb-2">
                 {currentSpecialization} {doctor.name} в Одинцово
               </h1>
-              <div className="inline-block bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-sm font-medium mb-3">
+              <div className="mb-3 block w-fit bg-emerald-50 text-emerald-700 px-3 py-1 rounded-full text-sm font-medium">
                 {doctor.specialization}
               </div>
               {(doctorDetails && doctorDetails.experience) || (doctor.experience !== undefined && doctor.experience !== null) ? (
@@ -74,7 +83,7 @@ export default function DoctorPageFullContent({
                       : ''}
                 </p>
               ) : null}
-              <a href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="inline-block bg-gradient-to-r from-orange-400 to-orange-600 text-white px-6 py-3 rounded-xl hover:from-orange-500 hover:to-orange-700 transition-all font-medium w-full md:w-auto text-center">
+              <a href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="mt-2 inline-block bg-gradient-to-r from-orange-400 to-orange-600 text-white px-6 py-3 rounded-xl hover:from-orange-500 hover:to-orange-700 transition-all font-medium w-full md:w-auto text-center">
                 Записаться
               </a>
             </div>
@@ -327,6 +336,16 @@ export default function DoctorPageFullContent({
                       </a>
                     );
                   }
+                  if (!isRenderableImageSrc(cert)) {
+                    return (
+                      <div
+                        key={index}
+                        className="rounded-lg border border-gray-200 bg-gray-50 p-4 shadow-sm"
+                      >
+                        <p className="text-sm text-gray-800 leading-relaxed">{cert}</p>
+                      </div>
+                    );
+                  }
                   return (
                     <div key={index} className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
                       <Image
@@ -347,16 +366,25 @@ export default function DoctorPageFullContent({
                 Грамоты и награды
               </h2>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {doctorDetails.achievements.map((achievement: string, index: number) => (
-                  <div key={index} className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                    <Image
-                      src={achievement}
-                      alt={`Грамота ${index + 1}`}
-                      fill
-                      className="object-contain cursor-pointer"
-                    />
-                  </div>
-                ))}
+                {doctorDetails.achievements.map((achievement: string, index: number) =>
+                  !isRenderableImageSrc(achievement) ? (
+                    <div
+                      key={index}
+                      className="rounded-lg border border-gray-200 bg-gray-50 p-4 shadow-sm"
+                    >
+                      <p className="text-sm text-gray-800 leading-relaxed">{achievement}</p>
+                    </div>
+                  ) : (
+                    <div key={index} className="relative aspect-[3/4] rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
+                      <Image
+                        src={achievement}
+                        alt={`Грамота ${index + 1}`}
+                        fill
+                        className="object-contain cursor-pointer"
+                      />
+                    </div>
+                  )
+                )}
               </div>
             </>
           )}

@@ -19,9 +19,9 @@ export function generateStaticParams() {
 function getDoctorDetails(doctorName: string) {
   const details: { [key: string]: any } = {
     'Молостов Александр Венедиктович': {
-      specialization: 'Врач-кардиолог',
+      specialization: 'Врач-терапевт, врач-кардиолог',
       mainDirections: [
-        'Диагностика и лечение заболеваний сердечно-сосудистой системы'
+        'Диагностика и лечение заболеваний внутренних органов и сердечно-сосудистой системы'
       ],
       education: [
         '2013 г. — Московский государственный медико-стоматологический университет им. А.И. Евдокимова. Специальность «Лечебное дело».',
@@ -2076,10 +2076,11 @@ function getDoctorSchedule(doctorName: string) {
     },
     // Гастроэнтерологи
     'Будко Елена Анатольевна': {
-      Monday: { start: "09:00", end: "19:00" },
-      Wednesday: { start: "09:00", end: "19:00" },
-      Thursday: { start: "09:00", end: "14:00" },
-      Sunday: { start: "09:00", end: "19:00" }
+      Monday: { start: "08:00", end: "20:00" },
+      Wednesday: { start: "08:00", end: "20:00" },
+      Thursday: { start: "08:00", end: "15:00" },
+      Saturday: { start: "14:00", end: "20:00" },
+      Sunday: { start: "08:00", end: "19:00" },
     },
     'Костина Валентина Яковлевна': {
       Tuesday: { start: "08:30", end: "13:00" },
@@ -2206,8 +2207,8 @@ function getDoctorSchedule(doctorName: string) {
       Saturday: { start: "09:00", end: "19:00" }
     },
     'Чернова Алла Валерьевна': {
-      Monday: { start: "09:00", end: "17:00" },
-      Tuesday: { start: "14:30", end: "20:00" }
+      Tuesday: { start: "09:00", end: "17:00" },
+      Thursday: { start: "14:30", end: "20:00" }
     },
     'Ярулова Вероника Юрьевна': {
       Wednesday: { start: "09:00", end: "18:30" },

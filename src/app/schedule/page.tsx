@@ -139,13 +139,21 @@ export default function SchedulePage() {
     const merged = staticDoctors.map((staticDoc: any) => {
       const savedDoc = savedMap.get(staticDoc.name);
       if (!savedDoc) return staticDoc;
-      // По дням: приоритет у сохранённых; если день не задан в saved — берём из статики
+      // По дням: сначала слот из статики (код сайта); если в статике дня нет — из localStorage (доп. дни из админки)
       const staticSched = staticDoc.schedule || {};
       const savedSched = savedDoc.schedule || {};
       const schedule: DoctorSchedule = {};
-      days.forEach(day => {
-        schedule[day] = savedSched[day] ?? staticSched[day];
-      });
+      // Если в статике задан хотя бы один день — расписание целиком из статики (иначе старый localStorage дополняет лишние дни).
+      const staticHasAnyDay = days.some((day) => staticSched[day] != null);
+      if (staticHasAnyDay) {
+        days.forEach((day) => {
+          schedule[day] = staticSched[day];
+        });
+      } else {
+        days.forEach((day) => {
+          schedule[day] = savedSched[day] ?? staticSched[day];
+        });
+      }
       // Специальность берём из статики, чтобы сохранённые данные не "перетирали" контент сайта
       return { ...savedDoc, specialty: staticDoc.specialty ?? savedDoc.specialty, schedule };
     });
@@ -162,7 +170,7 @@ export default function SchedulePage() {
   const branch1Doctors = [
     {
       name: "Молостов Александр Венедиктович",
-      specialty: "Кардиолог",
+      specialty: "Терапевт, Кардиолог",
       schedule: {
         Monday: { start: "10:00", end: "15:00" },
         Wednesday: { start: "10:00", end: "18:00" },
@@ -179,11 +187,6 @@ export default function SchedulePage() {
       name: "Белоус Олег Анатольевич",
       specialty: "Остеопат",
       schedule: { Tuesday: { start: "08:00", end: "19:00" }, Wednesday: { start: "08:00", end: "19:00" }, Thursday: { start: "08:00", end: "19:00" }, Saturday: { start: "08:00", end: "19:00" }, Sunday: { start: "08:00", end: "19:00" } }
-    },
-    {
-      name: "Дячук Ольга Владимировна",
-      specialty: "Психолог",
-      schedule: { Tuesday: { start: "12:00", end: "16:00" } }
     },
     {
       name: "Емельянова Анна Игоревна",
@@ -261,17 +264,18 @@ export default function SchedulePage() {
     {
       name: "Будко Елена Анатольевна",
       specialty: "Гастроэнтеролог",
-      schedule: { Monday: { start: "09:00", end: "19:00" }, Wednesday: { start: "09:00", end: "19:00" }, Thursday: { start: "09:00", end: "14:00" }, Sunday: { start: "09:00", end: "19:00" } }
+      schedule: {
+        Monday: { start: "08:00", end: "20:00" },
+        Wednesday: { start: "08:00", end: "20:00" },
+        Thursday: { start: "08:00", end: "15:00" },
+        Saturday: { start: "14:00", end: "20:00" },
+        Sunday: { start: "08:00", end: "19:00" },
+      }
     },
     {
       name: "Громов Евгений Викторович",
       specialty: "Уролог-андролог",
       schedule: { Monday: { start: "16:00", end: "21:00" }, Tuesday: { start: "16:00", end: "21:00" }, Wednesday: { start: "10:00", end: "14:00" }, Thursday: { start: "16:00", end: "21:00" }, Friday: { start: "09:00", end: "12:30" } }
-    },
-    {
-      name: "Глуцкая",
-      specialty: "Специалист",
-      schedule: { Tuesday: { start: "16:00", end: "19:00" }, Friday: { start: "16:00", end: "19:00" } }
     },
     {
       name: "Громова Елена Анатольевна",
@@ -351,7 +355,7 @@ export default function SchedulePage() {
     {
       name: "Рагимханов Фарид Султанович",
       specialty: "Уролог",
-      schedule: { Tuesday: { start: "10:00", end: "13:00" }, Friday: { start: "15:00", end: "20:00" }, Saturday: { start: "10:00", end: "13:00" } }
+      schedule: { Friday: { start: "15:00", end: "20:00" }, Sunday: { start: "10:00", end: "13:00" } }
     },
     {
       name: "Русинович Валерий Михайлович",
@@ -444,7 +448,7 @@ export default function SchedulePage() {
     {
       name: "Чернова Алла Валерьевна",
       specialty: "Стоматолог",
-      schedule: { Tuesday: { start: "09:00", end: "17:00" }, Wednesday: { start: "14:30", end: "20:00" } }
+      schedule: { Tuesday: { start: "09:00", end: "17:00" }, Thursday: { start: "14:30", end: "20:00" } }
     },
     {
       name: "Ярулова Вероника Юрьевна",
