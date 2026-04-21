@@ -1,6 +1,8 @@
 import Link from "next/link";
 import type { Metadata } from "next";
 import AppointmentForm from "@/components/AppointmentForm";
+import { formatImplantationPriceLabel, loadImplantationPriceServices } from "./load-implantation-services";
+import ImplantationFullPriceClient, { type ImplantationServiceRow } from "./ImplantationFullPriceClient";
 
 const WORDSTAT_KEYWORDS: string[] = [
   "имплантация одинцово",
@@ -92,56 +94,6 @@ const stages = [
   }
 ] as const;
 
-const priceList = [
-  {
-    name: "Внутрикостная дентальная имплантация (винтового) импланта системы Implantium Dentium (без стоимости материала)",
-    price: "36 780 ₽"
-  },
-  {
-    name: "Внутрикостная дентальная имплантация (винтового) импланта системы Osstem",
-    price: "42 000 ₽"
-  },
-  {
-    name: "Внутрикостная дентальная имплантация временного импланта",
-    price: "19 020 ₽"
-  },
-  {
-    name: "Внутрикостная дентальная имплантация (винтового) импланта системы Straumann",
-    price: "94 500 ₽"
-  },
-  {
-    name: "Установка формирователя десны Dentium",
-    price: "6 300 ₽"
-  },
-  {
-    name: "Установка формирователя десны на имплант Osstem (Корея)",
-    price: "6 300 ₽"
-  },
-  {
-    name: "Установка импланта Osstem (Корея)",
-    price: "42 000 ₽"
-  },
-  {
-    name: "Раскрытие дентального импланта",
-    price: "31 500 ₽"
-  },
-  {
-    name: "Извлечение интегрированного имплантата",
-    price: "31 500 ₽"
-  },
-  {
-    name: "Извлечение дезинтегрированного имплантата",
-    price: "31 500 ₽"
-  },
-  {
-    name: "Хирургический шаблон (1 имплантат)",
-    price: "6 300 ₽"
-  },
-  {
-    name: "Синус-лифтинг (костная пластика, остеопластика) открытый (без стоимости остеоиндуктивного материала)",
-    price: "53 260 ₽"
-  }
-] as const;
 
 const indications = [
   "Отсутствие одного или нескольких зубов в эстетической зоне",
@@ -199,7 +151,13 @@ const faqItems = [
   }
 ] as const;
 
-export default function ImplantationPage() {
+export default async function ImplantationPage() {
+  const liveServices = await loadImplantationPriceServices();
+  const rows: ImplantationServiceRow[] = liveServices.map((item, i) => ({
+    key: `${String(item.serviceId ?? item.id ?? item.code ?? i)}-${String(item.categoryId ?? "")}`,
+    name: item.name,
+    priceLabel: formatImplantationPriceLabel(item),
+  }));
   return (
     <div className="flex flex-col min-h-full bg-white">
       <section className="py-4">
@@ -440,27 +398,14 @@ export default function ImplantationPage() {
         </div>
       </section>
 
-      <section className="py-12 bg-white">
+      <section id="prices" className="py-12 bg-white scroll-mt-20">
         <div className="mx-auto px-4" style={{ maxWidth: "83rem" }}>
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Цены на имплантацию зубов в Одинцово</h2>
           <p className="text-gray-700 mb-6 leading-relaxed">
             Стоимость имплантации в клинике «Альтамед-С» формируется индивидуально, но мы фиксируем цены в
             договоре, чтобы пациент точно понимал итоговую сумму.
           </p>
-          <div className="bg-gray-50 rounded-[20px] p-6 shadow-md border border-gray-100">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {priceList.map((item) => (
-                <div key={item.name} className="bg-white rounded-xl p-4 shadow-sm border border-gray-100">
-                  <div className="text-sm md:text-base text-gray-900 font-semibold mb-2">{item.name}</div>
-                  <div className="text-[#4A5568] font-bold text-lg">{item.price}</div>
-                </div>
-              ))}
-            </div>
-            <p className="text-sm text-gray-600 mt-4">
-              Для уточнения актуальной цены имплантации зубов в Одинцово запишитесь на консультацию — врач
-              составит план лечения и ответит на дополнительные вопросы.
-            </p>
-          </div>
+          <ImplantationFullPriceClient rows={rows} />
         </div>
       </section>
 

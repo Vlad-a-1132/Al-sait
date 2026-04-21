@@ -738,7 +738,6 @@ export default function TestGinoPage() {
   const [activeBranch, setActiveBranch] = useState(0);
   const [openVideo, setOpenVideo] = useState<string | null>(null);
   const [showMoreArticles, setShowMoreArticles] = useState(false);
-  const [showAllPrices, setShowAllPrices] = useState(true);
   const [activeReviewSource, setActiveReviewSource] = useState<string | null>(null);
   const [showAllPatientReviews, setShowAllPatientReviews] = useState(false);
   const [activeReviewDoctor, setActiveReviewDoctor] = useState<string | null>(null);
@@ -1036,15 +1035,7 @@ export default function TestGinoPage() {
               <div className="lg:col-span-2 order-2 lg:order-1 rounded-2xl border border-gray-200 overflow-hidden bg-white">
                 <div className="flex items-center justify-between gap-4 p-4 border-b border-gray-100 bg-white">
                   <p className="font-semibold text-gray-900 mb-0">Полный прайс</p>
-                  <button
-                    type="button"
-                    onClick={() => setShowAllPrices((v) => !v)}
-                    className="px-4 py-2 rounded-xl border border-gray-200 text-gray-700 text-sm font-medium hover:bg-gray-50 transition"
-                  >
-                    {showAllPrices ? 'Скрыть' : 'Показать'}
-                  </button>
                 </div>
-                {showAllPrices && (
                 <div className="overflow-y-auto max-h-[480px] sm:max-h-[480px]">
                   <table className="w-full text-sm sm:text-base table-fixed">
                     <thead className="sticky top-0 z-10 bg-gray-100">
@@ -1063,7 +1054,6 @@ export default function TestGinoPage() {
                     </tbody>
                   </table>
                 </div>
-                )}
               </div>
               <div className="flex flex-col items-center rounded-2xl p-5 sm:p-6 bg-white border border-gray-200 shadow-sm order-1 lg:order-2">
                 <div className="w-24 h-24 sm:w-32 sm:h-32 mb-4 relative">
