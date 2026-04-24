@@ -1,6 +1,7 @@
 import AllergologyPageClient, { type AllergologyServiceRow } from "./AllergologyPageClient";
 import { formatAllergologyPriceLabel, loadAllergologyPriceServices } from "./load-allergology-services";
 import type { PriceServiceDisplay } from "@/lib/price-api";
+import { doctors } from "@/data/static-data";
 
 /**
  * Страница аллергологии: блок услуг заполняется на сервере из того же price-api flow,
@@ -13,12 +14,15 @@ function buildServiceRowKey(s: PriceServiceDisplay, index: number): string {
 
 export default async function AllergologyPage() {
   const services = await loadAllergologyPriceServices();
+  const lysenko = doctors.find((d) => d.slug === "lysenko-irina-vladimirovna") ?? null;
 
   const serviceRows: AllergologyServiceRow[] = services.map((s, index) => ({
     key: buildServiceRowKey(s, index),
+    code: s.code ?? null,
     name: s.name,
     priceLabel: formatAllergologyPriceLabel(s),
+    priceIsZero: s.priceIsZero === true,
   }));
 
-  return <AllergologyPageClient serviceRows={serviceRows} />;
+  return <AllergologyPageClient serviceRows={serviceRows} lysenko={lysenko} />;
 }

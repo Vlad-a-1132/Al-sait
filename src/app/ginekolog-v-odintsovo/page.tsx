@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { doctors } from '@/data/static-data';
@@ -742,6 +742,75 @@ export default function TestGinoPage() {
   const [showAllPatientReviews, setShowAllPatientReviews] = useState(false);
   const [activeReviewDoctor, setActiveReviewDoctor] = useState<string | null>(null);
 
+  /**
+   * Live-цены из Архимеда через существующий server-side flow:
+   * client -> /api/prices/services -> fetchPriceServices() -> PRICE_API_BASE_URL.
+   * Важно: здесь не хардкодим цифры, только выбираем нужные услуги по имени.
+   */
+  const [livePriceByName, setLivePriceByName] = useState<Record<string, string> | null>(null);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    function pickName(o: any): string | null {
+      const v = o?.serviceName ?? o?.service_name ?? o?.name ?? o?.title;
+      return typeof v === 'string' && v.trim() ? v.trim() : null;
+    }
+
+    function pickPrice(o: any): unknown {
+      return o?.actualPrice ?? o?.actual_price ?? o?.price ?? o?.cost ?? o?.amount ?? null;
+    }
+
+    function toPriceLabel(v: unknown): string | null {
+      if (v === null || v === undefined) return null;
+      if (typeof v === 'number' && Number.isFinite(v)) {
+        return `${new Intl.NumberFormat('ru-RU').format(v)} ₽`;
+      }
+      const raw = String(v).trim();
+      if (!raw) return null;
+      // “по запросу”/прочее — отдаём как есть
+      const n = parseFloat(raw.replace(/\s/g, '').replace(',', '.'));
+      if (Number.isFinite(n)) return `${new Intl.NumberFormat('ru-RU').format(n)} ₽`;
+      return raw;
+    }
+
+    async function load(): Promise<void> {
+      try {
+        const res = await fetch('/api/prices/services', { cache: 'no-store' });
+        const json = await res.json();
+        const arr = Array.isArray(json) ? json : Array.isArray(json?.data) ? json.data : Array.isArray(json?.services) ? json.services : [];
+        const map: Record<string, string> = {};
+        for (const item of arr) {
+          const name = pickName(item);
+          if (!name) continue;
+          const label = toPriceLabel(pickPrice(item));
+          if (!label) continue;
+          // не перезаписываем первое найденное совпадение
+          if (map[name] === undefined) map[name] = label;
+        }
+        if (!cancelled) setLivePriceByName(map);
+      } catch {
+        if (!cancelled) setLivePriceByName(null);
+      }
+    }
+
+    load();
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const primaryVisitFromDb = livePriceByName?.['Приём акушера-гинеколога первичный'] ?? null;
+  const primaryLineFromDb = useMemo(() => {
+    if (!primaryVisitFromDb) return null;
+    // в hero формулировка “от …” — берём число из label
+    const m = primaryVisitFromDb.match(/(\d[\d\s]*)/);
+    if (!m) return `Первичный приём — ${primaryVisitFromDb}`;
+    const n = parseInt(m[1].replace(/\s/g, ''), 10);
+    if (!Number.isFinite(n)) return `Первичный приём — ${primaryVisitFromDb}`;
+    return `Первичный приём — от ${new Intl.NumberFormat('ru-RU').format(n)} ₽`;
+  }, [primaryVisitFromDb]);
+
   const KEY_PRICE_NAMES = new Set([
     'Приём акушера-гинеколога первичный',
     'Приём акушера-гинеколога повторный',
@@ -858,7 +927,9 @@ export default function TestGinoPage() {
                   Позвонить в клинику
                 </a>
               </div>
-              <p className="text-gray-700 font-semibold mb-3 sm:mb-4">Первичный приём — от 3 780 ₽</p>
+              <p className="text-gray-700 font-semibold mb-3 sm:mb-4">
+                {primaryLineFromDb ?? 'Первичный приём — от 3 780 ₽'}
+              </p>
               <div className="flex flex-wrap gap-x-4 gap-y-2 text-sm">
                 {ANCHORS.map((a) => (
                   <a key={a.id} href={`#${a.id}`} className="text-emerald-600 hover:underline py-1">{a.label}</a>
@@ -869,60 +940,6 @@ export default function TestGinoPage() {
               <div className="relative aspect-[4/3] max-h-[280px] sm:max-h-[340px] lg:max-h-none rounded-2xl overflow-hidden shadow-xl">
                 <Image src="/images/images allergoly/ginokologia.webp" alt="Гинеколог в Одинцово — Альтамед-С" fill className="object-cover" priority sizes="(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 1200px" quality={92} />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
-              </div>
-              <div className="static mt-3 sm:mt-0 sm:absolute sm:-bottom-4 left-0 right-0 sm:left-0 sm:right-auto w-full sm:w-[340px] p-2.5 sm:p-4 rounded-2xl bg-white/95 backdrop-blur shadow-xl border border-gray-100">
-                <div className="grid grid-cols-2 gap-2 sm:gap-3 text-[13px] sm:text-sm">
-                  {[
-                    {
-                      title: 'Приём взрослых',
-                      icon: (
-                        <svg className="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-                          <circle cx="12" cy="7" r="4" />
-                        </svg>
-                      ),
-                    },
-                    {
-                      title: '2 филиала в Одинцово',
-                      icon: (
-                        <svg className="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                          <path d="M3 21h18" />
-                          <path d="M7 21V7a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v14" />
-                          <path d="M9 9h.01M9 12h.01M9 15h.01M15 9h.01M15 12h.01M15 15h.01" />
-                        </svg>
-                      ),
-                    },
-                    {
-                      title: 'Приём от 3 780 ₽',
-                      icon: (
-                        <svg className="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                          <path d="M12 1v22" />
-                          <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6" />
-                        </svg>
-                      ),
-                    },
-                    {
-                      title: 'УЗИ и анализы в одном месте',
-                      icon: (
-                        <svg className="w-4 h-4 text-emerald-700" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden>
-                          <path d="M9 3H6a2 2 0 0 0-2 2v3" />
-                          <path d="M15 3h3a2 2 0 0 1 2 2v3" />
-                          <path d="M9 21H6a2 2 0 0 1-2-2v-3" />
-                          <path d="M15 21h3a2 2 0 0 0 2-2v-3" />
-                          <path d="M7 12h10" />
-                          <path d="M12 7v10" />
-                        </svg>
-                      ),
-                    },
-                  ].map((it) => (
-                    <div key={it.title} className="flex items-start gap-2 sm:gap-2.5 p-2 sm:p-2.5 rounded-xl bg-gray-50/80 border border-gray-100">
-                      <span className="mt-0.5 w-8 h-8 sm:w-7 sm:h-7 rounded-lg bg-emerald-100 flex items-center justify-center flex-shrink-0">
-                        {it.icon}
-                      </span>
-                      <span className="text-gray-800 font-medium leading-snug">{it.title}</span>
-                    </div>
-                  ))}
-                </div>
               </div>
             </div>
           </div>
@@ -1025,7 +1042,11 @@ export default function TestGinoPage() {
                   <div key={s.code} className="rounded-xl p-4 bg-white border border-gray-100 shadow-sm">
                     <p className="text-gray-800 font-medium leading-snug mb-1">{s.name}</p>
                     <p className="text-gray-900 font-bold mb-0">
-                      {s.price.includes('запрос') ? s.price : `${s.price.replace(/ руб\.?$/, '')} ₽`}
+                      {livePriceByName?.[s.name]
+                        ? livePriceByName[s.name]
+                        : s.price.includes('запрос')
+                          ? s.price
+                          : `${s.price.replace(/ руб\.?$/, '')} ₽`}
                     </p>
                   </div>
                 ))}

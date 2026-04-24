@@ -1,5 +1,7 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import Image from "next/image";
+import { formatDieteticsPriceLabel, loadDieteticsPriceServices } from "./load-dietetics-services";
 
 const WORDSTAT_KEYWORDS: string[] = [
   "диетолог одинцово",
@@ -91,13 +93,13 @@ const stages = [
   }
 ] as const;
 
-const priceList = [
-  { code: "B01.013.001", name: "Прием (осмотр, консультация) врача диетолога первичный", price: "4 310 ₽" },
-  { code: "B01.013.002", name: "Прием (осмотр, консультация) врача диетолога повторный", price: "4 310 ₽" },
-  { code: "B01.013.003", name: "Прием (осмотр, консультация) врача диетолога по результатам обследования", price: "2 940 ₽" },
-  { code: "B01.013.004", name: "Индивидуальный рацион питания", price: "7 350 ₽" },
-  { code: "B01.013.005", name: "Биоимпедансное определение состава тела", price: "1 050 ₽" }
-] as const;
+function toUiPrice(label: string, priceIsZero: boolean): string {
+  if (priceIsZero) return "Цена по запросу";
+  const raw = String(label ?? "").trim();
+  if (!raw || raw === "—") return "Цена по запросу";
+  if (/^0\s*руб\.?$/i.test(raw)) return "Цена по запросу";
+  return raw;
+}
 
 const indications = [
   "Избыточная масса тела и ожирение — снижение веса под контролем врача",
@@ -153,7 +155,15 @@ const faqItems = [
   }
 ] as const;
 
-export default function DieteticsPage() {
+export default async function DieteticsPage() {
+  const services = await loadDieteticsPriceServices();
+  const serviceRows = services.map((s, index) => ({
+    key: `${String(s.serviceId ?? s.id ?? s.code ?? s.name)}|${String(s.categoryId ?? "")}|${index}`,
+    name: s.name,
+    priceLabel: formatDieteticsPriceLabel(s),
+    priceIsZero: s.priceIsZero === true,
+  }));
+
   return (
     <div className="flex flex-col min-h-full bg-white">
       <section className="py-4">
@@ -379,41 +389,66 @@ export default function DieteticsPage() {
             Стоимость консультации и программ питания в «Альтамед-С» фиксируется до начала работы. Указанные цены не являются офертой; актуальный прайс уточняйте в регистратуре или по телефону{" "}
             <a href="tel:+74952554450" className="text-emerald-600 hover:text-emerald-700 font-medium">+7 (495) 255-44-50</a>.
           </p>
-          <div className="bg-white rounded-2xl shadow-lg overflow-hidden">
-            <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 px-6 py-4">
-              <h3 className="text-xl font-semibold text-white">Услуги диетолога</h3>
-            </div>
-            <div className="p-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                {priceList.map((item) => (
-                  <div
-                    key={item.code}
-                    className="border border-gray-200 rounded-lg p-4 hover:shadow-md transition-shadow duration-300"
-                  >
-                    <div className="flex justify-between items-start">
-                      <div className="flex-1">
-                        <h4 className="font-medium text-gray-900 text-sm leading-tight mb-2">
-                          {item.name}
-                        </h4>
-                        <div className="text-emerald-600 font-semibold text-lg">
-                          {item.price}
-                        </div>
-                      </div>
-                      <Link
-                        href="https://online.altamed-c.ru/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="ml-3 bg-emerald-600 text-white px-3 py-1 rounded-md text-sm hover:bg-emerald-700 transition-colors duration-300 flex-shrink-0"
-                      >
-                        Записаться
-                      </Link>
-                    </div>
-                  </div>
-                ))}
+          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
+            <div className="lg:col-span-2 order-2 lg:order-1 rounded-2xl border border-gray-200 overflow-hidden bg-white">
+              <div className="flex items-center justify-between gap-4 p-4 border-b border-gray-100 bg-white">
+                <p className="font-semibold text-gray-900 mb-0">Полный прайс</p>
               </div>
-              <p className="text-sm text-gray-600 mt-4">
-                Для записи на консультацию диетолога в Одинцово воспользуйтесь кнопкой «Записаться» или позвоните в контакт-центр — мы подберём удобное время.
-              </p>
+              <div className="overflow-y-auto max-h-[480px] sm:max-h-[480px]">
+                <table className="w-full text-sm sm:text-base table-fixed">
+                  <thead className="sticky top-0 z-10 bg-gray-100">
+                    <tr>
+                      <th className="text-left py-4 px-3 sm:px-4 font-semibold text-gray-800 w-[60%] sm:w-auto">Услуга</th>
+                      <th className="text-right py-4 px-3 sm:px-4 font-semibold text-gray-800 w-[40%] sm:w-28">Цена</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {serviceRows.map((s, i) => (
+                      <tr key={s.key} className={i % 2 === 0 ? "bg-white" : "bg-gray-50/80"}>
+                        <td className="py-3.5 px-3 sm:px-4 text-gray-800 leading-snug break-words">{s.name}</td>
+                        <td className="py-3.5 px-3 sm:px-4 text-right font-semibold text-gray-900 whitespace-nowrap">
+                          {toUiPrice(s.priceLabel, s.priceIsZero)}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <div className="flex flex-col items-center rounded-2xl p-5 sm:p-6 bg-white border border-gray-200 shadow-sm order-1 lg:order-2">
+              <div className="w-24 h-24 sm:w-32 sm:h-32 mb-4 relative">
+                <Image
+                  src="/images/promo/task_01kmc5pqv4egd8vgfksjjp1zzd_1774230180_img_1.webp"
+                  alt=""
+                  fill
+                  className="object-contain"
+                  sizes="128px"
+                />
+              </div>
+              <p className="text-gray-700 text-sm mb-1">Заполните форму</p>
+              <h3 className="font-bold text-lg text-gray-900 text-center mb-1">«Записаться в клинику»</h3>
+              <p className="text-gray-600 text-sm text-center mb-4">чтобы выбрать время приема и уточнить стоимость услуги.</p>
+              <p className="text-gray-700 text-sm mb-4">Администратор подберёт врача и удобное время</p>
+              <Link
+                href="https://online.altamed-c.ru/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-emerald-600 font-medium text-sm mb-1 hover:underline"
+              >
+                Записаться онлайн
+              </Link>
+              <a href="tel:+74952554450" className="text-gray-700 text-sm mb-6 hover:underline">
+                +7 (495) 255-44-50
+              </a>
+              <Link
+                href="https://online.altamed-c.ru/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full text-center py-3.5 bg-emerald-600 text-white font-bold rounded-xl hover:bg-emerald-700"
+              >
+                Записаться в клинику
+              </Link>
             </div>
           </div>
         </div>
