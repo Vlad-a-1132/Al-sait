@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     siteName: "Альтамед‑С",
     locale: "ru_RU",
     type: "article",
+    images: [
+      {
+        url: "https://altamed-c.ru/images/blog/bol-v-zhivote-kogda-nuzhen-gastroenterolog.webp",
+        alt: "Боль в животе: когда нужен гастроэнтеролог",
+      },
+    ],
   },
   alternates: { canonical: "https://altamed-c.ru/blog/bol-v-zhivote-kogda-nuzhen-gastroenterolog" },
 };
@@ -21,7 +27,7 @@ export const metadata: Metadata = {
 const PHONE_LINK = "tel:+74952554450";
 const APPOINTMENTS_URL = "https://online.altamed-c.ru/";
 const GASTRO_URL = "/services/gastroenterology";
-const HERO_IMAGE = "/images/images allergoly/gas.webp";
+const HERO_IMAGE = "/images/blog/bol-v-zhivote-kogda-nuzhen-gastroenterolog.webp";
 
 export default function ArticleBolVZhivote() {
   return (

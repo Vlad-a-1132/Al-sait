@@ -1,4 +1,5 @@
-import CardiologyPageClient, { type CardiologyServiceRow } from "./CardiologyPageClient";
+import CardiologyPageClientV2 from "./CardiologyPageClientV2";
+import type { CardiologyServiceRow } from "./CardiologyPageClient";
 import { formatCardiologyPriceLabel, loadCardiologyPriceServices } from "./load-cardiology-services";
 import type { PriceServiceDisplay } from "@/lib/price-api";
 
@@ -18,6 +19,6 @@ export default async function CardiologyPage() {
     priceIsZero: s.priceIsZero === true,
   }));
 
-  return <CardiologyPageClient serviceRows={serviceRows} />;
+  return <CardiologyPageClientV2 serviceRows={serviceRows} />;
 }
 

@@ -1,4 +1,5 @@
-import MammologyPageClient, { type MammologyServiceRow } from "./MammologyPageClient";
+import MammologyPageClientV2 from "./MammologyPageClientV2";
+import type { MammologyServiceRow } from "./MammologyPageClient";
 import { formatMammologyPriceLabel, loadMammologyPriceServices } from "./load-mammology-services";
 import type { PriceServiceDisplay } from "@/lib/price-api";
 
@@ -18,6 +19,6 @@ export default async function MammologyPage() {
     priceIsZero: s.priceIsZero === true,
   }));
 
-  return <MammologyPageClient serviceRows={serviceRows} />;
+  return <MammologyPageClientV2 serviceRows={serviceRows} />;
 }
 

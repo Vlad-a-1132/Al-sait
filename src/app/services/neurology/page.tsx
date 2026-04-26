@@ -1,4 +1,5 @@
-import NeurologyPageClient, { type NeurologyServiceRow } from "./NeurologyPageClient";
+import NeurologyPageClientV2 from "./NeurologyPageClientV2";
+import type { NeurologyServiceRow } from "./NeurologyPageClient";
 import { formatNeurologyPriceLabel, loadNeurologyPriceServices } from "./load-neurology-services";
 import type { PriceServiceDisplay } from "@/lib/price-api";
 
@@ -18,6 +19,6 @@ export default async function NeurologyPage() {
     priceIsZero: s.priceIsZero === true,
   }));
 
-  return <NeurologyPageClient serviceRows={serviceRows} />;
+  return <NeurologyPageClientV2 serviceRows={serviceRows} />;
 }
 

@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     siteName: "Альтамед‑С",
     locale: "ru_RU",
     type: "article",
+    images: [
+      {
+        url: "https://altamed-c.ru/images/blog/kogda-stoit-obratitsya-k-gastroenterologu.webp",
+        alt: "Когда стоит обратиться к гастроэнтерологу",
+      },
+    ],
   },
   alternates: { canonical: "https://altamed-c.ru/blog/kogda-stoit-obratitsya-k-gastroenterologu" },
 };
@@ -22,7 +28,7 @@ const PHONE_LINK = "tel:+74952554450";
 const APPOINTMENTS_URL = "https://online.altamed-c.ru/";
 const GASTRO_URL = "/services/gastroenterology";
 const DOCTOR_URL = "/doctors/budko-elena-anatolyevna";
-const HERO_IMAGE = "/images/images allergoly/gas.webp";
+const HERO_IMAGE = "/images/blog/kogda-stoit-obratitsya-k-gastroenterologu.webp";
 
 export default function ArticleKogdaKGasroenterologu() {
   return (

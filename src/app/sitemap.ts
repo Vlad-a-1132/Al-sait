@@ -60,7 +60,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/vzdutie-zhivota-i-meteorizm',
     '/blog/zapor-ili-diareya',
     '/blog/13s-ureaznyj-dyhatelnyj-test',
-    '/blog/kogda-rebenku-nuzhen-gastroenterolog',
     '/blog',
     '/contacts',
     '/diagnostics',

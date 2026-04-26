@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     siteName: "Альтамед‑С",
     locale: "ru_RU",
     type: "article",
+    images: [
+      {
+        url: "https://altamed-c.ru/images/blog/izzhoga-i-otryzhka-kogda-pora-zapisatsya-k-gastroenterologu.webp",
+        alt: "Изжога и отрыжка: когда пора записаться к гастроэнтерологу",
+      },
+    ],
   },
   alternates: {
     canonical: "https://altamed-c.ru/blog/izzhoga-i-otryzhka-kogda-pora-zapisatsya-k-gastroenterologu",
@@ -23,7 +29,7 @@ export const metadata: Metadata = {
 const PHONE_LINK = "tel:+74952554450";
 const APPOINTMENTS_URL = "https://online.altamed-c.ru/";
 const GASTRO_URL = "/services/gastroenterology";
-const HERO_IMAGE = "/images/images allergoly/gas.webp";
+const HERO_IMAGE = "/images/blog/izzhoga-i-otryzhka-kogda-pora-zapisatsya-k-gastroenterologu.webp";
 
 export default function ArticleIzzhogaIOtryzhka() {
   return (

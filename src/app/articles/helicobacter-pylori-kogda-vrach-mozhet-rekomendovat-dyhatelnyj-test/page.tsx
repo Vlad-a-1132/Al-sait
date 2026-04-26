@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     siteName: "Альтамед‑С",
     locale: "ru_RU",
     type: "article",
+    images: [
+      {
+        url: "https://altamed-c.ru/images/blog/helicobacter-pylori-kogda-vrach-mozhet-rekomendovat-dyhatelnyj-test.webp",
+        alt: "Helicobacter pylori: когда врач может рекомендовать дыхательный тест",
+      },
+    ],
   },
   alternates: {
     canonical: "https://altamed-c.ru/blog/helicobacter-pylori-kogda-vrach-mozhet-rekomendovat-dyhatelnyj-test",
@@ -23,7 +29,7 @@ export const metadata: Metadata = {
 const PHONE_LINK = "tel:+74952554450";
 const APPOINTMENTS_URL = "https://online.altamed-c.ru/";
 const GASTRO_URL = "/services/gastroenterology";
-const HERO_IMAGE = "/images/images allergoly/gas.webp";
+const HERO_IMAGE = "/images/blog/helicobacter-pylori-kogda-vrach-mozhet-rekomendovat-dyhatelnyj-test.webp";
 
 export default function ArticleHpyloriBreathTest() {
   return (

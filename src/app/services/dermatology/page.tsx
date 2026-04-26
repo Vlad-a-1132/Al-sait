@@ -1,4 +1,5 @@
-import DermatologyPageClient, { type DermatologyServiceRow } from "./DermatologyPageClient";
+import DermatologyPageClientV2 from "./DermatologyPageClientV2";
+import type { DermatologyServiceRow } from "./DermatologyPageClient";
 import { formatDermatologyPriceLabel, loadDermatologyPriceServices } from "./load-dermatology-services";
 import type { PriceServiceDisplay } from "@/lib/price-api";
 
@@ -18,5 +19,5 @@ export default async function DermatologyPage() {
     priceIsZero: s.priceIsZero === true,
   }));
 
-  return <DermatologyPageClient serviceRows={serviceRows} />;
+  return <DermatologyPageClientV2 serviceRows={serviceRows} />;
 }

@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     siteName: "Альтамед‑С",
     locale: "ru_RU",
     type: "article",
+    images: [
+      {
+        url: "https://altamed-c.ru/images/blog/zapor-ili-diareya.webp",
+        alt: "Запор или диарея: когда стоит обратиться к гастроэнтерологу",
+      },
+    ],
   },
   alternates: { canonical: "https://altamed-c.ru/blog/zapor-ili-diareya" },
 };
@@ -21,7 +27,7 @@ export const metadata: Metadata = {
 const PHONE_LINK = "tel:+74952554450";
 const APPOINTMENTS_URL = "https://online.altamed-c.ru/";
 const GASTRO_URL = "/services/gastroenterology";
-const HERO_IMAGE = "/images/images allergoly/gas.webp";
+const HERO_IMAGE = "/images/blog/zapor-ili-diareya.webp";
 
 export default function ArticleZaporIliDiareya() {
   return (

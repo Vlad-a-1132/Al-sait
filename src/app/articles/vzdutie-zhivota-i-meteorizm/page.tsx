@@ -14,6 +14,12 @@ export const metadata: Metadata = {
     siteName: "Альтамед‑С",
     locale: "ru_RU",
     type: "article",
+    images: [
+      {
+        url: "https://altamed-c.ru/images/blog/vzdutie-zhivota-i-meteorizm.webp",
+        alt: "Вздутие живота и метеоризм",
+      },
+    ],
   },
   alternates: { canonical: "https://altamed-c.ru/blog/vzdutie-zhivota-i-meteorizm" },
 };
@@ -21,7 +27,7 @@ export const metadata: Metadata = {
 const PHONE_LINK = "tel:+74952554450";
 const APPOINTMENTS_URL = "https://online.altamed-c.ru/";
 const GASTRO_URL = "/services/gastroenterology";
-const HERO_IMAGE = "/images/images allergoly/gas.webp";
+const HERO_IMAGE = "/images/blog/vzdutie-zhivota-i-meteorizm.webp";
 
 export default function ArticleVzdutie() {
   return (
