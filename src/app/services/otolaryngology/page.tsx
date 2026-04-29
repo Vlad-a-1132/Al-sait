@@ -1,4 +1,5 @@
-import OtolaryngologyPageClient, { type OtolaryngologyServiceRow } from "./OtolaryngologyPageClient";
+import OtolaryngologyPageClientV2 from "./OtolaryngologyPageClientV2";
+import type { OtolaryngologyServiceRow } from "./OtolaryngologyPageClient";
 import { formatOtolaryngologyPriceLabel, loadOtolaryngologyPriceServices } from "./load-otolaryngology-services";
 import type { PriceServiceDisplay } from "@/lib/price-api";
 
@@ -18,6 +19,5 @@ export default async function OtolaryngologyPage() {
     priceIsZero: s.priceIsZero === true,
   }));
 
-  return <OtolaryngologyPageClient serviceRows={serviceRows} />;
+  return <OtolaryngologyPageClientV2 serviceRows={serviceRows} />;
 }
-

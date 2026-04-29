@@ -1,4 +1,5 @@
-import OphthalmologyPageClient, { type OphthalmologyServiceRow } from "./OphthalmologyPageClient";
+import OphthalmologyPageClientV2 from "./OphthalmologyPageClientV2";
+import type { OphthalmologyServiceRow } from "./OphthalmologyPageClient";
 import { formatOphthalmologyPriceLabel, loadOphthalmologyPriceServices } from "./load-ophthalmology-services";
 import type { PriceServiceDisplay } from "@/lib/price-api";
 
@@ -18,6 +19,6 @@ export default async function OphthalmologyPage() {
     priceIsZero: s.priceIsZero === true,
   }));
 
-  return <OphthalmologyPageClient serviceRows={serviceRows} />;
+  return <OphthalmologyPageClientV2 serviceRows={serviceRows} />;
 }
 

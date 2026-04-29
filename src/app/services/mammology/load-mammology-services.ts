@@ -118,6 +118,18 @@ export async function loadMammologyPriceServices(): Promise<PriceServiceDisplay[
   );
 }
 
+/** Человекочитаемые подписи к строкам прайса (в БД — «врач-онколог»). */
+export function mapMammologyServiceDisplayName(rawName: string): string {
+  const lower = rawName.toLowerCase();
+  if (lower.includes("онколог") && lower.includes("первич")) {
+    return "Приём маммолога / онколога-маммолога первичный";
+  }
+  if (lower.includes("онколог") && lower.includes("повтор")) {
+    return "Приём маммолога / онколога-маммолога повторный";
+  }
+  return rawName;
+}
+
 export function formatMammologyPriceLabel(s: PriceServiceDisplay): string {
   const p = s.price;
   if (p === null || p === undefined) return "—";

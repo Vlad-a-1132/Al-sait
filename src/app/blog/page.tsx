@@ -1,6 +1,14 @@
 import { GYNEC_ARTICLES_LIST } from '@/data/gynec-articles-images';
 import { ALLERGOLOGY_ARTICLES_LIST } from '@/data/allergology-articles';
 import { GASTROENTEROLOGY_ARTICLES_LIST } from '@/data/gastroenterology-articles';
+import { DERMATOLOGY_SERVICE_ARTICLES } from '@/data/dermatology-service-articles';
+import { CARDIOLOGY_SERVICE_ARTICLES } from '@/data/cardiology-service-articles';
+import { MAMMOLOGY_SERVICE_ARTICLES } from '@/data/mammology-service-articles';
+import { NEUROLOGY_SERVICE_ARTICLES } from '@/data/neurology-service-articles';
+import { OTOLARYNGOLOGY_SERVICE_ARTICLES } from '@/data/otolaryngology-service-articles';
+import { OPHTHALMOLOGY_SERVICE_ARTICLES } from '@/data/ophthalmology-service-articles';
+import { PEDIATRICS_SERVICE_ARTICLES } from '@/data/pediatrics-service-articles';
+import { PROCTOLOGY_SERVICE_ARTICLES } from '@/data/proctology-service-articles';
 import BlogIndexClient, { type BlogPostCard } from './BlogIndexClient';
 import { Suspense } from 'react';
 
@@ -37,6 +45,14 @@ export default function BlogPage() {
     ...GASTROENTEROLOGY_ARTICLES_LIST.map((a) => ({ ...a, direction: 'gastroenterology' as const })),
     ...ALLERGOLOGY_ARTICLES_LIST.map((a) => ({ ...a, direction: 'allergology' as const })),
     ...GYNEC_ARTICLES_LIST.map((a) => ({ ...a, direction: 'gynecology' as const })),
+    ...DERMATOLOGY_SERVICE_ARTICLES.map((a) => ({ ...a, direction: 'dermatology' as const })),
+    ...CARDIOLOGY_SERVICE_ARTICLES.map((a) => ({ ...a, direction: 'cardiology' as const })),
+    ...MAMMOLOGY_SERVICE_ARTICLES.map((a) => ({ ...a, direction: 'mammology' as const })),
+    ...NEUROLOGY_SERVICE_ARTICLES.map((a) => ({ ...a, direction: 'neurology' as const })),
+    ...OTOLARYNGOLOGY_SERVICE_ARTICLES.map((a) => ({ ...a, direction: 'otolaryngology' as const })),
+    ...OPHTHALMOLOGY_SERVICE_ARTICLES.map((a) => ({ ...a, direction: 'ophthalmology' as const })),
+    ...PEDIATRICS_SERVICE_ARTICLES.map((a) => ({ ...a, direction: 'pediatrics' as const })),
+    ...PROCTOLOGY_SERVICE_ARTICLES.map((a) => ({ ...a, direction: 'proctology' as const })),
   ];
 
   return (

@@ -1,4 +1,5 @@
-import PediatricsPageClient, { type PediatricsServiceRow } from "./PediatricsPageClient";
+import PediatricsPageClientV2 from "./PediatricsPageClientV2";
+import type { PediatricsServiceRow } from "./PediatricsPageClient";
 import { formatPediatricsPriceLabel, loadPediatricsPriceServices } from "./load-pediatrics-services";
 import type { PriceServiceDisplay } from "@/lib/price-api";
 
@@ -18,6 +19,6 @@ export default async function PediatricsPage() {
     priceIsZero: s.priceIsZero === true,
   }));
 
-  return <PediatricsPageClient serviceRows={serviceRows} />;
+  return <PediatricsPageClientV2 serviceRows={serviceRows} />;
 }
 

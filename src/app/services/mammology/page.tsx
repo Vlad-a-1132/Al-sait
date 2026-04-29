@@ -1,6 +1,10 @@
 import MammologyPageClientV2 from "./MammologyPageClientV2";
 import type { MammologyServiceRow } from "./MammologyPageClient";
-import { formatMammologyPriceLabel, loadMammologyPriceServices } from "./load-mammology-services";
+import {
+  formatMammologyPriceLabel,
+  loadMammologyPriceServices,
+  mapMammologyServiceDisplayName,
+} from "./load-mammology-services";
 import type { PriceServiceDisplay } from "@/lib/price-api";
 
 function buildServiceRowKey(s: PriceServiceDisplay, index: number): string {
@@ -14,7 +18,7 @@ export default async function MammologyPage() {
   const serviceRows: MammologyServiceRow[] = services.map((s, index) => ({
     key: buildServiceRowKey(s, index),
     code: s.code ?? null,
-    name: s.name,
+    name: mapMammologyServiceDisplayName(s.name),
     priceLabel: formatMammologyPriceLabel(s),
     priceIsZero: s.priceIsZero === true,
   }));
