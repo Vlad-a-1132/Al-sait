@@ -116,8 +116,6 @@ https://altamed-c.ru/services/pregnancy-screening
 https://altamed-c.ru/services/priem-ginekologa-odintsovo
 https://altamed-c.ru/services/proctology
 https://altamed-c.ru/services/profilakticheskiy-osmotr-ginekologa-odintsovo
-https://altamed-c.ru/services/psychology
-https://altamed-c.ru/services/psychotherapy
 https://altamed-c.ru/services/rentgenology
 https://altamed-c.ru/services/shockwave-therapy
 https://altamed-c.ru/services/sis-magnetotherapy

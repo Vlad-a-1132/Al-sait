@@ -232,8 +232,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/priem-ginekologa-odintsovo',
     '/services/proctology',
     '/services/profilakticheskiy-osmotr-ginekologa-odintsovo',
-    '/services/psychology',
-    '/services/psychotherapy',
     '/services/rentgenology',
     '/services/shockwave-therapy',
     '/services/sis-magnetotherapy',

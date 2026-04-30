@@ -594,30 +594,6 @@ export default function ServicesPage() {
     // Диагностические услуги
     // Дополнительные услуги
     {
-      id: 'psychology',
-      title: 'Психология',
-      description: 'Психологическая помощь',
-      icon: (
-        <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-        </svg>
-      ),
-      category: 'additional',
-      hasSubmenu: false
-    },
-    {
-      id: 'psychotherapy',
-      title: 'Психотерапия',
-      description: 'Психотерапевтическое лечение',
-      icon: (
-        <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-        </svg>
-      ),
-      category: 'additional',
-      hasSubmenu: false
-    },
-    {
       id: 'carboxytherapy',
       title: 'Карбокситерапия',
       description: 'Лечение углекислым газом',
@@ -726,7 +702,7 @@ export default function ServicesPage() {
 
   // Реабилитация - отдельная категория
   const rehabilitationServices = [
-    'psychology', 'psychotherapy', 'carboxytherapy', 'osteopathy',
+    'carboxytherapy', 'osteopathy',
     'physiotherapy', 'family-psychology', 'massage', 'vacuum-massage',
     'bioresonance', 'shockwave-therapy'
   ];
@@ -2006,38 +1982,6 @@ export default function ServicesPage() {
                   <img 
                     src="/images/yslugi/fizio.webp" 
                     alt="Физиотерапия" 
-                    className="w-10 md:w-20 h-full object-cover rounded-l-[20px]"
-                  />
-                  <div className="flex-1 px-2 md:px-4">
-                      <h3 className="text-xs md:text-sm font-medium text-gray-900 group-hover:text-emerald-700 transition-colors duration-300">
-                        {service.title}
-                      </h3>
-                    </div>
-                  <svg className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-white group-hover:bg-emerald-500 rounded-full p-1 transition-all duration-300 flex-shrink-0 mr-2 md:mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              ) : service.id === 'psychotherapy' ? (
-                <Link key={service.id} href="/services/psychotherapy" className="bg-[#F6F8F7] rounded-[20px] hover:shadow-lg border border-gray-200 transition-all duration-300 cursor-pointer group flex items-center justify-between h-[80px] md:h-[100px] w-full max-w-[296.5px] p-0 overflow-hidden">
-                  <img 
-                    src="/images/yslugi/yrolog.webp" 
-                    alt="Психотерапия" 
-                    className="w-10 md:w-20 h-full object-cover rounded-l-[20px]"
-                  />
-                  <div className="flex-1 px-2 md:px-4">
-                      <h3 className="text-xs md:text-sm font-medium text-gray-900 group-hover:text-emerald-700 transition-colors duration-300">
-                        {service.title}
-                      </h3>
-                    </div>
-                  <svg className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-white group-hover:bg-emerald-500 rounded-full p-1 transition-all duration-300 flex-shrink-0 mr-2 md:mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
-                </Link>
-              ) : service.id === 'psychology' ? (
-                <Link key={service.id} href="/services/psychology" className="bg-[#F6F8F7] rounded-[20px] hover:shadow-lg border border-gray-200 transition-all duration-300 cursor-pointer group flex items-center justify-between h-[80px] md:h-[100px] w-full max-w-[296.5px] p-0 overflow-hidden">
-                  <img 
-                    src="/images/yslugi/famili.webp" 
-                    alt="Психология" 
                     className="w-10 md:w-20 h-full object-cover rounded-l-[20px]"
                   />
                   <div className="flex-1 px-2 md:px-4">

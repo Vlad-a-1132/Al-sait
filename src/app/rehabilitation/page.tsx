@@ -17,20 +17,6 @@ export default function RehabilitationPage() {
 
   const rehabilitationServices = [
     {
-      id: 'psychology',
-      title: 'Психология',
-      description: 'Профессиональная психологическая помощь, консультирование и поддержка',
-      image: '/images/yslugi/psychology.webp',
-      link: '/services/psychology'
-    },
-    {
-      id: 'psychotherapy',
-      title: 'Психотерапия',
-      description: 'Комплексное лечение психических расстройств и психологических проблем',
-      image: '/images/yslugi/psychotherapy.webp',
-      link: '/services/psychotherapy'
-    },
-    {
       id: 'carboxytherapy',
       title: 'Карбокситерапия',
       description: 'Инновационный метод лечения с использованием углекислого газа',

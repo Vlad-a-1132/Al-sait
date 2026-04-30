@@ -64,7 +64,6 @@ function SearchContent() {
     { title: 'Эндоскопия', url: '/services/endoscopy', description: 'Эндоскопические исследования', keywords: ['эндоскопия', 'эндоскоп', 'гастроскопия'] },
     { title: 'Физиотерапия', url: '/services/physiotherapy', description: 'Физиотерапевтическое лечение', keywords: ['физиотерапия', 'физиотерапевт', 'физиолечение'] },
     { title: 'Остеопатия', url: '/services/osteopathy', description: 'Остеопатическое лечение', keywords: ['остеопатия', 'остеопат', 'мануальный терапевт'] },
-    { title: 'Психология', url: '/services/psychology', description: 'Психологическая помощь', keywords: ['психология', 'психолог', 'психотерапия', 'психотерапевт'] },
     { title: 'Лазерная косметология', url: '/services/laser-cosmetology', description: 'Лазерные косметологические процедуры', keywords: ['лазерная косметология', 'косметолог', 'лазер', 'косметология'] },
     { title: 'Массаж', url: '/services/massage', description: 'Медицинский массаж', keywords: ['массаж', 'массажист', 'медицинский массаж'] },
   ];

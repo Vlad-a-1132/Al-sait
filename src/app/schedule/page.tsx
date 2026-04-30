@@ -423,7 +423,7 @@ export default function SchedulePage() {
     {
       name: "Крошкин Александр Дмитриевич",
       specialty: "Стоматолог-ортопед",
-      schedule: { Wednesday: { start: "15:00", end: "20:00" }, Sunday: { start: "15:30", end: "20:00" } }
+      schedule: { Wednesday: { start: "15:00", end: "20:00" }, Sunday: { start: "11:00", end: "19:00" } }
     },
     {
       name: "Полетаева (Ужегова) Мария Рашитовна",
