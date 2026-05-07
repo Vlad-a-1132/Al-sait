@@ -6,7 +6,7 @@
       "slug": "khomullo-valeria-viktorovna",
       "specialization": "УЗИ",
       "specializations": ["УЗИ"],
-      "experience": 10,
+      "experience": 25,
       "photo": "/images/doctors/Khomullo Valeria Viktorovna Odintsovo Altamed-s YZI.webp",
       "description": "Специалист по ультразвуковой диагностике",
       "schedule": {
@@ -61,8 +61,8 @@
       "photo": "/images/doctors/Kroshkin Alexander Dmitrievich.webp",
       "description": "Врач стоматолог-ортопед. Стаж с 2006 года. Специализируется на восстановлении и протезировании зубов",
       "schedule": {
-        "Wednesday": { "start": "11:00", "end": "20:00" },
-        "Sunday": { "start": "15:30", "end": "20:00" }
+        "Wednesday": { "start": "11:00", "end": "19:00" },
+        "Sunday": { "start": "15:30", "end": "19:00" }
       },
       "details": {
         "specialization": "Стоматолог-ортопед",
@@ -1018,8 +1018,25 @@
         "specialization": "Врач стоматолог-терапевт",
         "category": "Врач стоматолог-терапевт"
       }
+    },
+    {
+      "id": 53,
+      "name": "Школа Наталья Александровна",
+      "slug": "shkola-natalya-aleksandrovna",
+      "specialization": "Эндокринолог",
+      "specializations": ["Эндокринолог"],
+      "photo": "/images/doctors/Shkola Natalya Alexandrovna.jpg",
+      "description": "Врач-эндокринолог. Стаж работы более 12 лет",
+      "schedule": {
+        "Saturday": { "start": "10:00", "end": "20:00" }
+      },
+      "details": {
+        "specialization": "Врач-эндокринолог",
+        "category": "Врач-эндокринолог",
+        "experience": "Стаж работы более 12 лет"
+      }
     }
   ],
-  "total": 52,
-  "lastUpdated": "2026-02-09"
+  "total": 53,
+  "lastUpdated": "2026-05-07"
 }

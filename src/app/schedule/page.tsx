@@ -373,6 +373,11 @@ export default function SchedulePage() {
       schedule: { Monday: { start: "15:00", end: "20:00" }, Wednesday: { start: "15:00", end: "20:00" }, Friday: { start: "15:00", end: "20:00" }, Saturday: { start: "09:00", end: "16:00" }, Sunday: { start: "09:00", end: "16:00" } }
     },
     {
+      name: "Школа Наталья Александровна",
+      specialty: "Эндокринолог",
+      schedule: { Saturday: { start: "10:00", end: "20:00" } }
+    },
+    {
       name: "Унтилова Маргарита Павловна",
       specialty: "Рентген",
       schedule: { Monday: { start: "09:00", end: "18:00" }, Tuesday: { start: "09:00", end: "18:00" }, Wednesday: { start: "09:00", end: "18:00" }, Thursday: { start: "09:00", end: "18:00" }, Friday: { start: "09:00", end: "18:00" }, Saturday: { start: "09:00", end: "16:00" }, Sunday: { start: "09:00", end: "16:00" } }
@@ -423,7 +428,7 @@ export default function SchedulePage() {
     {
       name: "Крошкин Александр Дмитриевич",
       specialty: "Стоматолог-ортопед",
-      schedule: { Wednesday: { start: "15:00", end: "20:00" }, Sunday: { start: "11:00", end: "19:00" } }
+      schedule: { Wednesday: { start: "11:00", end: "19:00" }, Sunday: { start: "15:30", end: "19:00" } }
     },
     {
       name: "Полетаева (Ужегова) Мария Рашитовна",

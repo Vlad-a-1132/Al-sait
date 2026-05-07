@@ -1,7 +1,7 @@
 // Статические данные для замены API маршрутов
 
 export const doctors = [
-  { id: 1, name: "Хомулло Валерия Викторовна", slug: "khomullo-valeria-viktorovna", specialization: "УЗИ", experience: 10, photo: "/images/doctors/Khomullo Valeria Viktorovna Odintsovo Altamed-s YZI.webp", description: "Специалист по ультразвуковой диагностике" },
+  { id: 1, name: "Хомулло Валерия Викторовна", slug: "khomullo-valeria-viktorovna", specialization: "УЗИ", experience: 25, photo: "/images/doctors/Khomullo Valeria Viktorovna Odintsovo Altamed-s YZI.webp", description: "Специалист по ультразвуковой диагностике" },
   { id: 2, name: "Балян Мария Маисовна", slug: "balyan-maria-maisovna", specialization: "Отоларинголог, Сурдолог", experience: 15, photo: "/images/doctors/balyan-maria-maisovna.webp", description: "Врач-оториноларинголог, сурдолог. Врач высшей квалификационной категории" },
   { id: 3, name: "Емельянова Анна Игоревна", slug: "emelyanova-anna-igorevna", specialization: "Косметолог, Дерматовенеролог", experience: 12, photo: "/images/doctors/Emelyanova Anna Igorevna.webp", description: "Врач-косметолог, дерматовенеролог. Сертифицированный специалист по косметологии и эстетической медицине" },
   { id: 4, name: "Крошкин Александр Дмитриевич", slug: "kroshkin-aleksandr-dmitrievich", specialization: "Стоматолог-ортопед, Стоматология", experience: 18, photo: "/images/doctors/Kroshkin Alexander Dmitrievich.webp", description: "Врач стоматолог-ортопед. Стаж с 2006 года. Специализируется на восстановлении и протезировании зубов" },
@@ -52,7 +52,8 @@ export const doctors = [
   { id: 51, name: "Рыжов Андрей Иванович", slug: "ryzhov-andrey-ivanovich", specialization: "Отоларинголог", experience: 23, photo: "/images/doctors/Ryzhov Andrey Ivanovich.webp", description: "Врач оториноларинголог. Стаж с 2001 года" },
   { id: 52, name: "Чернова Алла Валерьевна", slug: "chernova-alla-valerievna", specialization: "Стоматолог", experience: 15, photo: "/images/doctors/Chernova Alla Valerievna.webp", description: "Врач стоматолог-терапевт. Окончила Рязанский государственный университет имени акад. И. П. Павлова по специальности «Врач- стоматолог»" },
   { id: 53, name: "Исаева Екатерина Николаевна", slug: "isaeva-ekaterina-nikolaevna", specialization: "Гигиенист стоматологический, Стоматология профилактическая", experience: 6, photo: "/images/doctors/isaeva-ekaterina-nikolaevna.jpg", description: "Квалифицированный гигиенист в области профилактики заболеваний полости рта и поддержания здоровья зубов и десен. Профессиональная гигиена, подбор средств ухода. Стаж с 2019 года." },
-  { id: 54, name: "Молостов Александр Венедиктович", slug: "molostov-aleksandr-venedikhtovich", specialization: "Терапевт, Кардиолог", photo: "/images/doctors/Молостов.jpg", description: "Врач-терапевт, врач-кардиолог" }
+  { id: 54, name: "Молостов Александр Венедиктович", slug: "molostov-aleksandr-venedikhtovich", specialization: "Терапевт, Кардиолог", photo: "/images/doctors/Молостов.jpg", description: "Врач-терапевт, врач-кардиолог" },
+  { id: 55, name: "Школа Наталья Александровна", slug: "shkola-natalya-aleksandrovna", specialization: "Эндокринолог", photo: "/images/doctors/Shkola Natalya Alexandrovna.jpg", description: "Врач-эндокринолог. Стаж работы более 12 лет" }
 ];
 
 export const services = [
