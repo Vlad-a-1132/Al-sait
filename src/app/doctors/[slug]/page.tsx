@@ -4,6 +4,7 @@ import { doctors } from "@/data/static-data";
 import React from "react";
 import { Metadata } from "next";
 import DoctorPageFullContent from "@/components/DoctorPageFullContent";
+import doctorsData from "../../../../doctors_data.json";
 
 interface DoctorPageProps {
   params: Promise<{
@@ -1963,7 +1964,14 @@ export async function generateMetadata({ params }: DoctorPageProps): Promise<Met
 }
 
 // Функция для получения расписания врача
-function getDoctorSchedule(doctorName: string) {
+function getDoctorSchedule(doctorName: string, doctorSlug?: string) {
+  const fromJson = doctorsData.doctors.find(
+    (d) => d.name === doctorName || (doctorSlug && d.slug === doctorSlug)
+  )?.schedule;
+  if (fromJson) {
+    return fromJson;
+  }
+
   const schedules: { [key: string]: any } = {
     'Молостов Александр Венедиктович': {
       Monday: { start: "10:00", end: "15:00" },
@@ -2074,9 +2082,8 @@ function getDoctorSchedule(doctorName: string) {
     },
     // Кардиологи
     'Ростовцева Эмилия Вениаминовна': {
-      Monday: { start: "09:00", end: "15:00" },
-      Wednesday: { start: "09:00", end: "15:00" },
-      Friday: { start: "09:00", end: "15:00" }
+      Monday: { start: "10:30", end: "15:00" },
+      Friday: { start: "10:30", end: "15:00" }
     },
     'Белянко Игорь Эдуардович': {
       Monday: { start: "08:00", end: "15:00" },
@@ -2295,7 +2302,7 @@ export default async function DoctorPage({ params }: DoctorPageProps) {
     );
   }
 
-  const defaultSchedule = getDoctorSchedule(doctor.name);
+  const defaultSchedule = getDoctorSchedule(doctor.name, doctor.slug);
   const defaultDoctorDetails = getDoctorDetails(doctor.name);
 
   // Структурированные данные для SEO (JSON-LD)

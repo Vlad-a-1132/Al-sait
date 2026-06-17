@@ -110,7 +110,7 @@ export default function AdminDashboard() {
     { name: "Павлова Людмила Леонидовна", specialty: "УЗИ", schedule: { Tuesday: { start: "09:00", end: "13:00" } } },
     { name: "Понедельченко Надежда Ивановна", specialty: "Дерматокосметолог", schedule: { Tuesday: { start: "09:00", end: "20:00" }, Sunday: { start: "09:00", end: "17:00" } } },
     { name: "Полуэктова Оксана Николаевна", specialty: "Дерматовенеролог", schedule: { Monday: { start: "16:00", end: "20:00" }, Thursday: { start: "16:00", end: "20:00" }, Saturday: { start: "16:00", end: "20:00" } } },
-    { name: "Ростовцева Эмилия Вениаминовна", specialty: "Кардиолог", schedule: { Monday: { start: "09:00", end: "15:00" }, Wednesday: { start: "09:00", end: "15:00" }, Friday: { start: "09:00", end: "15:00" } } },
+    { name: "Ростовцева Эмилия Вениаминовна", specialty: "Кардиолог", schedule: { Monday: { start: "10:30", end: "15:00" }, Friday: { start: "10:30", end: "15:00" } } },
     { name: "Хомулло Валерия Викторовна", specialty: "Врач УЗИ", schedule: { Tuesday: { start: "16:00", end: "20:00" }, Wednesday: { start: "08:30", end: "15:00" } } },
     { name: "Яблокова Инна Валерьевна", specialty: "Офтальмолог", schedule: { Monday: { start: "14:00", end: "19:00" }, Tuesday: { start: "14:00", end: "19:00" }, Wednesday: { start: "14:00", end: "19:00" }, Thursday: { start: "14:00", end: "19:00" }, Saturday: { start: "10:00", end: "16:00" } } }
   ];

@@ -236,7 +236,7 @@ export default function SchedulePage() {
     {
       name: "Ростовцева Эмилия Вениаминовна",
       specialty: "Кардиолог",
-      schedule: { Monday: { start: "09:00", end: "15:00" }, Wednesday: { start: "09:00", end: "15:00" }, Friday: { start: "09:00", end: "15:00" } }
+      schedule: { Monday: { start: "10:30", end: "15:00" }, Friday: { start: "10:30", end: "15:00" } }
     },
     {
       name: "Хомулло Валерия Викторовна",
