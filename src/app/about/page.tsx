@@ -748,6 +748,25 @@ function PatientInfoSection() {
                   </a>
                 </div>
               </div>
+
+              {/* Памятка: направление на исследования с 01.09.2026 */}
+              <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
+                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+                  <div className="flex-1">
+                    <div className="text-gray-700 font-medium mb-1">Памятка «На какие исследования нужно направление с 1 сентября 2026 года»</div>
+                  </div>
+                  <a 
+                    href="/images/documents/pamyatka-napravlenie-na-issledovaniya-s-01-09-2026.docx" 
+                    target="_blank" 
+                    className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
+                  >
+                    Скачать файл
+                    <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                  </a>
+                </div>
+              </div>
             </div>
           )}
         </div>
