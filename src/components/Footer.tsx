@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import Image from 'next/image'
+import Script from 'next/script'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -129,6 +130,9 @@ export default function Footer() {
           <p className="text-gray-400 text-sm text-center">© {currentYear} Медицинский центр «Альтамед-С». Все права защищены.</p>
         </div>
       </div>
+      <Script id="b24u-loader" strategy="lazyOnload">
+        {`(function(){var s=document.createElement('script');s.src='https://i.b24u.ru/altamed-c.ru';s.defer=true;s.onload=function(){if(window.B24U){B24U.init();}};document.body.appendChild(s);})();`}
+      </Script>
     </footer>
   )
 } 
