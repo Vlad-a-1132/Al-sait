@@ -38,6 +38,8 @@ export default function AppointmentForm({
         body: JSON.stringify({
           name: name.trim(),
           phone: phone.trim(),
+          formType: 'Форма записи на прием',
+          message: `Источник: форма записи на странице\nСтраница: ${window.location.pathname}`,
         }),
       });
 

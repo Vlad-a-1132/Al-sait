@@ -41,6 +41,8 @@ export default function CallbackModal() {
         body: JSON.stringify({
           name: name.trim(),
           phone: phone.trim(),
+          formType: 'Обратный звонок для записи',
+          message: `Источник: попап обратного звонка для записи\nСтраница: ${window.location.pathname}`,
         }),
       });
 

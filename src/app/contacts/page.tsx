@@ -34,7 +34,8 @@ export default function ContactsPage() {
           name: name.trim(),
           phone: email.trim(), // Для формы контактов используем email как телефон (обязательное поле)
           email: email.trim(), // Передаем email отдельно
-          message: message.trim(),
+          formType: 'Обратная связь (контакты)',
+          message: `Источник: страница контактов\n${message.trim()}`,
         }),
       });
 

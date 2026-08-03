@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { promises as fs } from "fs";
+import path from "path";
 import {
   extractArray,
   fetchPriceCategories,
@@ -24,6 +26,101 @@ export const metadata: Metadata = {
   description: "Тестовая страница загрузки прайса через серверный модуль price-api",
   robots: { index: false, follow: false },
 };
+
+export const dynamic = "force-dynamic";
+
+type ChatDialogMessage = {
+  id: string;
+  role: "assistant" | "user";
+  text: string;
+  date: string;
+};
+
+type ChatDialog = {
+  sessionId: string;
+  startedAt: string;
+  updatedAt: string;
+  messages: ChatDialogMessage[];
+};
+
+type Appointment = {
+  id: string;
+  name: string;
+  phone: string;
+  date: string;
+  status?: "pending" | "called" | "not_called";
+  message?: string;
+  emailStatus?: "pending" | "sent" | "failed";
+  emailError?: string;
+};
+
+const CHAT_DIALOGS_FILE = path.join(process.cwd(), "data", "chat-dialogs.json");
+const APPOINTMENTS_FILE = path.join(process.cwd(), "data", "appointments.json");
+
+async function readChatDialogs(): Promise<ChatDialog[]> {
+  try {
+    const raw = await fs.readFile(CHAT_DIALOGS_FILE, "utf-8");
+    const dialogs = JSON.parse(raw);
+    return Array.isArray(dialogs)
+      ? dialogs.sort((a, b) => String(b.updatedAt).localeCompare(String(a.updatedAt)))
+      : [];
+  } catch {
+    return [];
+  }
+}
+
+function formatDialogDate(value: string): string {
+  const date = new Date(value);
+  return Number.isNaN(date.getTime()) ? "—" : date.toLocaleString("ru-RU");
+}
+
+function getDialogPreview(dialog: ChatDialog): string {
+  return dialog.messages.find((message) => message.role === "user")?.text ?? dialog.messages[0]?.text ?? "Без сообщений";
+}
+
+async function readAppointments(): Promise<Appointment[]> {
+  try {
+    const raw = await fs.readFile(APPOINTMENTS_FILE, "utf-8");
+    const appointments = JSON.parse(raw);
+    return Array.isArray(appointments)
+      ? appointments
+          .map((appointment) => ({
+            ...appointment,
+            status: appointment.status || "pending",
+            message: appointment.message || "",
+            emailStatus: appointment.emailStatus || "pending",
+            emailError: appointment.emailError || "",
+          }))
+          .sort((a, b) => String(b.id ?? b.date).localeCompare(String(a.id ?? a.date)))
+      : [];
+  } catch {
+    return [];
+  }
+}
+
+function getAppointmentStatusLabel(status: Appointment["status"]): string {
+  if (status === "called") return "Перезвонено";
+  if (status === "not_called") return "Не дозвонились";
+  return "Новая";
+}
+
+function getAppointmentStatusClass(status: Appointment["status"]): string {
+  if (status === "called") return "bg-emerald-50 text-emerald-700";
+  if (status === "not_called") return "bg-red-50 text-red-700";
+  return "bg-amber-50 text-amber-700";
+}
+
+function getEmailStatusLabel(status: Appointment["emailStatus"]): string {
+  if (status === "sent") return "Письмо отправлено";
+  if (status === "failed") return "Почта: ошибка";
+  return "Почта: ожидает";
+}
+
+function getEmailStatusClass(status: Appointment["emailStatus"]): string {
+  if (status === "sent") return "bg-emerald-50 text-emerald-700";
+  if (status === "failed") return "bg-red-50 text-red-700";
+  return "bg-gray-100 text-gray-600";
+}
 
 function dedupePriceServices(rows: PriceServiceDisplay[]): PriceServiceDisplay[] {
   const seen = new Set<string>();
@@ -226,7 +323,12 @@ type PageProps = {
 };
 
 export default async function PricesTestPage({ searchParams }: PageProps) {
-  const [servicesRes, categoriesRes] = await Promise.all([fetchPriceServices(), fetchPriceCategories()]);
+  const [servicesRes, categoriesRes, chatDialogs, appointments] = await Promise.all([
+    fetchPriceServices(),
+    fetchPriceCategories(),
+    readChatDialogs(),
+    readAppointments(),
+  ]);
 
   const catParam = searchParams?.cat;
   const catStr = Array.isArray(catParam) ? catParam[0] : catParam;
@@ -337,6 +439,132 @@ export default async function PricesTestPage({ searchParams }: PageProps) {
             {!categoriesRes.ok && <span className="block text-red-600">{categoriesRes.error}</span>}
           </li>
         </ul>
+      </section>
+
+      <section className="mb-8 rounded border border-gray-200 bg-white p-4">
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 className="text-lg font-semibold">Заявки на запись</h2>
+            <p className="text-xs text-gray-500">Последние заявки с сайта и чат-бота.</p>
+          </div>
+          <span className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-600">
+            Всего заявок: {appointments.length}
+          </span>
+        </div>
+        {appointments.length === 0 ? (
+          <p className="text-sm text-gray-500">Заявок пока нет.</p>
+        ) : (
+          <div className="space-y-3">
+            {appointments.slice(0, 30).map((appointment) => (
+              <article key={appointment.id} className="rounded border border-gray-100 bg-gray-50 p-3">
+                <div className="flex flex-wrap items-start justify-between gap-3">
+                  <div className="min-w-0">
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="break-words text-sm font-semibold text-gray-900">{appointment.name}</h3>
+                      <span
+                        className={`rounded px-2 py-0.5 text-xs font-medium ${getAppointmentStatusClass(
+                          appointment.status
+                        )}`}
+                      >
+                        {getAppointmentStatusLabel(appointment.status)}
+                      </span>
+                      <span
+                        className={`rounded px-2 py-0.5 text-xs font-medium ${getEmailStatusClass(
+                          appointment.emailStatus
+                        )}`}
+                      >
+                        {getEmailStatusLabel(appointment.emailStatus)}
+                      </span>
+                    </div>
+                    <a className="mt-1 inline-block text-sm font-medium text-emerald-700" href={`tel:${appointment.phone}`}>
+                      {appointment.phone}
+                    </a>
+                  </div>
+                  <div className="shrink-0 text-right text-xs text-gray-500">
+                    <div>{appointment.date}</div>
+                    <div className="font-mono">ID: {appointment.id}</div>
+                  </div>
+                </div>
+                {appointment.message ? (
+                  <p className="mt-2 whitespace-pre-wrap break-words rounded bg-white p-2 text-sm text-gray-700">
+                    {appointment.message}
+                  </p>
+                ) : null}
+                {appointment.emailStatus === "failed" && appointment.emailError ? (
+                  <p className="mt-2 whitespace-pre-wrap break-words rounded bg-red-50 p-2 text-xs text-red-700">
+                    Ошибка отправки: {appointment.emailError}
+                  </p>
+                ) : null}
+              </article>
+            ))}
+          </div>
+        )}
+      </section>
+
+      <section className="mb-8 rounded border border-gray-200 bg-white p-4">
+        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+          <div>
+            <h2 className="text-lg font-semibold">Диалоги с ботом</h2>
+            <p className="text-xs text-gray-500">Каждая карточка — отдельная сессия посетителя.</p>
+          </div>
+          <span className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-600">
+            Всего сессий: {chatDialogs.length}
+          </span>
+        </div>
+        {chatDialogs.length === 0 ? (
+          <p className="text-sm text-gray-500">Диалогов пока нет.</p>
+        ) : (
+          <div className="space-y-3">
+            {chatDialogs.slice(0, 30).map((dialog, index) => {
+              const preview = getDialogPreview(dialog);
+
+              return (
+                <details key={dialog.sessionId} className="rounded border border-gray-100 bg-gray-50 p-3">
+                  <summary className="cursor-pointer list-none">
+                    <div className="flex flex-wrap items-start justify-between gap-3">
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-wrap items-center gap-2">
+                          <span className="text-sm font-semibold text-gray-900">
+                            Диалог #{chatDialogs.length - index}
+                          </span>
+                          <span className="rounded bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-700">
+                            сообщений: {dialog.messages.length}
+                          </span>
+                        </div>
+                        <p className="mt-1 break-words text-sm text-gray-600">Первый вопрос: {preview}</p>
+                      </div>
+                      <div className="shrink-0 text-right text-xs text-gray-500">
+                        <div>Начат: {formatDialogDate(dialog.startedAt)}</div>
+                        <div>Обновлен: {formatDialogDate(dialog.updatedAt)}</div>
+                      </div>
+                    </div>
+                    <div className="mt-2 break-all font-mono text-[11px] text-gray-400">
+                      ID сессии: {dialog.sessionId}
+                    </div>
+                  </summary>
+                  <div className="mt-3 space-y-2">
+                    {dialog.messages.map((message) => (
+                      <div
+                        key={message.id}
+                        className={`rounded p-2 text-sm ${
+                          message.role === "user"
+                            ? "bg-emerald-50 text-emerald-950"
+                            : "bg-white text-gray-800"
+                        }`}
+                      >
+                        <div className="mb-1 flex items-center justify-between gap-2 text-xs text-gray-500">
+                          <span>{message.role === "user" ? "Пациент" : "Бот"}</span>
+                          <span>{formatDialogDate(message.date)}</span>
+                        </div>
+                        <p className="whitespace-pre-wrap break-words">{message.text}</p>
+                      </div>
+                    ))}
+                  </div>
+                </details>
+              );
+            })}
+          </div>
+        )}
       </section>
 
       <section className="rounded border border-gray-200 bg-white p-4">

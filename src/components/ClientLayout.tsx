@@ -5,6 +5,7 @@ import Header from './Header'
 import Footer from './Footer'
 import MobileBottomNav from './MobileBottomNav'
 import CallbackModal from './CallbackModal'
+import ChatWidget from './ChatWidget'
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -16,6 +17,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <Footer />
       <MobileBottomNav />
       <CallbackModal />
+      <ChatWidget />
     </AccessibilityProvider>
   )
 }

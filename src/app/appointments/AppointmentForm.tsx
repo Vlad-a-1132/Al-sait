@@ -36,7 +36,8 @@ export default function AppointmentForm() {
         body: JSON.stringify({
           name: formData.name.trim(),
           phone: formData.phone.trim(),
-          notes: formData.notes.trim(),
+          formType: 'Страница записи на прием',
+          notes: `Источник: страница /appointments\n${formData.notes.trim()}`.trim(),
         }),
       })
 
@@ -170,4 +171,4 @@ export default function AppointmentForm() {
       </div>
     </form>
   )
-} 
+}

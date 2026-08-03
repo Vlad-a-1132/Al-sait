@@ -10,6 +10,8 @@ interface Appointment {
   date: string;
   status: 'pending' | 'called' | 'not_called';
   message?: string;
+  emailStatus?: 'pending' | 'sent' | 'failed';
+  emailError?: string;
 }
 
 const DATA_FILE = path.join(process.cwd(), 'data', 'appointments.json');
@@ -21,11 +23,12 @@ async function sendEmail(appointment: Appointment, formType: string = 'Запи�
     // SMTP: smtp.mastermail.ru порт 25
     const smtpHost = process.env.SMTP_HOST || 'smtp.mastermail.ru';
     const smtpPort = parseInt(process.env.SMTP_PORT || '25');
+    const smtpSecure = process.env.SMTP_SECURE === 'true' || smtpPort === 465;
     
     const transporter = nodemailer.createTransport({
       host: smtpHost,
       port: smtpPort,
-      secure: false, // Порт 25 обычно использует STARTTLS, не SSL
+      secure: smtpSecure,
       auth: {
         user: process.env.SMTP_USER || 'zakaz@altamed-c.ru',
         pass: process.env.SMTP_PASSWORD || '',
@@ -33,8 +36,7 @@ async function sendEmail(appointment: Appointment, formType: string = 'Запи�
       tls: {
         rejectUnauthorized: false,
       },
-      // Для порта 25 может потребоваться STARTTLS
-      requireTLS: true,
+      requireTLS: !smtpSecure,
       connectionTimeout: 10000,
     });
 
@@ -45,6 +47,10 @@ async function sendEmail(appointment: Appointment, formType: string = 'Запи�
     const mailOptions = {
       from: `"Сайт Альтамед-С" <${process.env.SMTP_USER || 'zakaz@altamed-c.ru'}>`,
       to: emailTo,
+      envelope: {
+        from: '',
+        to: emailTo,
+      },
       subject: `${formType} - новая заявка с сайта`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
@@ -92,7 +98,9 @@ async function readAppointments(): Promise<Appointment[]> {
     return appointments.map((app: any) => ({
       ...app,
       status: app.status || 'pending',
-      message: app.message || ''
+      message: app.message || '',
+      emailStatus: app.emailStatus || 'pending',
+      emailError: app.emailError || ''
     }));
   } catch (error: any) {
     // Если файл не существует, создаем пустой массив
@@ -121,7 +129,7 @@ async function writeAppointments(appointments: Appointment[]): Promise<void> {
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json();
-    const { name, phone, message, notes, email } = body;
+    const { name, phone, message, notes, email, formType: requestFormType } = body;
 
     if (!phone) {
       return NextResponse.json(
@@ -137,11 +145,13 @@ export async function POST(request: NextRequest) {
     const messageText = (message || notes || '').trim();
     
     // Определяем тип заявки по наличию полей
-    let formType = 'Запись на прием';
-    if (email) {
+    let formType = typeof requestFormType === 'string' && requestFormType.trim()
+      ? requestFormType.trim()
+      : 'Запись на прием';
+    if (!requestFormType && email) {
       // Если есть email, это форма обратной связи с контактов
       formType = 'Обратная связь (контакты)';
-    } else if (!messageText) {
+    } else if (!requestFormType && !messageText) {
       // Если нет сообщения и нет email, это обратный звонок
       formType = 'Обратный звонок';
     }
@@ -154,6 +164,7 @@ export async function POST(request: NextRequest) {
       date: new Date().toLocaleString('ru-RU'),
       status: 'pending',
       message: messageText || undefined,
+      emailStatus: 'pending',
     };
 
     // Добавляем новую заявку
@@ -177,13 +188,13 @@ export async function POST(request: NextRequest) {
     console.log('Всего заявок:', appointments.length);
     console.log('==============================');
 
-    // Отправляем email с информацией о типе формы
-    sendEmail(appointment, formType, email).catch(err => {
-      console.error('Ошибка отправки email (не критично):', err);
-    });
+    const emailResult = await sendEmail(appointment, formType, email);
+    appointment.emailStatus = emailResult.success ? 'sent' : 'failed';
+    appointment.emailError = emailResult.success ? '' : emailResult.error || 'Unknown email error';
+    await writeAppointments(appointments);
 
     return NextResponse.json(
-      { message: 'Заявка сохранена', id: appointment.id },
+      { message: 'Заявка сохранена', id: appointment.id, emailStatus: appointment.emailStatus },
       { status: 200 }
     );
   } catch (error) {
