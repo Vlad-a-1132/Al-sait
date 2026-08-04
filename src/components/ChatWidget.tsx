@@ -70,13 +70,26 @@ function isAppointmentStart(value: string) {
   return !asksWhereToGo && (normalized.includes("запис") || normalized.includes("запиш") || normalized.includes("заявк"));
 }
 
+function isAdminContactRequest(value: string) {
+  const normalized = normalizeMessage(value);
+
+  return (
+    normalized.includes("администратор") ||
+    normalized.includes("админа") ||
+    normalized.includes("оператор") ||
+    normalized.includes("перезвон") ||
+    normalized.includes("свяж") ||
+    normalized.includes("позвон")
+  );
+}
+
 function extractAppointmentTarget(value: string) {
   const normalized = normalizeMessage(value)
     .replace(/^(хочу|можно|надо|нужно)\s+/u, "")
     .replace(/записаться|запишите|запиши|записать|запись|оставить заявку|заявку/gu, "")
     .replace(/\b(меня|мне|пожалуйста)\b/gu, "")
     .replace(/на прием|на приём|к врачу/gu, "")
-    .replace(/^(к|ко|на)\s+/u, "")
+    .replace(/^(к|ко|на|в)\s+/u, "")
     .replace(/\s+/g, " ")
     .trim();
 
@@ -145,7 +158,7 @@ export default function ChatWidget() {
     const response = await fetch("/api/appointment", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, phone, message }),
+      body: JSON.stringify({ name, phone, formType: "Заявка из чат-бота", message }),
     });
 
     if (!response.ok) {
@@ -211,6 +224,12 @@ export default function ChatWidget() {
         );
       }
 
+      return true;
+    }
+
+    if (isAdminContactRequest(value)) {
+      setAppointmentFlow({ step: "name", target: "Связаться с администратором" });
+      addAssistantMessage("Передам заявку администратору. Как вас зовут?");
       return true;
     }
 

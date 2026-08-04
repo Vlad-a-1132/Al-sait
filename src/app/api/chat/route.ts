@@ -473,6 +473,21 @@ function isBloodCountRequest(text: string) {
   );
 }
 
+function isDriverLicenseMedicalRequest(text: string) {
+  const hasDriverLicenseContext =
+    text.includes("прав") ||
+    text.includes("водител") ||
+    text.includes("водительск");
+  const hasMedicalContext =
+    text.includes("анализ") ||
+    text.includes("справк") ||
+    text.includes("комисс") ||
+    text.includes("медкомисс") ||
+    text.includes("медосмотр");
+
+  return hasDriverLicenseContext && hasMedicalContext;
+}
+
 function isCtRequest(text: string) {
   return hasToken(text, "кт") || text.includes("томограф");
 }
@@ -483,6 +498,14 @@ function isUltrasoundRequest(text: string) {
 
 function bookingClarification(knowledge: Knowledge) {
   return `Свободное время и цены для записи лучше уточнить по телефону ${knowledge.clinic.phone}. Напишите имя и контакты, и наш администратор с вами свяжется.`;
+}
+
+function answerDriverLicenseMedicalRequest(knowledge: Knowledge) {
+  return [
+    "По справке или медкомиссии для водительских прав набор обследований зависит от категории и требований.",
+    "Отдельную услугу «анализы на права» в прайсе я не нашла, поэтому не буду подбирать случайные позиции.",
+    `Лучше уточнить у администратора по телефону ${knowledge.clinic.phone}. Напишите имя и контакты, и наш администратор с вами свяжется.`,
+  ].join("\n");
 }
 
 function findAppointmentSpecialty(messageNormalized: string) {
@@ -929,6 +952,10 @@ function answerServices(knowledge: Knowledge, message: string) {
     return "Напишите название услуги или анализа, например: общий анализ крови, УЗИ брюшной полости, прием гинеколога, чистка зубов.";
   }
 
+  if (isDriverLicenseMedicalRequest(messageNormalized)) {
+    return answerDriverLicenseMedicalRequest(knowledge);
+  }
+
   const appointmentAnswer = formatAppointmentPriceAnswer(knowledge, messageNormalized);
   if (appointmentAnswer) {
     return appointmentAnswer;
@@ -1062,6 +1089,12 @@ export async function POST(request: NextRequest) {
 
     if (hasAny(normalized, ["адрес", "телефон", "контак", "режим", "время работы", "часы"])) {
       return NextResponse.json({ reply: answerContacts(knowledge) });
+    }
+
+    if (hasAny(normalized, ["администратор", "админа", "оператор", "перезвон", "свяж", "позвон"])) {
+      return NextResponse.json({
+        reply: `Напишите имя и контакты, и наш администратор с вами свяжется. Также можно позвонить по телефону ${knowledge.clinic.phone}.`,
+      });
     }
 
     if (hasAny(normalized, ["специальност", "направлен"])) {
