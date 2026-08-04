@@ -55,8 +55,45 @@ function normalizeMessage(value: string) {
   return value
     .toLowerCase()
     .replace(/ё/g, "е")
+    .replace(/[^\p{L}\p{N}+]+/gu, " ")
     .replace(/\s+/g, " ")
     .trim();
+}
+
+const ADMIN_CONTACT_WORDS = [
+  "админ",
+  "администратор",
+  "оператор",
+  "человек",
+  "живой",
+  "перезвон",
+  "позвон",
+  "свяж",
+  "связь",
+  "звонок",
+];
+
+function getWords(value: string) {
+  return normalizeMessage(value).split(" ").filter(Boolean);
+}
+
+function distance(a: string, b: string) {
+  const rows = Array.from({ length: a.length + 1 }, (_, index) => [index]);
+
+  for (let column = 1; column <= b.length; column += 1) {
+    rows[0][column] = column;
+  }
+
+  for (let row = 1; row <= a.length; row += 1) {
+    for (let column = 1; column <= b.length; column += 1) {
+      rows[row][column] =
+        a[row - 1] === b[column - 1]
+          ? rows[row - 1][column - 1]
+          : Math.min(rows[row - 1][column - 1], rows[row][column - 1], rows[row - 1][column]) + 1;
+    }
+  }
+
+  return rows[a.length][b.length];
 }
 
 function isAppointmentStart(value: string) {
@@ -73,13 +110,16 @@ function isAppointmentStart(value: string) {
 function isAdminContactRequest(value: string) {
   const normalized = normalizeMessage(value);
 
-  return (
-    normalized.includes("администратор") ||
-    normalized.includes("админа") ||
-    normalized.includes("оператор") ||
-    normalized.includes("перезвон") ||
-    normalized.includes("свяж") ||
-    normalized.includes("позвон")
+  if (ADMIN_CONTACT_WORDS.some((word) => normalized.includes(word))) {
+    return true;
+  }
+
+  return getWords(value).some((token) =>
+    ADMIN_CONTACT_WORDS.some((word) => {
+      if (token.length < 4) return false;
+      if (token.startsWith(word.slice(0, 4)) || word.startsWith(token.slice(0, 4))) return true;
+      return Math.abs(token.length - word.length) <= 2 && distance(token, word) <= 2;
+    })
   );
 }
 
@@ -274,7 +314,15 @@ export default function ChatWidget() {
         body: JSON.stringify({ message: value }),
       });
       const data = await response.json();
-      addAssistantMessage(data.reply || "Не удалось найти ответ. Позвоните нам: +7 (495) 255-44-50.");
+      const reply = data.reply || "Не удалось найти ответ. Позвоните нам: +7 (495) 255-44-50.";
+      addAssistantMessage(reply);
+
+      if (reply.toLowerCase().includes("оставьте имя и телефон")) {
+        setAppointmentFlow({
+          step: "name",
+          target: isAdminContactRequest(value) ? "Связаться с администратором" : value,
+        });
+      }
     } catch {
       addAssistantMessage("Сейчас не удалось обработать вопрос. Позвоните нам: +7 (495) 255-44-50.");
     } finally {

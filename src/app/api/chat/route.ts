@@ -260,6 +260,74 @@ function tokenize(value: string) {
     .filter((token) => (token.length > 2 || SHORT_QUERY_TOKENS.has(token)) && !STOP_WORDS.has(token));
 }
 
+const ADMIN_CONTACT_WORDS = [
+  "админ",
+  "администратор",
+  "оператор",
+  "человек",
+  "живой",
+  "перезвон",
+  "позвон",
+  "свяж",
+  "связь",
+  "звонок",
+];
+
+const VAGUE_MEDICAL_PATTERNS = [
+  "на права",
+  "для прав",
+  "водител",
+  "медкомисс",
+  "медосмотр",
+  "справк",
+  "для сад",
+  "в сад",
+  "для школ",
+  "в школу",
+  "для работы",
+  "перед операци",
+  "госпитализац",
+];
+
+function getWords(value: string) {
+  return normalize(value).split(" ").filter(Boolean);
+}
+
+function distance(a: string, b: string) {
+  const rows = Array.from({ length: a.length + 1 }, (_, index) => [index]);
+
+  for (let column = 1; column <= b.length; column += 1) {
+    rows[0][column] = column;
+  }
+
+  for (let row = 1; row <= a.length; row += 1) {
+    for (let column = 1; column <= b.length; column += 1) {
+      rows[row][column] =
+        a[row - 1] === b[column - 1]
+          ? rows[row - 1][column - 1]
+          : Math.min(rows[row - 1][column - 1], rows[row][column - 1], rows[row - 1][column]) + 1;
+    }
+  }
+
+  return rows[a.length][b.length];
+}
+
+function looksLikeAnyWord(value: string, words: string[]) {
+  const normalized = normalize(value);
+
+  if (words.some((word) => normalized.includes(word))) {
+    return true;
+  }
+
+  return getWords(value).some((token) =>
+    words.some((word) => {
+      if (token.length < 4) return false;
+      if (token.startsWith(word.slice(0, 4)) || word.startsWith(token.slice(0, 4))) return true;
+      return Math.abs(token.length - word.length) <= 2 && distance(token, word) <= 2;
+    })
+  );
+}
+
 function tokenVariants(token: string) {
   const variants = new Set([token]);
   const endings = ["ого", "его", "ому", "ему", "ами", "ями", "ами", "ах", "ях", "ов", "ев", "ой", "ей", "ая", "яя", "ое", "ее", "ые", "ие", "ом", "ем", "ам", "ям", "а", "я", "у", "ю", "ы", "и", "е"];
@@ -474,8 +542,11 @@ function isBloodCountRequest(text: string) {
 }
 
 function isDriverLicenseMedicalRequest(text: string) {
+  const words = getWords(text);
   const hasDriverLicenseContext =
-    text.includes("прав") ||
+    text.includes("на права") ||
+    text.includes("для прав") ||
+    words.some((word) => word === "прав" || word.startsWith("права")) ||
     text.includes("водител") ||
     text.includes("водительск");
   const hasMedicalContext =
@@ -486,6 +557,28 @@ function isDriverLicenseMedicalRequest(text: string) {
     text.includes("медосмотр");
 
   return hasDriverLicenseContext && hasMedicalContext;
+}
+
+function isVagueMedicalRequest(text: string) {
+  if (text.includes("режим работы") || text.includes("время работы") || text.includes("часы работы")) {
+    return false;
+  }
+
+  const hasVaguePattern = VAGUE_MEDICAL_PATTERNS.some((pattern) => text.includes(pattern));
+  const hasMedicalContext = hasAny(text, [
+    "анализ",
+    "кров",
+    "моч",
+    "обслед",
+    "справк",
+    "комисс",
+    "мед",
+    "врач",
+    "доктор",
+    "осмотр",
+  ]);
+
+  return hasVaguePattern && hasMedicalContext;
 }
 
 function isCtRequest(text: string) {
@@ -504,8 +597,12 @@ function answerDriverLicenseMedicalRequest(knowledge: Knowledge) {
   return [
     "По справке или медкомиссии для водительских прав набор обследований зависит от категории и требований.",
     "Отдельную услугу «анализы на права» в прайсе я не нашла, поэтому не буду подбирать случайные позиции.",
-    `Лучше уточнить у администратора по телефону ${knowledge.clinic.phone}. Напишите имя и контакты, и наш администратор с вами свяжется.`,
+    `Оставьте имя и телефон, с вами свяжется администратор. Также можно позвонить по телефону ${knowledge.clinic.phone}.`,
   ].join("\n");
+}
+
+function answerVagueMedicalRequest(knowledge: Knowledge) {
+  return `По такому запросу лучше не подбирать случайные позиции из прайса. Оставьте имя и телефон, с вами свяжется администратор. Также можно позвонить по телефону ${knowledge.clinic.phone}.`;
 }
 
 function findAppointmentSpecialty(messageNormalized: string) {
@@ -1038,6 +1135,8 @@ export async function POST(request: NextRequest) {
 
     const knowledge = await loadKnowledge();
     const normalized = normalize(message);
+    const adminContactIntent = looksLikeAnyWord(message, ADMIN_CONTACT_WORDS);
+    const vagueMedicalIntent = isVagueMedicalRequest(normalized);
     const promotionIntent = hasAny(normalized, [
       "акци",
       "скид",
@@ -1080,6 +1179,12 @@ export async function POST(request: NextRequest) {
       "специалист",
     ]);
 
+    if (adminContactIntent) {
+      return NextResponse.json({
+        reply: `Оставьте имя и телефон, с вами свяжется администратор. Также можно позвонить по телефону ${knowledge.clinic.phone}.`,
+      });
+    }
+
     if (hasAny(normalized, ["прив", "прев", "здравств", "добрый", "доброе"])) {
       return NextResponse.json({
         reply:
@@ -1089,12 +1194,6 @@ export async function POST(request: NextRequest) {
 
     if (hasAny(normalized, ["адрес", "телефон", "контак", "режим", "время работы", "часы"])) {
       return NextResponse.json({ reply: answerContacts(knowledge) });
-    }
-
-    if (hasAny(normalized, ["администратор", "админа", "оператор", "перезвон", "свяж", "позвон"])) {
-      return NextResponse.json({
-        reply: `Напишите имя и контакты, и наш администратор с вами свяжется. Также можно позвонить по телефону ${knowledge.clinic.phone}.`,
-      });
     }
 
     if (hasAny(normalized, ["специальност", "направлен"])) {
@@ -1107,6 +1206,14 @@ export async function POST(request: NextRequest) {
 
     if (promotionIntent) {
       return NextResponse.json({ reply: answerPromotions(normalized) });
+    }
+
+    if (isDriverLicenseMedicalRequest(normalized)) {
+      return NextResponse.json({ reply: answerDriverLicenseMedicalRequest(knowledge) });
+    }
+
+    if (vagueMedicalIntent) {
+      return NextResponse.json({ reply: answerVagueMedicalRequest(knowledge) });
     }
 
     if (findAppointmentSpecialty(normalized)) {
