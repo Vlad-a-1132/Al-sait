@@ -406,7 +406,7 @@ export default function ChatWidget() {
           </div>
 
           <div className="border-t border-white/10 bg-[#0f1729] p-3">
-            <div className="mb-2 flex gap-2 overflow-x-auto pb-1">
+            <div className="mb-2 flex gap-2 overflow-x-auto pb-2 [scrollbar-color:rgba(19,171,123,.85)_rgba(255,255,255,.10)] [scrollbar-width:thin] [&::-webkit-scrollbar]:h-1.5 [&::-webkit-scrollbar-thumb]:rounded-full [&::-webkit-scrollbar-thumb]:bg-[#13ab7b]/80 [&::-webkit-scrollbar-thumb:hover]:bg-[#13ab7b] [&::-webkit-scrollbar-track]:rounded-full [&::-webkit-scrollbar-track]:bg-white/10">
               {["Акции", "Расписание гинеколога", "Цена общего анализа крови", "Режим работы"].map((hint) => (
                 <button
                   key={hint}
