@@ -12,7 +12,6 @@ import { PROCTOLOGY_SERVICE_ARTICLES } from '@/data/proctology-service-articles'
 import { REHABILITATION_SERVICE_ARTICLES } from '@/data/rehabilitation-service-articles';
 import { PRIORITY_SEO_ARTICLE_CARDS } from '@/data/priority-seo-articles';
 import BlogIndexClient, { type BlogPostCard } from './BlogIndexClient';
-import { Suspense } from 'react';
 
 export const metadata = {
   title: 'Блог - Медицинские статьи и новости | Медицинский центр Альтамед-С в Одинцово',
@@ -42,8 +41,15 @@ export const metadata = {
   },
 };
 
-export default function BlogPage() {
-  const posts: BlogPostCard[] = [
+type BlogPageProps = {
+  searchParams?: {
+    dir?: string | string[];
+    sort?: string | string[];
+  };
+};
+
+export default function BlogPage({ searchParams }: BlogPageProps) {
+  const rawPosts: BlogPostCard[] = [
     ...PRIORITY_SEO_ARTICLE_CARDS,
     ...GASTROENTEROLOGY_ARTICLES_LIST.map((a) => ({ ...a, direction: 'gastroenterology' as const })),
     ...ALLERGOLOGY_ARTICLES_LIST.map((a) => ({ ...a, direction: 'allergology' as const })),
@@ -58,6 +64,19 @@ export default function BlogPage() {
     ...PROCTOLOGY_SERVICE_ARTICLES.map((a) => ({ ...a, direction: 'proctology' as const })),
     ...REHABILITATION_SERVICE_ARTICLES.map((a) => ({ ...a, direction: 'rehabilitation' as const })),
   ];
+
+  // Часть SEO-материалов одновременно входит в приоритетный список и список
+  // направления. Оставляем одну карточку на URL, чтобы не раздувать DOM.
+  const posts = Array.from(
+    new Map(rawPosts.map((post) => [post.url, post])).values(),
+  );
+
+  const initialDir = Array.isArray(searchParams?.dir)
+    ? searchParams?.dir[0]
+    : searchParams?.dir;
+  const initialSort = Array.isArray(searchParams?.sort)
+    ? searchParams?.sort[0]
+    : searchParams?.sort;
 
   return (
     <div className="flex flex-col min-h-full">
@@ -74,9 +93,11 @@ export default function BlogPage() {
       </section>
 
       {/* Articles List */}
-      <Suspense fallback={<div className="py-16 bg-white" />}>
-        <BlogIndexClient posts={posts} />
-      </Suspense>
+      <BlogIndexClient
+        posts={posts}
+        initialDir={initialDir}
+        initialSort={initialSort}
+      />
     </div>
   );
 }

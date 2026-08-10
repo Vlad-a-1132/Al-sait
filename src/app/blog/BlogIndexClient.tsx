@@ -3,7 +3,6 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
-import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
 export type BlogDirection =
   | "gynecology"
@@ -93,16 +92,27 @@ function applySort(posts: BlogPostCard[], sort: BlogSort) {
   return next;
 }
 
-export default function BlogIndexClient({ posts }: { posts: BlogPostCard[] }) {
-  const router = useRouter();
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+const INITIAL_VISIBLE_POSTS = 24;
+const LOAD_MORE_POSTS = 24;
 
-  const initialDir = sanitizeDirection(searchParams.get("dir"));
-  const initialSort = sanitizeSort(searchParams.get("sort"));
+type BlogIndexClientProps = {
+  posts: BlogPostCard[];
+  initialDir?: string;
+  initialSort?: string;
+};
 
-  const [dir, setDir] = useState<BlogDirection | "all">(initialDir);
-  const [sort, setSort] = useState<BlogSort>(initialSort);
+export default function BlogIndexClient({
+  posts,
+  initialDir,
+  initialSort,
+}: BlogIndexClientProps) {
+  const [dir, setDir] = useState<BlogDirection | "all">(() =>
+    sanitizeDirection(initialDir ?? null),
+  );
+  const [sort, setSort] = useState<BlogSort>(() =>
+    sanitizeSort(initialSort ?? null),
+  );
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_POSTS);
 
   const filtered = useMemo(() => {
     const base = dir === "all" ? posts : posts.filter((p) => p.direction === dir);
@@ -131,23 +141,35 @@ export default function BlogIndexClient({ posts }: { posts: BlogPostCard[] }) {
     return { all: posts.length, gynecology, allergology, gastroenterology, dermatology, cardiology, mammology, neurology, otolaryngology, ophthalmology, pediatrics, proctology, rehabilitation, endocrinology, therapy, traumatology, dentistry, urology, surgery };
   }, [posts]);
 
+  const visiblePosts = useMemo(
+    () => filtered.slice(0, visibleCount),
+    [filtered, visibleCount],
+  );
+
   const updateQuery = (nextDir: BlogDirection | "all", nextSort: BlogSort) => {
-    const qp = new URLSearchParams(searchParams.toString());
+    if (typeof window === "undefined") return;
+
+    const qp = new URLSearchParams(window.location.search);
     if (nextDir === "all") qp.delete("dir");
     else qp.set("dir", nextDir);
     if (nextSort === "default") qp.delete("sort");
     else qp.set("sort", nextSort);
     const qs = qp.toString();
-    router.replace(qs ? `${pathname}?${qs}` : pathname, { scroll: false });
+    const url = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
+
+    // Обновляем адрес без повторного запроса тяжёлого server-component payload.
+    window.history.replaceState(window.history.state, "", url);
   };
 
   const onDir = (nextDir: BlogDirection | "all") => {
     setDir(nextDir);
+    setVisibleCount(INITIAL_VISIBLE_POSTS);
     updateQuery(nextDir, sort);
   };
 
   const onSort = (nextSort: BlogSort) => {
     setSort(nextSort);
+    setVisibleCount(INITIAL_VISIBLE_POSTS);
     updateQuery(dir, nextSort);
   };
 
@@ -225,7 +247,7 @@ export default function BlogIndexClient({ posts }: { posts: BlogPostCard[] }) {
         )}
 
         <div id="statyi" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 scroll-mt-24">
-          {filtered.map((a) => (
+          {visiblePosts.map((a) => (
             <Link
               key={a.url}
               href={a.url}
@@ -582,6 +604,21 @@ export default function BlogIndexClient({ posts }: { posts: BlogPostCard[] }) {
             </Link>
           ))}
         </div>
+
+        {visiblePosts.length < filtered.length && (
+          <div className="mt-10 flex flex-col items-center gap-3">
+            <button
+              type="button"
+              onClick={() => setVisibleCount((count) => count + LOAD_MORE_POSTS)}
+              className="inline-flex min-h-12 items-center justify-center rounded-xl bg-emerald-600 px-7 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-md"
+            >
+              Показать ещё статьи
+            </button>
+            <p className="text-sm text-gray-500">
+              Показано {visiblePosts.length} из {filtered.length}
+            </p>
+          </div>
+        )}
 
         {filtered.length === 0 && (
           <div className="mt-10 rounded-2xl border border-gray-100 bg-gray-50 p-6">

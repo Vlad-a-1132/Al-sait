@@ -1812,6 +1812,7 @@ function AboutPageContent() {
                   </button>
                   <Link
                     href="/blog"
+                    prefetch={false}
                     className="w-full block text-left px-4 py-3 rounded-lg transition-colors text-gray-700 hover:bg-gray-100"
                   >
                     Блог

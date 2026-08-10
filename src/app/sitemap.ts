@@ -4,6 +4,7 @@ import { IMPLANTOLOGY_DIRECTION_SLUGS } from '@/data/abramov/implantologyDirecti
 import { ORTHO_DIRECTION_SLUGS } from '@/data/goncharenko/orthoDirectionPages';
 import { PRIORITY_SEO_ARTICLES } from '@/data/priority-seo-articles';
 import { BLOG_TOPIC_SLUGS } from '@/data/blog-topic-pages';
+import { PEDIATRIC_PROMOTIONS } from '@/data/pediatric-promotions';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://altamed-c.ru';
@@ -306,6 +307,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { id: 3, slug: 'promo-3' },
     { id: 4, slug: 'promo-4' },
     { id: 5, slug: 'promo-5' },
+    { id: 6, slug: 'promo-6' },
+    { id: 7, slug: 'promo-7' },
+    ...PEDIATRIC_PROMOTIONS.map((promo, index) => ({ id: index + 8, slug: promo.slug })),
   ].map((promo) => ({
     url: `${baseUrl}/promo/${promo.slug}`,
     lastModified: now,
