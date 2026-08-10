@@ -16,7 +16,14 @@ export type BlogDirection =
   | "otolaryngology"
   | "ophthalmology"
   | "pediatrics"
-  | "proctology";
+  | "proctology"
+  | "rehabilitation"
+  | "endocrinology"
+  | "therapy"
+  | "traumatology"
+  | "dentistry"
+  | "urology"
+  | "surgery";
 export type BlogSort = "default" | "title_asc" | "title_desc";
 
 export type BlogPostCard = {
@@ -37,6 +44,13 @@ function directionLabel(d: BlogDirection) {
   if (d === "ophthalmology") return "Офтальмология";
   if (d === "pediatrics") return "Педиатрия";
   if (d === "proctology") return "Проктология";
+  if (d === "rehabilitation") return "Восстановление";
+  if (d === "endocrinology") return "Эндокринология";
+  if (d === "therapy") return "Терапия";
+  if (d === "traumatology") return "Травматология";
+  if (d === "dentistry") return "Стоматология";
+  if (d === "urology") return "Урология";
+  if (d === "surgery") return "Хирургия";
   if (d === "dermatology") return "Дерматология";
   return "Гастроэнтерология";
 }
@@ -53,7 +67,14 @@ function sanitizeDirection(v: string | null): BlogDirection | "all" {
     v === "otolaryngology" ||
     v === "ophthalmology" ||
     v === "pediatrics" ||
-    v === "proctology"
+    v === "proctology" ||
+    v === "rehabilitation" ||
+    v === "endocrinology" ||
+    v === "therapy" ||
+    v === "traumatology" ||
+    v === "dentistry"
+    || v === "urology"
+    || v === "surgery"
   )
     return v;
   return "all";
@@ -100,7 +121,14 @@ export default function BlogIndexClient({ posts }: { posts: BlogPostCard[] }) {
     const ophthalmology = posts.filter((p) => p.direction === "ophthalmology").length;
     const pediatrics = posts.filter((p) => p.direction === "pediatrics").length;
     const proctology = posts.filter((p) => p.direction === "proctology").length;
-    return { all: posts.length, gynecology, allergology, gastroenterology, dermatology, cardiology, mammology, neurology, otolaryngology, ophthalmology, pediatrics, proctology };
+    const rehabilitation = posts.filter((p) => p.direction === "rehabilitation").length;
+    const endocrinology = posts.filter((p) => p.direction === "endocrinology").length;
+    const therapy = posts.filter((p) => p.direction === "therapy").length;
+    const traumatology = posts.filter((p) => p.direction === "traumatology").length;
+    const dentistry = posts.filter((p) => p.direction === "dentistry").length;
+    const urology = posts.filter((p) => p.direction === "urology").length;
+    const surgery = posts.filter((p) => p.direction === "surgery").length;
+    return { all: posts.length, gynecology, allergology, gastroenterology, dermatology, cardiology, mammology, neurology, otolaryngology, ophthalmology, pediatrics, proctology, rehabilitation, endocrinology, therapy, traumatology, dentistry, urology, surgery };
   }, [posts]);
 
   const updateQuery = (nextDir: BlogDirection | "all", nextSort: BlogSort) => {
@@ -142,6 +170,13 @@ export default function BlogIndexClient({ posts }: { posts: BlogPostCard[] }) {
                 { id: "ophthalmology", label: `Офтальмология (${counts.ophthalmology})` },
                 { id: "pediatrics", label: `Педиатрия (${counts.pediatrics})` },
                 { id: "proctology", label: `Проктология (${counts.proctology})` },
+                { id: "rehabilitation", label: `Восстановление (${counts.rehabilitation})` },
+                { id: "endocrinology", label: `Эндокринология (${counts.endocrinology})` },
+                { id: "therapy", label: `Терапия (${counts.therapy})` },
+                { id: "traumatology", label: `Травматология (${counts.traumatology})` },
+                { id: "dentistry", label: `Стоматология (${counts.dentistry})` },
+                { id: "urology", label: `Урология (${counts.urology})` },
+                { id: "surgery", label: `Хирургия (${counts.surgery})` },
               ] as const
             ).map((t) => {
               const active = dir === t.id;
@@ -179,9 +214,14 @@ export default function BlogIndexClient({ posts }: { posts: BlogPostCard[] }) {
         </div>
 
         {dir !== "all" && (
-          <p className="text-sm text-gray-500 mb-4">
-            Раздел: <span className="font-medium text-gray-800">{directionLabel(dir)}</span>
-          </p>
+          <div className="mb-5 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-emerald-100 bg-emerald-50/60 px-4 py-3">
+            <p className="text-sm text-gray-600">
+              Раздел: <span className="font-semibold text-gray-900">{directionLabel(dir)}</span>
+            </p>
+            <Link href={`/blog/topics/${dir}`} className="text-sm font-semibold text-emerald-700 hover:underline">
+              Открыть тематический раздел →
+            </Link>
+          </div>
         )}
 
         <div id="statyi" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 scroll-mt-24">
@@ -552,4 +592,3 @@ export default function BlogIndexClient({ posts }: { posts: BlogPostCard[] }) {
     </section>
   );
 }
-

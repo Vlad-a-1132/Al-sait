@@ -9,6 +9,8 @@ import { OTOLARYNGOLOGY_SERVICE_ARTICLES } from '@/data/otolaryngology-service-a
 import { OPHTHALMOLOGY_SERVICE_ARTICLES } from '@/data/ophthalmology-service-articles';
 import { PEDIATRICS_SERVICE_ARTICLES } from '@/data/pediatrics-service-articles';
 import { PROCTOLOGY_SERVICE_ARTICLES } from '@/data/proctology-service-articles';
+import { REHABILITATION_SERVICE_ARTICLES } from '@/data/rehabilitation-service-articles';
+import { PRIORITY_SEO_ARTICLE_CARDS } from '@/data/priority-seo-articles';
 import BlogIndexClient, { type BlogPostCard } from './BlogIndexClient';
 import { Suspense } from 'react';
 
@@ -42,6 +44,7 @@ export const metadata = {
 
 export default function BlogPage() {
   const posts: BlogPostCard[] = [
+    ...PRIORITY_SEO_ARTICLE_CARDS,
     ...GASTROENTEROLOGY_ARTICLES_LIST.map((a) => ({ ...a, direction: 'gastroenterology' as const })),
     ...ALLERGOLOGY_ARTICLES_LIST.map((a) => ({ ...a, direction: 'allergology' as const })),
     ...GYNEC_ARTICLES_LIST.map((a) => ({ ...a, direction: 'gynecology' as const })),
@@ -53,6 +56,7 @@ export default function BlogPage() {
     ...OPHTHALMOLOGY_SERVICE_ARTICLES.map((a) => ({ ...a, direction: 'ophthalmology' as const })),
     ...PEDIATRICS_SERVICE_ARTICLES.map((a) => ({ ...a, direction: 'pediatrics' as const })),
     ...PROCTOLOGY_SERVICE_ARTICLES.map((a) => ({ ...a, direction: 'proctology' as const })),
+    ...REHABILITATION_SERVICE_ARTICLES.map((a) => ({ ...a, direction: 'rehabilitation' as const })),
   ];
 
   return (
@@ -75,4 +79,4 @@ export default function BlogPage() {
       </Suspense>
     </div>
   );
-} 
+}

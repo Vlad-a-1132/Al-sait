@@ -1,355 +1,85 @@
-"use client";
+import Image from "next/image";
+import Link from "next/link";
 
-import Link from 'next/link';
-import AppointmentForm from '@/components/AppointmentForm';
+const groups = [
+  { title: "Клинические исследования", items: ["Общий анализ крови", "Лейкоцитарная формула", "СОЭ", "Общий анализ мочи"] },
+  { title: "Биохимия крови", items: ["Глюкоза", "Липидный профиль", "Показатели печени", "Показатели работы почек"] },
+  { title: "Гормональные исследования", items: ["Щитовидная железа", "Репродуктивные гормоны", "Надпочечники", "Обмен веществ"] },
+  { title: "Инфекции", items: ["Антитела", "ПЦР-исследования", "Серологическая диагностика", "Комплексные панели"] },
+  { title: "Аллергология", items: ["Индивидуальные аллергены", "Аллергокомпоненты", "Панели аллергенов", "Иммунологические исследования"] },
+  { title: "Микроэлементы и витамины", items: ["Витамин D", "Железо и ферритин", "Витамины группы B", "Минеральный обмен"] },
+  { title: "Гистология и цитология", items: ["Цитологические исследования", "Гистологические исследования", "Исследование биоматериала", "Заключение лаборатории"] },
+  { title: "Другие исследования", items: ["Анализы кала", "Исследование спермы", "Аутоиммунные маркеры", "Генетические исследования"] },
+];
+
+const faq = [
+  { question: "Как найти нужный анализ?", answer: "Введите название или код исследования в большом калькуляторе. Если у вас есть назначение врача, можно собрать весь список и сохранить его перед обращением в клинику." },
+  { question: "Обязательно ли записываться заранее?", answer: "Условия зависят от вида биоматериала. Для мазков, соскобов и процедур, которые выполняет врач, нужна отдельная запись. Для остальных исследований режим лучше уточнить по телефону." },
+  { question: "Все анализы крови сдают натощак?", answer: "Требования различаются. Для части исследований важны интервал после еды, время суток или день цикла. Откройте памятку по подготовке или уточните правила для конкретного названия." },
+  { question: "Можно ли пить воду перед анализом крови?", answer: "Обычно небольшое количество воды допускается, но для отдельных исследований могут действовать специальные правила. Проверьте подготовку к выбранному тесту." },
+  { question: "Где получить результаты?", answer: "Способ и срок выдачи зависят от исследования. При оформлении заказа сотрудник сообщит ориентировочный срок и доступный способ получения." },
+  { question: "Можно ли сдать анализы ребёнку?", answer: "Да, в лабораторном разделе есть исследования для детей. Возрастные условия, подготовку и необходимый объём биоматериала стоит уточнить заранее." },
+  { question: "Как выбрать анализы при усталости или другой жалобе?", answer: "Для симптомов нет одного универсального набора. Лучше начать с терапевта, педиатра или профильного врача, чтобы получить обоснованный список исследований." },
+];
 
 export default function LabTestsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      { "@type": "MedicalTest", name: "Лабораторные анализы в Альтамед-С", url: "https://altamed-c.ru/services/lab-tests" },
+      { "@type": "FAQPage", mainEntity: faq.map((item) => ({ "@type": "Question", name: item.question, acceptedAnswer: { "@type": "Answer", text: item.answer } })) },
+    ],
+  };
+
   return (
-    <div className="flex flex-col min-h-full bg-white">
-      {/* Breadcrumbs */}
-      <section className="py-4">
-        <div className="mx-auto px-4" style={{ maxWidth: '83rem' }}>
-          <nav aria-label="Breadcrumb" className="flex items-center space-x-2 text-sm text-gray-600">
-            <Link href="/" className="hover:text-emerald-600">Главная</Link>
-            <span>/</span>
-            <Link href="/services" className="hover:text-emerald-600">Услуги</Link>
-            <span>/</span>
-            <span className="text-gray-900">Лабораторные анализы</span>
-          </nav>
-        </div>
-      </section>
+    <main className="min-h-screen bg-white text-gray-950">
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <div className="border-b border-gray-100 bg-gray-50/60">
+        <nav className="mx-auto max-w-7xl px-4 py-4 text-sm text-gray-600 sm:px-6 lg:px-8" aria-label="Хлебные крошки"><Link href="/" className="hover:text-emerald-700">Главная</Link><span className="mx-2">/</span><Link href="/services" className="hover:text-emerald-700">Услуги</Link><span className="mx-2">/</span><span className="font-medium text-gray-900">Анализы</span></nav>
+      </div>
 
-      {/* Top row of quick links (as in example) */}
-      <section className="pb-4">
-        <div className="mx-auto px-4" style={{ maxWidth: '83rem' }}>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              { title: 'Подготовка к сдаче анализов' },
-              { title: 'Как получить результаты' },
-              { title: 'Цены' }
-            ].map((item, idx) => (
-              <div key={idx} className="rounded-2xl p-4 text-white font-medium shadow-md"
-                   style={{ background: idx % 2 === 0 ? '#2C83A7' : '#B07AA0' }}>
-                {item.title}
-              </div>
-            ))}
+      <section className="bg-gradient-to-br from-cyan-50 via-white to-emerald-50">
+        <div className="mx-auto grid max-w-7xl items-center gap-10 px-4 py-12 sm:px-6 md:py-16 lg:grid-cols-[1.08fr_.92fr] lg:px-8">
+          <div>
+            <p className="text-sm font-bold uppercase tracking-[0.18em] text-emerald-700">Лабораторная диагностика</p>
+            <h1 className="mt-3 text-4xl font-bold leading-tight md:text-6xl">Сдать анализы в Одинцово</h1>
+            <p className="mt-5 max-w-3xl text-lg leading-relaxed text-gray-700">Найдите исследование по названию или коду, соберите список в калькуляторе и заранее проверьте правила подготовки. Все основные действия — на одной странице.</p>
+            <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+              <Link href="/services/lab-tests/calculator" className="inline-flex min-h-12 items-center justify-center rounded-xl bg-emerald-600 px-7 py-3.5 font-semibold text-white shadow-lg shadow-emerald-900/15 hover:bg-emerald-700">Открыть калькулятор</Link>
+              <a href="tel:+74952554450" className="inline-flex min-h-12 items-center justify-center rounded-xl border-2 border-emerald-600 px-7 py-3.5 font-semibold text-emerald-800 hover:bg-white">Уточнить по телефону</a>
+            </div>
+            <div className="mt-7 grid max-w-2xl grid-cols-1 gap-3 text-sm sm:grid-cols-3">
+              <a href="#groups" className="rounded-xl bg-white px-4 py-3 font-semibold shadow-sm hover:text-emerald-700">Виды анализов ↓</a>
+              <a href="#preparation" className="rounded-xl bg-white px-4 py-3 font-semibold shadow-sm hover:text-emerald-700">Подготовка ↓</a>
+              <a href="#faq" className="rounded-xl bg-white px-4 py-3 font-semibold shadow-sm hover:text-emerald-700">Частые вопросы ↓</a>
+            </div>
+          </div>
+          <div className="relative aspect-[4/3] overflow-hidden rounded-3xl bg-cyan-100 shadow-xl">
+            <Image src="/images/yslugi/Laboratory tests.webp" alt="Лабораторные анализы в Альтамед-С" fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 45vw" />
+            <div className="absolute inset-x-4 bottom-4 rounded-2xl bg-white/95 p-5 shadow-lg backdrop-blur"><p className="font-bold">Уже есть назначение врача?</p><p className="mt-1 text-sm text-gray-600">Откройте калькулятор, найдите исследования и сохраните готовый список.</p></div>
           </div>
         </div>
       </section>
 
-      {/* Calculator */}
-      <section className="py-2">
-        <div className="mx-auto px-4" style={{ maxWidth: '83rem' }}>
-          <div className="bg-[#FF8A26] rounded-[20px] overflow-hidden shadow-md">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-0">
-              <div className="p-6 md:p-8 text-white flex flex-col justify-between">
-                <div>
-                  <h2 className="text-2xl md:text-3xl font-bold mb-2">Калькулятор анализов</h2>
-                  <p className="opacity-90 mb-4">Быстрый поиск анализов и цен</p>
-                  
-                  <div className="mb-6">
-                    <h3 className="text-lg md:text-xl font-semibold mb-3">Расчет стоимости анализов</h3>
-                    <p className="text-sm md:text-base opacity-95 mb-4 leading-relaxed">
-                      Узнайте актуальные цены на любые анализы в клинике «Альтамед-с» Одинцово. Калькулятор позволяет рассчитать общую стоимость нескольких анализов, создать индивидуальный список исследований и спланировать бюджет на диагностику.
-                    </p>
-                    <ul className="space-y-2 text-sm md:text-base opacity-95">
-                      <li className="flex items-start">
-                        <svg className="w-5 h-5 text-white mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        Актуальные цены на все анализы
-                      </li>
-                      <li className="flex items-start">
-                        <svg className="w-5 h-5 text-white mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        Расчет общей стоимости комплекса анализов
-                      </li>
-                      <li className="flex items-start">
-                        <svg className="w-5 h-5 text-white mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                        </svg>
-                        Сохранение списка выбранных анализов
-                      </li>
-                    </ul>
-                  </div>
-                </div>
-                
-                <Link href="/services/lab-tests/calculator" className="inline-flex items-center bg-white text-[#FF8A26] font-semibold rounded-full px-5 py-2 self-start">
-                  Подробнее
-                  <span className="ml-2">›</span>
-                </Link>
-              </div>
-              <div className="relative min-h-[290px] md:min-h-[450px]">
-                <img 
-                  src="/images/yslugi/task_01k98699pvfvftj8ny4thaha6p_1762285458_img_0 (1).webp" 
-                  alt="Калькулятор анализов" 
-                  className="w-full h-full object-contain object-right"
-                  style={{ minHeight: '290px' }}
-                />
-              </div>
-            </div>
-          </div>
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
+        <div className="grid gap-5 md:grid-cols-3">
+          <Link href="/services/lab-tests/calculator" className="rounded-2xl border border-orange-100 bg-orange-50 p-6 transition hover:-translate-y-0.5 hover:shadow-md"><span className="text-sm font-bold text-orange-700">Большой каталог</span><h2 className="mt-2 text-2xl font-bold">Калькулятор анализов</h2><p className="mt-2 text-sm leading-relaxed text-gray-600">Поиск по названию и коду, категории исследований, выбранный список и сохранение.</p><span className="mt-4 inline-flex font-semibold text-orange-700">Перейти →</span></Link>
+          <Link href="/services/lab-tests/analizy-rebenku" className="rounded-2xl border border-sky-100 bg-sky-50 p-6 transition hover:-translate-y-0.5 hover:shadow-md"><span className="text-sm font-bold text-sky-700">Отдельный маршрут</span><h2 className="mt-2 text-2xl font-bold">Анализы ребёнку</h2><p className="mt-2 text-sm leading-relaxed text-gray-600">Возрастные особенности, подготовка родителей и удобный порядок обращения.</p><span className="mt-4 inline-flex font-semibold text-sky-700">Подробнее →</span></Link>
+          <Link href="/services/therapy" className="rounded-2xl border border-emerald-100 bg-emerald-50 p-6 transition hover:-translate-y-0.5 hover:shadow-md"><span className="text-sm font-bold text-emerald-700">Если нет назначения</span><h2 className="mt-2 text-2xl font-bold">Начать с врача</h2><p className="mt-2 text-sm leading-relaxed text-gray-600">Терапевт поможет связать жалобы с подходящим обследованием и не собирать случайный набор.</p><span className="mt-4 inline-flex font-semibold text-emerald-700">Выбрать врача →</span></Link>
         </div>
       </section>
 
-      {/* Описание возможностей калькулятора анализов */}
-      <section className="py-12 bg-white">
-        <div className="mx-auto px-4" style={{ maxWidth: '83rem' }}>
-          <div className="bg-gradient-to-br from-orange-50 to-amber-50 rounded-[20px] shadow-lg p-8 md:p-12">
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6 text-center">
-              Калькулятор анализов в Одинцово — удобный инструмент для поиска и расчета стоимости
-            </h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                  <svg className="w-6 h-6 text-orange-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
-                  Быстрый поиск анализов
-                </h3>
-                <p className="text-gray-700 mb-4">
-                  Калькулятор анализов позволяет быстро найти нужный анализ по названию, категории или коду. 
-                  Вы можете искать среди сотен видов лабораторных исследований, включая анализы крови, мочи, 
-                  кала, гормональные исследования, онкомаркёры и многие другие.
-                </p>
-                <ul className="space-y-2 text-gray-600 text-sm">
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-orange-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Поиск по названию анализа
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-orange-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Фильтрация по категориям
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-orange-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Поиск по коду исследования
-                  </li>
-                </ul>
-              </div>
-              <div className="bg-white rounded-lg p-6 shadow-md">
-                <h3 className="text-xl font-semibold text-gray-800 mb-4 flex items-center">
-                  <svg className="w-6 h-6 text-orange-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  Расчет стоимости анализов
-                </h3>
-                <p className="text-gray-700 mb-4">
-                  Узнайте актуальные цены на любые анализы в клинике «Альтамед-с» Одинцово. 
-                  Калькулятор позволяет рассчитать общую стоимость нескольких анализов, 
-                  создать индивидуальный список исследований и спланировать бюджет на диагностику.
-                </p>
-                <ul className="space-y-2 text-gray-600 text-sm">
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-orange-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Актуальные цены на все анализы
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-orange-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Расчет общей стоимости комплекса анализов
-                  </li>
-                  <li className="flex items-start">
-                    <svg className="w-5 h-5 text-orange-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                    Сохранение списка выбранных анализов
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="bg-white rounded-lg p-6 shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4 text-center">
-                Чем полезен калькулятор анализов в Одинцово?
-              </h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Экономия времени</h4>
-                  <p className="text-sm text-gray-600">
-                    Не нужно звонить в клинику или искать информацию в разных источниках. 
-                    Все данные об анализах и ценах доступны в одном месте 24/7.
-                  </p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                    </svg>
-                  </div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Планирование бюджета</h4>
-                  <p className="text-sm text-gray-600">
-                    Заранее узнайте стоимость необходимых анализов и спланируйте расходы на диагностику. 
-                    Это особенно важно при комплексном обследовании.
-                  </p>
-                </div>
-                <div className="text-center">
-                  <div className="w-16 h-16 bg-orange-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <svg className="w-8 h-8 text-orange-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                    </svg>
-                  </div>
-                  <h4 className="font-semibold text-gray-800 mb-2">Удобство и доступность</h4>
-                  <p className="text-sm text-gray-600">
-                    Используйте калькулятор анализов в любое время с любого устройства. 
-                    Сохраняйте списки анализов и возвращайтесь к ним позже.
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 bg-white rounded-lg p-6 shadow-md">
-              <h3 className="text-xl font-semibold text-gray-800 mb-4">
-                Как использовать калькулятор анализов?
-              </h3>
-              <div className="space-y-4">
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold mr-4">
-                    1
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">Поиск анализов</h4>
-                    <p className="text-gray-600 text-sm">
-                      Введите название анализа в поисковую строку или выберите категорию из списка. 
-                      Калькулятор покажет все доступные анализы с ценами.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold mr-4">
-                    2
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">Добавление в список</h4>
-                    <p className="text-gray-600 text-sm">
-                      Выберите нужные анализы и добавьте их в свой список. Калькулятор автоматически 
-                      рассчитает общую стоимость всех выбранных исследований.
-                    </p>
-                  </div>
-                </div>
-                <div className="flex items-start">
-                  <div className="flex-shrink-0 w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center font-bold mr-4">
-                    3
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-gray-800 mb-1">Запись на сдачу</h4>
-                    <p className="text-gray-600 text-sm">
-                      После формирования списка анализов вы можете записаться на сдачу в клинику «Альтамед-с» 
-                      в Одинцово через онлайн-форму или по телефону.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="mt-8 text-center">
-              <Link 
-                href="/services/lab-tests/calculator"
-                className="inline-flex items-center bg-orange-500 hover:bg-orange-600 text-white font-semibold rounded-full px-8 py-4 text-lg transition-colors shadow-lg"
-              >
-                Открыть калькулятор анализов
-                <svg className="w-5 h-5 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
+      <section id="groups" className="scroll-mt-24 border-y border-gray-100 bg-gray-50">
+        <div className="mx-auto max-w-7xl px-4 py-14 sm:px-6 lg:px-8"><div className="max-w-3xl"><p className="font-semibold text-emerald-700">Навигация по каталогу</p><h2 className="mt-2 text-3xl font-bold md:text-4xl">Основные группы исследований</h2><p className="mt-3 text-gray-600">Ниже — ориентир по разделам. Точное название исследования ищите в калькуляторе или в назначении врача.</p></div><div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">{groups.map((group) => <div key={group.title} className="rounded-2xl bg-white p-5 shadow-sm"><h3 className="font-bold text-gray-950">{group.title}</h3><ul className="mt-3 space-y-2 text-sm text-gray-600">{group.items.map((item) => <li key={item} className="flex gap-2"><span className="text-emerald-600">•</span>{item}</li>)}</ul></div>)}</div><div className="mt-7 text-center"><Link href="/services/lab-tests/calculator" className="inline-flex min-h-12 items-center justify-center rounded-xl bg-emerald-600 px-7 py-3.5 font-semibold text-white hover:bg-emerald-700">Найти конкретный анализ</Link></div></div>
       </section>
 
-      {/* Категории анализов (4 карточки) */}
-      <section className="py-8">
-        <div className="mx-auto px-4" style={{ maxWidth: '83rem' }}>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {/* Онкология */}
-            <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
-              <div className="text-gray-900 font-semibold mb-3">Онкология</div>
-              <ul className="text-sm text-gray-700 space-y-2">
-                <li>Гистология</li>
-                <li>Онкомаркёры</li>
-                <li>Цитология</li>
-              </ul>
-            </div>
-            {/* Исследования крови */}
-            <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
-              <div className="text-gray-900 font-semibold mb-3">Исследования крови</div>
-              <ul className="text-sm text-gray-700 space-y-2">
-                <li>Клинические исследования</li>
-                <li>Биохимия</li>
-                <li>Иммунология</li>
-                <li>Гормоны</li>
-              </ul>
-            </div>
-            {/* Исследования мочи */}
-            <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
-              <div className="text-gray-900 font-semibold mb-3">Исследования мочи</div>
-              <ul className="text-sm text-gray-700 space-y-2">
-                <li>Биохимический анализ мочи</li>
-                <li>Общий анализ мочи</li>
-                <li>Гормоны</li>
-              </ul>
-            </div>
-            {/* Аллергии */}
-            <div className="bg-white rounded-2xl border border-gray-200 p-5 shadow-sm">
-              <div className="text-gray-900 font-semibold mb-3">Аллергии</div>
-              <ul className="text-sm text-gray-700 space-y-2">
-                <li>Аллергокомпоненты</li>
-                <li>Индивидуальные аллергены</li>
-                <li>Аллергия на лекарства</li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      <section id="preparation" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-14 sm:px-6 lg:px-8">
+        <div className="grid gap-10 lg:grid-cols-[.8fr_1.2fr]"><div><p className="font-semibold text-emerald-700">Перед посещением</p><h2 className="mt-2 text-3xl font-bold">Подготовка к анализам</h2><p className="mt-4 leading-relaxed text-gray-600">Правила зависят от конкретного исследования. Проверяйте их по полному названию из назначения: требования к времени, еде, нагрузке и лекарствам могут различаться.</p><p className="mt-4 leading-relaxed text-gray-600">Если несколько исследований планируются одновременно, ориентируйтесь на наиболее строгие правила и заранее уточните совместимость подготовки.</p></div><div className="grid gap-4 sm:grid-cols-2"><div className="rounded-2xl border border-gray-100 p-5"><h3 className="font-bold">Кровь</h3><p className="mt-2 text-sm leading-relaxed text-gray-600">Уточните интервал после еды, допустимость воды, время суток и ограничения по физической нагрузке.</p></div><div className="rounded-2xl border border-gray-100 p-5"><h3 className="font-bold">Моча</h3><p className="mt-2 text-sm leading-relaxed text-gray-600">Проверьте требования к гигиене, первой или средней порции, времени сбора и контейнеру.</p></div><div className="rounded-2xl border border-gray-100 p-5"><h3 className="font-bold">Гормоны</h3><p className="mt-2 text-sm leading-relaxed text-gray-600">Для некоторых исследований важны время суток, день цикла и приём лекарств — условия указывает врач.</p></div><div className="rounded-2xl border border-gray-100 p-5"><h3 className="font-bold">Мазки и соскобы</h3><p className="mt-2 text-sm leading-relaxed text-gray-600">Такие исследования могут требовать записи к специалисту и отдельных ограничений перед взятием материала.</p></div></div></div>
       </section>
 
-      {/* Виды лабораторных анализов и исследований */}
-      <section className="py-10 bg-gray-50">
-        <div className="mx-auto px-4" style={{ maxWidth: '83rem' }}>
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Виды лабораторных анализов и исследований</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-10 gap-y-3 text-gray-800 text-sm">
-                <span>Общие исследования крови</span>
-                <span>Гематологические исследования</span>
-                <span>Биохимические исследования крови</span>
-                <span>Аллергологические исследования</span>
-                <span>Онкомаркёры</span>
-                <span>Исследования кала</span>
-                <span>Общеклинические исследования кала</span>
-                <span>Аутоиммунные заболевания</span>
-                <span>Панели аллергенов</span>
-                <span>Исследование спермы</span>
-                <span>Гистологические исследования</span>
-                <span>Генетический анализ</span>
-                <span>Гормональные исследования крови</span>
-                <span>Исследования крови на инфекции</span>
-                <span>Исследования мочи</span>
-                <span>Цитологические исследования</span>
-                <span>Иммунологические исследования крови</span>
-                <span>Исследования инфекционных заболеваний</span>
-              </div>
-            </div>
-            <div className="relative">
-              <img src="/images/yslugi/analiz women.webp" alt="Виды лабораторных анализов" className="w-full h-auto object-contain" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <section id="faq" className="scroll-mt-24 border-t border-gray-100 bg-emerald-50/50"><div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8"><h2 className="text-3xl font-bold">Частые вопросы об анализах</h2><div className="mt-7 grid gap-4 md:grid-cols-2">{faq.map((item) => <details key={item.question} className="rounded-2xl bg-white p-5 shadow-sm"><summary className="cursor-pointer list-none font-bold marker:hidden">{item.question}</summary><p className="mt-3 text-sm leading-relaxed text-gray-600">{item.answer}</p></details>)}</div></div></section>
 
-      {/* Appointment Form */}
-      <AppointmentForm />
-    </div>
+      <section className="bg-emerald-700 text-white"><div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-6 px-4 py-12 sm:px-6 md:flex-row md:items-center lg:px-8"><div><h2 className="text-3xl font-bold">Соберите список исследований</h2><p className="mt-2 max-w-2xl text-emerald-50">Большой калькулятор удобнее использовать с телефона и компьютера: поиск, категории и выбранные позиции находятся на одном экране.</p></div><Link href="/services/lab-tests/calculator" className="inline-flex min-h-12 shrink-0 items-center justify-center rounded-xl bg-white px-7 py-3.5 font-bold text-emerald-800 hover:bg-emerald-50">Открыть калькулятор</Link></div></section>
+    </main>
   );
 }

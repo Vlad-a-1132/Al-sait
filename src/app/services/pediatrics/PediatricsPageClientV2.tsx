@@ -202,6 +202,21 @@ export default function PediatricsPageClientV2({ serviceRows }: Props) {
               </Link>
             ))}
           </div>
+
+          <Link
+            href="/services/osteopathy/pediatric"
+            className="mt-6 grid sm:grid-cols-[120px_1fr_auto] gap-5 items-center rounded-2xl border border-emerald-200 bg-emerald-50/50 p-5 hover:bg-emerald-50 hover:shadow-md transition"
+          >
+            <div className="relative hidden sm:block h-24 overflow-hidden rounded-xl bg-white">
+              <Image src="/images/doctors/Stachenkova Svetlana Valerievna.webp" alt="" fill className="object-cover object-top" sizes="120px" />
+            </div>
+            <div>
+              <div className="text-xs uppercase tracking-wide font-semibold text-emerald-700 mb-1">Отдельное направление</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-2">Детский остеопат: приём детей от 0 до 14 лет</h3>
+              <p className="text-sm text-gray-600 leading-relaxed">Как проходит осмотр, что взять родителям и при каких симптомах сначала нужна помощь педиатра.</p>
+            </div>
+            <span className="font-semibold text-emerald-700 whitespace-nowrap">Подробнее →</span>
+          </Link>
         </div>
       </section>
 

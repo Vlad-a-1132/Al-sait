@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import ServiceSeoFaq from '@/components/ServiceSeoFaq';
 
 export const metadata: Metadata = {
   title: 'Услуги | Альтамед-с',
@@ -10,5 +11,5 @@ export default function ServicesLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return <>{children}</>;
+  return <>{children}<ServiceSeoFaq /></>;
 }
