@@ -88,8 +88,8 @@ function applySort(posts: BlogPostCard[], sort: BlogSort) {
   return next;
 }
 
-const INITIAL_VISIBLE_POSTS = 24;
-const LOAD_MORE_POSTS = 24;
+const INITIAL_VISIBLE_POSTS = 12;
+const LOAD_MORE_POSTS = 12;
 
 type BlogIndexClientProps = {
   posts: BlogPostCard[];
@@ -231,11 +231,12 @@ export default function BlogIndexClient({
         )}
 
         <div id="statyi" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 scroll-mt-24">
-          {visiblePosts.map((a) => (
+          {visiblePosts.map((a, index) => (
             <a
               key={a.url}
+              id={`article-${index}`}
               href={a.url}
-              className="group flex flex-col rounded-xl bg-white border border-gray-100 shadow-sm hover:border-teal-200 hover:shadow-md overflow-hidden transition"
+              className="group flex scroll-mt-24 flex-col rounded-xl bg-white border border-gray-100 shadow-sm hover:border-teal-200 hover:shadow-md overflow-hidden transition"
             >
               {a.direction === "dermatology" ||
               a.direction === "cardiology" ||
@@ -592,7 +593,7 @@ export default function BlogIndexClient({
         {visiblePosts.length < filtered.length && (
           <div className="mt-10 flex flex-col items-center gap-3">
             <a
-              href={`${buildBlogUrl(dir, sort, Math.min(visibleCount + LOAD_MORE_POSTS, filtered.length))}#statyi`}
+              href={`${buildBlogUrl(dir, sort, Math.min(visibleCount + LOAD_MORE_POSTS, filtered.length))}#article-${visiblePosts.length}`}
               className="inline-flex min-h-12 items-center justify-center rounded-xl bg-emerald-600 px-7 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-md"
             >
               Показать ещё статьи
