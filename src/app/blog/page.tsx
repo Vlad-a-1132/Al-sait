@@ -45,6 +45,7 @@ type BlogPageProps = {
   searchParams?: {
     dir?: string | string[];
     sort?: string | string[];
+    limit?: string | string[];
   };
 };
 
@@ -77,6 +78,9 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
   const initialSort = Array.isArray(searchParams?.sort)
     ? searchParams?.sort[0]
     : searchParams?.sort;
+  const initialLimit = Array.isArray(searchParams?.limit)
+    ? searchParams?.limit[0]
+    : searchParams?.limit;
 
   return (
     <div className="flex flex-col min-h-full">
@@ -97,6 +101,7 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
         posts={posts}
         initialDir={initialDir}
         initialSort={initialSort}
+        initialLimit={initialLimit}
       />
     </div>
   );
