@@ -249,6 +249,7 @@ export default function DoctorsPage() {
                           src={doctor.photo}
                           alt={doctor.name}
                           fill
+                          sizes="134px"
                           className="object-cover"
                         />
                       ) : (
@@ -303,4 +304,4 @@ export default function DoctorsPage() {
       </section>
     </div>
   );
-} 
+}

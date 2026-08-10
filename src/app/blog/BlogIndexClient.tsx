@@ -206,7 +206,7 @@ export default function BlogIndexClient({
               id="blog-sort"
               name="sort"
               defaultValue={sort}
-              className="h-10 rounded-xl border border-gray-200 bg-white px-3 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-emerald-200"
+              className="h-10 rounded-xl border border-gray-200 bg-white px-3 text-base text-gray-800 focus:outline-none focus:ring-2 focus:ring-emerald-200 md:text-sm"
               aria-label="Сортировка статей"
             >
               <option value="default">По умолчанию</option>

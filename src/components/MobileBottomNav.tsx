@@ -5,7 +5,11 @@ import Image from "next/image";
 
 export default function MobileBottomNav() {
   return (
-    <nav className="md:hidden fixed bottom-0 left-0 right-0 z-40">
+    <nav
+      data-mobile-bottom-nav
+      className="fixed bottom-0 left-0 right-0 z-40 md:hidden"
+      aria-label="Мобильная навигация"
+    >
       <div className="relative">
         {/* Decorative top accent line */}
         <div className="absolute -top-1 left-6 right-6 h-1 bg-emerald-600 rounded-full opacity-80" />
@@ -21,7 +25,7 @@ export default function MobileBottomNav() {
           {/* Center label */}
           <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[11px] font-medium text-emerald-600">Записаться</div>
         </div>
-        <div className="bg-white border-t border-gray-200 shadow-[0_-4px_12px_rgba(0,0,0,0.06)] px-3 pt-3 pb-2">
+        <div className="border-t border-gray-200 bg-white px-3 pt-3 pb-[calc(0.5rem_+_env(safe-area-inset-bottom))] shadow-[0_-4px_12px_rgba(0,0,0,0.06)]">
           <ul className="grid grid-cols-5 text-center text-[11px] text-gray-600">
             <li>
               <Link href="/about" className="flex flex-col items-center gap-1 py-1">

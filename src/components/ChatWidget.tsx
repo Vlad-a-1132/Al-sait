@@ -341,14 +341,24 @@ export default function ChatWidget() {
       welcomeLoggedRef.current = true;
       logChatMessage("assistant", initialMessages[0].text);
     }
-    window.setTimeout(() => inputRef.current?.focus(), 100);
+    if (
+      window.innerWidth >= 768 &&
+      window.matchMedia("(hover: hover) and (pointer: fine)").matches
+    ) {
+      window.setTimeout(() => inputRef.current?.focus(), 100);
+    }
+  };
+
+  const closeChat = () => {
+    inputRef.current?.blur();
+    setIsOpen(false);
   };
 
   return (
-    <div className="fixed bottom-24 right-4 z-[90] md:bottom-6 md:right-6">
+    <div className="mobile-chat-shell fixed right-[max(1rem,env(safe-area-inset-right))] z-[90] md:bottom-6 md:right-6">
       {isOpen ? (
         <section
-          className="flex h-[560px] w-[calc(100vw-2rem)] max-w-[360px] flex-col overflow-hidden rounded-2xl bg-[#111827] text-white shadow-2xl ring-1 ring-white/10"
+          className="mobile-chat-panel flex w-[calc(100vw_-_2rem_-_env(safe-area-inset-left)_-_env(safe-area-inset-right))] max-w-[360px] flex-col overflow-hidden rounded-2xl bg-[#111827] text-white shadow-2xl ring-1 ring-white/10"
           aria-label="Чат Альтамед-С"
         >
           <header className="flex items-center gap-3 border-b border-white/10 bg-[#0f1729] px-4 py-3">
@@ -366,7 +376,7 @@ export default function ChatWidget() {
             </div>
             <button
               type="button"
-              onClick={() => setIsOpen(false)}
+              onClick={closeChat}
               className="grid h-9 w-9 place-items-center rounded-full text-slate-300 transition hover:bg-white/10 hover:text-white"
               aria-label="Закрыть чат"
             >
@@ -427,7 +437,7 @@ export default function ChatWidget() {
                 ref={inputRef}
                 value={input}
                 onChange={(event) => setInput(event.target.value)}
-                className="min-w-0 flex-1 bg-transparent text-sm text-white placeholder:text-slate-400 focus:outline-none"
+                className="min-w-0 flex-1 bg-transparent text-base text-white placeholder:text-slate-400 focus:outline-none md:text-sm"
                 placeholder="Введите ваше сообщение..."
                 disabled={isLoading}
               />
