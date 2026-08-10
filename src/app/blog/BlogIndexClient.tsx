@@ -1,8 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import Link from "next/link";
-import { useMemo, useState } from "react";
 
 export type BlogDirection =
   | "gynecology"
@@ -99,27 +95,41 @@ type BlogIndexClientProps = {
   posts: BlogPostCard[];
   initialDir?: string;
   initialSort?: string;
+  initialLimit?: string;
 };
+
+function sanitizeLimit(value?: string) {
+  const parsed = Number.parseInt(value ?? "", 10);
+  if (!Number.isFinite(parsed)) return INITIAL_VISIBLE_POSTS;
+  return Math.max(INITIAL_VISIBLE_POSTS, Math.min(parsed, 240));
+}
+
+function buildBlogUrl(
+  dir: BlogDirection | "all",
+  sort: BlogSort,
+  limit = INITIAL_VISIBLE_POSTS,
+) {
+  const params = new URLSearchParams();
+  if (dir !== "all") params.set("dir", dir);
+  if (sort !== "default") params.set("sort", sort);
+  if (limit > INITIAL_VISIBLE_POSTS) params.set("limit", String(limit));
+  const query = params.toString();
+  return query ? `/blog?${query}` : "/blog";
+}
 
 export default function BlogIndexClient({
   posts,
   initialDir,
   initialSort,
+  initialLimit,
 }: BlogIndexClientProps) {
-  const [dir, setDir] = useState<BlogDirection | "all">(() =>
-    sanitizeDirection(initialDir ?? null),
-  );
-  const [sort, setSort] = useState<BlogSort>(() =>
-    sanitizeSort(initialSort ?? null),
-  );
-  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_POSTS);
+  const dir = sanitizeDirection(initialDir ?? null);
+  const sort = sanitizeSort(initialSort ?? null);
+  const visibleCount = sanitizeLimit(initialLimit);
+  const base = dir === "all" ? posts : posts.filter((p) => p.direction === dir);
+  const filtered = applySort(base, sort);
 
-  const filtered = useMemo(() => {
-    const base = dir === "all" ? posts : posts.filter((p) => p.direction === dir);
-    return applySort(base, sort);
-  }, [posts, dir, sort]);
-
-  const counts = useMemo(() => {
+  const counts = (() => {
     const gynecology = posts.filter((p) => p.direction === "gynecology").length;
     const allergology = posts.filter((p) => p.direction === "allergology").length;
     const gastroenterology = posts.filter((p) => p.direction === "gastroenterology").length;
@@ -139,39 +149,9 @@ export default function BlogIndexClient({
     const urology = posts.filter((p) => p.direction === "urology").length;
     const surgery = posts.filter((p) => p.direction === "surgery").length;
     return { all: posts.length, gynecology, allergology, gastroenterology, dermatology, cardiology, mammology, neurology, otolaryngology, ophthalmology, pediatrics, proctology, rehabilitation, endocrinology, therapy, traumatology, dentistry, urology, surgery };
-  }, [posts]);
+  })();
 
-  const visiblePosts = useMemo(
-    () => filtered.slice(0, visibleCount),
-    [filtered, visibleCount],
-  );
-
-  const updateQuery = (nextDir: BlogDirection | "all", nextSort: BlogSort) => {
-    if (typeof window === "undefined") return;
-
-    const qp = new URLSearchParams(window.location.search);
-    if (nextDir === "all") qp.delete("dir");
-    else qp.set("dir", nextDir);
-    if (nextSort === "default") qp.delete("sort");
-    else qp.set("sort", nextSort);
-    const qs = qp.toString();
-    const url = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
-
-    // Обновляем адрес без повторного запроса тяжёлого server-component payload.
-    window.history.replaceState(window.history.state, "", url);
-  };
-
-  const onDir = (nextDir: BlogDirection | "all") => {
-    setDir(nextDir);
-    setVisibleCount(INITIAL_VISIBLE_POSTS);
-    updateQuery(nextDir, sort);
-  };
-
-  const onSort = (nextSort: BlogSort) => {
-    setSort(nextSort);
-    setVisibleCount(INITIAL_VISIBLE_POSTS);
-    updateQuery(dir, nextSort);
-  };
+  const visiblePosts = filtered.slice(0, visibleCount);
 
   return (
     <section className="py-16 bg-white">
@@ -203,10 +183,9 @@ export default function BlogIndexClient({
             ).map((t) => {
               const active = dir === t.id;
               return (
-                <button
+                <a
                   key={t.id}
-                  type="button"
-                  onClick={() => onDir(t.id)}
+                  href={buildBlogUrl(t.id, sort)}
                   className={[
                     "px-4 py-2 rounded-full border text-sm font-medium transition",
                     active
@@ -215,16 +194,18 @@ export default function BlogIndexClient({
                   ].join(" ")}
                 >
                   {t.label}
-                </button>
+                </a>
               );
             })}
           </div>
 
-          <div className="flex items-center gap-3">
-            <span className="text-sm text-gray-600">Сортировка</span>
+          <form action="/blog" method="get" className="flex flex-wrap items-center gap-3">
+            {dir !== "all" && <input type="hidden" name="dir" value={dir} />}
+            <label htmlFor="blog-sort" className="text-sm text-gray-600">Сортировка</label>
             <select
-              value={sort}
-              onChange={(e) => onSort(e.target.value as BlogSort)}
+              id="blog-sort"
+              name="sort"
+              defaultValue={sort}
               className="h-10 rounded-xl border border-gray-200 bg-white px-3 text-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-emerald-200"
               aria-label="Сортировка статей"
             >
@@ -232,7 +213,10 @@ export default function BlogIndexClient({
               <option value="title_asc">По названию (А–Я)</option>
               <option value="title_desc">По названию (Я–А)</option>
             </select>
-          </div>
+            <button type="submit" className="h-10 rounded-xl bg-emerald-600 px-4 text-sm font-semibold text-white transition hover:bg-emerald-700">
+              Применить
+            </button>
+          </form>
         </div>
 
         {dir !== "all" && (
@@ -240,15 +224,15 @@ export default function BlogIndexClient({
             <p className="text-sm text-gray-600">
               Раздел: <span className="font-semibold text-gray-900">{directionLabel(dir)}</span>
             </p>
-            <Link href={`/blog/topics/${dir}`} className="text-sm font-semibold text-emerald-700 hover:underline">
+            <a href={`/blog/topics/${dir}`} className="text-sm font-semibold text-emerald-700 hover:underline">
               Открыть тематический раздел →
-            </Link>
+            </a>
           </div>
         )}
 
         <div id="statyi" className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 scroll-mt-24">
           {visiblePosts.map((a) => (
-            <Link
+            <a
               key={a.url}
               href={a.url}
               className="group flex flex-col rounded-xl bg-white border border-gray-100 shadow-sm hover:border-teal-200 hover:shadow-md overflow-hidden transition"
@@ -601,19 +585,18 @@ export default function BlogIndexClient({
                   </>
                 )}
               </div>
-            </Link>
+            </a>
           ))}
         </div>
 
         {visiblePosts.length < filtered.length && (
           <div className="mt-10 flex flex-col items-center gap-3">
-            <button
-              type="button"
-              onClick={() => setVisibleCount((count) => count + LOAD_MORE_POSTS)}
+            <a
+              href={`${buildBlogUrl(dir, sort, Math.min(visibleCount + LOAD_MORE_POSTS, filtered.length))}#statyi`}
               className="inline-flex min-h-12 items-center justify-center rounded-xl bg-emerald-600 px-7 py-3 font-semibold text-white shadow-sm transition hover:-translate-y-0.5 hover:bg-emerald-700 hover:shadow-md"
             >
               Показать ещё статьи
-            </button>
+            </a>
             <p className="text-sm text-gray-500">
               Показано {visiblePosts.length} из {filtered.length}
             </p>
