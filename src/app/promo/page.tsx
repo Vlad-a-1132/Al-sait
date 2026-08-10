@@ -2,12 +2,35 @@
 
 import Link from "next/link";
 import DentalPromoBanner from "@/components/DentalPromoBanner";
+import { PEDIATRIC_PROMOTIONS } from "@/data/pediatric-promotions";
 
 export default function PromoPage() {
   // Данные акций
-  const promotions = [
+  const promotions: Array<{
+    id: string;
+    slug: string;
+    category: string;
+    image: string;
+    title: string;
+    description: string;
+    badge?: string;
+    price?: string;
+    startDate?: string;
+    endDate?: string;
+  }> = [
+    ...PEDIATRIC_PROMOTIONS.map((promo) => ({
+      id: promo.slug,
+      slug: promo.slug,
+      category: promo.category,
+      image: promo.image,
+      title: promo.title,
+      description: promo.description,
+      badge: promo.badge,
+      price: promo.price ?? "от 5 460 ₽",
+    })),
     {
-      id: 1,
+      id: "promo-1",
+      slug: "promo-1",
       category: "diagnostics",
       image: "/images/slides/1-kt.webp",
       startDate: "01.10.2025",
@@ -16,7 +39,8 @@ export default function PromoPage() {
       description: "Понедельник, Среда, Пятница – 20%, Суббота – 25%"
     },
     {
-      id: 2,
+      id: "promo-2",
+      slug: "promo-2",
       category: "diagnostics",
       image: "/images/slides/yzi.webp",
       startDate: "01.10.2025",
@@ -25,7 +49,8 @@ export default function PromoPage() {
       description: "УЗИ органов малого таза + молочных желез + щитовидной железы. Цена: 5200 ₽ (было 6200 ₽)"
     },
     {
-      id: 3,
+      id: "promo-3",
+      slug: "promo-3",
       category: "consultations",
       image: "/images/slides/2-pensia.webp",
       startDate: "01.10.2025",
@@ -34,7 +59,8 @@ export default function PromoPage() {
       description: "– 10% на все услуги, кроме стоматологии"
     },
     {
-      id: 4,
+      id: "promo-4",
+      slug: "promo-4",
       category: "diagnostics",
       image: "/images/slides/3-analizy.webp",
       startDate: "01.10.2025",
@@ -43,7 +69,8 @@ export default function PromoPage() {
       description: "Понедельник, Среда, Пятница - 10%, Воскресенье - 15%. (скидки не суммируются)"
     },
     {
-      id: 5,
+      id: "promo-5",
+      slug: "promo-5",
       category: "consultations",
       image: "/images/slides/kolpos.webp",
       startDate: "01.01.2025",
@@ -52,7 +79,8 @@ export default function PromoPage() {
       description: "Кольпоскопия бесплатно при первичном приёме гинеколога"
     },
     {
-      id: 6,
+      id: "promo-6",
+      slug: "promo-6",
       category: "massage",
       image: "/images/promo/task_01kbdkwa0xftb9wh0jek05ksz3_1764615024_img_0.webp",
       startDate: "01.01.2025",
@@ -61,7 +89,8 @@ export default function PromoPage() {
       description: "А21.01.001 Общий массаж медицинский. Цена: 3430 ₽ (было 4200 ₽)"
     },
     {
-      id: 7,
+      id: "promo-7",
+      slug: "promo-7",
       category: "consultations",
       image: "/images/yslugi/task_01kcqt39h1evj89apdf39y58f8_1766030720_img_1.webp",
       startDate: "01.01.2025",
@@ -108,14 +137,11 @@ export default function PromoPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {promotions.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {promotions.map((promo) => {
-                // Генерируем slug на основе ID
-                const slug = `promo-${promo.id}`;
-                return (
+              {promotions.map((promo) => (
                   <Link
                     key={promo.id}
-                    href={`/promo/${slug}`}
-                    className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer group"
+                    href={`/promo/${promo.slug}`}
+                    className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   >
                     <div className="relative h-48 overflow-hidden bg-gray-100">
                       <img
@@ -127,17 +153,24 @@ export default function PromoPage() {
                         }}
                       />
                     </div>
-                    <div className="p-4">
+                    <div className="flex flex-1 flex-col p-4">
+                      {promo.badge && (
+                        <span className="mb-3 w-fit rounded-full bg-emerald-50 px-3 py-1 text-xs font-semibold text-emerald-700">
+                          {promo.badge}
+                        </span>
+                      )}
                       <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
                         {promo.title}
                       </h3>
-                      <p className="text-sm text-gray-600 line-clamp-3">
+                      <p className="text-sm text-gray-600 line-clamp-3 flex-1">
                         {promo.description}
                       </p>
+                      {promo.price && (
+                        <p className="mt-4 text-xl font-bold text-emerald-700">{promo.price}</p>
+                      )}
                     </div>
                   </Link>
-                );
-              })}
+                ))}
             </div>
           ) : (
             <div className="text-center py-16">

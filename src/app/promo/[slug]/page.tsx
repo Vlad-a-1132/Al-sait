@@ -3,10 +3,17 @@
 import Link from "next/link";
 import { useParams } from "next/navigation";
 import AppointmentForm from '@/components/AppointmentForm';
+import PediatricPromoLanding from '@/components/PediatricPromoLanding';
+import { getPediatricPromotion } from '@/data/pediatric-promotions';
 
 export default function PromoDetailPage() {
   const params = useParams();
   const slug = params?.slug as string;
+  const pediatricPromotion = slug ? getPediatricPromotion(slug) : undefined;
+
+  if (pediatricPromotion) {
+    return <PediatricPromoLanding promo={pediatricPromotion} />;
+  }
 
   // Данные акций (те же, что на главной странице promo)
   const promotions = [

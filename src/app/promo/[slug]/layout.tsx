@@ -1,4 +1,5 @@
 import { Metadata } from 'next';
+import { getPediatricPromotion, PEDIATRIC_PROMOTIONS } from '@/data/pediatric-promotions';
 
 // Данные акций для генерации статических параметров
 export function generateStaticParams() {
@@ -10,6 +11,7 @@ export function generateStaticParams() {
     { slug: 'promo-5' },
     { slug: 'promo-6' },
     { slug: 'promo-7' },
+    ...PEDIATRIC_PROMOTIONS.map(({ slug }) => ({ slug })),
   ];
 }
 
@@ -58,7 +60,14 @@ const promotionsData: Record<string, {
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
-  const promo = promotionsData[slug] || {
+  const pediatricPromotion = getPediatricPromotion(slug);
+  const promo = pediatricPromotion
+    ? {
+        title: pediatricPromotion.title,
+        description: pediatricPromotion.description,
+        image: pediatricPromotion.image,
+      }
+    : promotionsData[slug] || {
     title: 'Акции и спецпредложения',
     description: 'Акции и спецпредложения медицинского центра Альтамед-С в Одинцово',
   };
