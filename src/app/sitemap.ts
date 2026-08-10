@@ -2,6 +2,8 @@ import { MetadataRoute } from 'next';
 import { doctors } from '@/data/static-data';
 import { IMPLANTOLOGY_DIRECTION_SLUGS } from '@/data/abramov/implantologyDirectionPages';
 import { ORTHO_DIRECTION_SLUGS } from '@/data/goncharenko/orthoDirectionPages';
+import { PRIORITY_SEO_ARTICLES } from '@/data/priority-seo-articles';
+import { BLOG_TOPIC_SLUGS } from '@/data/blog-topic-pages';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://altamed-c.ru';
@@ -152,6 +154,32 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/blog/skleroterapiya-gemorrooidalnyh-uzlov',
     '/blog/udalenie-analnyh-bakhromok-kogda-provoditsya',
     '/blog/polip-pryamoj-kishki-pochemu-vazhno-obsledovanie',
+    '/blog/ozonoterapiya-kak-prohodit-protsedura',
+    '/blog/osteopaticheskiy-priem-kak-podgotovitsya',
+    '/blog/detskiy-osteopat-kak-prohodit-priem',
+    '/blog/allergiya',
+    '/blog/gastrit',
+    '/blog/schitovidnaya-zheleza',
+    '/blog/oteki-nog',
+    '/blog/pyatochnaya-shpora',
+    '/blog/zubnaya-bol',
+    '/blog/bol-v-gorle',
+    '/blog/topics/gynecology',
+    '/blog/topics/allergology',
+    '/blog/topics/gastroenterology',
+    '/blog/topics/dermatology',
+    '/blog/topics/cardiology',
+    '/blog/topics/mammology',
+    '/blog/topics/neurology',
+    '/blog/topics/otolaryngology',
+    '/blog/topics/ophthalmology',
+    '/blog/topics/pediatrics',
+    '/blog/topics/proctology',
+    '/blog/topics/rehabilitation',
+    '/blog/topics/endocrinology',
+    '/blog/topics/therapy',
+    '/blog/topics/traumatology',
+    '/blog/topics/dentistry',
     '/blog',
     '/contacts',
     '/diagnostics',
@@ -218,6 +246,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/implantation',
     '/services/lab-tests',
     '/services/lab-tests/calculator',
+    '/services/lab-tests/analizy-rebenku',
     '/services/laser-cosmetology',
     '/services/lymph-e-massage',
     '/services/mammology',
@@ -225,6 +254,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/services/neurology',
     '/services/ophthalmology',
     '/services/osteopathy',
+    '/services/osteopathy/pediatric',
+    '/services/ozone-therapy',
     '/services/otolaryngology',
     '/services/pediatrics',
     '/services/physiotherapy',
@@ -297,12 +328,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  const staticPathSet = new Set(staticUserPaths);
+  const priorityArticlePages: MetadataRoute.Sitemap = Object.keys(PRIORITY_SEO_ARTICLES)
+    .map((slug) => `/blog/${slug}`)
+    .filter((path) => !staticPathSet.has(path))
+    .map((path) => make(path, 'monthly', 0.8));
+  const topicPages: MetadataRoute.Sitemap = BLOG_TOPIC_SLUGS
+    .map((slug) => `/blog/topics/${slug}`)
+    .filter((path) => !staticPathSet.has(path))
+    .map((path) => make(path, 'monthly', 0.7));
+
   return [
     ...staticPages,
     ...doctorPages,
     ...promoPages,
     ...implantologyDirectionPages,
     ...orthodonticsDirectionPages,
+    ...priorityArticlePages,
+    ...topicPages,
   ];
 }
 

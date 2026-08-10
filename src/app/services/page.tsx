@@ -608,7 +608,7 @@ export default function ServicesPage() {
     {
       id: 'osteopathy',
       title: 'Остеопатия',
-      description: 'Остеопатическое лечение',
+      description: 'Приём взрослых и детей',
       icon: (
         <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -616,6 +616,30 @@ export default function ServicesPage() {
       ),
       category: 'additional',
       hasSubmenu: true
+    },
+    {
+      id: 'pediatric-osteopathy',
+      title: 'Детский остеопат',
+      description: 'Приём детей от 0 до 14 лет',
+      icon: (
+        <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197" />
+        </svg>
+      ),
+      category: 'additional',
+      hasSubmenu: false
+    },
+    {
+      id: 'ozone-therapy',
+      title: 'Озонотерапия',
+      description: 'Внутривенная инфузия по назначению врача',
+      icon: (
+        <svg className="w-6 h-6 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3v3m0 0a5 5 0 015 5v2a5 5 0 01-10 0v-2a5 5 0 015-5zm-3 14v4m6-4v4" />
+        </svg>
+      ),
+      category: 'additional',
+      hasSubmenu: false
     },
     {
       id: 'physiotherapy',
@@ -693,6 +717,7 @@ export default function ServicesPage() {
 
   // Первый контейнер - основные услуги
   const firstContainerServices = [
+    'ozone-therapy', 'pediatric-osteopathy',
     'allergology', 'gastroenterology', 'dietetics', 'gynecology', 'dermatology',
     'cardiology', 'laser-cosmetology', 'rentgenology', 'gnathology', 'mammology', 'neurology',
     'otolaryngology', 'ophthalmology', 'pediatrics',
@@ -711,9 +736,9 @@ export default function ServicesPage() {
   const dentistryServices = ['implantation', 'caries-treatment', 'dentistry-consultation', 'dentistry-pediatric', 'dentistry-surgery', 'dentistry-prosthodontist', 'dentistry-orthodontist', 'periodontics', 'dentistry-hygiene', 'airflow-prophylaxis-master', 'dentistry-extraction', 'dentistry-emergency', 'dentistry-plastic', 'dentistry-aesthetic', 'dentistry-prosthetics', 'dentistry-cadcam', 'dentistry-constructions', 'dentistry-deposits', 'dentistry-braces', 'dentistry-removable-appliances', 'dentistry-fixed-appliances', 'dentistry-orthodontic-maintenance', 'dentistry-strengthening', 'dentistry-xray', 'dentistry-ct'];
 
   // Первый контейнер услуг
-  const firstContainerData = medicalServices.filter(service => 
-    firstContainerServices.includes(service.id)
-  );
+  const firstContainerData = firstContainerServices.map(id =>
+    medicalServices.find(service => service.id === id)
+  ).filter((service): service is typeof medicalServices[0] => service !== undefined);
 
   // Реабилитация
   const rehabilitationData = medicalServices.filter(service => 
@@ -738,9 +763,38 @@ export default function ServicesPage() {
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <DentalPromoBanner />
+
           <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-4 justify-items-center">
             {firstContainerData.map((service) => (
-              service.id === 'allergology' ? (
+              service.id === 'ozone-therapy' ? (
+                <Link key={service.id} href="/services/ozone-therapy" className="bg-[#F6F8F7] rounded-[20px] hover:shadow-lg border border-gray-200 transition-all duration-300 cursor-pointer group flex items-center justify-between h-[80px] md:h-[100px] w-full max-w-[296.5px] p-0 overflow-hidden">
+                  <img
+                    src="/images/yslugi/ozone-therapy.webp"
+                    alt="Озонотерапия"
+                    className="w-10 md:w-20 h-full object-cover rounded-l-[20px]"
+                  />
+                  <div className="flex-1 px-2 md:px-4">
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 group-hover:text-emerald-700 transition-colors duration-300">{service.title}</h3>
+                  </div>
+                  <svg className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-white group-hover:bg-emerald-500 rounded-full p-1 transition-all duration-300 flex-shrink-0 mr-2 md:mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              ) : service.id === 'pediatric-osteopathy' ? (
+                <Link key={service.id} href="/services/osteopathy/pediatric" className="bg-[#F6F8F7] rounded-[20px] hover:shadow-lg border border-gray-200 transition-all duration-300 cursor-pointer group flex items-center justify-between h-[80px] md:h-[100px] w-full max-w-[296.5px] p-0 overflow-hidden">
+                  <img
+                    src="/images/yslugi/Pediatrician.webp"
+                    alt="Детский остеопат"
+                    className="w-10 md:w-20 h-full object-cover rounded-l-[20px]"
+                  />
+                  <div className="flex-1 px-2 md:px-4">
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 group-hover:text-emerald-700 transition-colors duration-300">{service.title}</h3>
+                  </div>
+                  <svg className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-white group-hover:bg-emerald-500 rounded-full p-1 transition-all duration-300 flex-shrink-0 mr-2 md:mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              ) : service.id === 'allergology' ? (
                 <Link key={service.id} href="/services/allergology" className="bg-[#F6F8F7] rounded-[20px] hover:shadow-lg border border-gray-200 transition-all duration-300 cursor-pointer group flex items-center justify-between h-[80px] md:h-[100px] w-full max-w-[296.5px] p-0 overflow-hidden">
                     <img 
                       src="/images/yslugi/allergoly.webp" 
@@ -1977,6 +2031,34 @@ export default function ServicesPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
                 </Link>
+              ) : service.id === 'pediatric-osteopathy' ? (
+                <Link key={service.id} href="/services/osteopathy/pediatric" className="bg-[#F6F8F7] rounded-[20px] hover:shadow-lg border border-gray-200 transition-all duration-300 cursor-pointer group flex items-center justify-between h-[80px] md:h-[100px] w-full max-w-[296.5px] p-0 overflow-hidden">
+                  <img
+                    src="/images/yslugi/Pediatrician.webp"
+                    alt="Детский остеопат"
+                    className="w-10 md:w-20 h-full object-cover object-top rounded-l-[20px]"
+                  />
+                  <div className="flex-1 px-2 md:px-4">
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 group-hover:text-emerald-700 transition-colors duration-300">{service.title}</h3>
+                  </div>
+                  <svg className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-white group-hover:bg-emerald-500 rounded-full p-1 transition-all duration-300 flex-shrink-0 mr-2 md:mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
+              ) : service.id === 'ozone-therapy' ? (
+                <Link key={service.id} href="/services/ozone-therapy" className="bg-[#F6F8F7] rounded-[20px] hover:shadow-lg border border-gray-200 transition-all duration-300 cursor-pointer group flex items-center justify-between h-[80px] md:h-[100px] w-full max-w-[296.5px] p-0 overflow-hidden">
+                  <img
+                    src="/images/yslugi/ozone-therapy.webp"
+                    alt="Озонотерапия"
+                    className="w-10 md:w-20 h-full object-cover rounded-l-[20px]"
+                  />
+                  <div className="flex-1 px-2 md:px-4">
+                    <h3 className="text-xs md:text-sm font-medium text-gray-900 group-hover:text-emerald-700 transition-colors duration-300">{service.title}</h3>
+                  </div>
+                  <svg className="w-4 h-4 md:w-5 md:h-5 text-gray-400 group-hover:text-white group-hover:bg-emerald-500 rounded-full p-1 transition-all duration-300 flex-shrink-0 mr-2 md:mr-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  </svg>
+                </Link>
               ) : service.id === 'physiotherapy' ? (
                 <Link key={service.id} href="/services/physiotherapy" className="bg-[#F6F8F7] rounded-[20px] hover:shadow-lg border border-gray-200 transition-all duration-300 cursor-pointer group flex items-center justify-between h-[80px] md:h-[100px] w-full max-w-[296.5px] p-0 overflow-hidden">
                   <img 
@@ -2369,4 +2451,4 @@ export default function ServicesPage() {
       <AppointmentForm />
     </div>
   );
-} 
+}
