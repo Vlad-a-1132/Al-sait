@@ -4,6 +4,7 @@ import { doctors } from "@/data/static-data";
 import React from "react";
 import { Metadata } from "next";
 import DoctorPageFullContent from "@/components/DoctorPageFullContent";
+import DobrotokPageClient from "@/components/doctor/DobrotokPageClient";
 import doctorsData from "../../../../doctors_data.json";
 
 interface DoctorPageProps {
@@ -2390,13 +2391,17 @@ export default async function DoctorPage({ params }: DoctorPageProps) {
       </section>
 
       {/* Main Content */}
-      <DoctorPageFullContent
-        doctor={doctor}
-        doctorName={doctor.name}
-        defaultSchedule={defaultSchedule}
-        defaultDetails={defaultDoctorDetails}
-        specialization={specialization}
-      />
+      {doctor.slug === "dobrotok-albina-vitalievna" ? (
+        <DobrotokPageClient doctor={doctor} />
+      ) : (
+        <DoctorPageFullContent
+          doctor={doctor}
+          doctorName={doctor.name}
+          defaultSchedule={defaultSchedule}
+          defaultDetails={defaultDoctorDetails}
+          specialization={specialization}
+        />
+      )}
     </div>
   );
 }
