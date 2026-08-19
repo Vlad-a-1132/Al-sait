@@ -3,6 +3,24 @@
 import { useEffect, useState, FormEvent } from "react";
 import Image from "next/image";
 
+const CALLBACK_DISMISSED_KEY = "altamed-callback-dismissed";
+
+function isCallbackDismissed() {
+  try {
+    return window.sessionStorage.getItem(CALLBACK_DISMISSED_KEY) === "1";
+  } catch {
+    return false;
+  }
+}
+
+function rememberCallbackDismissal() {
+  try {
+    window.sessionStorage.setItem(CALLBACK_DISMISSED_KEY, "1");
+  } catch {
+    // Safari can deny storage access; closing the modal must still work.
+  }
+}
+
 export default function CallbackModal() {
   const [isOpen, setIsOpen] = useState(false);
   const [name, setName] = useState("");
@@ -12,9 +30,17 @@ export default function CallbackModal() {
   const [submitStatus, setSubmitStatus] = useState<{ type: 'success' | 'error' | null; message: string }>({ type: null, message: '' });
 
   useEffect(() => {
-    const timer = setTimeout(() => setIsOpen(true), 10000); // 10s after load
+    if (window.matchMedia('(max-width: 767px)').matches) return;
+    if (isCallbackDismissed()) return;
+
+    const timer = setTimeout(() => setIsOpen(true), 30000);
     return () => clearTimeout(timer);
   }, []);
+
+  const closeModal = () => {
+    rememberCallbackDismissal();
+    setIsOpen(false);
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -71,13 +97,13 @@ export default function CallbackModal() {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-center justify-center bg-black/40 p-3 md:p-6">
+    <div className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto overscroll-contain bg-black/40 px-3 pb-[calc(0.75rem_+_env(safe-area-inset-bottom))] pt-[calc(0.75rem_+_env(safe-area-inset-top))] md:items-center md:p-6">
       {/* Modal */}
-      <div className="relative w-full max-w-[680px] bg-white rounded-2xl md:rounded-3xl shadow-2xl overflow-hidden">
+      <div className="callback-modal-panel relative w-full max-w-[680px] overflow-y-auto rounded-2xl bg-white shadow-2xl md:rounded-3xl">
         {/* Close */}
         <button
           aria-label="Закрыть"
-          onClick={() => setIsOpen(false)}
+          onClick={closeModal}
           className="absolute right-3 top-3 md:right-4 md:top-4 w-8 h-8 md:w-10 md:h-10 rounded-full bg-emerald-50 hover:bg-emerald-100 text-emerald-700 grid place-items-center"
         >
           <svg viewBox="0 0 24 24" className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="2">
@@ -88,7 +114,7 @@ export default function CallbackModal() {
         {/* Header line with logo imitation */}
         <div className="flex items-center gap-3 md:gap-4 px-5 md:px-8 pt-5 md:pt-7">
           <div className="w-9 h-9 md:w-12 md:h-12 rounded-lg overflow-hidden grid place-items-center">
-            <Image src="/images/icons/S.webp" alt="Альтамед-С" width={48} height={48} className="object-contain" />
+            <Image src="/images/icons/S.webp" alt="Альтамед-С" width={48} height={48} className="h-full w-full object-contain" />
           </div>
           <div className="font-extrabold text-2xl md:text-3xl text-[#13AB7B]">Альтамед-С</div>
         </div>
@@ -117,7 +143,7 @@ export default function CallbackModal() {
                 placeholder="Ваше имя"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full h-11 md:h-12 rounded-full border border-emerald-100 bg-white px-4 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                className="h-11 w-full rounded-full border border-emerald-100 bg-white px-4 text-base text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-300 md:h-12"
               />
               <input
                 type="tel"
@@ -125,7 +151,7 @@ export default function CallbackModal() {
                 value={phone}
                 onChange={(e) => setPhone(e.target.value)}
                 required
-                className="w-full h-11 md:h-12 rounded-full border border-emerald-100 bg-white px-4 text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-300"
+                className="h-11 w-full rounded-full border border-emerald-100 bg-white px-4 text-base text-gray-800 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-emerald-300 md:h-12"
               />
               <label className="flex items-center gap-2 text-xs text-gray-600">
                 <input 

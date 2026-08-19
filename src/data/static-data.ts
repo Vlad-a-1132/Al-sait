@@ -53,7 +53,8 @@ export const doctors = [
   { id: 52, name: "Чернова Алла Валерьевна", slug: "chernova-alla-valerievna", specialization: "Стоматолог", experience: 15, photo: "/images/doctors/Chernova Alla Valerievna.webp", description: "Врач стоматолог-терапевт. Окончила Рязанский государственный университет имени акад. И. П. Павлова по специальности «Врач- стоматолог»" },
   { id: 53, name: "Исаева Екатерина Николаевна", slug: "isaeva-ekaterina-nikolaevna", specialization: "Гигиенист стоматологический, Стоматология профилактическая", experience: 6, photo: "/images/doctors/isaeva-ekaterina-nikolaevna.jpg", description: "Квалифицированный гигиенист в области профилактики заболеваний полости рта и поддержания здоровья зубов и десен. Профессиональная гигиена, подбор средств ухода. Стаж с 2019 года." },
   { id: 54, name: "Молостов Александр Венедиктович", slug: "molostov-aleksandr-venedikhtovich", specialization: "Терапевт, Кардиолог", photo: "/images/doctors/Молостов.jpg", description: "Врач-терапевт, врач-кардиолог" },
-  { id: 55, name: "Школа Наталья Александровна", slug: "shkola-natalya-aleksandrovna", specialization: "Эндокринолог", photo: "/images/doctors/Shkola Natalya Alexandrovna.jpg", description: "Врач-эндокринолог. Стаж работы более 12 лет" }
+  { id: 55, name: "Школа Наталья Александровна", slug: "shkola-natalya-aleksandrovna", specialization: "Эндокринолог", photo: "/images/doctors/Shkola Natalya Alexandrovna.jpg", description: "Врач-эндокринолог. Стаж работы более 12 лет" },
+  { id: 56, name: "Доброток Альбина Витальевна", slug: "dobrotok-albina-vitalievna", specialization: "Педиатр", photo: "/images/doctors/dobrotok-albina-vitalievna.jpg", description: "Врач-педиатр, научный сотрудник. Амбулаторное наблюдение детей с рождения до 18 лет, профилактические приёмы, диагностика и лечение острых заболеваний детского возраста" }
 ];
 
 export const services = [
@@ -114,4 +115,4 @@ export const categories = [
   { id: 2, name: "Хирургия" },
   { id: 3, name: "Диагностика" },
   { id: 4, name: "Профилактика" }
-]; 
+];

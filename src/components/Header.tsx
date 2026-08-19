@@ -26,9 +26,9 @@ export default function Header() {
 
   return (
     <>
-    <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm w-full">
+    <header className="fixed left-0 right-0 top-0 z-50 w-full bg-white pt-[env(safe-area-inset-top)] shadow-sm">
       {/* Верхний уровень: логотип, телефон и кнопки */}
-      <div className="border-b border-gray-100 py-3">
+      <div className="border-b border-gray-100 py-2 md:py-3">
         <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: '83rem' }}>
           <div className="flex justify-between items-center">
             <div className="flex items-center">
@@ -139,6 +139,22 @@ export default function Header() {
       </div>
 
       {/* Второй уровень: поиск и навигация - скрываем на мобильных */}
+      <div className="flex h-9 items-center justify-between border-b border-gray-100 bg-emerald-50/70 px-4 text-[11px] font-medium text-gray-700 md:hidden">
+        <Link href="/contacts" className="inline-flex min-w-0 items-center gap-1.5">
+          <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-emerald-700" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1118 0z" />
+            <circle cx="12" cy="10" r="3" />
+          </svg>
+          <span className="truncate">Можайское ш., 141</span>
+        </Link>
+        <a href="tel:+74952554450" className="inline-flex shrink-0 items-center gap-1.5 font-semibold text-emerald-800">
+          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72" />
+          </svg>
+          Позвонить
+        </a>
+      </div>
+
       <div className="border-b border-gray-200 hidden md:block">
         <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: '83rem' }}>
           <div className="flex items-center py-3">
@@ -206,7 +222,7 @@ export default function Header() {
       </div>
 
       {/* Mobile menu */}
-      <div className={`${isMenuOpen ? 'block' : 'hidden'} md:hidden border-b border-gray-200`}>
+      <div className={`${isMenuOpen ? 'block' : 'hidden'} max-h-[calc(var(--app-viewport-height,100dvh)_-_92px_-_env(safe-area-inset-top))] overflow-y-auto overscroll-contain border-b border-gray-200 md:hidden`}>
         {/* Поиск в мобильном меню */}
         <div className="px-4 py-3 border-b border-gray-100">
           <form onSubmit={handleSearchSubmit} className="relative">
@@ -215,7 +231,7 @@ export default function Header() {
               placeholder="Поиск по сайту"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full border border-gray-200 rounded-md py-2 px-4 pr-10 text-sm focus:outline-none focus:ring-1 focus:ring-gray-300"
+              className="w-full rounded-md border border-gray-200 px-4 py-2 pr-10 text-base focus:outline-none focus:ring-1 focus:ring-gray-300"
             />
             <button 
               type="submit"
@@ -297,7 +313,7 @@ export default function Header() {
       </div>
     </header>
     {/* Spacer to offset fixed header height */}
-    <div className="h-[72px] md:h-[128px]"></div>
+    <div className="h-[calc(92px_+_env(safe-area-inset-top))] md:h-[calc(128px_+_env(safe-area-inset-top))]"></div>
     </>
   )
-} 
+}
