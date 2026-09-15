@@ -13,7 +13,7 @@ export default function HygienePage() {
     {
       subtitle: "Гигиена полости рта",
       services: [
-        { code: "", name: "Профессиональная гигиена /AIR FLOW, ультразвук, полировка паста-щетка/", price: 6300 }
+        { code: "", name: "Профессиональная гигиена /AIR FLOW, ультразвук, полировка паста-щетка/", price: 7200 }
       ]
     }
   ];
