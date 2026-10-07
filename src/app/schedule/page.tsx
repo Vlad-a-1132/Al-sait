@@ -24,6 +24,14 @@ interface DoctorScheduleRowProps {
   schedule: DoctorSchedule;
 }
 
+const EXCLUDED_SCHEDULE_DOCTORS = new Set([
+  "Ростовцева Эмилия Вениаминовна",
+  "Рагимханов Фарид Султанович",
+]);
+
+const isVisibleScheduleDoctor = (doctor: { name: string }) =>
+  !EXCLUDED_SCHEDULE_DOCTORS.has(doctor.name);
+
 function DoctorCardMobile({ name, specialty, schedule }: DoctorScheduleRowProps) {
   const days = [
     { key: 'Monday', label: 'Пн', data: schedule.Monday },
@@ -129,14 +137,17 @@ export default function SchedulePage() {
 
   // Функция для объединения статических данных с данными из localStorage
   const mergeDoctorsData = (staticDoctors: any[], savedDoctors: any[] | null | undefined) => {
+    const visibleStaticDoctors = staticDoctors.filter(isVisibleScheduleDoctor);
+
     if (!savedDoctors || !Array.isArray(savedDoctors)) {
-      return staticDoctors;
+      return visibleStaticDoctors;
     }
     
-    const savedMap = new Map(savedDoctors.map((doc: any) => [doc.name, doc]));
+    const visibleSavedDoctors = savedDoctors.filter(isVisibleScheduleDoctor);
+    const savedMap = new Map(visibleSavedDoctors.map((doc: any) => [doc.name, doc]));
     const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'] as const;
     
-    const merged = staticDoctors.map((staticDoc: any) => {
+    const merged = visibleStaticDoctors.map((staticDoc: any) => {
       const savedDoc = savedMap.get(staticDoc.name);
       if (!savedDoc) return staticDoc;
       // По дням: сначала слот из статики (код сайта); если в статике дня нет — из localStorage (доп. дни из админки)
@@ -158,8 +169,8 @@ export default function SchedulePage() {
       return { ...savedDoc, specialty: staticDoc.specialty ?? savedDoc.specialty, schedule };
     });
     
-    savedDoctors.forEach((savedDoc: any) => {
-      if (!staticDoctors.find((doc: any) => doc.name === savedDoc.name)) {
+    visibleSavedDoctors.forEach((savedDoc: any) => {
+      if (!visibleStaticDoctors.find((doc: any) => doc.name === savedDoc.name)) {
         merged.push(savedDoc);
       }
     });
@@ -232,11 +243,6 @@ export default function SchedulePage() {
       name: "Понедельченко Надежда Ивановна",
       specialty: "Дерматокосметолог",
       schedule: { Tuesday: { start: "09:00", end: "20:00" }, Sunday: { start: "09:00", end: "17:00" } }
-    },
-    {
-      name: "Ростовцева Эмилия Вениаминовна",
-      specialty: "Кардиолог",
-      schedule: { Monday: { start: "10:30", end: "15:00" }, Friday: { start: "10:30", end: "15:00" } }
     },
     {
       name: "Хомулло Валерия Викторовна",
@@ -351,11 +357,6 @@ export default function SchedulePage() {
       name: "Притула Александр Васильевич",
       specialty: "Невролог",
       schedule: { Monday: { start: "14:00", end: "20:00" }, Wednesday: { start: "13:30", end: "20:00" }, Saturday: { start: "14:00", end: "20:00" } }
-    },
-    {
-      name: "Рагимханов Фарид Султанович",
-      specialty: "Уролог",
-      schedule: { Friday: { start: "15:00", end: "20:00" }, Sunday: { start: "10:00", end: "13:00" } }
     },
     {
       name: "Русинович Валерий Михайлович",

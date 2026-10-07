@@ -145,10 +145,7 @@
       "experience": 43,
       "photo": "/images/doctors/Rostovtseva Emilia Veniaminovna.webp",
       "description": "Врач-кардиолог. Врачебный стаж с 1981 года. Заслуженный врач Российской Федерации",
-      "schedule": {
-        "Monday": { "start": "10:30", "end": "15:00" },
-        "Friday": { "start": "10:30", "end": "15:00" }
-      },
+      "schedule": {},
       "details": {
         "specialization": "Врач-кардиолог",
         "category": "Заслуженный врач Российской Федерации",

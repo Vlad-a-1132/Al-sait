@@ -97,6 +97,14 @@ export default function AdminDashboard() {
     branch4: 'Лабораторные исследования'
   };
 
+  const excludedScheduleDoctors = new Set([
+    "Ростовцева Эмилия Вениаминовна",
+    "Рагимханов Фарид Султанович",
+  ]);
+
+  const isVisibleScheduleDoctor = (doctor: DoctorScheduleData) =>
+    !excludedScheduleDoctors.has(doctor.name);
+
   const defaultBranch1Doctors: DoctorScheduleData[] = [
     { name: "Балян Мария Маисовна", specialty: "Отоларинголог, Сурдолог", schedule: { Wednesday: { start: "17:30", end: "20:00" }, Friday: { start: "17:30", end: "20:00" }, Sunday: { start: "10:00", end: "14:00" } } },
     { name: "Белоус Олег Анатольевич", specialty: "Остеопат", schedule: { Tuesday: { start: "08:00", end: "19:00" }, Wednesday: { start: "08:00", end: "19:00" }, Thursday: { start: "08:00", end: "19:00" }, Saturday: { start: "08:00", end: "19:00" }, Sunday: { start: "08:00", end: "19:00" } } },
@@ -110,7 +118,6 @@ export default function AdminDashboard() {
     { name: "Павлова Людмила Леонидовна", specialty: "УЗИ", schedule: { Tuesday: { start: "09:00", end: "13:00" } } },
     { name: "Понедельченко Надежда Ивановна", specialty: "Дерматокосметолог", schedule: { Tuesday: { start: "09:00", end: "20:00" }, Sunday: { start: "09:00", end: "17:00" } } },
     { name: "Полуэктова Оксана Николаевна", specialty: "Дерматовенеролог", schedule: { Monday: { start: "16:00", end: "20:00" }, Thursday: { start: "16:00", end: "20:00" }, Saturday: { start: "16:00", end: "20:00" } } },
-    { name: "Ростовцева Эмилия Вениаминовна", specialty: "Кардиолог", schedule: { Monday: { start: "10:30", end: "15:00" }, Friday: { start: "10:30", end: "15:00" } } },
     { name: "Хомулло Валерия Викторовна", specialty: "Врач УЗИ", schedule: { Tuesday: { start: "16:00", end: "20:00" }, Wednesday: { start: "08:30", end: "15:00" } } },
     { name: "Яблокова Инна Валерьевна", specialty: "Офтальмолог", schedule: { Monday: { start: "14:00", end: "19:00" }, Tuesday: { start: "14:00", end: "19:00" }, Wednesday: { start: "14:00", end: "19:00" }, Thursday: { start: "14:00", end: "19:00" }, Saturday: { start: "10:00", end: "16:00" } } }
   ];
@@ -136,7 +143,6 @@ export default function AdminDashboard() {
     { name: "Панова Ольга Юрьевна", specialty: "Акушер-гинеколог", schedule: { Monday: { start: "08:00", end: "15:00" }, Wednesday: { start: "14:00", end: "20:00" }, Thursday: { start: "08:00", end: "15:00" }, Sunday: { start: "14:00", end: "19:00" } } },
     { name: "Перегудова Нина Алексеевна", specialty: "Гинеколог", schedule: { Monday: { start: "15:00", end: "20:00" }, Tuesday: { start: "10:00", end: "15:00" }, Saturday: { start: "10:00", end: "19:00" }, Sunday: { start: "10:00", end: "18:00" } } },
     { name: "Притула Александр Васильевич", specialty: "Невролог", schedule: { Monday: { start: "14:00", end: "20:00" }, Wednesday: { start: "13:30", end: "20:00" }, Saturday: { start: "14:00", end: "20:00" } } },
-    { name: "Рагимханов Фарид Султанович", specialty: "Уролог", schedule: { Friday: { start: "15:00", end: "20:00" }, Sunday: { start: "10:00", end: "13:00" } } },
     { name: "Русинович Валерий Михайлович", specialty: "Колопроктолог", schedule: { Tuesday: { start: "16:00", end: "20:00" } } },
     { name: "Рыжов Андрей Иванович", specialty: "Оториноларинголог", schedule: { Tuesday: { start: "17:00", end: "20:00" } } },
     { name: "Рыжов Иван Николаевич", specialty: "Отоларинголог", schedule: { Monday: { start: "15:00", end: "20:00" }, Wednesday: { start: "15:00", end: "20:00" }, Friday: { start: "15:00", end: "20:00" }, Saturday: { start: "09:00", end: "16:00" }, Sunday: { start: "09:00", end: "16:00" } } },
@@ -178,10 +184,12 @@ export default function AdminDashboard() {
       case 'branch4': defaultDoctors = defaultBranch4Doctors; break;
       default: return [];
     }
+
+    defaultDoctors = defaultDoctors.filter(isVisibleScheduleDoctor);
     
     // Если есть сохраненные данные, объединяем их с дефолтными
     if (scheduleData[branchKey] && scheduleData[branchKey].length > 0) {
-      const savedDoctors = scheduleData[branchKey];
+      const savedDoctors = scheduleData[branchKey].filter(isVisibleScheduleDoctor);
       const savedMap = new Map(savedDoctors.map((doc: DoctorScheduleData) => [doc.name, doc]));
       
       // Создаем массив, где дефолтные данные обновляются сохраненными, если они есть
