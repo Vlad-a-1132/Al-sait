@@ -172,7 +172,6 @@ https://altamed-c.ru/doctors/poluektova-oksana-nikolaevna
 https://altamed-c.ru/doctors/ponedelchenko-nadezhda-ivanovna
 https://altamed-c.ru/doctors/prikule-elena-yuryevna
 https://altamed-c.ru/doctors/pritula-aleksandr-vasilievich
-https://altamed-c.ru/doctors/rostovtseva-emilia-veniaminovna
 https://altamed-c.ru/doctors/rubtsov-roman-vladimirovich
 https://altamed-c.ru/doctors/rubtsova-olga-yurievna
 https://altamed-c.ru/doctors/rusinovich-valery-mikhailovich

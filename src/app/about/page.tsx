@@ -6,10 +6,9 @@ import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { GYNEC_ARTICLES_LIST } from '@/data/gynec-articles-images';
 
-/** PDF в `public/images/documents` (кириллическое имя файла). */
-const DOC_ZHNVLP_2023_CYRILLIC =
-  '/images/documents/' +
-  encodeURIComponent('Перечень жнвлп для медицинского применения на 2023 год.pdf');
+const DOC_ZHNVLP_2026_2027 =
+  '/images/blog/' +
+  encodeURIComponent('Распоряжение Правительства РФ от 18.12.2025 N 3867-р Об утверждении перечня жизненно необходимых и.rtf');
 
 function PatientInfoSection() {
   const [isRegulatoryOpen, setIsRegulatoryOpen] = useState(false);
@@ -92,69 +91,6 @@ function PatientInfoSection() {
                       href="/images/documents/sdadasd.docx"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
-                    >
-                      Скачать файл
-                      <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-
-                {/* Программа государственных гарантий 2024 */}
-                <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-                    <div className="flex-1">
-                      <p className="text-gray-700 mb-1 text-sm">
-                        О Программе государственных гарантий бесплатного оказания гражданам медицинской помощи на 2024 год и на плановый период 2025 и 2026 годов
-                      </p>
-                    </div>
-                    <a 
-                      href="/images/documents/narusheniya (1).docx" 
-                      target="_blank" 
-                      className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
-                    >
-                      Скачать файл
-                      <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-
-                {/* Проект Постановления */}
-                <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-                    <div className="flex-1">
-                      <p className="text-gray-700 mb-1 text-sm">
-                        Проект Постановления Правительства Российской Федерации «О Программе государственных гарантий бесплатного оказания гражданам медицинской помощи на 2025 год и на плановый период 2026 и 2027 годов» (подготовлен Минздравом России 11.10.2024)
-                      </p>
-                    </div>
-                    <a 
-                      href="/images/documents/proekt-postanovleniya-pravitelstva-rf-1.odt" 
-                      target="_blank" 
-                      className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
-                    >
-                      Скачать файл
-                      <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-
-                {/* Постановление Правительства 2023 */}
-                <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-                    <div className="flex-1">
-                      <p className="text-gray-700 mb-1 text-sm">
-                        Постановление Правительства Российской Федерации от 29.12.2022 № 2497 «О Программе государственных гарантий бесплатного оказания гражданам медицинской помощи на 2023 год и на плановый период 2024 и 2025 годов»
-                      </p>
-                    </div>
-                    <a 
-                      href="/images/documents/postanovlenie-pravitelstva-rossijskoj-federacii-ot-29_compressed.pdf" 
-                      target="_blank" 
                       className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
                     >
                       Скачать файл
@@ -292,16 +228,16 @@ function PatientInfoSection() {
                   </div>
                 </div>
 
-                {/* Перечень ЖНВЛП 18.12.2025 № 3867-р */}
+                {/* Актуальный перечень ЖНВЛП на 2026–2027 годы */}
                 <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                     <div className="flex-1">
                       <p className="text-gray-700 mb-1 text-sm">
-                        Перечень ЖНВЛП  от 18 декабря 2025 г. N 3867-р
+                        Перечень ЖНВЛП на 2026–2027 годы
                       </p>
                     </div>
                     <a 
-                      href="/images/blog/%D0%A0%D0%B0%D1%81%D0%BF%D0%BE%D1%80%D1%8F%D0%B6%D0%B5%D0%BD%D0%B8%D0%B5%20%D0%9F%D1%80%D0%B0%D0%B2%D0%B8%D1%82%D0%B5%D0%BB%D1%8C%D1%81%D1%82%D0%B2%D0%B0%20%D0%A0%D0%A4%20%D0%BE%D1%82%2018.12.2025%20N%203867-%D1%80%20%D0%9E%D0%B1%20%D1%83%D1%82%D0%B2%D0%B5%D1%80%D0%B6%D0%B4%D0%B5%D0%BD%D0%B8%D0%B8%20%D0%BF%D0%B5%D1%80%D0%B5%D1%87%D0%BD%D1%8F%20%D0%B6%D0%B8%D0%B7%D0%BD%D0%B5%D0%BD%D0%BD%D0%BE%20%D0%BD%D0%B5%D0%BE%D0%B1%D1%85%D0%BE%D0%B4%D0%B8%D0%BC%D1%8B%D1%85%20%D0%B8.rtf" 
+                      href={DOC_ZHNVLP_2026_2027}
                       target="_blank" 
                       rel="noopener noreferrer"
                       className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
@@ -356,41 +292,6 @@ function PatientInfoSection() {
                   </div>
                 </div>
 
-                {/* Перечень ЖНВЛП 2023 */}
-                <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-                    <div className="flex-1">
-                      <p className="text-gray-700 mb-1 text-sm">
-                        Перечень жизненно необходимых и важнейших лекарственных препаратов для медицинского применения на 2023 год
-                      </p>
-                    </div>
-                    <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-2 sm:gap-3">
-                      <a
-                        href="/images/documents/perechen-zhnvlp-dlya-mediczinskogo-primeneniya-na-2023-god.pdf"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
-                      >
-                        Скачать файл (латинское имя)
-                        <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                        </svg>
-                      </a>
-                      <a
-                        href={DOC_ZHNVLP_2023_CYRILLIC}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
-                      >
-                        Скачать копию с сайта (PDF)
-                        <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                        </svg>
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
                 {/* Антикоррупционная политика */}
                 <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
@@ -412,26 +313,6 @@ function PatientInfoSection() {
                   </div>
                 </div>
 
-                {/* Выписка из реестра */}
-                <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-                    <div className="flex-1">
-                      <p className="text-gray-700 mb-1 text-sm">
-                        Выписка из реестра 2025
-                      </p>
-                    </div>
-                    <a 
-                      href="/images/documents/vypiska-iz-reestra-2025.pdf" 
-                      target="_blank" 
-                      className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
-                    >
-                      Скачать файл
-                      <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
               </div>
             </div>
           )}
@@ -1725,14 +1606,14 @@ function PatientInfoSection() {
               <div>
                 <h4 className="text-base font-semibold text-gray-900 mb-2">Лекарственное обеспечение</h4>
                 <p className="leading-relaxed mb-3">
-                  Перечень жизненно необходимых и важнейших лекарственных препаратов для медицинского применения (ЖНВЛП) на 2023 год доступен для скачивания в разделе «Нормативные документы» выше на этой странице и по прямой ссылке:{' '}
+                  Актуальный перечень жизненно необходимых и важнейших лекарственных препаратов для медицинского применения (ЖНВЛП) на 2026–2027 годы доступен в разделе «Нормативные документы» выше и по прямой ссылке:{' '}
                   <a
-                    href={DOC_ZHNVLP_2023_CYRILLIC}
+                    href={DOC_ZHNVLP_2026_2027}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-emerald-600 hover:text-emerald-700 font-medium underline"
                   >
-                    Перечень ЖНВЛП для медицинского применения на 2023 год (PDF)
+                    Перечень ЖНВЛП на 2026–2027 годы
                   </a>
                   .
                 </p>
@@ -2253,7 +2134,7 @@ function AboutPageContent() {
                       Сведения о лицензии на осуществление медицинской деятельности (по выписке из реестра лицензий)
                     </p>
                     <p className="text-gray-600 text-xs">
-                      Дата и время формирования выписки в реестре: 27.02.2025, 15:05. Проверка подлинности электронного документа, двумерный штриховой код и усиленная квалифицированная электронная подпись содержатся в файле PDF «Выписка из реестра Альтамед-С» ниже.
+                      Дата и время формирования выписки в реестре: 08.10.2026, 11:28. Проверка подлинности электронного документа, двумерный штриховой код и усиленная квалифицированная электронная подпись содержатся в файле PDF «Выписка из реестра Альтамед-С» ниже.
                     </p>
                     <dl className="grid gap-2 sm:grid-cols-1">
                       <div className="flex flex-col sm:flex-row sm:gap-2">
@@ -2318,8 +2199,8 @@ function AboutPageContent() {
                     </div>
 
                     <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
-                      <a href="/images/documents/vypiska-iz-reestra-altamed-s-2025 (1).pdf" target="_blank" className="flex items-center justify-between group">
-                        <span className="text-gray-700 group-hover:text-emerald-600">Выписка из реестра Альтамед-С</span>
+                      <a href="/images/documents/vypiska-iz-reestra-licenziy-altamed-s-2026.pdf" target="_blank" className="flex items-center justify-between group">
+                        <span className="text-gray-700 group-hover:text-emerald-600">Выписка из реестра лицензий Альтамед-С от 08.10.2026</span>
                         <svg className="w-5 h-5 text-gray-400 group-hover:text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
                         </svg>
@@ -2344,18 +2225,6 @@ function AboutPageContent() {
                       </a>
                     </div>
 
-                    {/* Лицензия Медицинской деятельности */}
-                    <div className="mt-6 pt-6 border-t border-gray-200">
-                      <h3 className="text-xl font-semibold text-gray-800 mb-4">Лицензия Медицинской деятельности</h3>
-                      <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
-                        <a href="/images/documents/med deatlenost.pdf" target="_blank" className="flex items-center justify-between group">
-                          <span className="text-gray-700 group-hover:text-emerald-600">Лицензия на осуществление медицинской деятельности</span>
-                          <svg className="w-5 h-5 text-gray-400 group-hover:text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
-                          </svg>
-                        </a>
-                      </div>
-                    </div>
                   </div>
               </div>
               )}

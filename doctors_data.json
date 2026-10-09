@@ -137,22 +137,6 @@
       }
     },
     {
-      "id": 8,
-      "name": "Ростовцева Эмилия Вениаминовна",
-      "slug": "rostovtseva-emilia-veniaminovna",
-      "specialization": "Кардиолог",
-      "specializations": ["Кардиолог"],
-      "experience": 43,
-      "photo": "/images/doctors/Rostovtseva Emilia Veniaminovna.webp",
-      "description": "Врач-кардиолог. Врачебный стаж с 1981 года. Заслуженный врач Российской Федерации",
-      "schedule": {},
-      "details": {
-        "specialization": "Врач-кардиолог",
-        "category": "Заслуженный врач Российской Федерации",
-        "experience": "Врачебный стаж с 1981 года"
-      }
-    },
-    {
       "id": 9,
       "name": "Прикуле Елена Юрьевна",
       "slug": "prikule-elena-yuryevna",

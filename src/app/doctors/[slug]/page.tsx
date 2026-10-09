@@ -3,6 +3,7 @@ import Link from "next/link";
 import { doctors } from "@/data/static-data";
 import React from "react";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 import DoctorPageFullContent from "@/components/DoctorPageFullContent";
 import DobrotokPageClient from "@/components/doctor/DobrotokPageClient";
 import doctorsData from "../../../../doctors_data.json";
@@ -291,24 +292,6 @@ function getDoctorDetails(doctorName: string) {
         'Иглорефлексотерапия',
         'Ударно-волновая терапия (УВТ)'
       ]
-    },
-    'Ростовцева Эмилия Вениаминовна': {
-      specialization: 'Врач-кардиолог',
-      category: 'Заслуженный врач Российской Федерации',
-      education: [
-        'В 1981 году закончила 1 ММИ им. И М.Сеченова. Интернатура по терапии в 1 ГБ г.Севастополя на базе кардиологического отделения. Специализация: «Экстрагенитальная патология и беременность»',
-        'В 2010 году прошла первичную специализацию по кардиологии, подтвердила высшую квалификационную категорию по кардиологии',
-        'В 2019 году присвоено звание «Заслуженный врач Российской Федерации». Специализация по терапии, по нефрологии, действующий сертификат и высшая категория по кардиологии'
-      ],
-      qualifications: [
-        'Удостоверение №772521634219 от 27.04.24. – Кардиология – 144ч. ООО ДПО Научно-инновационный институт медицинского образования'
-      ],
-      accreditation: [
-        { number: '2022.4365941', date: 'с 24.09.24 до 24.09.29', specialty: 'Кардиология', institution: 'ФГБОУ ДПО РМАНПО Минздрава России' }
-      ],
-      experience: 'Врачебный стаж с 1981 года',
-      mainDirections: [],
-      methods: []
     },
     'Прикуле Елена Юрьевна': {
       specialization: 'Стоматолог-терапевт',
@@ -2082,10 +2065,6 @@ function getDoctorSchedule(doctorName: string, doctorSlug?: string) {
       Sunday: { start: "09:00", end: "20:00" }
     },
     // Кардиологи
-    'Ростовцева Эмилия Вениаминовна': {
-      Monday: { start: "10:30", end: "15:00" },
-      Friday: { start: "10:30", end: "15:00" }
-    },
     'Белянко Игорь Эдуардович': {
       Monday: { start: "08:00", end: "15:00" },
       Tuesday: { start: "08:00", end: "15:00" },
@@ -2291,16 +2270,7 @@ export default async function DoctorPage({ params }: DoctorPageProps) {
   const doctor = doctors.find((d: any) => d.slug === slug);
 
   if (!doctor) {
-    return (
-      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
-        <div className="text-center">
-          <h1 className="text-2xl font-bold text-gray-900 mb-4">Врач не найден</h1>
-          <Link href="/doctors" className="text-emerald-600 hover:underline">
-            Вернуться к списку врачей
-          </Link>
-        </div>
-      </div>
-    );
+    notFound();
   }
 
   const defaultSchedule = getDoctorSchedule(doctor.name, doctor.slug);

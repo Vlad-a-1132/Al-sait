@@ -181,16 +181,6 @@
                                      }
                     },
                     {
-                        "name":  "Ростовцева Эмилия Вениаминовна",
-                        "slug":  "rostovtseva-emilia-veniaminovna",
-                        "specialization":  "Кардиолог",
-                        "specializations":  [
-                                                "Кардиолог"
-                                            ],
-                        "schedule":  {
-                                     }
-                    },
-                    {
                         "name":  "Прикуле Елена Юрьевна",
                         "slug":  "prikule-elena-yuryevna",
                         "specialization":  "Стоматолог-терапевт",

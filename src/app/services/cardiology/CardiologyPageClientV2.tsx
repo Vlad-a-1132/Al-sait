@@ -52,7 +52,6 @@ export default function CardiologyPageClientV2({ serviceRows }: Props) {
   const cardiologists = [
     doctors.find((d) => d.slug === "belyanko-igor-eduardovich") ?? null,
     doctors.find((d) => d.slug === "molostov-aleksandr-venedikhtovich") ?? null,
-    doctors.find((d) => d.slug === "rostovtseva-emilia-veniaminovna") ?? null,
   ].filter(Boolean) as Array<(typeof doctors)[number]>;
 
   const faqItems = [
