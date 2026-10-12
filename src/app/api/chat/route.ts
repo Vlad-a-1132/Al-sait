@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import { promises as fs } from "fs";
 import path from "path";
+import { LAB_PROMOTION } from "@/data/lab-promotion";
 
 export const dynamic = "force-dynamic";
 
@@ -191,12 +192,12 @@ const PROMOTIONS: Promotion[] = [
   {
     id: 4,
     category: "diagnostics",
-    href: "/promo/promo-4",
-    title: "Скидки на анализы",
-    description: "Понедельник, среда, пятница - 10%, воскресенье - 15%",
+    href: LAB_PROMOTION.href,
+    title: LAB_PROMOTION.title,
+    description: LAB_PROMOTION.description,
     shortTitle: "Анализы",
-    shortOffer: "-10% в пн/ср/пт, -15% в вс",
-    shortNote: "забор крови с 8:00 до 12:00",
+    shortOffer: LAB_PROMOTION.discounts.map(({ shortDays, percent }) => `−${percent}%: ${shortDays}`).join('; '),
+    shortNote: `${LAB_PROMOTION.period}. ${LAB_PROMOTION.exclusion}`,
     keywords: ["анализ", "кров", "моч", "лаборатор", "исследован"],
   },
   {

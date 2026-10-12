@@ -5,6 +5,8 @@ import { useParams } from "next/navigation";
 import AppointmentForm from '@/components/AppointmentForm';
 import PediatricPromoLanding from '@/components/PediatricPromoLanding';
 import { getPediatricPromotion } from '@/data/pediatric-promotions';
+import { LAB_PROMOTION } from '@/data/lab-promotion';
+import LabDiscountBanner from '@/components/LabDiscountBanner';
 
 export default function PromoDetailPage() {
   const params = useParams();
@@ -70,21 +72,13 @@ export default function PromoDetailPage() {
     {
       id: 4,
       category: "diagnostics",
-      image: "/images/slides/3-analizy.webp",
-      startDate: "01.10.2025",
-      endDate: "31.12.2025",
-      title: "Скидки на анализы",
-      description: "Понедельник, Среда, Пятница - 10%, Воскресенье - 15%. (скидки не суммируются)",
-      fullDescription: "Специальные скидки на лабораторные анализы в определенные дни недели. Сдавайте анализы выгодно!",
-      details: [
-        "Понедельник - скидка 10%",
-        "Среда - скидка 10%",
-        "Пятница - скидка 10%",
-        "Воскресенье - скидка 15%",
-        "Скидки не суммируются с другими акциями",
-        "Применяется ко всем видам анализов",
-        "Забор крови с 8:00 до 12:00 в дни акции"
-      ]
+      image: LAB_PROMOTION.image,
+      startDate: LAB_PROMOTION.startDate,
+      endDate: LAB_PROMOTION.endDate,
+      title: LAB_PROMOTION.title,
+      description: LAB_PROMOTION.description,
+      fullDescription: `${LAB_PROMOTION.description} Выберите удобный день и запишитесь в «Альтамед-С». Стоимость забора материала оплачивается отдельно, без скидки.`,
+      details: LAB_PROMOTION.details
     },
     {
       id: 5,
@@ -229,8 +223,12 @@ export default function PromoDetailPage() {
         </div>
       </section>
 
-      {/* Banner — единый hero для всех акций */}
-      <section className="relative bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
+      {/* Баннер с полными условиями лабораторной акции. */}
+      {promo.id === 4 ? (
+        <section className="mx-auto w-full px-4 pb-4" style={{ maxWidth: '83rem' }}>
+          <LabDiscountBanner variant="hero" priority />
+        </section>
+      ) : <section className="relative bg-gradient-to-r from-emerald-600 to-emerald-700 text-white">
         <div className="absolute inset-0 bg-black opacity-20"></div>
         <div className="relative mx-auto px-4 py-16 md:py-24" style={{ maxWidth: '83rem' }}>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
@@ -251,7 +249,7 @@ export default function PromoDetailPage() {
             </div>
           </div>
         </div>
-      </section>
+      </section>}
 
       {/* Main section */}
       {/* Время работы КТ (только для акции КТ) */}
@@ -415,7 +413,9 @@ export default function PromoDetailPage() {
       </section>
 
       {/* Appointment Form */}
-      <AppointmentForm />
+      <div id="appointment" className="scroll-mt-36">
+        <AppointmentForm />
+      </div>
     </div>
   );
 }

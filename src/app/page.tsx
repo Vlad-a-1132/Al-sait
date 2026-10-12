@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useState, useEffect, useRef, useMemo } from "react";
 import AppointmentForm from "@/components/AppointmentForm";
 import { doctors as defaultDoctors } from "@/data/static-data";
+import LabDiscountBanner from "@/components/LabDiscountBanner";
+import { LAB_PROMOTION } from "@/data/lab-promotion";
 
 interface Schedule {
   start: string;
@@ -97,6 +99,7 @@ function DoctorScheduleRow({ name, specialty, schedule }: DoctorScheduleRowProps
 export default function Home() {
   // State for tracking current slide
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isSlidePaused, setIsSlidePaused] = useState(false);
   // State for tracking current promotion slide (mobile)
   const [currentPromoSlide, setCurrentPromoSlide] = useState(0);
   // State for selected branch
@@ -107,6 +110,13 @@ export default function Home() {
   
   // Slides data - используем нейтральные пути чтобы избежать блокировки рекламы
   const slides = [
+    {
+      title: LAB_PROMOTION.title,
+      buttonText: "Подробнее",
+      buttonLink: LAB_PROMOTION.href,
+      buttonColor: "#13AB7B",
+      image: LAB_PROMOTION.image
+    },
     {
       title: "Понедельник и Пятница – специальные скидки до 25%",
       buttonText: "Подробнее",
@@ -134,13 +144,6 @@ export default function Home() {
       buttonLink: "/promo/promo-3",
       buttonColor: "#13AB7B",
       image: "/images/slides/2-pensia.webp"
-    },
-    {
-      title: "Скидки на анализы",
-      buttonText: "Подробнее",
-      buttonLink: "/promo/promo-4",
-      buttonColor: "#13AB7B",
-      image: "/images/slides/3-analizy.webp"
     },
     {
       title: "При первичном приёме врача акушера-гинеколога",
@@ -276,12 +279,13 @@ export default function Home() {
 
   // Автоматическое переключение слайдов (только на клиенте)
   useEffect(() => {
-    const interval = setInterval(() => {
+    if (isSlidePaused) return;
+    const timer = setTimeout(() => {
       setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, 5000); // Меняем слайд каждые 5 секунд
+    }, currentSlide === 0 ? 8000 : 5000);
 
-    return () => clearInterval(interval); // Очищаем интервал при размонтировании
-  }, [slides.length]);
+    return () => clearTimeout(timer);
+  }, [currentSlide, isSlidePaused, slides.length]);
 
   // Function to scroll doctors slider left
   const scrollDoctorsLeft = () => {
@@ -399,12 +403,24 @@ export default function Home() {
           <div className="flex flex-col md:flex-row gap-4 md:gap-8 justify-center mx-auto px-4 md:px-0">
             {/* Левая колонка с семейной картинкой и блоком для взрослых и детей - теперь слайдер */}
             <div className="w-full md:w-[548px] flex-shrink-0 mx-auto md:mx-0">
-              <div className="h-[380px] md:h-[445px] flex flex-col rounded-[20px] overflow-hidden shadow-md">
+              <div
+                className="min-h-[380px] md:min-h-[445px] flex flex-col rounded-[20px] overflow-hidden shadow-md"
+                onMouseEnter={() => setIsSlidePaused(true)}
+                onMouseLeave={() => setIsSlidePaused(false)}
+                onFocusCapture={() => setIsSlidePaused(true)}
+                onBlurCapture={(event) => {
+                  if (!event.currentTarget.contains(event.relatedTarget)) setIsSlidePaused(false);
+                }}
+              >
                 {/* Слайдер */}
                 <div className="h-[300px] md:h-[358px] bg-emerald-500 relative overflow-hidden">
-                  {/* Контент для текущего слайда остается тем же */}
+                  {/* Условия акции остаются читаемым текстом на любом экране. */}
                   <div className="w-full h-full relative">
-                    <img
+                    {slides[currentSlide].buttonLink === LAB_PROMOTION.href ? (
+                      <Link href={LAB_PROMOTION.href} className="block h-full" aria-label="Скидки на анализы — условия акции">
+                        <LabDiscountBanner priority />
+                      </Link>
+                    ) : <img
                       src={slides[currentSlide]?.image || slides[0].image}
                       alt={slides[currentSlide]?.title || slides[0].title}
                       className="w-full h-full object-cover"
@@ -412,13 +428,14 @@ export default function Home() {
                       onError={(e) => {
                         console.error('Failed to load image:', (slides[currentSlide]?.image || slides[0].image));
                       }}
-                    />
+                    />}
                   </div>
                   
                   {/* Навигационные стрелки - скрываем на мобильных */}
                   <button 
                     onClick={prevSlide} 
-                    className="hidden md:block absolute left-3 top-1/2 transform -translate-y-1/2 bg-white/70 rounded-full p-2 shadow-md hover:bg-white"
+                    aria-label="Предыдущий баннер"
+                    className={`hidden md:block absolute left-3 ${currentSlide === 0 ? 'bottom-2' : 'top-1/2 -translate-y-1/2'} bg-white/70 rounded-full p-2 shadow-md hover:bg-white`}
                   >
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -426,7 +443,8 @@ export default function Home() {
                   </button>
                   <button 
                     onClick={nextSlide} 
-                    className="hidden md:block absolute right-3 top-1/2 transform -translate-y-1/2 bg-white/70 rounded-full p-2 shadow-md hover:bg-white"
+                    aria-label="Следующий баннер"
+                    className={`hidden md:block absolute right-3 ${currentSlide === 0 ? 'bottom-2' : 'top-1/2 -translate-y-1/2'} bg-white/70 rounded-full p-2 shadow-md hover:bg-white`}
                   >
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -439,8 +457,12 @@ export default function Home() {
                       <button
                         key={index}
                         onClick={() => goToSlide(index)}
+                        aria-label={`Баннер ${index + 1}: ${slides[index].title}`}
+                        aria-pressed={currentSlide === index}
                         className={`w-3 h-3 rounded-full ${
-                          currentSlide === index ? "bg-white" : "bg-white/50"
+                          currentSlide === 0
+                            ? (index === 0 ? "bg-emerald-700" : "bg-emerald-700/25")
+                            : (currentSlide === index ? "bg-white" : "bg-white/50")
                         }`}
                         suppressHydrationWarning
                       ></button>
@@ -904,12 +926,15 @@ export default function Home() {
           <div className="md:hidden px-4">
             <div className="flex flex-col gap-4">
               {/* Блок "Скидки на анализы!" */}
-              <Link href="/promo" className="bg-[#DAF2FF] rounded-[20px] p-5 h-auto min-h-[160px] flex flex-col justify-between">
+              <Link href={LAB_PROMOTION.href} className="bg-[#DAF2FF] rounded-[20px] p-5 h-auto min-h-[160px] flex flex-col justify-between">
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="text-xl font-bold mb-2">Скидки на анализы!</h3>
-                    <p className="text-base text-gray-700 mb-1">Понедельник, среда, пятница - 10%</p>
-                    <p className="text-base text-gray-700">Воскресенье - 15%</p>
+                    <p className="text-sm text-emerald-800 mb-2">{LAB_PROMOTION.period}</p>
+                    {LAB_PROMOTION.discounts.map(({ days, percent }) => (
+                      <p key={percent} className="text-base text-gray-700 mb-1">{days} — {percent}%</p>
+                    ))}
+                    <p className="text-xs text-gray-700 mt-2">{LAB_PROMOTION.exclusion}</p>
                   </div>
                 </div>
                 <div className="flex items-center justify-end mt-4">
@@ -955,13 +980,16 @@ export default function Home() {
           {/* Десктопная версия - оригинальные блоки */}
           <div className="hidden md:flex flex-col lg:flex-row gap-6 justify-center max-w-[1300px] mx-auto px-4 lg:px-0">
             {/* Левый большой блок */}
-            <Link href="/promo" className="bg-[#DAF2FF] rounded-[20px] w-full lg:w-[593px] h-[300px] md:h-[374px] flex flex-shrink-0 relative overflow-hidden cursor-pointer">
+            <Link href={LAB_PROMOTION.href} className="bg-[#DAF2FF] rounded-[20px] w-full lg:w-[593px] h-[300px] md:h-[374px] flex flex-shrink-0 relative overflow-hidden cursor-pointer">
               <div className="p-6 md:p-8 flex flex-col justify-between z-10 w-full lg:w-[60%]">
                 <div>
                   <h3 className="text-2xl md:text-3xl font-bold mb-4">Скидки на анализы!</h3>
+                  <p className="text-sm text-emerald-800 mb-3">{LAB_PROMOTION.period}</p>
                   <div className="text-black text-sm md:text-base">
-                    <p>Понедельник, среда, пятница - 10%</p>
-                    <p>Воскресенье - 15%</p>
+                    {LAB_PROMOTION.discounts.map(({ days, percent }) => (
+                      <p key={percent}>{days} — {percent}%</p>
+                    ))}
+                    <p className="text-xs mt-3">{LAB_PROMOTION.exclusion}</p>
                   </div>
                 </div>
                 

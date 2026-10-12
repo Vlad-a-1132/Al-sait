@@ -1,5 +1,6 @@
 import { Metadata } from 'next';
 import { getPediatricPromotion, PEDIATRIC_PROMOTIONS } from '@/data/pediatric-promotions';
+import { LAB_PROMOTION } from '@/data/lab-promotion';
 
 // Данные акций для генерации статических параметров
 export function generateStaticParams() {
@@ -37,9 +38,9 @@ const promotionsData: Record<string, {
     image: '/images/slides/2-pensia.webp',
   },
   'promo-4': {
-    title: 'Скидки на анализы',
-    description: 'Скидки на анализы в Одинцово - Понедельник, Среда, Пятница 10%, Воскресенье 15%. Сдача анализов в медицинском центре Альтамед-с.',
-    image: '/images/slides/3-analizy.webp',
+    title: LAB_PROMOTION.title,
+    description: LAB_PROMOTION.description,
+    image: LAB_PROMOTION.image,
   },
   'promo-5': {
     title: 'Кольпоскопия в подарок при первичном приеме гинеколога',

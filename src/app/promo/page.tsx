@@ -3,6 +3,8 @@
 import Link from "next/link";
 import DentalPromoBanner from "@/components/DentalPromoBanner";
 import { PEDIATRIC_PROMOTIONS } from "@/data/pediatric-promotions";
+import { LAB_PROMOTION } from "@/data/lab-promotion";
+import LabDiscountBanner from "@/components/LabDiscountBanner";
 
 export default function PromoPage() {
   // Данные акций
@@ -18,6 +20,17 @@ export default function PromoPage() {
     startDate?: string;
     endDate?: string;
   }> = [
+    {
+      id: LAB_PROMOTION.slug,
+      slug: LAB_PROMOTION.slug,
+      category: "diagnostics",
+      image: LAB_PROMOTION.image,
+      startDate: LAB_PROMOTION.startDate,
+      endDate: LAB_PROMOTION.endDate,
+      title: LAB_PROMOTION.title,
+      description: LAB_PROMOTION.description,
+      badge: "15.10–30.12.2026",
+    },
     ...PEDIATRIC_PROMOTIONS.map((promo) => ({
       id: promo.slug,
       slug: promo.slug,
@@ -57,16 +70,6 @@ export default function PromoPage() {
       endDate: "31.12.2025",
       title: "Скидки для пенсионеров и многодетных",
       description: "– 10% на все услуги, кроме стоматологии"
-    },
-    {
-      id: "promo-4",
-      slug: "promo-4",
-      category: "diagnostics",
-      image: "/images/slides/3-analizy.webp",
-      startDate: "01.10.2025",
-      endDate: "31.12.2025",
-      title: "Скидки на анализы",
-      description: "Понедельник, Среда, Пятница - 10%, Воскресенье - 15%. (скидки не суммируются)"
     },
     {
       id: "promo-5",
@@ -144,14 +147,16 @@ export default function PromoPage() {
                     className="group flex h-full flex-col overflow-hidden rounded-2xl border border-gray-100 bg-white shadow-lg transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                   >
                     <div className="relative h-48 overflow-hidden bg-gray-100">
-                      <img
+                      {promo.slug === LAB_PROMOTION.slug ? (
+                        <LabDiscountBanner variant="card" />
+                      ) : <img
                         src={promo.image}
                         alt={promo.title}
                         className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                         onError={(e) => {
                           console.error('Failed to load promo image:', promo.image);
                         }}
-                      />
+                      />}
                     </div>
                     <div className="flex flex-1 flex-col p-4">
                       {promo.badge && (
@@ -162,7 +167,7 @@ export default function PromoPage() {
                       <h3 className="text-lg font-semibold text-gray-900 mb-2 line-clamp-2">
                         {promo.title}
                       </h3>
-                      <p className="text-sm text-gray-600 line-clamp-3 flex-1">
+                      <p className={`text-sm text-gray-600 flex-1 ${promo.slug === LAB_PROMOTION.slug ? '' : 'line-clamp-3'}`}>
                         {promo.description}
                       </p>
                       {promo.price && (

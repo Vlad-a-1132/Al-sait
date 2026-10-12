@@ -4,6 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import AppointmentForm from '@/components/AppointmentForm';
 import DentalPromoBanner from '@/components/DentalPromoBanner';
+import LabDiscountBanner from '@/components/LabDiscountBanner';
 
 export default function ServicesPage() {
   
@@ -1291,11 +1292,7 @@ export default function ServicesPage() {
             {/* Скидки на анализы */}
             <Link href="/promo/promo-4" className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 cursor-pointer group h-[300px] md:h-[377.22px] flex flex-col">
               <div className="h-[200px] md:h-[259.22px] relative flex-shrink-0">
-                <img 
-                  src="/images/slides/3-analizy.webp" 
-                  alt="Скидки на анализы" 
-                  className="w-full h-full object-cover"
-                />
+                <LabDiscountBanner variant="card" />
               </div>
               <div className="h-[118px] bg-orange-500 flex flex-col justify-between px-4 md:px-6 py-3 flex-grow">
                 <h3 className="text-white font-semibold text-sm md:text-lg">СКИДКИ НА АНАЛИЗЫ</h3>
