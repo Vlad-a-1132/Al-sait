@@ -8,6 +8,7 @@ function buildServiceRowKey(s: PriceServiceDisplay, index: number): string {
   return `${String(sid)}|${String(s.categoryId ?? "")}|${index}`;
 }
 
+import RelatedLabLinks from '@/components/lab/RelatedLabLinks';
 export default async function GastroenterologyPage() {
   const services = await loadGastroenterologyPriceServices();
   const budko = doctors.find((d) => d.slug === "budko-elena-anatolyevna") ?? null;
@@ -22,6 +23,6 @@ export default async function GastroenterologyPage() {
     priceIsZero: s.priceIsZero === true,
   }));
 
-  return <GastroenterologyPageClient serviceRows={serviceRows} doctors={doctorsForPage} />;
+  return <><GastroenterologyPageClient serviceRows={serviceRows} doctors={doctorsForPage} /><RelatedLabLinks direction="gastroenterology"/></>;
 }
 

@@ -1,3 +1,4 @@
+import RelatedLabLinks from '@/components/lab/RelatedLabLinks';
 import type { Metadata } from "next";
 import UrologyPageClient, { type UrologyServiceRow } from "./UrologyPageClient";
 import { formatUrologyPriceLabel, loadUrologyPriceServices } from "./load-urology-services";
@@ -25,6 +26,6 @@ export default async function UrologyPage() {
     priceIsZero: s.priceIsZero === true,
   }));
 
-  return <UrologyPageClient serviceRows={serviceRows} />;
+  return <><UrologyPageClient serviceRows={serviceRows} /><RelatedLabLinks direction="urology"/></>;
 }
 

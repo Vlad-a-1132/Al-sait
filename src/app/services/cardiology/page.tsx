@@ -1,4 +1,5 @@
 import CardiologyPageClientV2 from "./CardiologyPageClientV2";
+import RelatedLabLinks from '@/components/lab/RelatedLabLinks';
 import type { CardiologyServiceRow } from "./CardiologyPageClient";
 import { formatCardiologyPriceLabel, loadCardiologyPriceServices } from "./load-cardiology-services";
 import type { PriceServiceDisplay } from "@/lib/price-api";
@@ -19,6 +20,6 @@ export default async function CardiologyPage() {
     priceIsZero: s.priceIsZero === true,
   }));
 
-  return <CardiologyPageClientV2 serviceRows={serviceRows} />;
+  return <><CardiologyPageClientV2 serviceRows={serviceRows} /><RelatedLabLinks direction="cardiology"/></>;
 }
 

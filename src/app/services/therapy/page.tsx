@@ -1,3 +1,4 @@
+import RelatedLabLinks from '@/components/lab/RelatedLabLinks';
 import TherapyPageClient, { type TherapyServiceRow } from "./TherapyPageClient";
 import { formatTherapyPriceLabel, loadTherapyPriceServices } from "./load-therapy-services";
 import type { PriceServiceDisplay } from "@/lib/price-api";
@@ -18,6 +19,6 @@ export default async function TherapyPage() {
     priceIsZero: s.priceIsZero === true,
   }));
 
-  return <TherapyPageClient serviceRows={serviceRows} />;
+  return <><TherapyPageClient serviceRows={serviceRows} /><RelatedLabLinks direction="therapy"/></>;
 }
 

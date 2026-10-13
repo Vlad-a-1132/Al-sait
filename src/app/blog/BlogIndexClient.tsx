@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 export type BlogDirection =
+  | "lab-tests"
   | "gynecology"
   | "allergology"
   | "gastroenterology"
@@ -30,6 +31,7 @@ export type BlogPostCard = {
 };
 
 function directionLabel(d: BlogDirection) {
+  if (d === 'lab-tests') return 'Анализы';
   if (d === "gynecology") return "Гинекология";
   if (d === "allergology") return "Аллергология";
   if (d === "cardiology") return "Кардиология";
@@ -52,6 +54,7 @@ function directionLabel(d: BlogDirection) {
 
 function sanitizeDirection(v: string | null): BlogDirection | "all" {
   if (
+    v === "lab-tests" ||
     v === "gynecology" ||
     v === "allergology" ||
     v === "gastroenterology" ||
@@ -161,6 +164,7 @@ export default function BlogIndexClient({
             {(
               [
                 { id: "all", label: `Все (${counts.all})` },
+                { id: "lab-tests", label: `Анализы (${posts.filter(post => post.direction === 'lab-tests').length})` },
                 { id: "gynecology", label: `Гинекология (${counts.gynecology})` },
                 { id: "allergology", label: `Аллергология (${counts.allergology})` },
                 { id: "gastroenterology", label: `Гастроэнтеролог (${counts.gastroenterology})` },

@@ -6,7 +6,9 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { LAB_PROMOTION } from '@/data/lab-promotion';
 import { categoryNames, LabItem, money, PAGE_SIZE, searchCatalog, STORAGE_KEY } from './catalog';
-import { priceSourceLabel, remapLabSelection, type LabPriceInfo, type PricedCatalogResponse } from './price-reconciliation';
+import { priceCode, priceSourceLabel, remapLabSelection, type LabPriceInfo, type PricedCatalogResponse } from './price-reconciliation';
+import { labEvent } from '@/lib/lab-events';
+import { selectionAdvice } from './selection-advice';
 import { CBC_VARIANT_LABELS, DIRECTIONS, getTopics, groupEntries, LabDirection, QUICK_LABELS, quickSelection } from './navigation';
 import s from './lab-preview.module.css';
 
@@ -62,12 +64,16 @@ const faqs = [
   ['Как подготовиться к сдаче?', 'Подготовка зависит от выбранного исследования. Воспользуйтесь памяткой клиники и уточните требования по полному названию анализа. Не меняйте назначенный приём лекарств самостоятельно.'],
   ['Можно ли сдать анализы ребёнку?', 'Условия приёма, возрастные ограничения и подготовку уточните заранее. Для родителей мы подготовили отдельную страницу об анализах детям.'],
   ['Когда и как я получу результаты?', 'Срок и способ получения результатов зависят от исследования. Их уточнят при оформлении вашего заказа.'],
+  ['Где сдать анализы в Одинцово?', 'Обратитесь в Альтамед-С: бульвар Маршала Крылова, 23 или Можайское шоссе, 141. Уточните, в каком филиале принимают нужный биоматериал и в какие часы: время забора может отличаться от часов работы центра.'],
+  ['Можно ли пить кофе перед анализами?', 'Если исследование назначено натощак, кофе не заменяет воду. Условия подготовки зависят от точного списка: проверьте их до визита.'],
+  ['Нужно ли сдавать все анализы одного направления?', 'Нет. Тематический раздел помогает найти назначенное исследование, а не предлагает обязательный набор. При отсутствии назначения начните с консультации врача.'],
+  ['Можно ли сохранить список между страницами?', 'Да, выбранные исследования доступны в каталоге и калькуляторе в пределах одной вкладки браузера. Список можно скопировать, чтобы показать администратору. Это не оформленная запись и не отправка медицинских данных.'],
 ];
 
-export default function LabPreview() {
-  const [items, setItems] = useState<LabItem[]>([]);
-  const [priceInfo, setPriceInfo] = useState<LabPriceInfo | null>(null);
-  const [loading, setLoading] = useState(true);
+export default function LabPreview({ initialData, preview = true, calculator = false, studyLinks = {}, children }: { initialData?: PricedCatalogResponse; preview?: boolean; calculator?: boolean; studyLinks?: Record<string, string>; children?: React.ReactNode }) {
+  const [items, setItems] = useState<LabItem[]>(initialData?.items || []);
+  const [priceInfo, setPriceInfo] = useState<LabPriceInfo | null>(initialData?.prices || null);
+  const [loading, setLoading] = useState(!initialData);
   const [failed, setFailed] = useState(false);
   const [attempt, setAttempt] = useState(0);
   const [query, setQuery] = useState('');
@@ -85,8 +91,8 @@ export default function LabPreview() {
 
   useEffect(() => {
     const controller = new AbortController();
-    setLoading(true); setFailed(false);
-    fetch('/lab-tests-preview/catalog-data', { signal: controller.signal, cache: 'no-store' })
+    setLoading(!initialData); setFailed(false);
+    fetch('/services/lab-tests/catalog-data', { signal: controller.signal, cache: 'no-store' })
       .then(response => { if (!response.ok) throw new Error('catalog'); return response.json(); })
       .then((data: PricedCatalogResponse) => {
         if (!Array.isArray(data.items) || !data.prices || data.items.some(item =>
@@ -98,7 +104,7 @@ export default function LabPreview() {
       .catch(error => { if (error.name !== 'AbortError') setFailed(true); })
       .finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
-  }, [attempt]);
+  }, [attempt, initialData]);
 
   useEffect(() => {
     try {
@@ -125,6 +131,7 @@ export default function LabPreview() {
   const isQuick = !query.trim() && category === 'popular';
   const isFullCatalog = !query.trim() && (category === 'all' || categories.includes(category));
   const selected = useMemo(() => items.filter(item => selection.includes(item.key)), [items, selection]);
+  const selectionWarnings = useMemo(() => selectionAdvice(selected), [selected]);
   const total = selected.reduce((sum, item) => sum + Math.max(0, item.price), 0);
   const unknownPrice = selected.some(item => item.price <= 0);
   const priceSource = priceSourceLabel(priceInfo);
@@ -143,6 +150,7 @@ export default function LabPreview() {
 
   function toggle(item: LabItem) {
     const exists = selection.includes(item.key);
+    labEvent(exists ? 'lab_remove' : 'lab_add');
     setSelection(current => exists ? current.filter(key => key !== item.key) : [...current, item.key]);
     setNotice(`${item.name}: ${exists ? 'удалено из списка' : 'добавлено в список'}`);
     setCopied(false);
@@ -155,7 +163,7 @@ export default function LabPreview() {
 
   async function copyList() {
     const text = `Альтамед-С · список анализов\n\n${selected.map((item, index) => `${index + 1}. ${item.name} · ${item.code} · ${item.price > 0 ? money(item.price) : 'цена уточняется'}`).join('\n')}\n\n${unknownPrice ? 'Сумма по известным ценам' : 'Исследования'}: ${total > 0 ? money(total) : unknownPrice ? 'уточняется' : money(0)}${unknownPrice && total > 0 ? ' + позиции с уточняемой ценой' : ''}.\n${priceSource}\nЗабор материала и скидки в сумму не включены.`;
-    try { await navigator.clipboard.writeText(text); setCopied(true); }
+    try { await navigator.clipboard.writeText(text); setCopied(true); labEvent('lab_copy_list'); }
     catch { setNotice('Браузер не разрешил копирование. Можно выделить текст списка вручную.'); }
   }
 
@@ -174,6 +182,8 @@ export default function LabPreview() {
       <ul className={`${s.basketItems} ${full ? s.basketItemsFull : ''}`}>{selected.map(item => <li key={item.key}><div><span>{item.name}</span><strong>{item.price > 0 ? money(item.price) : 'Уточнить цену'}</strong></div><button aria-label={`Удалить: ${item.name}`} onClick={() => toggle(item)} className={s.remove}><Icon name="close" size={16}/></button></li>)}</ul>
       <div className={s.total}><span>{unknownPrice ? 'По известным ценам' : 'Исследования'}</span><strong>{totalLabel}</strong></div>
       <p className={s.priceNote}>{priceSource} Забор материала и скидки не включены.{unknownPrice && ' В списке есть исследования без подтверждённой цены.'}</p>
+      {selectionWarnings.length > 0 && <div className={s.selectionAdvice} role="status"><strong>Проверьте состав списка</strong>{selectionWarnings.map(message=><p key={message}>{message}</p>)}</div>}
+      {full && <div className={s.orderChecklist}><strong>До посещения подтвердите</strong><ul><li>Стоимость и количество процедур забора — по всему списку.</li><li>Подготовку, срок готовности и способ получения результатов.</li></ul><p>Это предварительная сумма исследований, не окончательная стоимость заказа.</p></div>}
       <button className={s.primaryButton} onClick={() => full ? copyList() : setModal('basket')}>{full ? (copied ? 'Список скопирован' : 'Скопировать список') : 'Посмотреть список'}<Icon name={copied && full ? 'check' : 'arrow'}/></button>
       {full && <a className={s.outlineButton} href="tel:+74952554450"><Icon name="phone" size={17}/>Уточнить и записаться</a>}
       <button className={s.clearButton} onClick={() => { setSelection([]); setCopied(false); setNotice('Список очищен'); }}>Очистить список</button>
@@ -183,10 +193,10 @@ export default function LabPreview() {
 
   return <div className={s.page}>
     <div className={s.container}>
-      <div className={s.topline}><nav aria-label="Хлебные крошки"><Link href="/">Главная</Link><span>/</span><Link href="/services">Услуги</Link><span>/</span><span>Анализы</span></nav><span className={s.previewBadge}>Концепт · тестовая страница</span></div>
+      <div className={s.topline}><nav aria-label="Хлебные крошки"><Link href="/">Главная</Link><span>/</span><Link href="/services">Услуги</Link><span>/</span><span>Анализы</span></nav>{preview && <span className={s.previewBadge}>Концепт · тестовая страница</span>}</div>
 
       <section className={s.hero} aria-labelledby="lab-title">
-        <div className={s.heroCopy}><p className={s.eyebrow}><span className={s.liveDot}/>ЛАБОРАТОРНАЯ ДИАГНОСТИКА · ОДИНЦОВО</p><h1 id="lab-title">Анализы.<br/><span>Всё начинается<br className={s.desktopBreak}/> с ясности.</span></h1><p className={s.heroDescription}>Найдите нужное исследование, узнайте стоимость<br className={s.desktopBreak}/> и соберите свой список — в одном месте.</p><div className={s.heroLinks}><a href="#lab-catalog">Перейти к анализам <Icon name="arrow" size={18}/></a><a href="#lab-preparation">Как подготовиться</a></div></div>
+        <div className={s.heroCopy}><p className={s.eyebrow}><span className={s.liveDot}/>ЛАБОРАТОРНАЯ ДИАГНОСТИКА · ОДИНЦОВО</p><h1 id="lab-title">{calculator ? <>Калькулятор<br/><span>анализов.</span></> : preview ? <>Анализы.<br/><span>Всё начинается<br className={s.desktopBreak}/> с ясности.</span></> : <>Сдать анализы<br/><span>в Одинцово.</span></>}</h1><p className={s.heroDescription}>Найдите нужное исследование, узнайте стоимость<br className={s.desktopBreak}/> и соберите свой список — в одном месте.</p><div className={s.heroLinks}><a href="#lab-catalog">Перейти к анализам <Icon name="arrow" size={18}/></a><a href="#lab-preparation">Как подготовиться</a></div>{!preview && <p className={s.heroDescription}>Б-р Маршала Крылова, 23 · Можайское шоссе, 141<br/><a href="tel:+74952554450" onClick={() => labEvent("lab_call")}>+7 (495) 255-44-50 — уточнить и записаться</a></p>}</div>
         <div className={s.heroVisual}><Image src="/images/lab-preview/lab-editorial.webp" alt="Иллюстрация: лабораторные пробирки в стеклянном штативе" fill priority sizes="(max-width: 767px) 45vw, 45vw" className={s.heroImage}/><div className={s.photoCaption}><span className={s.photoCaptionIcon}><Icon name="drop" size={20}/></span><div><strong>От одного анализа<br/>до полного списка</strong><span>По вашему назначению</span></div></div><span className={s.visualLabel}>ТОЧНОСТЬ В ДЕТАЛЯХ</span></div>
       </section>
 
@@ -208,21 +218,22 @@ export default function LabPreview() {
           <div className={s.resultHeading}><div><span className={s.eyebrow}>{query.trim() ? 'ИЩЕМ ВО ВСЕХ РАЗДЕЛАХ' : isQuick ? 'ЗНАКОМЫЕ НАЗВАНИЯ · ПРОСТОЙ ВЫБОР' : 'ШАГ ЗА ШАГОМ К НУЖНОМУ АНАЛИЗУ'}</span><h2 id="catalog-heading">{catalogTitle}</h2></div>{query.trim() && <span className={s.resultCount} aria-live="polite">Найдено: {results.length}</span>}</div>
           <p className={s.resultIntro}>{query.trim() ? `По запросу «${query}». Сверьте точное название с назначением.` : isQuick ? 'Быстрые ссылки на знакомые исследования. Это не готовый набор: выбирайте только то, что нужно вам.' : overview ? 'Сначала выберите тему — затем покажем нужные исследования.' : 'Выберите конкретное исследование и добавьте его в свой список.'}</p>
           {isFullCatalog && <div className={s.directoryFilter}><label htmlFor="full-catalog-category">Раздел каталога</label><select id="full-catalog-category" value={category} onChange={event => changeCategory(event.target.value)}><option value="all">Все направления</option>{categories.map(name => <option key={name} value={name}>{categoryNames[name]}</option>)}</select></div>}
-          {loading ? <div aria-label="Загружаем исследования" className={s.skeletons}>{[1, 2, 3, 4].map(i => <div key={i}/>)}</div> : failed ? <div className={s.emptyResults}><h3>Не получилось загрузить каталог</h3><p>Ваш сохранённый список не удалён. Попробуйте ещё раз.</p><button className={s.outlineButton} onClick={() => setAttempt(value => value + 1)}>Загрузить повторно</button></div> : overview ? <>
+          {loading ? <div aria-label="Загружаем исследования" className={s.skeletons}>{[1, 2, 3, 4].map(i => <div key={i}/>)}</div> : failed && !items.length ? <div className={s.emptyResults}><h3>Не получилось загрузить каталог</h3><p>Ваш сохранённый список не удалён. Попробуйте ещё раз.</p><button className={s.outlineButton} onClick={() => setAttempt(value => value + 1)}>Загрузить повторно</button></div> : overview ? <>
             {direction ? <div className={s.topicGrid}>{getTopics(direction).filter(item => items.some(item.match)).map(item => <button key={item.id} className={s.topicCard} onClick={() => changeCategory(`topic:${direction.id}:${item.id}`, true)}><strong>{item.title}</strong><span>{item.hint}</span><Icon name="arrow" size={18}/></button>)}</div> : directionCards(DIRECTIONS)}
             <button className={s.otherDirections} onClick={() => setModal('categories')}>Другие направления и полный каталог<Icon name="arrow" size={17}/></button>
           </> : <>
+            {failed && items.length > 0 && <p role="status">Полный каталог временно недоступен. Показаны сохранённые исследования. <button onClick={() => setAttempt(value => value + 1)}>Повторить загрузку</button></p>}
             <div className={`${s.catalogDisclaimer} ${priceInfo?.source === 'file' || priceInfo?.source === 'unavailable' ? s.priceWarning : ''}`}><span>{priceSource} Забор материала и скидки не включены.</span>{priceInfo?.source !== 'network' && priceInfo?.source !== 'memory' && <button onClick={() => setAttempt(value => value + 1)}>Обновить цены</button>}</div>
             {!results.length ? <div className={s.emptyResults}><Icon name="search" size={32}/><h3>Попробуем другое название?</h3><p>По запросу «{query}» ничего не нашлось. Введите часть названия или код из назначения.</p><button className={s.outlineButton} onClick={() => changeCategory('all')}>Открыть все исследования</button><a href="tel:+74952554450">Или поможем по телефону</a></div> : <div className={`${s.testList} ${isQuick ? s.quickGrid : ''}`}>{entries.slice(0, limit).map(entry => {
               if (entry.kind === 'variants') {
                 const chosen = entry.items.filter(item => selection.includes(item.key)).length;
                 const prices = entry.items.map(item => item.price).filter(price => price > 0);
-                return <article key={entry.key} className={`${s.testCard} ${chosen ? s.testCardAdded : ''} ${s.variantCard}`}><div className={s.testInfo}><button className={s.testName} onClick={() => setVariants(entry)}>{entry.title}</button><span className={s.testCategory}>{chosen ? `В списке: ${chosen}` : 'С формулой или без · разные виды биоматериала'}</span></div><div className={s.testAction}><strong>{prices.length ? `от ${money(Math.min(...prices))}` : 'Уточнить цену'}</strong><button className={s.chooseVariant} onClick={() => setVariants(entry)}>Выбрать вариант<Icon name="arrow" size={16}/></button></div></article>;
+                return <article key={entry.key} className={`${s.testCard} ${chosen ? s.testCardAdded : ''} ${s.variantCard}`}><div className={s.testInfo}><button className={s.testName} onClick={() => setVariants(entry)}>{entry.title}</button><span className={s.testCategory}>{chosen ? `В списке: ${chosen}` : 'С формулой или без · разные виды биоматериала'}</span>{studyLinks[priceCode(entry.items[0]?.code || "")] && <Link className={s.studyLink} href={studyLinks[priceCode(entry.items[0].code)]} prefetch={false}>Сравнить варианты ОАК →</Link>}</div><div className={s.testAction}><strong>{prices.length ? `от ${money(Math.min(...prices))}` : 'Уточнить цену'}</strong><button className={s.chooseVariant} onClick={() => setVariants(entry)}>Выбрать вариант<Icon name="arrow" size={16}/></button></div></article>;
               }
               const item = entry.item;
               const added = selection.includes(item.key);
               const label = isQuick ? QUICK_LABELS[item.code] : undefined;
-              return <article key={entry.key} className={`${s.testCard} ${added ? s.testCardAdded : ''}`}><div className={s.testInfo}><button className={s.testName} onClick={() => setDetail(item)}>{label?.title || item.name}</button><span className={s.testCategory}>{label?.hint || (isQuick ? 'Посмотреть исследование' : `Код ${item.code}`)}</span></div><div className={s.testAction}><strong>{item.price > 0 ? money(item.price) : 'Уточнить'}</strong><button className={s.addButton} aria-label={`${added ? 'Удалить из списка' : 'Добавить в список'}: ${item.name}`} aria-pressed={added} onClick={() => toggle(item)}><Icon name={added ? 'check' : 'plus'}/></button></div></article>;
+              return <article key={entry.key} className={`${s.testCard} ${added ? s.testCardAdded : ''}`}><div className={s.testInfo}><button className={s.testName} onClick={() => setDetail(item)}>{label?.title || item.name}</button><span className={s.testCategory}>{label?.hint || (isQuick ? 'Посмотреть исследование' : `Код ${item.code}`)}</span>{studyLinks[priceCode(item.code)] && <Link className={s.studyLink} href={studyLinks[priceCode(item.code)]} prefetch={false}>Подготовка и подробнее →</Link>}</div><div className={s.testAction}><strong>{item.price > 0 ? money(item.price) : 'Уточнить'}</strong><button className={s.addButton} aria-label={`${added ? 'Удалить из списка' : 'Добавить в список'}: ${item.name}`} aria-pressed={added} onClick={() => toggle(item)}><Icon name={added ? 'check' : 'plus'}/></button></div></article>;
             })}</div>}
             {entries.length > limit && <button className={s.showMore} onClick={() => setLimit(current => current + PAGE_SIZE)}>Показать ещё {Math.min(PAGE_SIZE, entries.length - limit)}<Icon name="plus" size={18}/></button>}
             <p className={s.catalogFootnote}>Цена указана за исследование. Точный состав и стоимость заказа подтвердит администратор.</p>
@@ -233,13 +244,14 @@ export default function LabPreview() {
         <aside className={s.basketAside}><div className={s.basket}>{basketContent(false)}</div><div className={s.noPrescription}><Icon name="spark" size={20}/><p>Не знаете, какие анализы нужны?</p><Link href="/services/therapy">Начните с консультации <Icon name="arrow" size={16}/></Link></div></aside>
       </section>
 
+      {children}
       <section id="lab-preparation" className={s.preparation} aria-labelledby="preparation-heading"><div className={s.preparationPhoto}><Image src="/images/lab-preview/lab-care.webp" alt="Иллюстрация: медицинский специалист беседует с пациенткой перед исследованием" fill sizes="(max-width: 767px) 100vw, 38vw"/><span>Сначала — внимание к вам.</span></div><div className={s.preparationCopy}><span className={s.eyebrow}>ПЕРЕД ВИЗИТОМ</span><h2 id="preparation-heading">Хорошая подготовка.<br/><span>Спокойный визит.</span></h2><p>У каждого исследования свои правила. Собрали главное, чтобы вам было проще подготовиться.</p><div className={s.preparationSteps}><div><span>01</span><div><h3>Сверьте названия</h3><p>Возьмите назначение врача и сохраните выбранные анализы.</p></div></div><div><span>02</span><div><h3>Уточните подготовку</h3><p>Проверьте требования к конкретному исследованию в памятке или по телефону.</p></div></div><div><span>03</span><div><h3>Выберите удобное посещение</h3><p>Уточните адрес, часы забора и необходимость предварительной записи.</p></div></div></div><a href="/images/documents/pamyatki-dlya-pacientov-osnovnye-pravila-podgotovki-k-laboratornym-issledovaniyam.pdf" target="_blank" rel="noopener noreferrer" className={s.documentLink}><Icon name="file"/>Памятка по подготовке <span>PDF ↗</span></a></div></section>
 
       <section className={s.serviceLinks}><Link href="/services/lab-tests/analizy-rebenku"><span className={s.eyebrow}>ДЛЯ РОДИТЕЛЕЙ</span><h3>Если анализы<br/>нужны ребёнку</h3><p>Подготовка и особенности посещения</p><span className={s.roundArrow}><Icon name="arrow"/></span></Link><Link href="/contacts"><span className={s.eyebrow}>РЯДОМ С ВАМИ</span><h3>Альтамед-С<br/>в Одинцово</h3><p>Адреса, контакты и схема проезда</p><span className={s.roundArrow}><Icon name="pin"/></span></Link></section>
 
       <section className={s.faq} aria-labelledby="faq-title"><div><span className={s.eyebrow}>ЕЩЁ НЕМНОГО ЯСНОСТИ</span><h2 id="faq-title">Вы спрашиваете.<br/><span>Мы отвечаем.</span></h2><a href="tel:+74952554450">Остался вопрос? Позвоните нам <Icon name="arrow" size={18}/></a></div><div className={s.faqList}>{faqs.map(([question, answer], i) => <details key={question}><summary><span className={s.faqNumber}>0{i + 1}</span>{question}<Icon name="plus" size={18}/></summary><p>{answer}</p></details>)}</div></section>
       <div className={s.closing}><div><span className={s.eyebrow}>ВАШ СЛЕДУЮЩИЙ ШАГ</span><h2>Меньше поиска.<br/>Больше заботы о себе.</h2></div><a href="#lab-catalog">Выбрать исследования <Icon name="arrow"/></a></div>
-      <p className={s.previewNote}>Демонстрационный вариант. Основная страница не изменена. Иллюстрации созданы для концепта и не являются фотографиями клиники. В этом макете нет отправки заявок.</p>
+      <p className={s.previewNote}>{preview ? "Демонстрационный вариант. " : ""}Иллюстрации не являются фотографиями клиники. Список анализов сохраняется только в вашей вкладке: это не оформление записи.</p>
     </div>
     {selected.length > 0 && <button className={s.mobileBasket} onClick={() => setModal('basket')}><span><Icon name="bag" size={19}/><span>Мой список <b>{selected.length}</b></span></span><strong>{totalLabel}<Icon name="arrow" size={19}/></strong></button>}
     <span className={s.srOnly} role="status">{notice}</span>
@@ -249,6 +261,6 @@ export default function LabPreview() {
       const added = selection.includes(item.key);
       return <div key={item.key} className={`${s.variantOption} ${added ? s.variantOptionAdded : ''}`}><h3>{label?.title || item.name}</h3><p>{label?.description}</p><details><summary>Полное название и код</summary><p>{item.name}</p><span>{item.code}</span></details><div><strong>{item.price > 0 ? money(item.price) : 'Уточнить цену'}</strong><button className={s.variantAdd} aria-pressed={added} aria-label={`${added ? 'Удалить из списка' : 'Добавить в список'}: ${item.name}`} onClick={() => toggle(item)}>{added ? 'Добавлено' : 'Добавить'}<Icon name={added ? 'check' : 'plus'} size={17}/></button></div></div>;
     })}</div><p className={s.priceNote}>{priceSource} Без забора материала и скидок.</p><button className={s.outlineButton} onClick={() => setVariants(null)}>Вернуться к анализам</button></Modal>}
-    {detail && <Modal title={detail.name} onClose={() => setDetail(null)}><div className={s.detailMeta}><span>{detail.code}</span><strong>{detail.price > 0 ? money(detail.price) : 'Цена уточняется'}</strong></div><p className={s.detailCategory}>{detail.category}</p><div className={s.detailNote}><h3>Проверьте название в назначении</h3><p>Состав исследования, подготовку, биоматериал и срок готовности уточните в клинике. В тестовом каталоге эти сведения ещё не подключены.</p></div><button className={s.primaryButton} onClick={() => toggle(detail)}>{selection.includes(detail.key) ? 'Удалить из списка' : 'Добавить в мой список'}<Icon name={selection.includes(detail.key) ? 'check' : 'plus'}/></button><a className={s.outlineButton} href="tel:+74952554450"><Icon name="phone" size={17}/>Уточнить исследование</a></Modal>}
+    {detail && <Modal title={detail.name} onClose={() => setDetail(null)}><div className={s.detailMeta}><span>{detail.code}</span><strong>{detail.price > 0 ? money(detail.price) : 'Цена уточняется'}</strong></div><p className={s.detailCategory}>{detail.category}</p><div className={s.detailNote}><h3>Проверьте название в назначении</h3><p>Сверьте полное название и состав с назначением. Срок готовности, стоимость забора и индивидуальные условия подготовки уточните в клинике.</p></div><button className={s.primaryButton} onClick={() => toggle(detail)}>{selection.includes(detail.key) ? 'Удалить из списка' : 'Добавить в мой список'}<Icon name={selection.includes(detail.key) ? 'check' : 'plus'}/></button><a className={s.outlineButton} href="tel:+74952554450"><Icon name="phone" size={17}/>Уточнить исследование</a></Modal>}
   </div>;
 }

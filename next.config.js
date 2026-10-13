@@ -2,6 +2,8 @@ const path = require('path');
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Isolated verification builds do not overwrite the running development server.
+  distDir: process.env.NEXT_DIST_DIR || '.next',
   // ВАЖНО: Статический экспорт отключен, так как используются API routes для отправки email
   // Если нужен статический экспорт, раскомментируйте строки ниже и удалите API routes
   // ...(process.env.NODE_ENV === 'production' && {
@@ -58,6 +60,11 @@ const nextConfig = {
 
   async redirects() {
     return [
+      {
+        source: '/diagnostics/laboratory_research',
+        destination: '/services/lab-tests',
+        permanent: true,
+      },
       // Старый порядок выдачи справок заменён актуальным документом клиники.
       {
         source: '/images/documents/poryadk-vydachi-spravok-i-medicinskih-zaklyuchenii.pdf',

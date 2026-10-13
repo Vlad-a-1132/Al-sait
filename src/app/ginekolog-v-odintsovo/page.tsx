@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { doctors } from '@/data/static-data';
+import RelatedLabLinks from '@/components/lab/RelatedLabLinks';
 
 const BASE_URL = 'https://altamed-c.ru';
 
@@ -1638,6 +1639,7 @@ export default function TestGinoPage() {
           </div>
         </section>
 
+        <RelatedLabLinks direction="gynecology"/>
         {/* Финальный CTA */}
         <section className="py-8 sm:py-12 pb-24 md:pb-12">
           <div className="max-w-[1400px] mx-auto px-4 text-center">

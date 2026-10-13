@@ -1,0 +1,79 @@
+{
+  "generatedAt": "2026-10-13",
+  "tool": "Built-in ImageGen",
+  "usage": "Thematic illustrations shared by relevant tests and articles. Not photographs of Altamed facilities.",
+  "assets": [
+    {
+      "key": "coagulation",
+      "sourceFile": "exec-306dcced-7e70-4372-86fb-bc4f8afba1d4.png",
+      "prompt": "Use case: stylized-concept. Asset type: landscape hero and editorial cover for Altamed medical laboratory website. Premium tactile 3D editorial illustration, warm ivory stone, sage and deep forest green, soft daylight, realistic glass and ceramic materials, calm sophisticated aesthetic, wide 3:2 landscape with generous breathing room. A conceptual illustration, not a real clinic photo or diagnostic diagram. No people, text, numbers, labels, logos, watermark, needles, gore or neon. A delicate fibrin-like translucent mesh cradling a few anatomically plausible burgundy biconcave red blood cells, behind a sealed citrate blood sample tube in a ceramic holder. Elegant close-up, clotting research symbolism, not a blocked artery.",
+      "file": "/images/lab-seo/coagulation.webp"
+    },
+    {
+      "key": "iron-transport",
+      "sourceFile": "exec-4d1600ee-33dc-4bd1-8a3b-d88cc7095dac.png",
+      "prompt": "Use case: stylized-concept. Asset type: landscape hero and editorial cover for Altamed medical laboratory website. Premium tactile 3D editorial illustration, warm ivory stone, sage and deep forest green, soft daylight, realistic glass and ceramic materials, calm sophisticated aesthetic, wide 3:2 landscape with generous breathing room. A conceptual illustration, not a real clinic photo or diagnostic diagram. No people, text, numbers, labels, logos, watermark, needles, gore or neon. A sculptural open translucent protein cradle carrying two tiny warm copper spheres, beside a sealed blood sample tube and subtle burgundy biconcave red cells. The concept is transport and storage of iron in blood, not supplements, food, or industrial iron.",
+      "file": "/images/lab-seo/iron-transport.webp"
+    },
+    {
+      "key": "lipids",
+      "sourceFile": "exec-a2c3da22-b81f-4df2-8327-b050a4941ec0.png",
+      "prompt": "Use case: stylized-concept. Asset type: landscape hero and editorial cover for Altamed medical laboratory website. Premium tactile 3D editorial illustration, warm ivory stone, sage and deep forest green, soft daylight, realistic glass and ceramic materials, calm sophisticated aesthetic, wide 3:2 landscape with generous breathing room. A conceptual illustration, not a real clinic photo or diagnostic diagram. No people, text, numbers, labels, logos, watermark, needles, gore or neon. A magnified conceptual lipoprotein particle cutaway with a pale amber core and a carefully ordered pearl-like outer shell, accompanied by two smaller particle models and a sealed serum tube. Elegant scientific sculpture about lipid blood testing, no artery cross-section, no food.",
+      "file": "/images/lab-seo/lipids.webp"
+    },
+    {
+      "key": "reproductive",
+      "sourceFile": "exec-e4f680b6-0a24-4d20-8d76-05358203da2c.png",
+      "prompt": "Use case: stylized-concept. Asset type: landscape hero and editorial cover for Altamed medical laboratory website. Premium tactile 3D editorial illustration, warm ivory stone, sage and deep forest green, soft daylight, realistic glass and ceramic materials, calm sophisticated aesthetic, wide 3:2 landscape with generous breathing room. A conceptual illustration, not a real clinic photo or diagnostic diagram. No people, text, numbers, labels, logos, watermark, needles, gore or neon. A tasteful frosted glass sculptural ovary-like form containing delicate small translucent follicles, beside a single closed serum sample tube and an abstract circular rhythm motif without marks. Medical editorial still life about reproductive hormone testing, no bodies, no embryos or babies, not an anatomical diagnostic chart.",
+      "file": "/images/lab-seo/reproductive.webp"
+    },
+    {
+      "key": "metabolism",
+      "sourceFile": "exec-3fc4fce8-cfad-469a-b397-fc17dbe26696.png",
+      "prompt": "Use case: stylized-concept. Asset type: landscape hero and editorial cover for Altamed medical laboratory website. Premium tactile 3D editorial illustration, warm ivory stone, sage and deep forest green, soft daylight, realistic glass and ceramic materials, calm sophisticated aesthetic, wide 3:2 landscape with generous breathing room. A conceptual illustration, not a real clinic photo or diagnostic diagram. No people, text, numbers, labels, logos, watermark, needles, gore or neon. A refined small frosted-glass pancreas-shaped sculpture beside a closed serum tube, with a subtle abstract chain of linked translucent beads suggesting peptide signalling. Medical laboratory still life about insulin and C-peptide testing, no sugar cubes, no food, no syringes.",
+      "file": "/images/lab-seo/metabolism.webp"
+    },
+    {
+      "key": "gastrointestinal",
+      "sourceFile": "exec-600df7f0-867f-4234-b4f2-400d5a467098.png",
+      "prompt": "Use case: stylized-concept. Asset type: landscape hero and editorial cover for Altamed medical laboratory website. Premium tactile 3D editorial illustration, warm ivory stone, sage and deep forest green, soft daylight, realistic glass and ceramic materials, calm sophisticated aesthetic, wide 3:2 landscape with generous breathing room. A conceptual illustration, not a real clinic photo or diagnostic diagram. No people, text, numbers, labels, logos, watermark, needles, gore or neon. A clean ivory sculptural intestinal loop with simple recognisable colon outline, a small translucent amber sample vial with closed lid and a glass magnifying lens. Medical editorial still life about laboratory investigation of digestion. No visible stool, body, blood or graphic detail.",
+      "file": "/images/lab-seo/gastrointestinal.webp"
+    },
+    {
+      "key": "minerals",
+      "sourceFile": "exec-d10a4068-f2aa-4935-a879-48f5ea42e51b.png",
+      "prompt": "Use case: stylized-concept. Asset type: landscape hero and editorial cover for Altamed medical laboratory website. Premium tactile 3D editorial illustration, warm ivory stone, sage and deep forest green, soft daylight, realistic glass and ceramic materials, calm sophisticated aesthetic, wide 3:2 landscape with generous breathing room. A conceptual illustration, not a real clinic photo or diagnostic diagram. No people, text, numbers, labels, logos, watermark, needles, gore or neon. Three small translucent mineral-like crystal sculptures with distinct warm pale gold, cool clear and sage textures, next to a sealed serum sample tube in a white ceramic holder. A clean laboratory micronutrient testing concept, no pills, food, supplements or mining rocks.",
+      "file": "/images/lab-seo/minerals.webp"
+    },
+    {
+      "key": "pcr",
+      "sourceFile": "exec-b0ce26b8-8650-4a98-9e54-da4bddd59877.png",
+      "prompt": "Use case: stylized-concept. Asset type: landscape hero and editorial cover for Altamed medical laboratory website. Premium tactile 3D editorial illustration, warm ivory stone, sage and deep forest green, soft daylight, realistic glass and ceramic materials, calm sophisticated aesthetic, wide 3:2 landscape with generous breathing room. A conceptual illustration, not a real clinic photo or diagnostic diagram. No people, text, numbers, labels, logos, watermark, needles, gore or neon. A clear glass DNA double-helix sculpture beside a small rack of capped PCR microtubes and a sealed sterile sampling swab in its transparent package. Clean medical diagnostic concept, no dangerous microbes, no specimen visible.",
+      "file": "/images/lab-seo/pcr.webp"
+    },
+    {
+      "key": "reticulocytes",
+      "sourceFile": "exec-fc1c5a8c-f031-4ec7-a26a-51c439e5d98c.png",
+      "prompt": "Use case: stylized-concept. Asset type: landscape hero and editorial cover for Altamed medical laboratory website. Premium tactile 3D editorial illustration, warm ivory stone, sage and deep forest green, soft daylight, realistic glass and ceramic materials, calm sophisticated aesthetic, wide 3:2 landscape with generous breathing room. A conceptual illustration, not a real clinic photo or diagnostic diagram. No people, text, numbers, labels, logos, watermark, needles, gore or neon. A magnified conceptual cluster of young and mature biconcave red blood cells, one slightly larger cell with a fine faint internal reticular texture, beside a glass microscope slide and a sealed blood sample tube. Cellular blood laboratory testing, not red spheres, not grapes.",
+      "file": "/images/lab-seo/reticulocytes.webp"
+    },
+    {
+      "key": "calcium",
+      "sourceFile": "exec-86af6a40-d044-4ccd-9372-e70b993f4270.png",
+      "prompt": "Use case: stylized-concept. Asset type: landscape hero and editorial cover for Altamed medical laboratory website. Premium tactile 3D editorial illustration, warm ivory stone, sage and deep forest green, soft daylight, realistic glass and ceramic materials, calm sophisticated aesthetic, wide 3:2 landscape with generous breathing room. A conceptual illustration, not a real clinic photo or diagnostic diagram. No people, text, numbers, labels, logos, watermark, needles, gore or neon. Two beautiful translucent sculptural arrangements: one single clear pearl-like sphere and a second similar sphere gently held within a larger glass protein cradle, beside a sealed serum sample tube. Conceptual bound and free calcium laboratory testing illustration, no pills, no bones, no cheese.",
+      "file": "/images/lab-seo/calcium.webp"
+    },
+    {
+      "key": "adrenal",
+      "sourceFile": "exec-2e1640c7-bd59-46a2-8982-a872b3443c2d.png",
+      "prompt": "Use case: stylized-concept. Asset type: landscape hero and editorial cover for Altamed medical laboratory website. Premium tactile 3D editorial illustration, warm ivory stone, sage and deep forest green, soft daylight, realistic glass and ceramic materials, calm sophisticated aesthetic, wide 3:2 landscape with generous breathing room. A conceptual illustration, not a real clinic photo or diagnostic diagram. No people, text, numbers, labels, logos, watermark, needles, gore or neon. A pair of simplified kidney-shaped frosted glass sculptures with distinctly visible small warm amber adrenal caps on top, next to a closed serum tube and an abstract smooth day-night circle without numbers. Editorial concept for cortisol blood testing, focus on adrenal glands, no people.",
+      "file": "/images/lab-seo/adrenal.webp"
+    },
+    {
+      "key": "hormone-transport",
+      "sourceFile": "exec-fe015263-42f6-4b9b-87a5-21501008f635.png",
+      "prompt": "Use case: stylized-concept. Asset type: landscape hero and editorial cover for Altamed medical laboratory website. Premium tactile 3D editorial illustration, warm ivory stone, sage and deep forest green, soft daylight, realistic glass and ceramic materials, calm sophisticated aesthetic, wide 3:2 landscape with generous breathing room. A conceptual illustration, not a real clinic photo or diagnostic diagram. No people, text, numbers, labels, logos, watermark, needles, gore or neon. An elegant translucent folded protein sculpture cradling two tiny sage glass spheres, beside a closed serum test tube. Editorial concept of transport proteins binding hormones in blood, medically neutral with no sex-specific anatomy, no eggs or ovaries.",
+      "file": "/images/lab-seo/hormone-transport.webp"
+    }
+  ]
+}

@@ -14,7 +14,6 @@ export const metadata: Metadata = {
     'анализы на инфекции Одинцово',
     'онкомаркеры Одинцово',
     'анализы для детей Одинцово',
-    'быстрые анализы Одинцово',
     'анализы Альтамед-с',
     'лаборатория Одинцово',
     'клинический анализ крови Одинцово',
@@ -32,9 +31,9 @@ export const metadata: Metadata = {
     siteName: 'Альтамед-с',
     images: [
       {
-        url: 'https://altamed-c.ru/images/services/lab-tests.webp',
-        width: 1200,
-        height: 630,
+        url: 'https://altamed-c.ru/images/lab-seo/biochemistry.webp',
+        width: 1400,
+        height: 933,
         alt: 'Лабораторная диагностика в Альтамед-с',
       },
     ],
@@ -45,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Сдать анализы в Одинцово — Альтамед-С',
     description: 'Лабораторные исследования, подготовка и калькулятор анализов в Альтамед-С.',
-    images: ['https://altamed-c.ru/images/services/lab-tests.webp'],
+    images: ['https://altamed-c.ru/images/lab-seo/biochemistry.webp'],
   },
   alternates: {
     canonical: 'https://altamed-c.ru/services/lab-tests',

@@ -1,6 +1,7 @@
 import { P1_SEO_ARTICLES_A } from "@/data/p1-seo-articles-a";
 import { P1_SEO_ARTICLES_B } from "@/data/p1-seo-articles-b";
 import { SEO_BACKLOG_ARTICLES } from "@/data/seo-backlog-articles";
+import { LAB_SEO_ARTICLES } from '@/data/lab-seo-articles';
 
 export type SeoArticleSection = {
   id: string;
@@ -10,11 +11,12 @@ export type SeoArticleSection = {
 };
 
 export type PrioritySeoArticle = {
+  dateModified?: string;
   title: string;
   description: string;
   h1: string;
   category: string;
-  direction: "allergology" | "gastroenterology" | "endocrinology" | "therapy" | "traumatology" | "dentistry" | "otolaryngology" | "dermatology" | "urology" | "surgery" | "ophthalmology" | "pediatrics" | "cardiology" | "neurology" | "rehabilitation" | "gynecology" | "mammology" | "proctology";
+  direction: "lab-tests" | "allergology" | "gastroenterology" | "endocrinology" | "therapy" | "traumatology" | "dentistry" | "otolaryngology" | "dermatology" | "urology" | "surgery" | "ophthalmology" | "pediatrics" | "cardiology" | "neurology" | "rehabilitation" | "gynecology" | "mammology" | "proctology";
   readingTime: string;
   image: string;
   intro: string[];
@@ -41,6 +43,7 @@ export type PrioritySeoArticle = {
 };
 
 export const PRIORITY_SEO_ARTICLES: Record<string, PrioritySeoArticle> = {
+  ...LAB_SEO_ARTICLES,
   allergiya: {
     title: "Аллергия: симптомы, обследование и запись к аллергологу | Альтамед-С",
     description: "Как проявляется аллергия, что записать до консультации, какие обследования может выбрать аллерголог и как подготовиться к приёму в Одинцово.",

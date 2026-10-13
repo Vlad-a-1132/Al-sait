@@ -5,6 +5,7 @@ import { ORTHO_DIRECTION_SLUGS } from '@/data/goncharenko/orthoDirectionPages';
 import { PRIORITY_SEO_ARTICLES } from '@/data/priority-seo-articles';
 import { BLOG_TOPIC_SLUGS } from '@/data/blog-topic-pages';
 import { PEDIATRIC_PROMOTIONS } from '@/data/pediatric-promotions';
+import { LAB_HUBS, LAB_STUDIES, LAB_ROOT, LAB_UPDATED } from '@/data/lab-seo';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://altamed-c.ru';
@@ -336,13 +337,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const priorityArticlePages: MetadataRoute.Sitemap = Object.keys(PRIORITY_SEO_ARTICLES)
     .map((slug) => `/blog/${slug}`)
     .filter((path) => !staticPathSet.has(path))
-    .map((path) => make(path, 'monthly', 0.8));
+    .map((path) => ({...make(path, 'monthly', 0.8), lastModified: PRIORITY_SEO_ARTICLES[path.slice('/blog/'.length)]?.dateModified || now}));
   const topicPages: MetadataRoute.Sitemap = BLOG_TOPIC_SLUGS
     .map((slug) => `/blog/topics/${slug}`)
     .filter((path) => !staticPathSet.has(path))
     .map((path) => make(path, 'monthly', 0.7));
 
   return [
+    ...[...LAB_HUBS, ...LAB_STUDIES].map(item => ({...make(`${LAB_ROOT}/${item.slug}`, 'monthly', 0.8),lastModified:LAB_UPDATED})),
     ...staticPages,
     ...doctorPages,
     ...promoPages,

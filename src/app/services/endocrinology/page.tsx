@@ -1,3 +1,4 @@
+import RelatedLabLinks from '@/components/lab/RelatedLabLinks';
 import type { Metadata } from "next";
 import EndocrinologyPageClient, { type EndocrinologyServiceRow } from "./EndocrinologyPageClient";
 import { formatEndocrinologyPriceLabel, loadEndocrinologyPriceServices } from "./load-endocrinology-services";
@@ -25,5 +26,5 @@ export default async function EndocrinologyPage() {
     priceIsZero: s.priceIsZero === true,
   }));
 
-  return <EndocrinologyPageClient serviceRows={serviceRows} />;
+  return <><EndocrinologyPageClient serviceRows={serviceRows} /><RelatedLabLinks direction="endocrinology"/></>;
 }

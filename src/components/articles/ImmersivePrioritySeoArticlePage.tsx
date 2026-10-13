@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { labEvent } from "@/lib/lab-events";
 import Link from "next/link";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
@@ -32,6 +33,7 @@ function CheckIcon() {
 }
 
 export default function ImmersivePrioritySeoArticlePage({ article }: { article: PrioritySeoArticle }) {
+  const isLabArticle = article.direction === "lab-tests";
   const reduceMotion = Boolean(useReducedMotion());
   const heroRef = useRef<HTMLElement>(null);
   const [activeSection, setActiveSection] = useState("scenarii");
@@ -146,7 +148,7 @@ export default function ImmersivePrioritySeoArticlePage({ article }: { article: 
 
             <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
               <a
-                href={APPOINTMENTS_URL}
+                href={APPOINTMENTS_URL} onClick={() => { if (article.direction === "lab-tests") labEvent("lab_booking"); }}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-emerald-700 px-7 font-bold text-white shadow-[0_18px_45px_rgba(4,120,87,.23)] transition duration-300 hover:-translate-y-0.5 hover:bg-emerald-800 hover:shadow-[0_22px_55px_rgba(4,120,87,.3)]"
@@ -182,7 +184,7 @@ export default function ImmersivePrioritySeoArticlePage({ article }: { article: 
               <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/55 via-transparent to-white/5" />
               <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-5 text-white sm:p-7">
                 <div>
-                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-100">На консультации</div>
+                  <div className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-100">{isLabArticle ? "Об исследованиях" : "На консультации"}</div>
                   <div className="mt-1 text-lg font-bold sm:text-xl">{article.heroCaption ?? article.category}</div>
                 </div>
                 <div className="hidden h-12 w-12 shrink-0 items-center justify-center rounded-full border border-white/30 bg-white/15 backdrop-blur sm:flex">
@@ -195,10 +197,10 @@ export default function ImmersivePrioritySeoArticlePage({ article }: { article: 
               aria-hidden="true"
               animate={reduceMotion ? undefined : { y: [0, -8, 0] }}
               transition={{ duration: 4.5, repeat: Infinity, ease: "easeInOut" }}
-              className="absolute -bottom-5 -left-2 hidden rounded-2xl border border-white/70 bg-white/85 px-5 py-4 shadow-xl shadow-emerald-900/10 backdrop-blur-xl sm:block lg:-left-7"
+              className={`absolute hidden rounded-2xl border border-white/70 bg-white/85 px-5 py-4 shadow-xl shadow-emerald-900/10 backdrop-blur-xl sm:block ${isLabArticle ? "-top-5 -right-2 lg:-right-7" : "-bottom-5 -left-2 lg:-left-7"}`}
             >
-              <div className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">Цель приёма</div>
-              <div className="mt-1 font-bold text-slate-900">Понять причину и следующий шаг</div>
+              <div className="text-xs font-semibold uppercase tracking-[0.14em] text-emerald-700">{isLabArticle ? "Без путаницы" : "Цель приёма"}</div>
+              <div className="mt-1 font-bold text-slate-900">{isLabArticle ? "Название · подготовка · цена" : "Понять причину и следующий шаг"}</div>
             </motion.div>
           </motion.div>
         </div>
@@ -302,7 +304,7 @@ export default function ImmersivePrioritySeoArticlePage({ article }: { article: 
                   </a>
                 ))}
               </nav>
-              <a href={PHONE_LINK} className="mt-5 flex items-center justify-between rounded-xl bg-emerald-950 px-4 py-3 text-sm font-bold text-white transition hover:bg-emerald-800">
+              <a href={PHONE_LINK} onClick={() => { if (article.direction === "lab-tests") labEvent("lab_call"); }} className="mt-5 flex items-center justify-between rounded-xl bg-emerald-950 px-4 py-3 text-sm font-bold text-white transition hover:bg-emerald-800">
                 Позвонить
                 <ArrowIcon className="h-4 w-4" />
               </a>
@@ -373,11 +375,11 @@ export default function ImmersivePrioritySeoArticlePage({ article }: { article: 
                 <p className="mt-5 max-w-3xl text-base leading-8 text-emerald-50/75 sm:text-lg">{article.finalCtaText ?? "Выберите удобное время онлайн. При записи назовите основную жалобу — администратор поможет подобрать профильного специалиста."}</p>
               </div>
               <div className="flex flex-col gap-3 sm:flex-row lg:flex-col">
-                <a href={APPOINTMENTS_URL} target="_blank" rel="noopener noreferrer" className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-7 font-bold text-emerald-950 transition hover:-translate-y-0.5 hover:bg-emerald-50">
+                <a href={APPOINTMENTS_URL} onClick={() => { if (article.direction === "lab-tests") labEvent("lab_booking"); }} target="_blank" rel="noopener noreferrer" className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-full bg-white px-7 font-bold text-emerald-950 transition hover:-translate-y-0.5 hover:bg-emerald-50">
                   Записаться онлайн
                   <ArrowIcon className="h-5 w-5 transition-transform group-hover:translate-x-1" />
                 </a>
-                <a href={PHONE_LINK} className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/25 px-7 font-bold text-white transition hover:border-white/50 hover:bg-white/10">+7 (495) 255-44-50</a>
+                <a href={PHONE_LINK} onClick={() => { if (article.direction === "lab-tests") labEvent("lab_call"); }} className="inline-flex min-h-14 items-center justify-center rounded-full border border-white/25 px-7 font-bold text-white transition hover:border-white/50 hover:bg-white/10">+7 (495) 255-44-50</a>
               </div>
             </div>
           </motion.div>

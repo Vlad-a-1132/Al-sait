@@ -7,7 +7,7 @@ export type BacklogArticleSeed = {
   topic: string;
   h1: string;
   category: string;
-  direction: PrioritySeoArticle["direction"];
+  direction: Exclude<PrioritySeoArticle["direction"], 'lab-tests'>;
   priority: BacklogPriority;
   serviceHref: string;
   extraTopics?: string[];
@@ -22,7 +22,7 @@ type DirectionProfile = {
   observations: string[];
 };
 
-const DIRECTION_PROFILES: Record<PrioritySeoArticle["direction"], DirectionProfile> = {
+const DIRECTION_PROFILES: Record<BacklogArticleSeed['direction'], DirectionProfile> = {
   allergology: {
     specialist: "аллерголог",
     serviceLabel: "Записаться к аллергологу",

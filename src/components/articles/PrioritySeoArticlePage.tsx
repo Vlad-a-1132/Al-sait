@@ -15,7 +15,7 @@ export default function PrioritySeoArticlePage({ slug }: { slug: string }) {
         description: article.description,
         url: canonical,
         image: `https://altamed-c.ru${article.image}`,
-        dateModified: "2026-08-08",
+        dateModified: article.dateModified || "2026-08-08",
         author: { "@type": "MedicalOrganization", name: "Альтамед-С" },
         publisher: { "@type": "MedicalOrganization", name: "Альтамед-С", url: "https://altamed-c.ru" },
       },

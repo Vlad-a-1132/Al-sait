@@ -1,4 +1,5 @@
 import PediatricsPageClientV2 from "./PediatricsPageClientV2";
+import RelatedLabLinks from '@/components/lab/RelatedLabLinks';
 import type { PediatricsServiceRow } from "./PediatricsPageClient";
 import { formatPediatricsPriceLabel, loadPediatricsPriceServices } from "./load-pediatrics-services";
 import type { PriceServiceDisplay } from "@/lib/price-api";
@@ -19,6 +20,6 @@ export default async function PediatricsPage() {
     priceIsZero: s.priceIsZero === true,
   }));
 
-  return <PediatricsPageClientV2 serviceRows={serviceRows} />;
+  return <><PediatricsPageClientV2 serviceRows={serviceRows} /><RelatedLabLinks direction="pediatrics"/></>;
 }
 

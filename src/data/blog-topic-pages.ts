@@ -13,6 +13,7 @@ import { REHABILITATION_SERVICE_ARTICLES } from "@/data/rehabilitation-service-a
 import { PRIORITY_SEO_ARTICLE_CARDS } from "@/data/priority-seo-articles";
 
 export type BlogTopicSlug =
+  | "lab-tests"
   | "gynecology"
   | "allergology"
   | "gastroenterology"
@@ -51,6 +52,13 @@ const priorityArticlesFor = (direction: string) =>
   PRIORITY_SEO_ARTICLE_CARDS.filter((article) => article.direction === direction);
 
 export const BLOG_TOPIC_PAGES: Record<BlogTopicSlug, BlogTopicDefinition> = {
+  'lab-tests': {
+    name:'Анализы', title:'Статьи об анализах: подготовка, выбор исследования и результаты',
+    description:'Как подготовиться к анализам крови, мочи и кала, выбрать точное исследование и не перепутать похожие названия. Каталог анализов Альтамед-С в Одинцово.',
+    intro:'Понятные памятки для взрослых и родителей: чем отличаются исследования, как собрать биоматериал и какие вопросы уточнить до посещения. Каждый материал связан с подходящими страницами анализов и ценами.',
+    serviceHref:'/services/lab-tests',serviceLabel:'Сдать анализы в Одинцово',serviceDescription:'Найдите исследования по назначению, проверьте цены и соберите список в одном калькуляторе.',accent:'from-emerald-50 to-white',articles:priorityArticlesFor('lab-tests'),
+    questions:[{question:'Где узнать стоимость?',answer:'В статьях есть ссылки на страницы исследований, а общий каталог позволяет собрать список с предварительной суммой.'},{question:'По статьям можно выбрать все анализы самостоятельно?',answer:'Материалы объясняют различия и подготовку, но не заменяют индивидуального назначения при жалобах.'},{question:'Можно ли сдать анализы ребёнку?',answer:'Уточните возрастные условия и подготовку по точному списку. Для родителей есть отдельная страница и памятка.'}],
+  },
   gynecology: {
     name: "Гинекология",
     title: "Статьи по гинекологии: обследования, симптомы и подготовка к приёму",
