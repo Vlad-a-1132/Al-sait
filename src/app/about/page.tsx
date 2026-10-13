@@ -2048,81 +2048,18 @@ function AboutPageContent() {
               {activeSection === 'branches' && (
                 <div className="bg-white rounded-lg shadow-md p-6">
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Филиалы</h2>
-                  <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    {/* Левая колонка */}
-                    <div className="space-y-6">
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-800 mb-3 pb-2 border-b-2 border-emerald-500">
-                          ММЦ «Дубки-Альтамед»
-                        </h3>
-                        <div className="space-y-2 text-gray-700">
-                          <p>пос. ВНИИССОК (Дубки), ул. Рябиновая, д. 2</p>
-                          <p>
-                            Телефон: <a href="tel:+74959785701" className="text-emerald-600 hover:text-emerald-700">+7 (495) 978-57-01</a>
-                </p>
-                <p>
-                            Телефон: <a href="tel:+79852105073" className="text-emerald-600 hover:text-emerald-700">+7 (985) 210-50-73</a>
-                          </p>
-                        </div>
-              </div>
-
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-800 mb-3 pb-2 border-b-2 border-emerald-500">
-                          ММЦ «Альтамед +»
-                        </h3>
-                        <div className="space-y-2 text-gray-700">
-                          <p>г. Одинцово, ул. Союзная, д. 32 Б</p>
-                          <p>
-                            Телефон: <a href="tel:+74952129003" className="text-emerald-600 hover:text-emerald-700">+7 (495) 212-90-03</a>
-                          </p>
-          </div>
-        </div>
-
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-800 mb-3 pb-2 border-b-2 border-emerald-500">
-                          ММЦ «Альтамед-Голицино»
-                        </h3>
-                        <div className="space-y-2 text-gray-700">
-                          <p>г. Голицыно, ул. Советская, д.58</p>
-                          <p>
-                            Телефон: <a href="tel:+74959896480" className="text-emerald-600 hover:text-emerald-700">+7 (495) 989-64-80</a>
-                </p>
-              </div>
-            </div>
-          </div>
-          
-                    {/* Правая колонка */}
-                    <div className="space-y-6">
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-800 mb-3 pb-2 border-b-2 border-emerald-500">
-                          Клиника «Одинмед»
-                        </h3>
-                        <div className="space-y-2 text-gray-700">
-                          <p>г. Одинцово, ул. Комсомольская, д. 16, корп. 3</p>
-                          <p>Стоматологическое отделение:</p>
-                          <p>
-                            <a href="tel:+74952874127" className="text-emerald-600 hover:text-emerald-700">+7 (495) 287-41-27</a>
-                            {' '}, <a href="tel:+79268099890" className="text-emerald-600 hover:text-emerald-700">+7 (926) 809-98-90</a>
-                          </p>
-                          <p>Стационар одного дня: <a href="tel:+74952874134" className="text-emerald-600 hover:text-emerald-700">+7 (495) 287-41-34</a></p>
-                          <p>Центр амбулаторной хирургии: <a href="tel:+74952874178" className="text-emerald-600 hover:text-emerald-700">+7 (495) 287-41-78</a></p>
-          </div>
-        </div>
-
-                      <div>
-                        <h3 className="text-xl font-bold text-gray-800 mb-3 pb-2 border-b-2 border-emerald-500">
-                          Клиника «Одинмед+»
-                        </h3>
-                        <div className="space-y-2 text-gray-700">
-                          <p>г. Одинцово, ул. Маршала Неделина, д. 9</p>
-                          <p>
-                            Телефон: <a href="tel:+74959262655" className="text-emerald-600 hover:text-emerald-700">+7 (495) 926-26-55</a>
-                          </p>
-                        </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                  <div className="max-w-2xl rounded-xl border border-emerald-100 bg-emerald-50/40 p-5 md:p-6">
+                    <h3 className="text-xl font-bold text-gray-800 mb-3 pb-2 border-b-2 border-emerald-500">
+                      «Альтамед-Голицыно»
+                    </h3>
+                    <div className="space-y-2 text-gray-700">
+                      <p>г. Голицыно, ул. Советская, д. 58</p>
+                      <p>
+                        Телефон: <a href="tel:+74959896480" className="text-emerald-600 hover:text-emerald-700">+7 (495) 989-64-80</a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
               )}
 
               {/* Лицензии */}
