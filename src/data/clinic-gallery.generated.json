@@ -1,0 +1,901 @@
+[
+  {
+    "id": "clinic",
+    "source": "/images/fotogelery/altamed-gallery-home.webp",
+    "title": "Добро пожаловать в «Альтамед-С»",
+    "category": "Клиника",
+    "width": 6053,
+    "height": 4035,
+    "originalBytes": 1213050,
+    "originalHash": "9010e98d0d5b507c22a433d123fafeb4fbb183d8eed4240a6ad08390ae6ec1e8",
+    "blur": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAADQAQCdASoQAAsABABoJQBOgB3361bkAAD+6zUNL26RRkPfcydZwndcjY9mc+qR/KuSfcH4SxqVB3jjYhPq+S+63xeTq3gAAAA=",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/clinic-29ec0bcc6cd6-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 25946
+      },
+      "960": {
+        "src": "/images/gallery-optimized/clinic-29ec0bcc6cd6-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 83898
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/clinic-29ec0bcc6cd6-1800.webp",
+        "width": 1800,
+        "height": 1200,
+        "bytes": 268468
+      }
+    }
+  },
+  {
+    "id": "ct",
+    "source": "/images/fotogelery/kt-Altamed-C.webp",
+    "title": "Кабинет компьютерной томографии",
+    "category": "Диагностика",
+    "width": 6144,
+    "height": 4097,
+    "originalBytes": 966940,
+    "originalHash": "875fcd3e7f1d7d31b0c40b3950e951e204ad2e2418ec9fae20a65c0bcf222a1e",
+    "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoQAAsABABoJZQAAxeK/2nNFCO2AAD8+LJEpUbPVSuSbJmO1SL6Yn0dawxI5zUSLbCJ/FaqiOXSIQOp6uW+zprLYSAm1AVbYAA=",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/ct-62efd6905aed-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 12756
+      },
+      "960": {
+        "src": "/images/gallery-optimized/ct-62efd6905aed-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 45092
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/ct-62efd6905aed-1800.webp",
+        "width": 1800,
+        "height": 1200,
+        "bytes": 167448
+      }
+    }
+  },
+  {
+    "id": "room-00",
+    "source": "/images/fotogelery/gallery-odintsovo-00.webp",
+    "title": "Стоматологический кабинет",
+    "category": "Клиника",
+    "width": 6144,
+    "height": 4097,
+    "originalBytes": 724098,
+    "originalHash": "74f0dd6542837df585bf852b690bccf1eac37279ab0ddf377ad76232efef4b0c",
+    "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQAAsABABoJaACdAYvh2UvB7ZKgAD+seNwJ8xzhUw0ktsr6naEOngMsAqrtmot78WPSwZ662q62oo1tZ1zjTNJtWigzLTDj9rA7wo9gAjQZ3JWeP3KA2DdcjQfwAAA",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-00-66f418d36c64-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 17794
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-00-66f418d36c64-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 50208
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-00-66f418d36c64-1800.webp",
+        "width": 1800,
+        "height": 1200,
+        "bytes": 142186
+      }
+    }
+  },
+  {
+    "id": "room-01",
+    "source": "/images/fotogelery/gallery-odintsovo-01.webp",
+    "title": "Внимание к каждой детали",
+    "category": "Врачи и приём",
+    "width": 4097,
+    "height": 6144,
+    "originalBytes": 599710,
+    "originalHash": "0e6dc0a23d0d095c6424ba3afb8a77f9a0e9c1718650820815f94d4649ef017f",
+    "blur": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAABQBACdASoQABgAPxFysFAsJqSisAgBgCIJZACdMoADSx0K/Ok2S6N7SxoAAP6LzP6Y8QE2VmZ1VTw6kkjUdqZdY1kOrVm7vcypk6PB5Q2QAzj+BNEVrhGWAOmrjcf4fpb8ZxDVAW8GMoabfXF+pgONAAA=",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-01-6294b76a51cb-480.webp",
+        "width": 480,
+        "height": 720,
+        "bytes": 18568
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-01-6294b76a51cb-960.webp",
+        "width": 960,
+        "height": 1440,
+        "bytes": 50650
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-01-6294b76a51cb-1800.webp",
+        "width": 1800,
+        "height": 2699,
+        "bytes": 161506
+      }
+    }
+  },
+  {
+    "id": "room-02",
+    "source": "/images/fotogelery/gallery-odintsovo-02.webp",
+    "title": "Эндоскопическая диагностика",
+    "category": "Диагностика",
+    "width": 4097,
+    "height": 6144,
+    "originalBytes": 642150,
+    "originalHash": "baf81b220c649ea0b02e68d095c8a7da0e931c7d6151012e778fcb612a8d30e7",
+    "blur": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAQBACdASoQABgAPxFysFAsJqSisAgBgCIJYwC/OYyAnPM3+X563+EWAAD+YLlsFPUGMKdbVOemP5GYS3wwaLigI6eZoZv2ZJ7jBGd5JK1NLkr8UR0sh2N9ZN8a4W7BBXFIaOBvErvNmbGcPghPIYjlaoIsI3rOIYvYLYwXzaDq2f18yupbUL5x8vonFFKMWEPS3V5dNXYAAA==",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-02-826a0ac86d22-480.webp",
+        "width": 480,
+        "height": 720,
+        "bytes": 28658
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-02-826a0ac86d22-960.webp",
+        "width": 960,
+        "height": 1440,
+        "bytes": 73944
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-02-826a0ac86d22-1800.webp",
+        "width": 1800,
+        "height": 2699,
+        "bytes": 207202
+      }
+    }
+  },
+  {
+    "id": "room-03",
+    "source": "/images/fotogelery/gallery-odintsovo-03.webp",
+    "title": "На приёме у стоматолога",
+    "category": "Врачи и приём",
+    "width": 6144,
+    "height": 4097,
+    "originalBytes": 638268,
+    "originalHash": "d93ba7e46bfbfb0d268d70e5c706fc748cafcafd58046ccab093adf3e6533181",
+    "blur": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAABQAgCdASoQAAsABABoJZACdAYtp21tG8z1HcAAzKI7q845vrYPLCwWx5SPdd/SG7NHsRsL5mKhGyeWfv/j0BV58J04eusmgA/BW1lo/DSy+vOhbkqyXZ9PrYzIPs4iWJyYOTuEYH9npaYDFAAAAA==",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-03-1424c38d4b20-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 15890
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-03-1424c38d4b20-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 40484
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-03-1424c38d4b20-1800.webp",
+        "width": 1800,
+        "height": 1200,
+        "bytes": 114316
+      }
+    }
+  },
+  {
+    "id": "room-04",
+    "source": "/images/fotogelery/gallery-odintsovo-04.webp",
+    "title": "Рентгенодиагностика зубов",
+    "category": "Диагностика",
+    "width": 6144,
+    "height": 4095,
+    "originalBytes": 609112,
+    "originalHash": "4d76984528351a19df5685a7448869b14dd02d0ba428d13d9ecdba2cf5117dbf",
+    "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABQAgCdASoQAAsABABoJZgCdAYtLvsjsrkwAGAA/vN0o/a/XwUNvwDq9ccVBh+NTjdeX/jZ52f1/+ZIVdXdfLmaU58CriTdQbDrNa6GzWgAAA==",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-04-e8ed9052ad8e-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 13120
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-04-e8ed9052ad8e-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 39098
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-04-e8ed9052ad8e-1800.webp",
+        "width": 1800,
+        "height": 1200,
+        "bytes": 118360
+      }
+    }
+  },
+  {
+    "id": "room-05",
+    "source": "/images/fotogelery/gallery-odintsovo-05.webp",
+    "title": "Оборудование рентген-кабинета",
+    "category": "Диагностика",
+    "width": 6144,
+    "height": 4095,
+    "originalBytes": 519432,
+    "originalHash": "2618d295e4427d71740d36685057e71516ca340c8f1d73ccb378b226be5820f6",
+    "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAQAgCdASoQAAsABABoJYgCdAEf9sib3cuAAP7oQeSvxVMscODapNFO2hKXFfWIINmCa9rEJL+fs1iQOi5M+2va3+eGRYdypHYMjrUFogAAAA==",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-05-ee3a9923acaf-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 11316
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-05-ee3a9923acaf-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 31126
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-05-ee3a9923acaf-1800.webp",
+        "width": 1800,
+        "height": 1200,
+        "bytes": 93990
+      }
+    }
+  },
+  {
+    "id": "room-06",
+    "source": "/images/fotogelery/gallery-odintsovo-06.webp",
+    "title": "Кабинет гинекологии",
+    "category": "Клиника",
+    "width": 6144,
+    "height": 4097,
+    "originalBytes": 517286,
+    "originalHash": "de868cc9c01e170faba0972546aef96c56dab9fef904f20becabb57376a49b8f",
+    "blur": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAQAgCdASoQAAsABABoJYwCdAEPheS+i38AAP7x0PZ22vcYLbAY9GV4/OA02o9/h0bKwoyqGzA2uhG6bI1WEbVYgNvWpnmsUwriYSUAAAA=",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-06-aa6f2e98745e-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 13980
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-06-aa6f2e98745e-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 36892
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-06-aa6f2e98745e-1800.webp",
+        "width": 1800,
+        "height": 1200,
+        "bytes": 102474
+      }
+    }
+  },
+  {
+    "id": "room-07",
+    "source": "/images/fotogelery/gallery-odintsovo-07.webp",
+    "title": "Рабочее место врача",
+    "category": "Врачи и приём",
+    "width": 6144,
+    "height": 4097,
+    "originalBytes": 541948,
+    "originalHash": "c4b9f88c11882b05a83bcce07218938d0fe98f1b82f07e022d5f8ef8081ffd43",
+    "blur": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAABwAgCdASoQAAsABABoJYwCdAYtVwn2aO7xMU4AAP7oRnYOIXeJPRlYgPVR0Wa3PQBIaJcowOUVhX4oesPV05ZamuHTUcM6dAtgGL9fEio6HfObE3RE+sObpsp4lJKgAAA=",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-07-1b75d0c0a836-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 12260
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-07-1b75d0c0a836-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 32108
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-07-1b75d0c0a836-1800.webp",
+        "width": 1800,
+        "height": 1200,
+        "bytes": 92862
+      }
+    }
+  },
+  {
+    "id": "room-08",
+    "source": "/images/fotogelery/gallery-odintsovo-08.webp",
+    "title": "Время для ваших вопросов",
+    "category": "Врачи и приём",
+    "width": 6144,
+    "height": 4095,
+    "originalBytes": 482866,
+    "originalHash": "9bfa517202ddfe68ff4fb515b17a2a3f2d0db20aa2db874c039a2c97d5da6083",
+    "blur": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoQAAsABABoJQBOgBpGrtkGkAAA/sl7kdCzdxBXlYytxHNRvdHdrLE4K1wrxl6mKvXTCHQvyuy7ZeJ2El1y0B4XMo57iBt2x1gUDAWd+NAAAA==",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-08-668e779d44ef-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 12666
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-08-668e779d44ef-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 32024
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-08-668e779d44ef-1800.webp",
+        "width": 1800,
+        "height": 1200,
+        "bytes": 89826
+      }
+    }
+  },
+  {
+    "id": "room-09",
+    "source": "/images/fotogelery/gallery-odintsovo-09.webp",
+    "title": "Объясняем понятным языком",
+    "category": "Врачи и приём",
+    "width": 6144,
+    "height": 4097,
+    "originalBytes": 647840,
+    "originalHash": "102b89d998bd3f795e848922d6e756022a9b56698e4b159ee5cdca0b5f577267",
+    "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAgCdASoQAAsABABoJYwCdAYu5uAB+6s/IAD+8c5lzoPDH8LnhO7PIImYh8UPr61vQA3SdqqYwMJkbqFSUrI7ai3UpWVpLhosSpPqciYAAA==",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-09-d3d2e7906cc5-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 15342
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-09-d3d2e7906cc5-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 40846
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-09-d3d2e7906cc5-1800.webp",
+        "width": 1800,
+        "height": 1200,
+        "bytes": 115026
+      }
+    }
+  },
+  {
+    "id": "room-10",
+    "source": "/images/fotogelery/gallery-odintsovo-10.webp",
+    "title": "Обследование на приёме",
+    "category": "Врачи и приём",
+    "width": 6144,
+    "height": 6114,
+    "originalBytes": 972508,
+    "originalHash": "006af7c8766e093302e6a367c6032362a5011bb681c5a0ef66f7019422bfb485",
+    "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAABwAgCdASoQABAABABoJYgCdAYxZ2iOqhANTp4AAP7qiFAsCv23xMlgGdaDc8pd/zQ5tB3DvC0gflsC+jjVTcrymHmicVAdkRAM7YZ/xm3sBnAVv0umxlh5mW+ZF7l1GtLlMgAA",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-10-d60c298aad84-480.webp",
+        "width": 480,
+        "height": 478,
+        "bytes": 23138
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-10-d60c298aad84-960.webp",
+        "width": 960,
+        "height": 955,
+        "bytes": 58946
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-10-d60c298aad84-1800.webp",
+        "width": 1800,
+        "height": 1791,
+        "bytes": 164066
+      }
+    }
+  },
+  {
+    "id": "room-11",
+    "source": "/images/fotogelery/gallery-odintsovo-11.webp",
+    "title": "Обсуждение результатов с врачом",
+    "category": "Врачи и приём",
+    "width": 4097,
+    "height": 6144,
+    "originalBytes": 761860,
+    "originalHash": "e785242409b5730429a6ab60f53cde66ad9d92dc91c8604893f0ba39854e8421",
+    "blur": "data:image/webp;base64,UklGRpwAAABXRUJQVlA4IJAAAAAQBACdASoQABgAPxFysFAsJqSisAgBgCIJQBWAtQA0CCB+grrnoF7A8AD93SSe4wKgwkbxi1fDKM9WP9M2cDeGQgjeOJ3fpF99i2V6lHVZ7ywMVtIvfND7Q9OaFbi/rmJ9/y0WgZiW1FdFiL2oFsSkziU2aretJH4aPhzyV9dMiyUCSVwy+uPeDl8R2iJYAAA=",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-11-64f17a8fabd6-480.webp",
+        "width": 480,
+        "height": 720,
+        "bytes": 27122
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-11-64f17a8fabd6-960.webp",
+        "width": 960,
+        "height": 1440,
+        "bytes": 72546
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-11-64f17a8fabd6-1800.webp",
+        "width": 1800,
+        "height": 2699,
+        "bytes": 222134
+      }
+    }
+  },
+  {
+    "id": "room-12",
+    "source": "/images/fotogelery/gallery-odintsovo-12.webp",
+    "title": "Индивидуальная консультация",
+    "category": "Врачи и приём",
+    "width": 6144,
+    "height": 5346,
+    "originalBytes": 906504,
+    "originalHash": "daaa4b4d5a739a777121e64bf3c83b6db1451a26daa48802fc85d4cb94e5dc24",
+    "blur": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAADwAQCdASoQAA4ABABoJQBOgMW+2bjIUwAA/sgnRW7VTneXqzeXz0N20hq+xUBud9oXdMXH2RN/34fVQH9o8ue2ek8Jd+TIfWrIC11APddrIrdx58QP3HNXu9qX2RT2eiIsPT6BoAA=",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-12-6090589c2c07-480.webp",
+        "width": 480,
+        "height": 418,
+        "bytes": 18308
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-12-6090589c2c07-960.webp",
+        "width": 960,
+        "height": 835,
+        "bytes": 49322
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-12-6090589c2c07-1800.webp",
+        "width": 1800,
+        "height": 1566,
+        "bytes": 153414
+      }
+    }
+  },
+  {
+    "id": "room-13",
+    "source": "/images/fotogelery/gallery-odintsovo-13.webp",
+    "title": "Рекомендации после обследования",
+    "category": "Врачи и приём",
+    "width": 6144,
+    "height": 4664,
+    "originalBytes": 1074272,
+    "originalHash": "4dc0f25bbe89578ae26e68ed7ee48554bcf48a244f7a005f5b03805bb232b0ff",
+    "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAABQAgCdASoQAAwABABoJZACdAYu5wT/6k4FHIAA/rSytPA+l79uOD38kKGjUcHEe/ccm1OOagSqrb87TljHE0Awa/89lq8UAJ093tOqYz2i5wk9OcduBd4akJrXpGMh+x6IgAAA",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-13-804435a39fe5-480.webp",
+        "width": 480,
+        "height": 364,
+        "bytes": 18398
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-13-804435a39fe5-960.webp",
+        "width": 960,
+        "height": 729,
+        "bytes": 49628
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-13-804435a39fe5-1800.webp",
+        "width": 1800,
+        "height": 1366,
+        "bytes": 160674
+      }
+    }
+  },
+  {
+    "id": "room-14",
+    "source": "/images/fotogelery/gallery-odintsovo-14.webp",
+    "title": "Аппаратные процедуры",
+    "category": "Процедуры",
+    "width": 6144,
+    "height": 5387,
+    "originalBytes": 662050,
+    "originalHash": "e20fa7b76101bc40f8857c5cca3fc0984db6e1ea02eb071e750f7ac589bd43cc",
+    "blur": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAABQAgCdASoQAA4ABABoJYwCdAYulbaObq9cGAAA/vOCdyEmkZxBLVW+n4kPG+UjxxRgAjYYD/nTtjfFORAwzVqaRcii5iIWtV/Le+parzUgAA==",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-14-7ff586f39b5e-480.webp",
+        "width": 480,
+        "height": 421,
+        "bytes": 11752
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-14-7ff586f39b5e-960.webp",
+        "width": 960,
+        "height": 842,
+        "bytes": 30514
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-14-7ff586f39b5e-1800.webp",
+        "width": 1800,
+        "height": 1578,
+        "bytes": 96300
+      }
+    }
+  },
+  {
+    "id": "room-15",
+    "source": "/images/fotogelery/gallery-odintsovo-15.webp",
+    "title": "Процедура под контролем специалиста",
+    "category": "Процедуры",
+    "width": 6144,
+    "height": 4097,
+    "originalBytes": 441356,
+    "originalHash": "28d8934352b14561b84fa7bbb7e585ecb360d6f0379a2c919c6cc9ab9f4482bc",
+    "blur": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoQAAsABABoJQBOgCHE0pNQAAD+8GeWtNMw4JdFqDLaBoKeMAvYZS38tw0JVCP/IsXWol+zTcyTDQAA",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-15-8d3fadc7b462-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 8548
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-15-8d3fadc7b462-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 20978
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-15-8d3fadc7b462-1800.webp",
+        "width": 1800,
+        "height": 1200,
+        "bytes": 67808
+      }
+    }
+  },
+  {
+    "id": "room-16",
+    "source": "/images/fotogelery/gallery-odintsovo-16.webp",
+    "title": "Оборудование для аппаратных процедур",
+    "category": "Процедуры",
+    "width": 6144,
+    "height": 4097,
+    "originalBytes": 885864,
+    "originalHash": "b6f0be5f0dca9727fb9bb29f4e0f20517f65c1e26d368993f98091c99adcc3bf",
+    "blur": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADQAQCdASoQAAsABABoJZgCdACXM6AMAAD+xECokcxd2bKbCzWrWXio+K9wTdGPGEVcS1dupkq/2/bPtcF/SVlwWtevZQ5Fr36sJq8PcCA2/8mauX9XhSQA",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-16-3a5ed9685202-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 15122
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-16-3a5ed9685202-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 37448
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-16-3a5ed9685202-1800.webp",
+        "width": 1800,
+        "height": 1200,
+        "bytes": 116656
+      }
+    }
+  },
+  {
+    "id": "room-17",
+    "source": "/images/fotogelery/gallery-odintsovo-17.webp",
+    "title": "Процедурный кабинет",
+    "category": "Процедуры",
+    "width": 4758,
+    "height": 6144,
+    "originalBytes": 946284,
+    "originalHash": "47aac6804314c222471c2d67354b7cf7cc4e0c94a5989444c733222dbf1ad5af",
+    "blur": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAADwAwCdASoQABUAPxFysFAsJqSisAgBgCIJQBOmUABJVue9H5Pz6+NAAMjlIJ9yHJk4uStIBfbJqWRBEO/jaaqx5Sru2mEdfTWmvMoEVoVUe1MABlRpiUqzPqmpx+HAfkGdXwN5Lrjq8+q7yTNgMKs9hMJsmCaADDnzTrdohkHkygAA",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-17-54e81cb519bc-480.webp",
+        "width": 480,
+        "height": 620,
+        "bytes": 29730
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-17-54e81cb519bc-960.webp",
+        "width": 960,
+        "height": 1240,
+        "bytes": 90866
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-17-54e81cb519bc-1800.webp",
+        "width": 1800,
+        "height": 2324,
+        "bytes": 266028
+      }
+    }
+  },
+  {
+    "id": "room-18",
+    "source": "/images/fotogelery/gallery-odintsovo-18.webp",
+    "title": "Работа с аппаратом SmartXide",
+    "category": "Процедуры",
+    "width": 6144,
+    "height": 4097,
+    "originalBytes": 572454,
+    "originalHash": "58b3a025ca85fcbfd676975d2ca22fb8339cbef8679e6526f839a255c97176ad",
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQAAsABABoJYgCdAYulDeWLjRgAP7I50Og0a8ZJz7cajb8iy56xGtYHfyiosgl4my5BIBuNjeMxEork4md/+UoJH9/dwCeL+dFp51MDVcfyfrHpOS+6AAA",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-18-002b55c78104-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 13996
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-18-002b55c78104-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 34442
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-18-002b55c78104-1800.webp",
+        "width": 1800,
+        "height": 1200,
+        "bytes": 95298
+      }
+    }
+  },
+  {
+    "id": "room-19",
+    "source": "/images/fotogelery/gallery-odintsovo-19.webp",
+    "title": "В кабинете косметологии",
+    "category": "Процедуры",
+    "width": 5139,
+    "height": 6144,
+    "originalBytes": 713858,
+    "originalHash": "67c532655939f752ce64cbbe2adbbae039bc9f6e5ca39bdc10a1154ec54ffd3e",
+    "blur": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAADwAwCdASoQABMAPxFwsFAsJiSisAgBgCIJQBOmUABpK9StSQQVTOiQAP7qdRnS82JaDlPXRHb/OsVz5W3iprC7P/jwjdNlHuw0UXgb510SLg5ruYZCr5wT5L4vQT1P6nfFV4VF5fwa3ybUGZyelXhWAza/GiF5bcYAAA==",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-19-c425769b3ec4-480.webp",
+        "width": 480,
+        "height": 574,
+        "bytes": 21466
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-19-c425769b3ec4-960.webp",
+        "width": 960,
+        "height": 1148,
+        "bytes": 54932
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-19-c425769b3ec4-1800.webp",
+        "width": 1800,
+        "height": 2152,
+        "bytes": 157998
+      }
+    }
+  },
+  {
+    "id": "room-20",
+    "source": "/images/fotogelery/gallery-odintsovo-20.webp",
+    "title": "Забота и внимание во время процедуры",
+    "category": "Процедуры",
+    "width": 4097,
+    "height": 6144,
+    "originalBytes": 504372,
+    "originalHash": "0f04fe7f9b908cd7b00dac4d11fbfe1542d5c054e0b652bb0506f48169c18a45",
+    "blur": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAQBACdASoQABgAPxFysFAsJqSisAgBgCIJQBOmUAS0wvzqG4jznu78AAD+6owPfFW/JI6icK7U2wnejwiUXEwyX5bfZlLyAJo39inlPkYt2+grXZPLKclHX/Ga1RyPAz4nfxRVNsqPFpEwn92VF9WalhBzeNeEeHOuMzydp2S3t8wnmQiyQls8AQGvTblElZbJZ08L1wAAAA==",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-20-b6472fd0559b-480.webp",
+        "width": 480,
+        "height": 720,
+        "bytes": 24062
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-20-b6472fd0559b-960.webp",
+        "width": 960,
+        "height": 1440,
+        "bytes": 58396
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-20-b6472fd0559b-1800.webp",
+        "width": 1800,
+        "height": 2699,
+        "bytes": 160292
+      }
+    }
+  },
+  {
+    "id": "room-21",
+    "source": "/images/fotogelery/gallery-odintsovo-21.webp",
+    "title": "Знакомство со специалистом",
+    "category": "Врачи и приём",
+    "width": 6144,
+    "height": 4097,
+    "originalBytes": 391136,
+    "originalHash": "f13ab70d560feb64e14dc6e2aa079606b347bd80a34003f1cfadd5be047a62f9",
+    "blur": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAAAwAgCdASoQAAsABABoJYgCdAYvXuC9O9avgAD+3hJ/pptbM3rcDjhMmlBf5IHwA0QnRdNkFqrm5rtufbBP5fbDN53gCbIrHyjXXhAA7q6jnXovRhLt5O60uegAAA==",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-21-802a1b543e93-480.webp",
+        "width": 480,
+        "height": 320,
+        "bytes": 10620
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-21-802a1b543e93-960.webp",
+        "width": 960,
+        "height": 640,
+        "bytes": 25672
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-21-802a1b543e93-1800.webp",
+        "width": 1800,
+        "height": 1200,
+        "bytes": 72718
+      }
+    }
+  },
+  {
+    "id": "room-22",
+    "source": "/images/fotogelery/gallery-odintsovo-22.webp",
+    "title": "Подготовка к процедуре",
+    "category": "Врачи и приём",
+    "width": 5136,
+    "height": 6144,
+    "originalBytes": 422058,
+    "originalHash": "7f7e6b176f1706a17b0c2eaf0e1eb5af454d85c0a9180132c3024c20a869cd08",
+    "blur": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwBACdASoQABMAPxF0sVAsJySisAgBgCIJYgCdMoADTp542/4szdnKjrAA/tOE2KhyscuJcRq0EOMIUyS5tLcTj6haOQHi05p7Cxo20ZSck+rMyUjx+AIT0UMRolVCI0YHQAAA",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-22-79e9c2424eb0-480.webp",
+        "width": 480,
+        "height": 574,
+        "bytes": 12252
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-22-79e9c2424eb0-960.webp",
+        "width": 960,
+        "height": 1148,
+        "bytes": 31436
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-22-79e9c2424eb0-1800.webp",
+        "width": 1800,
+        "height": 2153,
+        "bytes": 92234
+      }
+    }
+  },
+  {
+    "id": "room-23",
+    "source": "/images/fotogelery/gallery-odintsovo-23.webp",
+    "title": "Беседа с врачом",
+    "category": "Врачи и приём",
+    "width": 4316,
+    "height": 6144,
+    "originalBytes": 422176,
+    "originalHash": "feb7d9037784bdb1e0c25fb4d67ce980fc3a54d3ba6a388935ae2648fc68cd29",
+    "blur": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAABQBACdASoQABcAPxFysFAsJqSisAgBgCIJYgCdMoADTsnUun6x5IWWBBeAAP7TG4aeIQxl38SCjClgpukk4bZ6zDEcdgmaKJIRS2yKvcccOELTp06OsZFYcSMlqA8kZraXmbSt/MysSObiCU1LPynUhb/ZqMzApk+YI5GP3XQr84syH3pJZx564AA=",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-23-6258a799a053-480.webp",
+        "width": 480,
+        "height": 683,
+        "bytes": 15842
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-23-6258a799a053-960.webp",
+        "width": 960,
+        "height": 1367,
+        "bytes": 40306
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-23-6258a799a053-1800.webp",
+        "width": 1800,
+        "height": 2562,
+        "bytes": 113076
+      }
+    }
+  },
+  {
+    "id": "room-24",
+    "source": "/images/fotogelery/gallery-odintsovo-24.webp",
+    "title": "Консультация перед лечением",
+    "category": "Врачи и приём",
+    "width": 6144,
+    "height": 4728,
+    "originalBytes": 417770,
+    "originalHash": "21984c561b8445f977bd9a9f19aecfc193a2491d6c0e2dff902431eecb41d45d",
+    "blur": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwAgCdASoQAAwABABoJZgCdAED+h4ZV9iYAAD+7Q6a18uTt/irdsGJmdUX3Otwp0R8Wng90K3vM8ZyOVV60WW5AktOhnBh8NeUBrWqvsPn1zVAZ+WRizSyop/6kwAA",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-24-14eb0919f301-480.webp",
+        "width": 480,
+        "height": 369,
+        "bytes": 12314
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-24-14eb0919f301-960.webp",
+        "width": 960,
+        "height": 739,
+        "bytes": 29340
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-24-14eb0919f301-1800.webp",
+        "width": 1800,
+        "height": 1385,
+        "bytes": 81862
+      }
+    }
+  },
+  {
+    "id": "room-25",
+    "source": "/images/fotogelery/gallery-odintsovo-25.webp",
+    "title": "Ультразвуковое исследование",
+    "category": "Диагностика",
+    "width": 4932,
+    "height": 6144,
+    "originalBytes": 933192,
+    "originalHash": "90f1ac66aa5a8d1c03032b200ef3d59eaf7753b66c987a6da89543002d99e079",
+    "blur": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAABwBACdASoQABQAPxFysFAsJqSisAgBgCIJZgCdMoMpA0fpmochPhf1g34EgAD99wvjZpVC2XZ9VihTfpd9fcjIPnAlxDbCmmoFjPUjWVNoFlpm3lUgEfXvBoFFu0O6RkiuG0H1qhHszfsofO3Awquljns8ot5P42npzrlHtp6BnCjGvZRHNmKS9X+WvfeWVD0AAA==",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-25-6b108d76db41-480.webp",
+        "width": 480,
+        "height": 598,
+        "bytes": 26186
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-25-6b108d76db41-960.webp",
+        "width": 960,
+        "height": 1196,
+        "bytes": 64328
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-25-6b108d76db41-1800.webp",
+        "width": 1800,
+        "height": 2242,
+        "bytes": 184934
+      }
+    }
+  },
+  {
+    "id": "room-26",
+    "source": "/images/fotogelery/gallery-odintsovo-26.webp",
+    "title": "Подготовка специалиста к приёму",
+    "category": "Врачи и приём",
+    "width": 4097,
+    "height": 6144,
+    "originalBytes": 543350,
+    "originalHash": "f01b80bd502856c06e5b11ffb885d7ead4a29d7ce95aec7897eb2a1da0ed84eb",
+    "blur": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAAAQBACdASoQABgAPxFysFAsJqSisAgBgCIJQBOgBDv9NLtBcywHOCWLAAD+wzYkT7GmuE93yv2f/uCRlvNYcoN91gKrLI0CLn+DZ+bL80+LAD6LDSf0/ueBCnx/1kfn5c9DnER+0sdIRSTqS2zfG52PQlXST4SHNYEyUSpXxM5qjX7Ut6YAAA==",
+    "variants": {
+      "480": {
+        "src": "/images/gallery-optimized/room-26-65af1b5fc6a7-480.webp",
+        "width": 480,
+        "height": 720,
+        "bytes": 21778
+      },
+      "960": {
+        "src": "/images/gallery-optimized/room-26-65af1b5fc6a7-960.webp",
+        "width": 960,
+        "height": 1440,
+        "bytes": 54956
+      },
+      "1800": {
+        "src": "/images/gallery-optimized/room-26-65af1b5fc6a7-1800.webp",
+        "width": 1800,
+        "height": 2699,
+        "bytes": 157438
+      }
+    }
+  }
+]

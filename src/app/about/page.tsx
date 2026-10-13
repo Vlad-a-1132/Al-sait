@@ -5,10 +5,35 @@ import Link from 'next/link';
 import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { GYNEC_ARTICLES_LIST } from '@/data/gynec-articles-images';
+import ClinicGallery from '@/components/gallery/ClinicGallery';
 
 const DOC_ZHNVLP_2026_2027 =
   '/images/blog/' +
   encodeURIComponent('Распоряжение Правительства РФ от 18.12.2025 N 3867-р Об утверждении перечня жизненно необходимых и.rtf');
+
+function PatientDocumentLink({ title, description, href }: { title: string; description?: string; href: string }) {
+  return (
+    <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
+      <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
+        <div className="flex-1 min-w-0">
+          <h3 className="text-gray-700 font-medium mb-1">{title}</h3>
+          {description && <p className="text-sm text-gray-600">{description}</p>}
+        </div>
+        <a
+          href={href}
+          download
+          aria-label={`Скачать DOCX: ${title}`}
+          className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
+        >
+          Скачать DOCX
+          <svg className="w-4 h-4 ml-2" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+        </a>
+      </div>
+    </div>
+  );
+}
 
 function PatientInfoSection() {
   const [isRegulatoryOpen, setIsRegulatoryOpen] = useState(false);
@@ -25,6 +50,14 @@ function PatientInfoSection() {
     <div className="bg-white rounded-lg shadow-md p-6">
       <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Информация для пациентов</h2>
       <div className="space-y-3">
+        <PatientDocumentLink
+          title="Порядок выдачи справок и медицинских заключений в ООО «Альтамед-С»"
+          href="/images/documents/poryadok-vydachi-spravok-i-medicinskih-zaklyucheniy-altamed-s-2026.docx"
+        />
+        <PatientDocumentLink
+          title="Положение о порядке рассмотрения обращений граждан в ООО «Альтамед-С»"
+          href="/images/documents/polozhenie-o-poryadke-rassmotreniya-obrashcheniy-grazhdan-altamed-s.docx"
+        />
         {/* Нормативные документы - выпадающий список */}
         <div className="border border-gray-200 rounded-lg">
           <button
@@ -322,6 +355,8 @@ function PatientInfoSection() {
         <div className="border border-gray-200 rounded-lg">
           <button
             onClick={() => setIsPaidServicesOpen(!isPaidServicesOpen)}
+            aria-expanded={isPaidServicesOpen}
+            aria-controls="paid-services-documents"
             className="w-full flex items-center justify-between p-4 hover:bg-gray-50 transition-colors group"
           >
             <span className="text-gray-700 group-hover:text-emerald-600 font-medium">Порядок оказания платных услуг</span>
@@ -335,7 +370,12 @@ function PatientInfoSection() {
             </svg>
           </button>
           {isPaidServicesOpen && (
-            <div className="px-4 pb-4 border-t border-gray-200 space-y-4">
+            <div id="paid-services-documents" className="px-4 pb-4 pt-4 border-t border-gray-200 space-y-4">
+              <PatientDocumentLink
+                title="Памятка для пациента"
+                description="На какие исследования нужно направление с 1 сентября 2026 года"
+                href="/images/documents/pamyatka-napravlenie-na-issledovaniya-s-01-09-2026.docx"
+              />
               {/* Положение о порядке и условиях предоставления платных медицинских услуг */}
               <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors mt-4">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
@@ -497,25 +537,6 @@ function PatientInfoSection() {
                 </div>
               </div>
 
-              {/* Порядок выдачи справок */}
-              <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-                  <div className="flex-1">
-                    <div className="text-gray-700 font-medium mb-1">Порядок выдачи справок и медицинских заключений</div>
-                  </div>
-                  <a 
-                    href="/images/documents/poryadk-vydachi-spravok-i-medicinskih-zaklyuchenii.pdf" 
-                    target="_blank" 
-                    className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
-                  >
-                    Скачать файл
-                    <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
               {/* Сроки ожидания медицинской помощи */}
               <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
@@ -630,24 +651,6 @@ function PatientInfoSection() {
                 </div>
               </div>
 
-              {/* Памятка: направление на исследования с 01.09.2026 */}
-              <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-                  <div className="flex-1">
-                    <div className="text-gray-700 font-medium mb-1">Памятка «На какие исследования нужно направление с 1 сентября 2026 года»</div>
-                  </div>
-                  <a 
-                    href="/images/documents/pamyatka-napravlenie-na-issledovaniya-s-01-09-2026.docx" 
-                    target="_blank" 
-                    className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
-                  >
-                    Скачать файл
-                    <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
             </div>
           )}
         </div>
@@ -1634,26 +1637,19 @@ function PatientInfoSection() {
 
 function AboutPageContent() {
   const searchParams = useSearchParams();
-  const [activeSection, setActiveSection] = useState('photogallery');
+  const urlSection = searchParams.get('section');
+  const initialSection = urlSection === 'reviews' || urlSection === 'patient-info' ? urlSection : 'photogallery';
+  const [activeSection, setActiveSection] = useState(initialSection);
   const [pressTab, setPressTab] = useState<'news' | 'articles' | 'media'>('articles');
   
   // Проверяем, есть ли якорь в URL
   useEffect(() => {
     const section = searchParams.get('section');
-    if (section === 'reviews') {
-      setActiveSection('reviews');
+    if (section === 'reviews' || section === 'patient-info' || section === 'photogallery') {
+      setActiveSection(section);
     }
   }, [searchParams]);
   
-  const galleryImages = [
-    '/images/gino/altamed-c-odintsovo.webp',
-    '/images/gino/altamed-c-odintsovo1.webp',
-    '/images/gino/altamed-c-odintsovo6.webp',
-    ...Array.from({ length: 25 }, (_, i) => `/images/fotogelery/gallery-odintsovo-${String(i + 2).padStart(2, '0')}.webp`),
-    '/images/fotogelery/kt-Altamed-C.webp',
-    '/images/fotogelery/altamed-gallery-home.webp',
-  ];
-
   return (
     <div className="flex flex-col min-h-full bg-white">
       {/* Hero Section */}
@@ -1679,7 +1675,25 @@ function AboutPageContent() {
           <div className="flex flex-col lg:flex-row gap-8">
             {/* Left sidebar menu */}
             <aside className="w-full lg:w-64 flex-shrink-0">
-              <div className="bg-white rounded-lg shadow-md p-4 sticky top-4">
+              <div className="lg:hidden rounded-2xl border border-emerald-100 bg-emerald-50/50 p-4">
+                <label htmlFor="about-section" className="block mb-2 text-xs font-medium text-emerald-800">Раздел «О нас»</label>
+                <select id="about-section" value={activeSection} onChange={event => {
+                  if (event.target.value === 'blog') { window.location.assign('/blog'); return; }
+                  setActiveSection(event.target.value);
+                }} className="w-full min-h-[48px] rounded-xl border border-gray-200 bg-white px-3 text-base text-gray-900">
+                  <option value="photogallery">Фотогалерея</option>
+                  <option value="blog">Блог</option>
+                  <option value="vacancies">Вакансии</option>
+                  <option value="reviews">Отзывы</option>
+                  <option value="branches">Филиалы</option>
+                  <option value="licenses">Лицензии</option>
+                  <option value="regulatory">Контакты контролирующих органов</option>
+                  <option value="vhi">Обслуживание по договорам ДМС</option>
+                  <option value="personal-data">Персональные данные</option>
+                  <option value="patient-info">Информация для пациентов</option>
+                </select>
+              </div>
+              <div className="hidden lg:block bg-white rounded-lg shadow-md p-4 sticky top-4">
                 <nav className="space-y-2">
                   <button
                     onClick={() => setActiveSection('photogallery')}
@@ -1782,24 +1796,10 @@ function AboutPageContent() {
             </aside>
 
             {/* Right content area */}
-            <main className="flex-1">
+            <main className="flex-1 min-w-0">
               {/* Фотогалерея */}
               {activeSection === 'photogallery' && (
-                <div className="bg-white rounded-lg shadow-md p-6">
-                  <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Фотогалерея</h2>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                    {galleryImages.map((image, index) => (
-                      <div key={index} className="relative h-48 rounded-lg overflow-hidden group cursor-pointer">
-                        <Image
-                          src={image}
-                          alt={`Фотография клиники Альтамед-С${index + 1}`}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-300"
-                        />
-              </div>
-            ))}
-          </div>
-        </div>
+                <ClinicGallery />
               )}
 
               {/* Пресс-центр: Новости / Статьи / СМИ */}

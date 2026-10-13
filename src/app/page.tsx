@@ -2,11 +2,12 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useRef, useMemo } from "react";
+import { useState, useEffect, useRef } from "react";
 import AppointmentForm from "@/components/AppointmentForm";
 import { doctors as defaultDoctors } from "@/data/static-data";
 import LabDiscountBanner from "@/components/LabDiscountBanner";
 import { LAB_PROMOTION } from "@/data/lab-promotion";
+import HomeGallery from "@/components/gallery/HomeGallery";
 
 interface Schedule {
   start: string;
@@ -188,54 +189,6 @@ export default function Home() {
   const goToPromoSlide = (index: number) => {
     setCurrentPromoSlide(index);
   };
-  // gallery slider state and data
-  const [galleryIndex, setGalleryIndex] = useState(0);
-  const galleryTouchStartX = useRef<number | null>(null);
-  const galleryImages = useMemo(() => {
-    const home = "/images/fotogelery/altamed-gallery-home.webp";
-    const od = Array.from({ length: 27 }, (_, i) =>
-      `/images/fotogelery/gallery-odintsovo-${String(i).padStart(2, "0")}.webp`
-    );
-    const others = ["/images/fotogelery/kt-Altamed-C.webp", ...od];
-    // Shuffle others with Fisher–Yates
-    for (let i = others.length - 1; i > 0; i -= 1) {
-      const j = Math.floor(Math.random() * (i + 1));
-      const temp = others[i];
-      others[i] = others[j];
-      others[j] = temp;
-    }
-    return [home, ...others];
-  }, []);
-
-  // autoplay gallery
-  useEffect(() => {
-    if (galleryImages.length <= 1) return;
-    const id = setInterval(() => {
-      setGalleryIndex((prev) => (prev + 1) % galleryImages.length);
-    }, 4000);
-    return () => clearInterval(id);
-  }, [galleryImages.length]);
-
-  const handleGalleryTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-    galleryTouchStartX.current = e.touches[0]?.clientX ?? null;
-  };
-
-  const handleGalleryTouchEnd = (e: React.TouchEvent<HTMLDivElement>) => {
-    if (galleryTouchStartX.current === null) return;
-    const endX = e.changedTouches[0]?.clientX ?? galleryTouchStartX.current;
-    const deltaX = endX - galleryTouchStartX.current;
-    const threshold = 40; // px
-    if (Math.abs(deltaX) > threshold) {
-      setGalleryIndex((prev) => {
-        if (deltaX > 0) {
-          return prev === 0 ? galleryImages.length - 1 : prev - 1;
-        }
-        return (prev + 1) % galleryImages.length;
-      });
-    }
-    galleryTouchStartX.current = null;
-  };
-
   // Load doctors from localStorage or use default
   const [doctors, setDoctors] = useState(defaultDoctors);
   
@@ -887,29 +840,9 @@ export default function Home() {
 
             </div>
           </div>
-          {/* Фотогалерея: авто-слайдер, первая картинка фиксирована (home), остальные в случайном порядке */}
-          <div className="-mx-5 sm:-mx-8 lg:-mx-12 xl:-mx-16 bg-white rounded-[20px] border border-gray-100 shadow-sm p-4 md:p-6 mt-6">
-            <div className="flex flex-col md:flex-row gap-6 items-start">
-              <div className="w-full md:w-1/2 rounded-[16px] overflow-hidden">
-                <div 
-                  className="relative w-full h-[220px] md:h-[360px] bg-gray-50"
-                  onTouchStart={handleGalleryTouchStart}
-                  onTouchEnd={handleGalleryTouchEnd}
-                >
-                  <Image src={galleryImages[galleryIndex]} alt="Фотогалерея Альтамед-С" fill className="object-cover" unoptimized />
-                </div>
-                {/* Индикаторы скрыты по запросу */}
-              </div>
-              <div className="w-full md:w-1/2">
-                <h3 className="text-xl md:text-2xl font-bold text-black mb-3">Наши центры и оборудование</h3>
-                <p className="text-gray-700 leading-relaxed text-sm md:text-base mb-4">Приглашаем вас познакомиться с нашей клиникой. В фотогалерее представлены помещения и современное диагностическое оборудование «Альтамед-С». Мы заботимся о комфорте пациентов и качестве медицинских услуг.</p>
-                <ul className="text-gray-700 text-sm md:text-base list-disc list-inside space-y-2">
-                  <li>Современные кабинеты и уютные зоны ожидания.</li>
-                  <li>КТ и другое высокоточное диагностическое оборудование.</li>
-                  <li>Безопасность, стерильность и внимание к деталям.</li>
-                </ul>
-              </div>
-            </div>
+          {/* Лёгкие адаптивные фотографии; автопоказ только в видимой области. */}
+          <div className="-mx-5 sm:-mx-8 lg:-mx-12 xl:-mx-16 mt-6">
+            <HomeGallery />
           </div>
         </div>
       </section>

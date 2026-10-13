@@ -46,8 +46,24 @@ const nextConfig = {
     ];
   },
 
+  async headers() {
+    return [
+      {
+        // Gallery filenames include their content hash; originals are untouched.
+        source: '/images/gallery-optimized/:path*',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+    ];
+  },
+
   async redirects() {
     return [
+      // Старый порядок выдачи справок заменён актуальным документом клиники.
+      {
+        source: '/images/documents/poryadk-vydachi-spravok-i-medicinskih-zaklyuchenii.pdf',
+        destination: '/images/documents/poryadok-vydachi-spravok-i-medicinskih-zaklyucheniy-altamed-s-2026.docx',
+        permanent: true,
+      },
       // Redirect old pregnancy article slug to new one (public URL)
       {
         source: '/blog/vedenie-beremennosti-v-odintsovo',
@@ -69,4 +85,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig 
+module.exports = nextConfig
