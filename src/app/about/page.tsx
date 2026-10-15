@@ -400,10 +400,10 @@ function PatientInfoSection() {
               <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                   <div className="flex-1">
-                    <div className="text-gray-700 font-medium mb-1">Правила внутреннего распорядка для пациентов в ООО «Альтамед-С»</div>
+                    <div className="text-gray-700 font-medium mb-1">Правила внутреннего распорядка для потребителей услуг в ООО «Альтамед-С»</div>
                   </div>
                   <a 
-                    href="/images/documents/pravila-vnutrennego-rasporyadka-1.pdf" 
+                    href="/images/documents/pravila-vnutrennego-rasporyadka-dlya-potrebiteley-uslug.docx"
                     target="_blank" 
                     className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
                   >
