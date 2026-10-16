@@ -6,6 +6,9 @@ export const config = {
 
 function unauthorized(challenge: boolean, body: string): NextResponse {
   const headers = new Headers({ "Content-Type": "text/plain; charset=utf-8" });
+  headers.set("Cache-Control", "private, no-store, max-age=0");
+  headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+  headers.set("Vary", "Authorization");
   if (challenge) {
     headers.set("WWW-Authenticate", 'Basic realm="Restricted"');
   }
@@ -43,5 +46,9 @@ export function middleware(request: NextRequest) {
     return unauthorized(true, "Invalid credentials");
   }
 
-  return NextResponse.next();
+  const response = NextResponse.next();
+  response.headers.set("Cache-Control", "private, no-store, max-age=0");
+  response.headers.set("X-Robots-Tag", "noindex, nofollow, noarchive");
+  response.headers.set("Vary", "Authorization");
+  return response;
 }

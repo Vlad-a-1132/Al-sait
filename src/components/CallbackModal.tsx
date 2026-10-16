@@ -2,6 +2,7 @@
 
 import { useEffect, useState, FormEvent } from "react";
 import Image from "next/image";
+import { getAnalyticsContext } from '@/lib/analytics/client';
 
 const CALLBACK_DISMISSED_KEY = "altamed-callback-dismissed";
 
@@ -65,6 +66,7 @@ export default function CallbackModal() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          analytics: getAnalyticsContext('callback'),
           name: name.trim(),
           phone: phone.trim(),
           formType: 'Обратный звонок для записи',

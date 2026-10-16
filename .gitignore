@@ -19,6 +19,7 @@ node_modules/
 .DS_Store
 *.pem
 data/chat-dialogs.json
+/data/analytics/
 
 # debug
 npm-debug.log*

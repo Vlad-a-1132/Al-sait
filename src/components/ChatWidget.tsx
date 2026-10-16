@@ -1,4 +1,5 @@
 "use client";
+import { getAnalyticsContext } from '@/lib/analytics/client';
 
 import { FormEvent, useRef, useState } from "react";
 
@@ -198,7 +199,7 @@ export default function ChatWidget() {
     const response = await fetch("/api/appointment", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, phone, formType: "Заявка из чат-бота", message }),
+      body: JSON.stringify({ name, phone, formType: "Заявка из чат-бота", message, analytics: getAnalyticsContext('chat') }),
     });
 
     if (!response.ok) {

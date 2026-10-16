@@ -36,6 +36,7 @@ const nextConfig = {
   // TypeScript support
   typescript: {
     ignoreBuildErrors: false,
+    tsconfigPath: process.env.NEXT_TSCONFIG_PATH || 'tsconfig.json',
   },
   
   async rewrites() {

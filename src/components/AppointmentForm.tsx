@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, FormEvent } from "react";
+import { getAnalyticsContext } from '@/lib/analytics/client';
 
 interface AppointmentFormProps {
   doctorImage?: string;
@@ -36,6 +37,7 @@ export default function AppointmentForm({
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          analytics: getAnalyticsContext('appointment_inline'),
           name: name.trim(),
           phone: phone.trim(),
           formType: 'Форма записи на прием',

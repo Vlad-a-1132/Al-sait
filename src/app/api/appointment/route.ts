@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { promises as fs } from 'fs';
 import path from 'path';
 import nodemailer from 'nodemailer';
+import { isBot, recordSavedForm, sameOrigin } from '@/lib/analytics/server';
 
 interface Appointment {
   id: string;
@@ -177,6 +178,12 @@ export async function POST(request: NextRequest) {
 
     // Сохраняем в файл
     await writeAppointments(appointments);
+
+    // Analytics must never change the outcome of an already saved appointment.
+    if (sameOrigin(request) && !isBot(request)) {
+      try { await recordSavedForm(body.analytics, appointment.id); }
+      catch (analyticsError) { console.error('Appointment analytics failed:', analyticsError); }
+    }
 
     console.log('=== НОВАЯ ЗАЯВКА СОХРАНЕНА ===');
     console.log('ID:', appointment.id);

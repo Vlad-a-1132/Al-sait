@@ -4,6 +4,7 @@ import Script from "next/script";
 import "./globals.css";
 import ClientLayout from "../components/ClientLayout";
 import YandexMetrika from "../components/YandexMetrika";
+import SiteAnalytics from "../components/SiteAnalytics";
 import { Suspense } from "react";
 
 const inter = Inter({
@@ -117,6 +118,7 @@ export default function RootLayout({
           </div>
         </noscript>
         <Suspense fallback={null}>
+          <SiteAnalytics />
           <YandexMetrika />
         </Suspense>
         <ClientLayout>

@@ -4,6 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, FormEvent } from 'react';
 import DentalPromoBanner from "@/components/DentalPromoBanner";
+import { getAnalyticsContext } from '@/lib/analytics/client';
 
 export default function ContactsPage() {
   const [name, setName] = useState("");
@@ -31,6 +32,7 @@ export default function ContactsPage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          analytics: getAnalyticsContext('contact'),
           name: name.trim(),
           phone: email.trim(), // Для формы контактов используем email как телефон (обязательное поле)
           email: email.trim(), // Передаем email отдельно

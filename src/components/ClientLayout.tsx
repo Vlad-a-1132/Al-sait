@@ -7,8 +7,13 @@ import MobileBottomNav from './MobileBottomNav'
 import CallbackModal from './CallbackModal'
 import ChatWidget from './ChatWidget'
 import ViewportMetrics from './ViewportMetrics'
+import { usePathname } from 'next/navigation'
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
+  const pathname = usePathname()
+  if (pathname === '/prices/analytics' || pathname?.startsWith('/prices/analytics/')) {
+    return <main className="min-h-screen">{children}</main>
+  }
   return (
     <AccessibilityProvider>
       <ViewportMetrics />

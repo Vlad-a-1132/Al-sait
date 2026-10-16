@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
+import { getAnalyticsContext } from '@/lib/analytics/client'
 
 export default function AppointmentForm() {
   const [formData, setFormData] = useState({
@@ -34,6 +35,7 @@ export default function AppointmentForm() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
+          analytics: getAnalyticsContext('appointment_page'),
           name: formData.name.trim(),
           phone: formData.phone.trim(),
           formType: 'Страница записи на прием',
