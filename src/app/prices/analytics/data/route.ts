@@ -9,7 +9,7 @@ export async function GET(request: Request) {
   if (!pricesAuthorized(request)) return NextResponse.json({ error: 'Требуется вход' }, { status: 401, headers: { ...PRIVATE_HEADERS, 'WWW-Authenticate': 'Basic realm="Restricted"' } });
   const url = new URL(request.url);
   try {
-    const report = await buildReport(url.searchParams.get('from'), url.searchParams.get('to'));
+    const report = await buildReport(url.searchParams.get('from'), url.searchParams.get('to'), { browser: url.searchParams.get('browser') || undefined, device: url.searchParams.get('device') || undefined });
     if (url.searchParams.get('format') === 'csv') return new NextResponse(reportCsv(report), { headers: { ...PRIVATE_HEADERS, 'Content-Type': 'text/csv; charset=utf-8', 'Content-Disposition': `attachment; filename="altamed-analytics-${report.from}-${report.to}.csv"` } });
     return NextResponse.json(report, { headers: PRIVATE_HEADERS });
   } catch (error) {

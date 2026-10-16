@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
-import { getAnalyticsContext } from '@/lib/analytics/client'
+import { confirmAnalyticsSubmission, getAnalyticsContext, recordFormError } from '@/lib/analytics/client'
 
 export default function AppointmentForm() {
   const [formData, setFormData] = useState({
@@ -22,11 +22,12 @@ export default function AppointmentForm() {
     }))
   }
 
-  const handleSubmit = async (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setIsSubmitting(true)
     setErrorMessage('')
 
+    const analytics = getAnalyticsContext('appointment_page', e.currentTarget)
     try {
       // Отправляем данные на API
       const response = await fetch('/api/appointment', {
@@ -35,7 +36,7 @@ export default function AppointmentForm() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          analytics: getAnalyticsContext('appointment_page'),
+          analytics,
           name: formData.name.trim(),
           phone: formData.phone.trim(),
           formType: 'Страница записи на прием',
@@ -46,6 +47,7 @@ export default function AppointmentForm() {
       const data = await response.json()
 
       if (response.ok) {
+        confirmAnalyticsSubmission(analytics, data.id)
         setIsSubmitted(true)
         setFormData({
           name: '',
@@ -53,9 +55,11 @@ export default function AppointmentForm() {
           notes: ''
         })
       } else {
+        recordFormError('appointment_page', 'server', { context: analytics, status: response.status })
         setErrorMessage(data.error || 'Произошла ошибка при отправке формы. Пожалуйста, попробуйте еще раз.')
       }
     } catch (error) {
+      recordFormError('appointment_page', 'network', { context: analytics })
       console.error('Ошибка:', error)
       setErrorMessage('Произошла ошибка при отправке формы. Пожалуйста, попробуйте еще раз.')
     } finally {
@@ -86,7 +90,7 @@ export default function AppointmentForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
+    <form data-analytics-form="appointment_page" data-analytics-placement="appointment_page" onSubmit={handleSubmit} className="space-y-5 md:space-y-6">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-6">
         <div className="space-y-2">
           <label htmlFor="name" className="block text-sm md:text-base font-semibold text-gray-700 mb-2">

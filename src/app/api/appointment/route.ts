@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { promises as fs } from 'fs';
 import path from 'path';
 import nodemailer from 'nodemailer';
+import { randomUUID } from 'node:crypto';
 import { isBot, recordSavedForm, sameOrigin } from '@/lib/analytics/server';
 
 interface Appointment {
@@ -159,7 +160,7 @@ export async function POST(request: NextRequest) {
 
     // Создаем новую заявку
     const appointment: Appointment = {
-      id: Date.now().toString(),
+      id: randomUUID(),
       name: name.trim() || 'Не указано',
       phone: phone.trim(),
       date: new Date().toLocaleString('ru-RU'),

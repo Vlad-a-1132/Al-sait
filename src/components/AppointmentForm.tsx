@@ -3,7 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useState, FormEvent } from "react";
-import { getAnalyticsContext } from '@/lib/analytics/client';
+import { confirmAnalyticsSubmission, getAnalyticsContext, recordFormError } from '@/lib/analytics/client';
 
 interface AppointmentFormProps {
   doctorImage?: string;
@@ -23,6 +23,7 @@ export default function AppointmentForm({
     e.preventDefault();
     
     if (!phone.trim()) {
+      recordFormError('appointment_inline', 'required', { field: 'phone' });
       setSubmitStatus({ type: 'error', message: 'Пожалуйста, укажите телефон' });
       return;
     }
@@ -30,6 +31,7 @@ export default function AppointmentForm({
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
+    const analytics = getAnalyticsContext('appointment_inline', e.currentTarget);
     try {
       const response = await fetch('/api/appointment', {
         method: 'POST',
@@ -37,7 +39,7 @@ export default function AppointmentForm({
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          analytics: getAnalyticsContext('appointment_inline'),
+          analytics,
           name: name.trim(),
           phone: phone.trim(),
           formType: 'Форма записи на прием',
@@ -48,13 +50,16 @@ export default function AppointmentForm({
       const data = await response.json();
 
       if (response.ok) {
+        confirmAnalyticsSubmission(analytics, data.id);
         setSubmitStatus({ type: 'success', message: 'Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.' });
         setName("");
         setPhone("");
       } else {
+        recordFormError('appointment_inline', 'server', { context: analytics, status: response.status });
         setSubmitStatus({ type: 'error', message: data.error || 'Произошла ошибка при отправке' });
       }
     } catch (error) {
+      recordFormError('appointment_inline', 'network', { context: analytics });
       console.error('Ошибка:', error);
       setSubmitStatus({ type: 'error', message: 'Произошла ошибка при отправке. Попробуйте позже.' });
     } finally {
@@ -83,7 +88,7 @@ export default function AppointmentForm({
               <h2 className="text-2xl lg:text-3xl font-bold text-white mb-2">Записаться на прием</h2>
               <p className="text-white/90 mb-6 text-sm lg:text-base">поля, отмеченные * необходимы к заполнению</p>
 
-              <form onSubmit={handleSubmit} className="mb-4 max-w-2xl">
+              <form data-analytics-form="appointment_inline" data-analytics-placement="inline_form" onSubmit={handleSubmit} className="mb-4 max-w-2xl">
                 {submitStatus.type && (
                   <div className={`mb-4 p-4 rounded-lg ${
                     submitStatus.type === 'success' 

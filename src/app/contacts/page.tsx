@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useState, useEffect, FormEvent } from 'react';
 import DentalPromoBanner from "@/components/DentalPromoBanner";
-import { getAnalyticsContext } from '@/lib/analytics/client';
+import { confirmAnalyticsSubmission, getAnalyticsContext, recordFormError } from '@/lib/analytics/client';
 
 export default function ContactsPage() {
   const [name, setName] = useState("");
@@ -17,6 +17,7 @@ export default function ContactsPage() {
     e.preventDefault();
     
     if (!name.trim() || !email.trim() || !message.trim()) {
+      recordFormError('contact', 'validation');
       setSubmitStatus({ type: 'error', message: 'Пожалуйста, заполните все обязательные поля' });
       return;
     }
@@ -24,6 +25,7 @@ export default function ContactsPage() {
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
+    const analytics = getAnalyticsContext('contact', e.currentTarget);
     try {
       // Отправляем данные на API
       const response = await fetch('/api/appointment', {
@@ -32,7 +34,7 @@ export default function ContactsPage() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          analytics: getAnalyticsContext('contact'),
+          analytics,
           name: name.trim(),
           phone: email.trim(), // Для формы контактов используем email как телефон (обязательное поле)
           email: email.trim(), // Передаем email отдельно
@@ -44,14 +46,17 @@ export default function ContactsPage() {
       const data = await response.json();
 
       if (response.ok) {
+        confirmAnalyticsSubmission(analytics, data.id);
         setSubmitStatus({ type: 'success', message: 'Ваше сообщение успешно отправлено! Мы свяжемся с вами в ближайшее время.' });
         setName("");
         setEmail("");
         setMessage("");
       } else {
+        recordFormError('contact', 'server', { context: analytics, status: response.status });
         setSubmitStatus({ type: 'error', message: data.error || 'Произошла ошибка при отправке' });
       }
     } catch (error) {
+      recordFormError('contact', 'network', { context: analytics });
       console.error('Ошибка:', error);
       setSubmitStatus({ type: 'error', message: 'Произошла ошибка при отправке. Попробуйте позже.' });
     } finally {
@@ -304,7 +309,7 @@ export default function ContactsPage() {
             <div>
               <h2 className="text-3xl font-bold text-gray-900 mb-4">Остались вопросы? Отправьте их нам</h2>
               <div className="bg-gray-50 p-8 rounded-xl shadow-sm">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form data-analytics-form="contact" data-analytics-placement="contact_form" onSubmit={handleSubmit} className="space-y-6">
                   {submitStatus.type && (
                     <div className={`p-4 rounded-lg ${
                       submitStatus.type === 'success' 

@@ -26,7 +26,7 @@ export default function Header() {
 
   return (
     <>
-    <header className="fixed left-0 right-0 top-0 z-50 w-full bg-white pt-[env(safe-area-inset-top)] shadow-sm">
+    <header data-analytics-placement="header" className="fixed left-0 right-0 top-0 z-50 w-full bg-white pt-[env(safe-area-inset-top)] shadow-sm">
       {/* Верхний уровень: логотип, телефон и кнопки */}
       <div className="border-b border-gray-100 py-2 md:py-3">
         <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: '83rem' }}>
@@ -80,6 +80,7 @@ export default function Header() {
               <div className="md:hidden flex items-center space-x-2">
                 <Link 
                   href="https://online.altamed-c.ru/" 
+                  data-analytics-id="header_booking_mobile"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-orange-500 text-white px-3 py-1.5 rounded-md hover:bg-orange-600 transition-colors text-xs font-medium shadow-sm"
@@ -89,7 +90,7 @@ export default function Header() {
               </div>
               
               {/* Десктопная кнопка записи */}
-              <Link href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer" className="hidden md:block bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition text-sm">
+              <Link href="https://online.altamed-c.ru/" data-analytics-id="header_booking_desktop" target="_blank" rel="noopener noreferrer" className="hidden md:block bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition text-sm">
                 Записаться онлайн
               </Link>
               

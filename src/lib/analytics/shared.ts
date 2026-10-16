@@ -2,6 +2,13 @@ export const SESSION_TIMEOUT = 30 * 60 * 1000;
 export const VISITOR_LIFETIME = 365 * 24 * 60 * 60 * 1000;
 export const MAX_REPORT_DAYS = 93;
 export const RETENTION_DAYS = 180;
+export const DELIVERY_TTL = 24 * 60 * 60 * 1000;
+export const BROWSERS = ['Chrome', 'Safari', 'Yandex', 'Firefox', 'Edge', 'Opera', 'Samsung', 'Other', 'Unknown'] as const;
+export type BrowserName = typeof BROWSERS[number];
+export const OPERATING_SYSTEMS = ['Android', 'iOS', 'Windows', 'macOS', 'Linux', 'Other', 'Unknown'] as const;
+export const ERROR_LABELS = { required: 'Обязательное поле', format: 'Неверный формат', consent: 'Нет согласия', validation: 'Проверка формы', network: 'Ошибка сети', server: 'Ошибка сервера' } as const;
+export type FormErrorCode = keyof typeof ERROR_LABELS;
+export const FORM_FIELDS = ['name', 'phone', 'email', 'message', 'consent', 'other'] as const;
 
 export const FORM_LABELS = {
   appointment_inline: 'Форма записи на странице',
@@ -19,9 +26,10 @@ export const GOAL_LABELS = {
   chat_sent: 'Заявка из чата сохранена',
   phone_click: 'Нажатие на телефон',
   messenger_click: 'Переход в мессенджер',
+  booking_click: 'Переход к онлайн-записи',
 } as const;
 export type AnalyticsGoal = keyof typeof GOAL_LABELS;
-export type EventType = 'pageview' | 'click' | 'form_submit' | 'form_success' | 'custom';
+export type EventType = 'pageview' | 'click' | 'form_view' | 'form_click' | 'form_start' | 'form_submit' | 'form_error' | 'form_success' | 'custom';
 export type DeviceType = 'desktop' | 'mobile' | 'tablet';
 
 export interface Attribution {
@@ -36,6 +44,11 @@ export interface AnalyticsContext extends Attribution {
   path: string;
   device: DeviceType;
   form?: AnalyticsForm;
+  browser?: BrowserName;
+  browserVersion?: string;
+  os?: typeof OPERATING_SYSTEMS[number];
+  landingPath?: string;
+  placement?: string;
 }
 export interface AnalyticsEvent extends AnalyticsContext {
   id: string;
@@ -44,6 +57,10 @@ export interface AnalyticsEvent extends AnalyticsContext {
   action?: string;
   label?: string;
   target?: string;
+  buttonId?: string;
+  errorCode?: FormErrorCode;
+  field?: typeof FORM_FIELDS[number];
+  status?: number;
 }
 
 export function isPrivatePath(path: string): boolean {
@@ -93,7 +110,7 @@ export function getAttribution(search: string, referrer: string, currentHost: st
 }
 
 export function goalForEvent(event: AnalyticsEvent): AnalyticsGoal | null {
-  if (event.type === 'click' && (event.action === 'phone_click' || event.action === 'messenger_click')) return event.action;
+  if (event.type === 'click' && (event.action === 'phone_click' || event.action === 'messenger_click' || event.action === 'booking_click')) return event.action;
   if (event.type !== 'form_success') return null;
   if (event.form === 'callback') return 'callback_sent';
   if (event.form === 'contact') return 'contact_sent';
@@ -114,7 +131,27 @@ export interface TrafficRow {
   visitors: number;
   conversions: number;
   conversionRate: number;
+  leads: number;
+  leadVisits: number;
+  leadConversionRate: number;
+  intentVisits: number;
+  intentConversionRate: number;
 }
+export interface FormFunnelRow {
+  form: AnalyticsForm;
+  path?: string;
+  placement?: string;
+  views: number;
+  clicks: number;
+  starts: number;
+  attempts: number;
+  successes: number;
+  submitVisits: number;
+  successVisits: number;
+  errors: number;
+  completionRate: number | null;
+}
+export interface ReportFilters { browser?: string; device?: string }
 export interface AnalyticsReport {
   from: string;
   to: string;
@@ -122,13 +159,18 @@ export interface AnalyticsReport {
   firstEventAt: string | null;
   lastEventAt: string | null;
   warnings: string[];
-  totals: { views: number; visits: number; visitors: number; clicks: number; submissions: number; successfulForms: number; conversions: number; convertedVisits: number; conversionRate: number };
+  totals: { views: number; visits: number; visitors: number; clicks: number; submissions: number; successfulForms: number; conversions: number; convertedVisits: number; conversionRate: number; leadVisits: number; leadConversionRate: number; intentVisits: number; intentConversionRate: number };
   daily: TrafficRow[];
   sources: TrafficRow[];
   pages: TrafficRow[];
   campaigns: TrafficRow[];
   devices: TrafficRow[];
-  clicks: { path: string; action: string; label: string; target: string; count: number }[];
-  forms: { form: AnalyticsForm; attempts: number; successes: number }[];
+  browsers: TrafficRow[];
+  landings: TrafficRow[];
+  filters: ReportFilters;
+  clicks: { path: string; action: string; label: string; target: string; placement: string; buttonId: string; count: number }[];
+  forms: FormFunnelRow[];
+  formPages: FormFunnelRow[];
+  errors: { form: AnalyticsForm; path: string; code: FormErrorCode; field: string; browser: string; placement: string; status: number | null; count: number }[];
   goals: { goal: AnalyticsGoal; count: number; visits: number; conversionRate: number }[];
 }

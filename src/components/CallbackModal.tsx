@@ -2,7 +2,7 @@
 
 import { useEffect, useState, FormEvent } from "react";
 import Image from "next/image";
-import { getAnalyticsContext } from '@/lib/analytics/client';
+import { confirmAnalyticsSubmission, getAnalyticsContext, recordFormError } from '@/lib/analytics/client';
 
 const CALLBACK_DISMISSED_KEY = "altamed-callback-dismissed";
 
@@ -47,11 +47,13 @@ export default function CallbackModal() {
     e.preventDefault();
     
     if (!phone.trim()) {
+      recordFormError('callback', 'required', { field: 'phone' });
       setSubmitStatus({ type: 'error', message: 'Пожалуйста, укажите телефон' });
       return;
     }
 
     if (!consent) {
+      recordFormError('callback', 'consent', { field: 'consent' });
       setSubmitStatus({ type: 'error', message: 'Необходимо согласие на обработку персональных данных' });
       return;
     }
@@ -59,6 +61,7 @@ export default function CallbackModal() {
     setIsSubmitting(true);
     setSubmitStatus({ type: null, message: '' });
 
+    const analytics = getAnalyticsContext('callback', e.currentTarget);
     try {
       const response = await fetch('/api/appointment', {
         method: 'POST',
@@ -66,7 +69,7 @@ export default function CallbackModal() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          analytics: getAnalyticsContext('callback'),
+          analytics,
           name: name.trim(),
           phone: phone.trim(),
           formType: 'Обратный звонок для записи',
@@ -77,6 +80,7 @@ export default function CallbackModal() {
       const data = await response.json();
 
       if (response.ok) {
+        confirmAnalyticsSubmission(analytics, data.id);
         setSubmitStatus({ type: 'success', message: 'Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.' });
         setName("");
         setPhone("");
@@ -86,9 +90,11 @@ export default function CallbackModal() {
           setIsOpen(false);
         }, 2000);
       } else {
+        recordFormError('callback', 'server', { context: analytics, status: response.status });
         setSubmitStatus({ type: 'error', message: data.error || 'Произошла ошибка при отправке' });
       }
     } catch (error) {
+      recordFormError('callback', 'network', { context: analytics });
       console.error('Ошибка:', error);
       setSubmitStatus({ type: 'error', message: 'Произошла ошибка при отправке. Попробуйте позже.' });
     } finally {
@@ -99,7 +105,7 @@ export default function CallbackModal() {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto overscroll-contain bg-black/40 px-3 pb-[calc(0.75rem_+_env(safe-area-inset-bottom))] pt-[calc(0.75rem_+_env(safe-area-inset-top))] md:items-center md:p-6">
+    <div data-analytics-placement="callback_modal" className="fixed inset-0 z-[60] flex items-start justify-center overflow-y-auto overscroll-contain bg-black/40 px-3 pb-[calc(0.75rem_+_env(safe-area-inset-bottom))] pt-[calc(0.75rem_+_env(safe-area-inset-top))] md:items-center md:p-6">
       {/* Modal */}
       <div className="callback-modal-panel relative w-full max-w-[680px] overflow-y-auto rounded-2xl bg-white shadow-2xl md:rounded-3xl">
         {/* Close */}
@@ -129,7 +135,7 @@ export default function CallbackModal() {
             </h3>
 
             {/* Form */}
-            <form onSubmit={handleSubmit} className="mt-4 md:mt-6 space-y-3 md:space-y-4">
+            <form data-analytics-form="callback" onSubmit={handleSubmit} className="mt-4 md:mt-6 space-y-3 md:space-y-4">
               {submitStatus.type && (
                 <div className={`p-3 rounded-lg text-sm ${
                   submitStatus.type === 'success' 

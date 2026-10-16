@@ -4,11 +4,11 @@ import { createHash, timingSafeEqual } from 'node:crypto';
 import { promises as fs, createReadStream } from 'node:fs';
 import path from 'node:path';
 import { createInterface } from 'node:readline';
-import { cleanLabel, cleanPath, cleanTag, FORM_LABELS, moscowDay, RETENTION_DAYS } from './shared';
+import { BROWSERS, cleanLabel, cleanPath, cleanTag, DELIVERY_TTL, ERROR_LABELS, FORM_FIELDS, FORM_LABELS, moscowDay, OPERATING_SYSTEMS, RETENTION_DAYS } from './shared';
 import type { AnalyticsEvent, AnalyticsForm, DeviceType, EventType } from './shared';
 
 const ID = /^[a-zA-Z0-9_-]{8,80}$/;
-const PUBLIC_TYPES = new Set(['pageview', 'click', 'form_submit', 'custom']);
+const PUBLIC_TYPES = new Set(['pageview', 'click', 'form_view', 'form_click', 'form_start', 'form_submit', 'form_error', 'custom']);
 const ACTIONS = new Set(['button_click', 'phone_click', 'email_click', 'messenger_click', 'download_click', 'booking_click', 'internal_link', 'external_link', 'lab_add', 'lab_remove', 'lab_call', 'lab_booking', 'lab_copy_list']);
 const BOTS = /bot|crawler|spider|headless|lighthouse|uptime|monitoring|facebookexternalhit/i;
 const limits = new Map<string, { count: number; expires: number }>();
@@ -96,14 +96,19 @@ export function normalizeEvent(input: unknown, serverEvent = false, now = new Da
   const page = cleanPath(raw.path);
   if (!page) return null;
   const form = typeof raw.form === 'string' && Object.prototype.hasOwnProperty.call(FORM_LABELS, raw.form) ? raw.form as AnalyticsForm : undefined;
-  if ((raw.type === 'form_submit' || raw.type === 'form_success') && !form) return null;
+  if (String(raw.type).startsWith('form_') && !form) return null;
+  const errorCode = typeof raw.errorCode === 'string' && Object.prototype.hasOwnProperty.call(ERROR_LABELS, raw.errorCode) ? raw.errorCode as AnalyticsEvent['errorCode'] : undefined;
+  if (raw.type === 'form_error' && !errorCode) return null;
   const action = typeof raw.action === 'string' && ACTIONS.has(raw.action) ? raw.action : undefined;
   if ((raw.type === 'click' || raw.type === 'custom') && !action) return null;
   if (raw.type === 'custom' && !action?.startsWith('lab_')) return null;
   const parsedTime = typeof raw.timestamp === 'string' ? new Date(raw.timestamp) : now;
   // Client clocks cannot place events in future reports or inject arbitrary historical traffic.
-  const timestamp = Number.isFinite(parsedTime.getTime()) && parsedTime.getTime() <= now.getTime() + 60000 && parsedTime.getTime() >= now.getTime() - 3600000 ? parsedTime.toISOString() : now.toISOString();
+  const timestamp = Number.isFinite(parsedTime.getTime()) && parsedTime.getTime() <= now.getTime() + 60000 && parsedTime.getTime() >= now.getTime() - DELIVERY_TTL ? parsedTime.toISOString() : now.toISOString();
   const device: DeviceType = raw.device === 'mobile' || raw.device === 'tablet' ? raw.device : 'desktop';
+  const browser = BROWSERS.includes(raw.browser as typeof BROWSERS[number]) ? raw.browser as typeof BROWSERS[number] : 'Unknown';
+  const os = OPERATING_SYSTEMS.includes(raw.os as typeof OPERATING_SYSTEMS[number]) ? raw.os as typeof OPERATING_SYSTEMS[number] : 'Unknown';
+  const safeId = (value: unknown) => typeof value === 'string' && /^[a-zA-Z0-9_:-]{1,64}$/.test(value) ? value : 'unknown';
   let target = '';
   if (raw.type === 'click' && typeof raw.target === 'string') {
     if (action === 'phone_click') target = 'tel:';
@@ -116,7 +121,12 @@ export function normalizeEvent(input: unknown, serverEvent = false, now = new Da
     type: raw.type as EventType, timestamp, device,
     source: cleanTag(raw.source) || 'direct', medium: cleanTag(raw.medium) || 'none',
     campaign: cleanTag(raw.campaign), referrer: typeof raw.referrer === 'string' && /^[a-z0-9.-]{1,150}$/i.test(raw.referrer) ? raw.referrer.toLowerCase() : '',
+    browser, browserVersion: typeof raw.browserVersion === 'string' && /^\d{1,3}$/.test(raw.browserVersion) ? raw.browserVersion : '', os,
+    ...(cleanPath(raw.landingPath) ? { landingPath: cleanPath(raw.landingPath)! } : {}),
+    placement: safeId(raw.placement),
     ...(form ? { form } : {}), ...(action ? { action, target, label: cleanLabel(raw.label) } : {}),
+    ...(raw.type === 'click' ? { buttonId: safeId(raw.buttonId) } : {}),
+    ...(errorCode ? { errorCode, field: FORM_FIELDS.includes(raw.field as typeof FORM_FIELDS[number]) ? raw.field as typeof FORM_FIELDS[number] : 'other', ...(Number.isInteger(raw.status) && Number(raw.status) >= 400 && Number(raw.status) <= 599 ? { status: Number(raw.status) } : {}) } : {}),
   };
 }
 

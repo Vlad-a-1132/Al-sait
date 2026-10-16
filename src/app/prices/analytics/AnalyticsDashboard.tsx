@@ -2,21 +2,18 @@
 
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { FORM_LABELS, GOAL_LABELS, moscowDay, RETENTION_DAYS } from '@/lib/analytics/shared';
+import { BROWSERS, GOAL_LABELS, moscowDay, RETENTION_DAYS } from '@/lib/analytics/shared';
 import type { AnalyticsReport, TrafficRow } from '@/lib/analytics/shared';
+import { ClickTable, ErrorTable, FunnelTable } from './AnalyticsTables';
 
 const number = (value: number) => new Intl.NumberFormat('ru-RU').format(value);
 const percent = (value: number) => `${new Intl.NumberFormat('ru-RU', { maximumFractionDigits: 2 }).format(value)}%`;
 const dateLabel = (value: string) => new Date(`${value}T12:00:00+03:00`).toLocaleDateString('ru-RU', { day: 'numeric', month: 'short', timeZone: 'Europe/Moscow' });
 const timeLabel = (value: string) => new Date(value).toLocaleString('ru-RU', { timeZone: 'Europe/Moscow', day: '2-digit', month: '2-digit', hour: '2-digit', minute: '2-digit' });
-const ACTION_LABELS: Record<string, string> = {
-  button_click: 'Кнопка', phone_click: 'Телефон', email_click: 'Email', messenger_click: 'Мессенджер', download_click: 'Документ', booking_click: 'Переход к записи', internal_link: 'Ссылка по сайту', external_link: 'Внешняя ссылка',
-  lab_add: 'Добавление анализа', lab_remove: 'Удаление анализа', lab_call: 'Звонок из анализов', lab_booking: 'Запись из анализов', lab_copy_list: 'Копирование списка анализов',
-};
-const TABS = { sources: 'Источники', pages: 'Страницы', clicks: 'Клики', forms: 'Формы', goals: 'Цели', campaigns: 'UTM-кампании', devices: 'Устройства' } as const;
+const TABS = { sources: 'Источники', pages: 'Страницы', clicks: 'Клики', forms: 'Формы', goals: 'Цели', campaigns: 'UTM-кампании', devices: 'Устройства', browsers: 'Браузеры', landings: 'Страницы входа', errors: 'Ошибки форм' } as const;
 type Tab = keyof typeof TABS;
-type Metric = 'views' | 'visits' | 'visitors' | 'conversions';
-const METRICS: Record<Metric, string> = { views: 'Просмотры', visits: 'Визиты', visitors: 'Посетители', conversions: 'Цели' };
+type Metric = 'views' | 'visits' | 'visitors' | 'leads';
+const METRICS: Record<Metric, string> = { views: 'Просмотры', visits: 'Визиты', visitors: 'Посетители', leads: 'Заявки' };
 const DAY = 86400000;
 
 function Empty({ text = 'За этот период событий пока нет.' }: { text?: string }) {
@@ -26,10 +23,10 @@ function Empty({ text = 'За этот период событий пока не
 function TrafficTable({ rows, pages = false }: { rows: TrafficRow[]; pages?: boolean }) {
   if (!rows.length) return <Empty />;
   return <div className="overflow-x-auto"><table className="w-full min-w-[660px] text-left text-sm">
-    <thead className="bg-slate-50 text-xs text-slate-500"><tr><th className="px-5 py-3 font-medium">{pages ? 'Страница' : 'Название'}</th>{['Визиты', 'Посетители', 'Просмотры', 'Цели', 'Конверсия'].map(label => <th key={label} className="px-4 py-3 text-right font-medium">{label}</th>)}</tr></thead>
+    <thead className="bg-slate-50 text-xs text-slate-500"><tr><th className="px-5 py-3 font-medium">{pages ? 'Страница' : 'Название'}</th>{['Визиты', 'Посетители', 'Просмотры', 'Заявки', 'Конверсия в заявку'].map(label => <th key={label} className="px-4 py-3 text-right font-medium">{label}</th>)}</tr></thead>
     <tbody className="divide-y divide-slate-100">{rows.map(row => <tr key={row.key} className="hover:bg-slate-50/80">
       <td className="max-w-sm px-5 py-4"><div className="break-words font-medium text-slate-800">{pages ? <a href={encodeURI(row.key)} target="_blank" rel="noopener noreferrer" className="text-emerald-800 hover:underline">{row.label}</a> : row.label}</div>{row.detail && <div className="mt-1 text-xs text-slate-500">{row.detail}</div>}</td>
-      {[row.visits, row.visitors, row.views, row.conversions].map((value, index) => <td key={index} className="px-4 py-4 text-right tabular-nums text-slate-700">{number(value)}</td>)}<td className="px-4 py-4 text-right tabular-nums font-medium text-emerald-800">{percent(row.conversionRate)}</td>
+      {[row.visits, row.visitors, row.views, row.leads].map((value, index) => <td key={index} className="px-4 py-4 text-right tabular-nums text-slate-700">{number(value)}</td>)}<td className="px-4 py-4 text-right tabular-nums font-medium text-emerald-800">{percent(row.leadConversionRate)}</td>
     </tr>)}</tbody>
   </table></div>;
 }
@@ -77,6 +74,8 @@ export default function AnalyticsDashboard() {
   const [from, setFrom] = useState(initialFrom);
   const [to, setTo] = useState(today);
   const [range, setRange] = useState({ from: initialFrom, to: today });
+  const [browser, setBrowser] = useState('');
+  const [device, setDevice] = useState('');
   const [report, setReport] = useState<AnalyticsReport | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
@@ -91,7 +90,7 @@ export default function AnalyticsDashboard() {
     const controller = new AbortController();
     pending.current?.abort(); pending.current = controller;
     setLoading(true); setError('');
-    const params = new URLSearchParams(range);
+    const params = new URLSearchParams({ ...range, ...(browser ? { browser } : {}), ...(device ? { device } : {}) });
     const endpoint = new URL(`/prices/analytics/data?${params}`, window.location.origin).href;
     void fetch(endpoint, { credentials: 'same-origin', cache: 'no-store', signal: controller.signal })
       .then(async response => {
@@ -103,7 +102,7 @@ export default function AnalyticsDashboard() {
       .catch(reason => { if (!controller.signal.aborted) setError(reason instanceof Error ? reason.message : 'Ошибка загрузки.'); })
       .finally(() => { if (!controller.signal.aborted) setLoading(false); });
     return () => controller.abort();
-  }, [range, revision]);
+  }, [range, revision, browser, device]);
 
   useEffect(() => {
     if (!autoRefresh) return;
@@ -122,15 +121,15 @@ export default function AnalyticsDashboard() {
     { label: 'Посетители', value: number(stats.visitors), note: 'Уникальные браузеры', accent: false },
     { label: 'Визиты', value: number(stats.visits), note: 'Перерыв между визитами — 30 мин', accent: false },
     { label: 'Просмотры', value: number(stats.views), note: 'Открытия страниц сайта', accent: false },
-    { label: 'Конверсия', value: percent(stats.conversionRate), note: `${number(stats.convertedVisits)} визитов с достижением цели`, accent: true },
+    { label: 'Конверсия в заявку', value: percent(stats.leadConversionRate), note: `${number(stats.leadVisits)} визитов с сохранённой заявкой`, accent: true },
     { label: 'Клики', value: number(stats.clicks), note: 'Ссылки и кнопки', accent: false },
     { label: 'Отправки форм', value: number(stats.submissions), note: 'Запросы на отправку заявки', accent: false },
     { label: 'Сохранённые заявки', value: number(stats.successfulForms), note: 'Подтверждено сервером', accent: false },
-    { label: 'Достижения целей', value: number(stats.conversions), note: 'Заявки, телефон и мессенджеры', accent: false },
+    { label: 'Интерес к обращению', value: percent(stats.intentConversionRate), note: `${number(stats.intentVisits)} визитов: телефон, мессенджер, запись`, accent: false },
   ] : [];
-  const showingCurrentRange = report?.from === range.from && report?.to === range.to;
+  const showingCurrentRange = report?.from === range.from && report?.to === range.to && (report?.filters.browser || '') === browser && (report?.filters.device || '') === device;
   const stale = !!report && !showingCurrentRange;
-  const csvParams = new URLSearchParams({ from: report?.from || range.from, to: report?.to || range.to, format: 'csv' });
+  const csvParams = new URLSearchParams({ from: report?.from || range.from, to: report?.to || range.to, browser: report?.filters.browser || '', device: report?.filters.device || '', format: 'csv' });
 
   return <div className="min-h-screen bg-[#f4f7f6] text-slate-800">
     <header className="border-b border-slate-200/80 bg-white">
@@ -155,6 +154,11 @@ export default function AnalyticsDashboard() {
             <button type="submit" className="rounded-lg bg-slate-100 px-3 py-2.5 text-sm font-medium text-slate-700 hover:bg-slate-200">Показать</button>
           </form>
         </div>
+        <div className="mt-4 flex flex-wrap items-end gap-4 border-t border-slate-100 pt-4">
+          <label className="text-xs text-slate-500">Браузер<select aria-label="Фильтр по браузеру" value={browser} onChange={event => setBrowser(event.target.value)} className="mt-1 block min-w-[160px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800"><option value="">Все браузеры</option>{BROWSERS.map(name => <option key={name} value={name}>{name === 'Unknown' ? 'Неизвестен' : name}</option>)}</select></label>
+          <label className="text-xs text-slate-500">Устройство<select aria-label="Фильтр по устройству" value={device} onChange={event => setDevice(event.target.value)} className="mt-1 block min-w-[160px] rounded-lg border border-slate-200 bg-white px-3 py-2 text-sm text-slate-800"><option value="">Все устройства</option><option value="mobile">Телефоны</option><option value="desktop">Компьютеры</option><option value="tablet">Планшеты</option></select></label>
+          {(browser || device) && <button type="button" onClick={() => { setBrowser(''); setDevice(''); }} className="py-2 text-xs text-emerald-800 underline">Сбросить фильтры</button>}
+        </div>
         <div className="mt-4 flex flex-wrap items-center justify-between gap-3 border-t border-slate-100 pt-3 text-xs text-slate-400"><span>Часовой пояс: Москва (UTC+3) · до 93 дней в одном отчёте</span><label className="flex cursor-pointer items-center gap-2 text-slate-500"><input type="checkbox" checked={autoRefresh} onChange={event => setAutoRefresh(event.target.checked)} className="accent-emerald-700" />Обновлять каждую минуту</label></div>
       </section>
 
@@ -177,19 +181,22 @@ export default function AnalyticsDashboard() {
         <section className="mb-6 overflow-hidden rounded-2xl border border-slate-200/80 bg-white">
           <div role="tablist" aria-label="Разделы статистики" className="flex overflow-x-auto border-b border-slate-200 px-3 pt-2">{(Object.keys(TABS) as Tab[]).map(key => <button key={key} role="tab" id={`tab-${key}`} aria-selected={tab === key} aria-controls={`panel-${key}`} onClick={() => setTab(key)} className={`whitespace-nowrap border-b-2 px-4 py-3 text-sm font-medium ${tab === key ? 'border-emerald-700 text-emerald-800' : 'border-transparent text-slate-500 hover:text-slate-800'}`}>{TABS[key]}</button>)}</div>
           <div role="tabpanel" id={`panel-${tab}`} aria-labelledby={`tab-${tab}`}>
-            <div className="border-b border-slate-100 px-5 py-4"><h2 className="font-semibold text-slate-900">{{ sources: 'Откуда приходят посетители', pages: 'Популярные страницы', clicks: 'На что нажимают', forms: 'Отправки и сохранение заявок', goals: 'Достижения целей', campaigns: 'Результаты рекламных кампаний', devices: 'Устройства посетителей' }[tab]}</h2><p className="mt-1 text-xs text-slate-400">{{ sources: 'Источник закрепляется при начале визита. Учитываются UTM-метки и внешний сайт перехода.', pages: 'Страницы отсортированы по числу просмотров. Адреса показаны без параметров поиска.', clicks: 'Страница, элемент и количество нажатий. До 100 самых частых действий.', forms: 'Отправки — реальные запросы форм. Сохранено — заявки, принятые сервером, независимо от доставки email.', goals: 'Конверсия — доля визитов с этой целью. Клик по телефону не подтверждает состоявшийся звонок.', campaigns: 'В отчёт попадают визиты с utm_campaign. Список пуст, если метка не использовалась.', devices: 'Тип устройства определяется по браузеру.' }[tab]}</p></div>
+            <div className="border-b border-slate-100 px-5 py-4"><h2 className="font-semibold text-slate-900">{{ sources: 'Откуда приходят посетители', pages: 'Популярные страницы', clicks: 'На что нажимают', forms: 'Отправки и сохранение заявок', goals: 'Достижения целей', campaigns: 'Результаты рекламных кампаний', devices: 'Устройства посетителей', browsers: 'Браузеры, ОС и конверсия в заявки', landings: 'Страницы начала визита', errors: 'Что мешает отправить заявку' }[tab]}</h2><p className="mt-1 text-xs text-slate-400">{{ sources: 'Источник закрепляется при начале визита. Учитываются UTM-метки и внешний сайт перехода.', pages: 'Страницы отсортированы по числу просмотров. Адреса показаны без параметров поиска.', clicks: 'Элементы различаются по странице, размещению и ID. Онлайн-запись считается отдельным действием.', forms: 'Наблюдаемые этапы: увидел → нажал → начал → отправил → заявка сохранена. Сохранение подтверждает сервер.', goals: 'Конверсия — доля визитов с этой целью. Клик по телефону не подтверждает состоявшийся звонок.', campaigns: 'В отчёт попадают визиты с utm_campaign. Список пуст, если метка не использовалась.', devices: 'Тип устройства определяется по браузеру.', browsers: 'Семейство браузера, основная версия и ОС. Выберите браузер в фильтре, чтобы сравнить все этапы форм.', landings: 'Страница, с которой начался визит. Старые записи могут не содержать эту информацию.', errors: 'Код ошибки и тип поля. Содержимое полей, сообщения посетителей и тексты ошибок сюда не передаются.' }[tab]}</p></div>
             {tab === 'sources' && <TrafficTable rows={report.sources} />}
             {tab === 'pages' && <TrafficTable rows={report.pages} pages />}
             {tab === 'campaigns' && <TrafficTable rows={report.campaigns} />}
             {tab === 'devices' && <TrafficTable rows={report.devices} />}
-            {tab === 'clicks' && (report.clicks.length ? <div className="overflow-x-auto"><table className="w-full min-w-[650px] text-left text-sm"><thead className="bg-slate-50 text-xs text-slate-500"><tr>{['Элемент', 'Действие', 'Страница', 'Количество'].map(label => <th key={label} className="px-5 py-3 font-medium last:text-right">{label}</th>)}</tr></thead><tbody className="divide-y divide-slate-100">{report.clicks.map((row, index) => <tr key={index} className="hover:bg-slate-50"><td className="max-w-xs px-5 py-4"><div className="break-words font-medium">{row.label || ACTION_LABELS[row.action] || row.action}</div>{row.target && <div className="mt-1 break-all text-xs text-slate-400">{row.target}</div>}</td><td className="px-5 py-4 text-xs text-slate-500">{ACTION_LABELS[row.action] || row.action}</td><td className="max-w-xs break-all px-5 py-4 text-xs text-slate-500">{row.path}</td><td className="px-5 py-4 text-right tabular-nums">{number(row.count)}</td></tr>)}</tbody></table></div> : <Empty />)}
-            {tab === 'forms' && <div className="overflow-x-auto"><table className="w-full text-left text-sm"><thead className="bg-slate-50 text-xs text-slate-500"><tr><th className="px-5 py-3 font-medium">Форма</th><th className="px-5 py-3 text-right font-medium">Отправки</th><th className="px-5 py-3 text-right font-medium">Сохранено</th></tr></thead><tbody className="divide-y divide-slate-100">{report.forms.map(row => <tr key={row.form}><td className="px-5 py-4 font-medium">{FORM_LABELS[row.form]}</td><td className="px-5 py-4 text-right tabular-nums">{number(row.attempts)}</td><td className="px-5 py-4 text-right tabular-nums text-emerald-800">{number(row.successes)}</td></tr>)}</tbody></table></div>}
+            {tab === 'browsers' && <TrafficTable rows={report.browsers} />}
+            {tab === 'landings' && <TrafficTable rows={report.landings} />}
+            {tab === 'errors' && <ErrorTable rows={report.errors} />}
+            {tab === 'clicks' && <ClickTable rows={report.clicks} />}
+            {tab === 'forms' && <><FunnelTable rows={report.forms} /><details className="border-t border-slate-100 p-4"><summary className="cursor-pointer text-sm font-medium text-emerald-800">По страницам и размещению</summary><FunnelTable rows={report.formPages} pages /></details></>}
             {tab === 'goals' && <div className="overflow-x-auto"><table className="w-full min-w-[540px] text-left text-sm"><thead className="bg-slate-50 text-xs text-slate-500"><tr>{['Цель', 'Достижения', 'Визиты', 'Конверсия'].map(label => <th key={label} className="px-5 py-3 text-right font-medium first:text-left">{label}</th>)}</tr></thead><tbody className="divide-y divide-slate-100">{report.goals.map(row => <tr key={row.goal}><td className="px-5 py-4 font-medium">{GOAL_LABELS[row.goal]}</td><td className="px-5 py-4 text-right tabular-nums">{number(row.count)}</td><td className="px-5 py-4 text-right tabular-nums">{number(row.visits)}</td><td className="px-5 py-4 text-right font-medium tabular-nums text-emerald-800">{percent(row.conversionRate)}</td></tr>)}</tbody></table></div>}
           </div>
           {['pages', 'sources', 'campaigns'].includes(tab) && <div className="border-t border-slate-100 px-5 py-3 text-xs text-slate-400">До 100 строк с наибольшим числом просмотров. Итоговые показатели рассчитаны по всем событиям.</div>}
         </section>
 
-        <details className="rounded-xl border border-slate-200/80 bg-white px-5 py-4 text-sm text-slate-500"><summary className="cursor-pointer font-medium text-slate-700">Как считаются показатели</summary><div className="mt-4 grid gap-4 text-xs leading-relaxed sm:grid-cols-2"><p><strong>Посетитель</strong> — браузер с анонимным идентификатором. Другой браузер, устройство или очистка хранилища создают нового посетителя. Если хранилище браузера недоступно, подсчёт менее точный.</p><p><strong>Визит</strong> — активность с перерывами менее 30 минут. Вкладки одного браузера делят визит. В отчёте считаются визиты с событиями в выбранном периоде.</p><p><strong>Конверсия</strong> — доля визитов хотя бы с одной сохранённой заявкой, нажатием на телефон или переходом в мессенджер. Несколько целей в одном визите не увеличивают эту долю повторно.</p><p><strong>Данные</strong> поступают с момента подключения. Известные боты и служебные страницы исключаются. Поля форм, поисковые запросы, IP-адреса и записи действий посетителей в журнал аналитики не сохраняются.</p></div></details>
+        <details className="rounded-xl border border-slate-200/80 bg-white px-5 py-4 text-sm text-slate-500"><summary className="cursor-pointer font-medium text-slate-700">Как считаются показатели</summary><div className="mt-4 grid gap-4 text-xs leading-relaxed sm:grid-cols-2"><p><strong>Посетитель</strong> — браузер с анонимным идентификатором. Другой браузер, устройство или очистка хранилища создают нового посетителя. Если хранилище браузера недоступно, подсчёт менее точный.</p><p><strong>Визит</strong> — активность с перерывами менее 30 минут. Вкладки одного браузера делят визит. В отчёте считаются визиты с событиями в выбранном периоде.</p><p><strong>Конверсия в заявку</strong> — доля визитов с заявкой, сохранённой сервером. <strong>Интерес к обращению</strong> — отдельная доля визитов с кликом по телефону, мессенджеру или переходом к онлайн-записи; она не подтверждает звонок или запись. Повторные события одного визита не увеличивают эти доли.</p><p><strong>Данные</strong> поступают с момента подключения. Известные боты и служебные страницы исключаются. Поля форм, поисковые запросы, IP-адреса и записи действий посетителей в журнал аналитики не сохраняются.</p></div></details>
         <footer className="mt-5 flex flex-wrap justify-between gap-2 text-xs text-slate-400"><span>{report.firstEventAt ? `Первые сохранённые данные: ${timeLabel(report.firstEventAt)}` : 'Первые события ещё не поступили'}{report.lastEventAt ? ` · Последнее событие в периоде: ${timeLabel(report.lastEventAt)}` : ''}</span><span>Хранение событий: {RETENTION_DAYS} дней</span></footer>
       </div>}
     </div>

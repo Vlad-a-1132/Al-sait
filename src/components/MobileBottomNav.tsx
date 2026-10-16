@@ -7,6 +7,7 @@ export default function MobileBottomNav() {
   return (
     <nav
       data-mobile-bottom-nav
+      data-analytics-placement="mobile_nav"
       className="fixed bottom-0 left-0 right-0 z-40 md:hidden"
       aria-label="Мобильная навигация"
     >
@@ -17,6 +18,7 @@ export default function MobileBottomNav() {
         <div className="absolute -top-9 left-1/2 -translate-x-1/2 w-20 h-20 rounded-full bg-white shadow-[0_8px_24px_rgba(0,0,0,0.18)] grid place-items-center">
           <Link
             href="https://online.altamed-c.ru/" target="_blank" rel="noopener noreferrer"
+            data-analytics-id="mobile_nav_booking"
             className="w-14 h-14 rounded-full bg-emerald-600 text-white grid place-items-center shadow hover:bg-emerald-700"
             aria-label="Записаться"
           >

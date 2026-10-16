@@ -1,5 +1,5 @@
 "use client";
-import { getAnalyticsContext } from '@/lib/analytics/client';
+import { confirmAnalyticsSubmission, getAnalyticsContext, recordFormError } from '@/lib/analytics/client';
 
 import { FormEvent, useRef, useState } from "react";
 
@@ -196,14 +196,22 @@ export default function ChatWidget() {
 
   const submitAppointmentFromChat = async (target: string, name: string, phone: string) => {
     const message = `Заявка из чат-бота.\nК кому/услуга: ${target}\nID диалога: ${sessionIdRef.current}`;
-    const response = await fetch("/api/appointment", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, phone, formType: "Заявка из чат-бота", message, analytics: getAnalyticsContext('chat') }),
-    });
-
-    if (!response.ok) {
-      throw new Error("Appointment request failed");
+    const analytics = getAnalyticsContext('chat');
+    try {
+      const response = await fetch("/api/appointment", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, phone, formType: "Заявка из чат-бота", message, analytics }),
+      });
+      if (!response.ok) {
+        recordFormError('chat', 'server', { context: analytics, status: response.status });
+        throw new Error("Appointment request failed");
+      }
+      const result = await response.json();
+      confirmAnalyticsSubmission(analytics, result.id);
+    } catch (error) {
+      if (!(error instanceof Error && error.message === 'Appointment request failed')) recordFormError('chat', 'network', { context: analytics });
+      throw error;
     }
   };
 
@@ -433,7 +441,7 @@ export default function ChatWidget() {
                 </button>
               ))}
             </div>
-            <form onSubmit={handleSubmit} className="flex items-center gap-2 rounded-2xl bg-white/10 px-3 py-2">
+            <form data-analytics-form={appointmentFlow ? 'chat' : undefined} data-analytics-placement="chat" onSubmit={handleSubmit} className="flex items-center gap-2 rounded-2xl bg-white/10 px-3 py-2">
               <input
                 ref={inputRef}
                 value={input}
