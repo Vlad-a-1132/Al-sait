@@ -72,6 +72,11 @@ const nextConfig = {
         destination: '/images/documents/poryadok-vydachi-spravok-i-medicinskih-zaklyucheniy-altamed-s-2026.docx',
         permanent: true,
       },
+      {
+        source: '/images/documents/pravila-predostavleniya-platnyh-medicinskih-uslug-2025.pdf',
+        destination: '/images/documents/pravila-predostavleniya-platnyh-medicinskih-uslug.docx',
+        permanent: true,
+      },
       // Redirect old pregnancy article slug to new one (public URL)
       {
         source: '/blog/vedenie-beremennosti-v-odintsovo',
