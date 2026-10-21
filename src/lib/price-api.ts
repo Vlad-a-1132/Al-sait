@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 import path from "path";
+import { filterPublicServices, isPublicService } from "./public-services";
 
 const FETCH_TIMEOUT_MS = 15_000;
 
@@ -116,18 +117,20 @@ async function resolveResource(
   }
 
   try {
-    const data = await loadFromUpstream(upstreamPath);
+    const payload = await loadFromUpstream(upstreamPath);
+    const data = key === "services" ? filterPublicServices(payload) : payload;
     memory[key] = { data, freshUntil: now + getMemoryTtlMs() };
     await tryPersistFallback(filePath, data);
     return { ok: true, source: "network", data };
   } catch (err) {
     const fromDisk = await readJsonFile(filePath);
     if (fromDisk !== null) {
-      memory[key] = { data: fromDisk, freshUntil: 0 };
+      const data = key === "services" ? filterPublicServices(fromDisk) : fromDisk;
+      memory[key] = { data, freshUntil: 0 };
       return {
         ok: true,
         source: "file",
-        data: fromDisk,
+        data,
       };
     }
     return {
@@ -187,6 +190,7 @@ function isZeroPriceValue(v: unknown): boolean {
 
 export function normalizeServiceRow(item: unknown): PriceServiceDisplay | null {
   if (!item || typeof item !== "object") return null;
+  if (!isPublicService(item)) return null;
   const o = item as Record<string, unknown>;
   const name = pickString(o, ["serviceName", "service_name", "name", "title"]);
   if (!name) return null;

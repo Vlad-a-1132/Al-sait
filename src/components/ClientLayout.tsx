@@ -5,7 +5,6 @@ import Header from './Header'
 import Footer from './Footer'
 import MobileBottomNav from './MobileBottomNav'
 import CallbackModal from './CallbackModal'
-import ChatWidget from './ChatWidget'
 import ViewportMetrics from './ViewportMetrics'
 import { usePathname } from 'next/navigation'
 
@@ -24,7 +23,6 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
       <Footer />
       <MobileBottomNav />
       <CallbackModal />
-      <ChatWidget />
     </AccessibilityProvider>
   )
 }

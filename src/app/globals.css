@@ -37,15 +37,6 @@ html, body {
   overflow-x: hidden;
 }
 
-.mobile-chat-shell {
-  bottom: calc(6rem + env(safe-area-inset-bottom));
-}
-
-.mobile-chat-panel {
-  height: min(560px, calc(var(--app-viewport-height, 100dvh) - 7.5rem - env(safe-area-inset-top) - env(safe-area-inset-bottom)));
-  min-height: min(360px, calc(var(--app-viewport-height, 100dvh) - 2rem));
-}
-
 .callback-modal-panel {
   max-height: calc(var(--app-viewport-height, 100dvh) - 1.5rem - env(safe-area-inset-top) - env(safe-area-inset-bottom));
 }
@@ -53,23 +44,6 @@ html, body {
 @media (max-width: 767px) {
   html[data-virtual-keyboard="open"] [data-mobile-bottom-nav] {
     display: none;
-  }
-
-  html[data-virtual-keyboard="open"] .mobile-chat-shell {
-    top: calc(var(--app-viewport-offset-top, 0px) + 0.75rem + env(safe-area-inset-top));
-    bottom: auto;
-  }
-
-  html[data-virtual-keyboard="open"] .mobile-chat-panel {
-    height: calc(var(--app-viewport-height, 100dvh) - 1.5rem - env(safe-area-inset-top));
-    min-height: 0;
-  }
-}
-
-@media (min-width: 768px) {
-  .mobile-chat-panel {
-    height: 560px;
-    min-height: 0;
   }
 }
 

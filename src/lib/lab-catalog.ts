@@ -5,10 +5,11 @@ import overrides from '@/app/lab-tests-preview/price-name-overrides.json';
 import { prepareCatalog } from '@/app/lab-tests-preview/catalog';
 import { mergePricedDuplicates, reconcileLabPrices, type PricedCatalogResponse } from '@/app/lab-tests-preview/price-reconciliation';
 import { extractArray, normalizeServiceRow, type PriceServiceDisplay } from '@/lib/price-api';
+import { isPublicService } from '@/lib/public-services';
 
 // The upstream URL/key never enter client props. Do not hold page requests
 // for the shared price API's 15-second timeout when the upstream is offline.
-const catalog = prepareCatalog(rawCatalog);
+const catalog = prepareCatalog(rawCatalog).filter(isPublicService);
 function response(services: PriceServiceDisplay[], live: boolean): PricedCatalogResponse {
   const reconciled = reconcileLabPrices(catalog, services, overrides);
   const items = mergePricedDuplicates(reconciled);

@@ -181,7 +181,7 @@ export default function ArticlePajpelBiopsiya() {
               </div>
               <div className="rounded-xl p-4 bg-gray-50 border border-gray-100">
                 <dt className="font-semibold text-gray-900 mb-1">Можно ли при беременности?</dt>
-                <dd className="text-gray-700 mb-0">Нет. Пайпель-биопсия противопоказана при беременности — она может её прервать. Перед процедурой обязательно исключают беременность.</dd>
+              <dd className="text-gray-700 mb-0">Нет. Пайпель-биопсия противопоказана при беременности. Перед процедурой обязательно исключают беременность.</dd>
               </div>
               <div className="rounded-xl p-4 bg-gray-50 border border-gray-100">
                 <dt className="font-semibold text-gray-900 mb-1">Сколько ждать результат?</dt>

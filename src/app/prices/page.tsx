@@ -29,20 +29,6 @@ export const metadata: Metadata = {
 
 export const dynamic = "force-dynamic";
 
-type ChatDialogMessage = {
-  id: string;
-  role: "assistant" | "user";
-  text: string;
-  date: string;
-};
-
-type ChatDialog = {
-  sessionId: string;
-  startedAt: string;
-  updatedAt: string;
-  messages: ChatDialogMessage[];
-};
-
 type Appointment = {
   id: string;
   name: string;
@@ -54,29 +40,7 @@ type Appointment = {
   emailError?: string;
 };
 
-const CHAT_DIALOGS_FILE = path.join(process.cwd(), "data", "chat-dialogs.json");
 const APPOINTMENTS_FILE = path.join(process.cwd(), "data", "appointments.json");
-
-async function readChatDialogs(): Promise<ChatDialog[]> {
-  try {
-    const raw = await fs.readFile(CHAT_DIALOGS_FILE, "utf-8");
-    const dialogs = JSON.parse(raw);
-    return Array.isArray(dialogs)
-      ? dialogs.sort((a, b) => String(b.updatedAt).localeCompare(String(a.updatedAt)))
-      : [];
-  } catch {
-    return [];
-  }
-}
-
-function formatDialogDate(value: string): string {
-  const date = new Date(value);
-  return Number.isNaN(date.getTime()) ? "—" : date.toLocaleString("ru-RU");
-}
-
-function getDialogPreview(dialog: ChatDialog): string {
-  return dialog.messages.find((message) => message.role === "user")?.text ?? dialog.messages[0]?.text ?? "Без сообщений";
-}
 
 async function readAppointments(): Promise<Appointment[]> {
   try {
@@ -323,10 +287,9 @@ type PageProps = {
 };
 
 export default async function PricesTestPage({ searchParams }: PageProps) {
-  const [servicesRes, categoriesRes, chatDialogs, appointments] = await Promise.all([
+  const [servicesRes, categoriesRes, appointments] = await Promise.all([
     fetchPriceServices(),
     fetchPriceCategories(),
-    readChatDialogs(),
     readAppointments(),
   ]);
 
@@ -448,7 +411,7 @@ export default async function PricesTestPage({ searchParams }: PageProps) {
         <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
           <div>
             <h2 className="text-lg font-semibold">Заявки на запись</h2>
-            <p className="text-xs text-gray-500">Последние заявки с сайта и чат-бота.</p>
+            <p className="text-xs text-gray-500">Последние заявки с сайта.</p>
           </div>
           <span className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-600">
             Всего заявок: {appointments.length}
@@ -500,72 +463,6 @@ export default async function PricesTestPage({ searchParams }: PageProps) {
                 ) : null}
               </article>
             ))}
-          </div>
-        )}
-      </section>
-
-      <section className="mb-8 rounded border border-gray-200 bg-white p-4">
-        <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
-          <div>
-            <h2 className="text-lg font-semibold">Диалоги с ботом</h2>
-            <p className="text-xs text-gray-500">Каждая карточка — отдельная сессия посетителя.</p>
-          </div>
-          <span className="rounded bg-gray-100 px-2 py-1 text-xs text-gray-600">
-            Всего сессий: {chatDialogs.length}
-          </span>
-        </div>
-        {chatDialogs.length === 0 ? (
-          <p className="text-sm text-gray-500">Диалогов пока нет.</p>
-        ) : (
-          <div className="space-y-3">
-            {chatDialogs.slice(0, 30).map((dialog, index) => {
-              const preview = getDialogPreview(dialog);
-
-              return (
-                <details key={dialog.sessionId} className="rounded border border-gray-100 bg-gray-50 p-3">
-                  <summary className="cursor-pointer list-none">
-                    <div className="flex flex-wrap items-start justify-between gap-3">
-                      <div className="min-w-0 flex-1">
-                        <div className="flex flex-wrap items-center gap-2">
-                          <span className="text-sm font-semibold text-gray-900">
-                            Диалог #{chatDialogs.length - index}
-                          </span>
-                          <span className="rounded bg-emerald-50 px-2 py-0.5 text-xs font-medium text-emerald-700">
-                            сообщений: {dialog.messages.length}
-                          </span>
-                        </div>
-                        <p className="mt-1 break-words text-sm text-gray-600">Первый вопрос: {preview}</p>
-                      </div>
-                      <div className="shrink-0 text-right text-xs text-gray-500">
-                        <div>Начат: {formatDialogDate(dialog.startedAt)}</div>
-                        <div>Обновлен: {formatDialogDate(dialog.updatedAt)}</div>
-                      </div>
-                    </div>
-                    <div className="mt-2 break-all font-mono text-[11px] text-gray-400">
-                      ID сессии: {dialog.sessionId}
-                    </div>
-                  </summary>
-                  <div className="mt-3 space-y-2">
-                    {dialog.messages.map((message) => (
-                      <div
-                        key={message.id}
-                        className={`rounded p-2 text-sm ${
-                          message.role === "user"
-                            ? "bg-emerald-50 text-emerald-950"
-                            : "bg-white text-gray-800"
-                        }`}
-                      >
-                        <div className="mb-1 flex items-center justify-between gap-2 text-xs text-gray-500">
-                          <span>{message.role === "user" ? "Пациент" : "Бот"}</span>
-                          <span>{formatDialogDate(message.date)}</span>
-                        </div>
-                        <p className="whitespace-pre-wrap break-words">{message.text}</p>
-                      </div>
-                    ))}
-                  </div>
-                </details>
-              );
-            })}
           </div>
         )}
       </section>
