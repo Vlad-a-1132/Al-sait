@@ -417,8 +417,10 @@ function PatientInfoSection() {
                     <div className="text-gray-700 font-medium mb-1">Положение о гарантийных обязательствах и сроках службы при оказании платных медицинских услуг</div>
                   </div>
                   <a 
-                    href="/images/documents/instrukciya-po-poryadku-zaklyucheniya-dogovora-na-okazanie-platnyh-medicinskih-uslug-2025.pdf" 
-                    target="_blank" 
+                    href="/images/documents/polozheniya-o-garantii-nyh-obyazatelstvah-i-srokah-sluzhby-2025.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Скачать положение о гарантийных обязательствах"
                     className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
                   >
                     Скачать файл
@@ -455,8 +457,10 @@ function PatientInfoSection() {
                     <div className="text-gray-700 font-medium mb-1">Инструкция по порядку заключения договора на оказание платных медицинских услуг в ООО «Альтамед-С»</div>
                   </div>
                   <a 
-                    href="/images/documents/polozheniya-o-garantii-nyh-obyazatelstvah-i-srokah-sluzhby-2025.pdf" 
-                    target="_blank" 
+                    href="/images/documents/instrukciya-po-poryadku-zaklyucheniya-dogovora-na-okazanie-platnyh-medicinskih-uslug-2025.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Скачать инструкцию по порядку заключения договора"
                     className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
                   >
                     Скачать файл
@@ -475,25 +479,6 @@ function PatientInfoSection() {
                   </div>
                   <a 
                     href="/images/documents/uvazhaemye-roditeli-nesovershennoletnih-pacientov.pdf" 
-                    target="_blank" 
-                    className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
-                  >
-                    Скачать файл
-                    <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-                    </svg>
-                  </a>
-                </div>
-              </div>
-
-              {/* Сроки ожидания медицинской помощи */}
-              <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
-                  <div className="flex-1">
-                    <div className="text-gray-700 font-medium mb-1">Сроки ожидания медицинской помощи</div>
-                  </div>
-                  <a 
-                    href="/images/documents/sroki-ozhidaniya-medicinskoj-pomoshchi.pdf" 
                     target="_blank" 
                     className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
                   >
