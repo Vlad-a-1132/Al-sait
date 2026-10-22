@@ -52,6 +52,16 @@ const nextConfig = {
   async headers() {
     return [
       {
+        source: '/imaging/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'private, no-store, max-age=0' },
+          { key: 'X-Robots-Tag', value: 'noindex, nofollow, noarchive' },
+          { key: 'Referrer-Policy', value: 'no-referrer' },
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'DENY' },
+        ],
+      },
+      {
         // Gallery filenames include their content hash; originals are untouched.
         source: '/images/gallery-optimized/:path*',
         headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
@@ -61,6 +71,16 @@ const nextConfig = {
 
   async redirects() {
     return [
+      {
+        source: '/images/documents/novejshij-dogovor-a-s.docx',
+        destination: '/images/documents/dogovor-ob-okazanii-platnyh-medicinskih-uslug-s-01-09-2026.docx',
+        permanent: true,
+      },
+      {
+        source: '/images/documents/postanovlenie-ob-utverzhdenii-pravil-predostavleniya-med-uslug.pdf',
+        destination: 'https://www.consultant.ru/document/cons_doc_LAW_535622/',
+        permanent: true,
+      },
       {
         source: '/diagnostics/laboratory_research',
         destination: '/services/lab-tests',

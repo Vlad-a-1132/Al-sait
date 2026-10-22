@@ -60,7 +60,7 @@ test('site analytics: attribution, identity, storage, reports and authentication
   try {
     await t.test('paths and metadata omit search, contacts and private areas', () => {
       assert.equal(shared.cleanPath('/services/?q=private#anchor'), '/services');
-      for (const value of ['/prices', '/prices/analytics', '/admin/dashboard', '/%70rices/analytics', '/%2fprices', '/\\evil.example', '/api/appointment', '//evil.example', 'https://evil.example', '/test%0a']) assert.equal(shared.cleanPath(value), null, value);
+      for (const value of ['/prices', '/prices/analytics', '/admin/dashboard', '/imaging', '/imaging/test', '/%69maging', '/%70rices/analytics', '/%2fprices', '/\\evil.example', '/api/appointment', '//evil.example', 'https://evil.example', '/test%0a']) assert.equal(shared.cleanPath(value), null, value);
       assert.equal(shared.cleanPath('/prices-public'), '/prices-public');
       assert(!shared.cleanLabel('Позвонить +7 (495) 255-44-50 или test@example.ru').includes('255'));
       assert(!shared.cleanLabel('Позвонить +7 (495) 255-44-50 или test@example.ru').includes('test@'));

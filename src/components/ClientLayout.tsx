@@ -10,7 +10,7 @@ import { usePathname } from 'next/navigation'
 
 export default function ClientLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  if (pathname === '/prices/analytics' || pathname?.startsWith('/prices/analytics/')) {
+  if (pathname === '/prices/analytics' || pathname?.startsWith('/prices/analytics/') || pathname === '/imaging' || pathname?.startsWith('/imaging/')) {
     return <main className="min-h-screen">{children}</main>
   }
   return (

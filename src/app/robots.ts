@@ -15,6 +15,7 @@ export default function robots(): MetadataRoute.Robots {
           '/articles',
           '/admin/',
           '/prices',
+          '/imaging',
         ],
       },
       {
@@ -27,6 +28,7 @@ export default function robots(): MetadataRoute.Robots {
           '/articles',
           '/admin/',
           '/prices',
+          '/imaging',
         ],
       },
       {
@@ -39,6 +41,7 @@ export default function robots(): MetadataRoute.Robots {
           '/articles',
           '/admin/',
           '/prices',
+          '/imaging',
         ],
       },
       {
@@ -51,6 +54,7 @@ export default function robots(): MetadataRoute.Robots {
           '/articles',
           '/admin/',
           '/prices',
+          '/imaging',
         ],
       },
     ],

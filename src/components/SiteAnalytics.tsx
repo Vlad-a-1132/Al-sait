@@ -23,6 +23,7 @@ export default function SiteAnalytics() {
   }, [pathname, search]);
 
   useEffect(() => {
+    if (pathname === '/imaging' || pathname?.startsWith('/imaging/')) return;
     void flushAnalytics();
     const formFor = (element: Element) => {
       const form = element.closest<HTMLFormElement>('form[data-analytics-form]');
@@ -116,6 +117,6 @@ export default function SiteAnalytics() {
       if (!visible) { window.removeEventListener('scroll', observe, true); window.removeEventListener('resize', observe); }
       void flushAnalytics();
     };
-  }, []);
+  }, [pathname]);
   return null;
 }

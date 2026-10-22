@@ -64,7 +64,7 @@ export interface AnalyticsEvent extends AnalyticsContext {
 }
 
 export function isPrivatePath(path: string): boolean {
-  return /^\/(prices|admin|call-center|api|_next)(\/|$)/i.test(path);
+  return /^\/(prices|admin|call-center|imaging|api|_next)(\/|$)/i.test(path);
 }
 
 /** Only page paths, never query strings, anchors or user-entered search terms. */

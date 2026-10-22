@@ -143,17 +143,20 @@ function PatientInfoSection() {
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                     <div className="flex-1">
                       <p className="text-gray-700 mb-1 text-sm">
-                        Постановление Правительства Российской Федерации от 4.10.2012 № 1006 «Об утверждении Правил предоставления медицинскими организациями платных медицинских услуг»
+                        Постановление Правительства Российской Федерации от 30.05.2026 № 659 «Об утверждении Правил предоставления медицинскими организациями платных медицинских услуг»
                       </p>
+                      <p className="text-gray-600 text-sm">Действует с 1 сентября 2026 года.</p>
                     </div>
                     <a 
-                      href="/images/documents/postanovlenie-ob-utverzhdenii-pravil-predostavleniya-med-uslug.pdf" 
-                      target="_blank" 
+                      href="https://www.consultant.ru/document/cons_doc_LAW_535622/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Открыть постановление Правительства РФ от 30.05.2026 № 659"
                       className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
                     >
-                      Скачать файл
+                      Открыть документ
                       <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </a>
                   </div>
@@ -338,6 +341,11 @@ function PatientInfoSection() {
           </button>
           {isPaidServicesOpen && (
             <div id="paid-services-documents" className="px-4 pb-4 pt-4 border-t border-gray-200 space-y-4">
+              <PatientDocumentLink
+                title="Договор об оказании платных медицинских услуг"
+                description="Новая форма договора с 1 сентября 2026 года"
+                href="/images/documents/dogovor-ob-okazanii-platnyh-medicinskih-uslug-s-01-09-2026.docx"
+              />
               <PatientDocumentLink
                 title="Памятка для пациента"
                 description="На какие исследования нужно направление с 1 сентября 2026 года"
