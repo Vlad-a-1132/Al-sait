@@ -112,6 +112,10 @@ function PatientInfoSection() {
               </ul>
 
               <div className="space-y-4">
+                <PatientDocumentLink
+                  title="Права и обязанности граждан в сфере охраны здоровья"
+                  href="/images/documents/prava-i-obyazannosti-grazhdan-v-sfere-ohrany-zdorovya.docx"
+                />
 
                 {/* ФЗ о защите прав потребителей */}
                 <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
