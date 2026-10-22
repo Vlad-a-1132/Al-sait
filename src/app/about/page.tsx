@@ -159,22 +159,27 @@ function PatientInfoSection() {
                   </div>
                 </div>
 
-                {/* СП 2.1.3678-20 */}
+                {/* СП 2.1.4284-26 */}
                 <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
                   <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-3">
                     <div className="flex-1">
                       <p className="text-gray-700 mb-1 text-sm">
-                        СП 2.1.3678-20 «Санитарно-эпидемиологические требования к эксплуатации помещений, зданий, сооружений, оборудования и транспорта, а также условиям деятельности хозяйствующих субъектов, осуществляющих продажу товаров, выполнение работ или оказание услуг».
+                        СП 2.1.4284-26 «Санитарно-эпидемиологические требования к эксплуатации помещений, зданий, сооружений, оборудования и транспорта, а также условиям деятельности хозяйствующих субъектов, осуществляющих продажу товаров, выполнение работ или оказание услуг».
+                      </p>
+                      <p className="text-gray-600 text-sm">
+                        Утверждены постановлением от 02.06.2026 № 20. Действуют с 1 сентября 2026 года.
                       </p>
                     </div>
                     <a 
-                      href="/images/documents/sanehpidem-trebovaniya.pdf" 
-                      target="_blank" 
+                      href="https://docs.cntd.ru/document/1318374862?marker=65C0IR"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Открыть санитарные правила СП 2.1.4284-26"
                       className="inline-flex items-center text-emerald-600 hover:text-emerald-700 font-medium whitespace-nowrap text-sm"
                     >
-                      Скачать файл
-                      <svg className="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                      Открыть документ
+                      <svg className="w-4 h-4 ml-2" aria-hidden="true" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                       </svg>
                     </a>
                   </div>

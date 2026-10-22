@@ -77,6 +77,11 @@ const nextConfig = {
         destination: '/images/documents/pravila-predostavleniya-platnyh-medicinskih-uslug.docx',
         permanent: true,
       },
+      {
+        source: '/images/documents/sanehpidem-trebovaniya.pdf',
+        destination: 'https://docs.cntd.ru/document/1318374862?marker=65C0IR',
+        permanent: true,
+      },
       // Redirect old pregnancy article slug to new one (public URL)
       {
         source: '/blog/vedenie-beremennosti-v-odintsovo',
