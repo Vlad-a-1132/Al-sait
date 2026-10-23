@@ -2029,92 +2029,39 @@ function AboutPageContent() {
                   <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-6">Контакты контролирующих органов</h2>
                   <div className="space-y-8">
                     <div>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-3">Федеральная служба по надзору в сфере здравоохранения</h3>
+                      <h3 className="text-lg font-semibold text-gray-800 mb-3">Территориальный фонд обязательного медицинского страхования Московской области</h3>
                       <div className="space-y-2 text-gray-700 ml-4">
-                        <p>Справочная Росздравнадзора: <a href="tel:+74956984538" className="text-emerald-600 hover:text-emerald-700">+7 (495) 698-45-38</a>; <a href="tel:+74995780230" className="text-emerald-600 hover:text-emerald-700">+7 (499) 578-02-30</a></p>
-                        <p>Адрес: 109074, Москва, Славянская площадь, д.4, стр. 1</p>
-          </div>
-        </div>
+                        <p className="font-medium">Контакт-центр ОМС: <a href="tel:+78007070561" className="text-emerald-600 hover:text-emerald-700">8 (800) 707-05-61</a></p>
+                        <p>Адрес: 127015, г. Москва, Бутырская ул., д. 46, стр. 1</p>
+                        <p>Телефон: <a href="tel:+74955878789" className="text-emerald-600 hover:text-emerald-700">8 (495) 587-87-89</a></p>
+                        <p>Факс: 8 (495) 587-87-89 (*11-84, 11-10)</p>
+                        <p>E-mail: <a href="mailto:general@mofoms.ru" className="text-emerald-600 hover:text-emerald-700">general@mofoms.ru</a></p>
+                        <p>Веб-сайт: <a href="https://www.mofoms.ru/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700">www.mofoms.ru</a></p>
+                      </div>
+                    </div>
 
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800 mb-3">Управление Федеральной службы по надзору в сфере защиты прав потребителей и благополучия человека по Московской области</h3>
                       <div className="space-y-2 text-gray-700 ml-4">
                         <p className="text-sm text-gray-600">Сокращенное название: Управление Роспотребнадзора по Московской области</p>
                         <p>Адрес: 141014, Московская область, г. Мытищи, ул. Семашко, дом 2</p>
-                        <p>Телефоны: <a href="tel:+74955861078" className="text-emerald-600 hover:text-emerald-700">(495) 586-10-78</a>, <a href="tel:+74955861287" className="text-emerald-600 hover:text-emerald-700">(495) 586-12-87</a></p>
+                        <p>Информационная линия: <a href="tel:+78001005014" className="text-emerald-600 hover:text-emerald-700">8-800-100-50-14</a></p>
+                        <p>Канцелярия: <a href="tel:+74986844801" className="text-emerald-600 hover:text-emerald-700">8 (498) 684-48-01</a></p>
                         <p>Факс: (495) 586-12-68</p>
-                        <p>E-mail: <a href="mailto:org@50.rospotrebnadzor.ru" className="text-emerald-600 hover:text-emerald-700">org@50.rospotrebnadzor.ru</a></p>
+                        <p>Веб-сайт: <a href="https://50.rospotrebnadzor.ru/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700">50.rospotrebnadzor.ru</a></p>
                       </div>
-          </div>
-
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-3">Министерство здравоохранения Московской области</h3>
-                      <div className="space-y-2 text-gray-700 ml-4">
-                        <p>143407, Московская область, г. Красногорск-7, бульвар Строителей, д. 1</p>
-                        <p>Телефон: <a href="tel:+74986020301" className="text-emerald-600 hover:text-emerald-700">+7 (498) 602-03-01</a></p>
-                        <p>E-mail: <a href="mailto:minzdrav@mosreg.ru" className="text-emerald-600 hover:text-emerald-700">minzdrav@mosreg.ru</a></p>
-                      </div>
-                      <div className="mt-2 ml-4">
-                        <h4 className="text-sm font-semibold text-gray-700 mb-2">Пресс-секретарь Министерства здравоохранения Московской области</h4>
-                        <div className="space-y-1 text-gray-700">
-                          <p>Контактные телефоны: <a href="tel:+74986020420" className="text-emerald-600 hover:text-emerald-700">+7 498 602 04 20 доб. 4 64 92</a></p>
-                          <p>Факс: +7 498 602-03-00</p>
-                          <p>E-mail: <a href="mailto:pressminzdrav@mosreg.ru" className="text-emerald-600 hover:text-emerald-700">pressminzdrav@mosreg.ru</a></p>
-                        </div>
-                      </div>
-              </div>
-
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-3">Федеральная служба по надзору в сфере защиты прав потребителей и благополучия человека</h3>
-                      <div className="space-y-2 text-gray-700 ml-4">
-                        <p className="text-sm text-gray-600">Сокращенное название: Роспотребнадзор</p>
-                        <p>Адрес: 127994, г. Москва, Вадковский переулок, дом 18, строение 5 и 7</p>
-                        <p>Телефон: <a href="tel:+74999732690" className="text-emerald-600 hover:text-emerald-700">+7 (499) 973-26-90</a></p>
-                        <p>Сайт: <a href="https://www.rospotrebnadzor.ru/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700">https://www.rospotrebnadzor.ru/</a></p>
-          </div>
-        </div>
-
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-3">Главное Управление МВД России по Московской области</h3>
-                      <div className="space-y-2 text-gray-700 ml-4">
-                        <p>Почтовый адрес: 125009, г. Москва, Никитский пер., д. 3</p>
-                        <p>Адрес официального интернет-сайта: <a href="https://50.мвд.рф" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700">50.мвд.рф</a></p>
-                        <p>Приемная ГУ МВД: <a href="tel:+74956098474" className="text-emerald-600 hover:text-emerald-700">8 (495) 609-84-74</a>; <a href="tel:+74956098502" className="text-emerald-600 hover:text-emerald-700">8 (495) 609-85-02</a></p>
-                        <p>Дежурная часть: <a href="tel:+74956094952" className="text-emerald-600 hover:text-emerald-700">8 (495) 609-49-52</a>, ф. <a href="tel:+74956094951" className="text-emerald-600 hover:text-emerald-700">8 (495) 609-49-51</a></p>
-                        <p>Телефон доверия: <a href="tel:+74956927066" className="text-emerald-600 hover:text-emerald-700">8 (495) 692-70-66</a></p>
-                      </div>
-          </div>
-
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-3">ГУ МЧС России по Московской области</h3>
-                      <div className="space-y-2 text-gray-700 ml-4">
-                        <p className="text-sm text-gray-600">Руководитель подразделения: Полетыкин Сергей Алексеевич</p>
-                        <p>Адрес: г. Москва ул. Обручева д. 46</p>
-                        <p>Телефон доверия: <a href="tel:+74997430272" className="text-emerald-600 hover:text-emerald-700">+7(499) 743-02-72</a></p>
-                        <p>Сайт: <a href="https://50.mchs.gov.ru/" target="_blank" rel="noopener noreferrer" className="text-emerald-600 hover:text-emerald-700">https://50.mchs.gov.ru/</a></p>
-          </div>
-        </div>
-
-                    <div>
-                      <h3 className="text-lg font-semibold text-gray-800 mb-3">Учредители компании:</h3>
-                      <div className="space-y-2 text-gray-700 ml-4">
-                        <p>Лебедев Александр Анатольевич</p>
-                        <p>ИНН 503204811430</p>
-                        <p className="mt-3">Гребцов Сергей Борисович</p>
-                        <p>ИНН 503205994105</p>
-                      </div>
-          </div>
+                    </div>
 
                     <div>
                       <h3 className="text-lg font-semibold text-gray-800 mb-3">Одинцовский территориальный отдел Управления Федеральной службы по надзору в сфере защиты прав потребителей и благополучия человека по Московской области</h3>
                       <div className="space-y-2 text-gray-700 ml-4">
-                        <p>143000, Московская область, г. Одинцово, Можайское шоссе, д.12</p>
-                        <p className="text-sm text-gray-600">Начальник отдела Мозгалина Наталья Юрьевна</p>
-                        <p>Тел./факс: <a href="tel:+74955935143" className="text-emerald-600 hover:text-emerald-700">495-593-51-43</a></p>
+                        <p>Электронная почта: <a href="mailto:org@50.rospotrebnadzor.ru" className="text-emerald-600 hover:text-emerald-700">org@50.rospotrebnadzor.ru</a></p>
+                        <p>Канцелярия: <a href="tel:+74955996323" className="text-emerald-600 hover:text-emerald-700">8 (495) 599-63-23</a></p>
+                        <p>Начальник: Шестернёв Дмитрий Валерьевич</p>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-              </div>
-          </div>
-        </div>
               )}
 
               {/* Обслуживание по договорам ДМС */}
