@@ -1,0 +1,53 @@
+name: Prepare site update
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: site-build-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    env:
+      NEXT_TELEMETRY_DISABLED: '1'
+      NODE_OPTIONS: --max-old-space-size=4096
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --no-audit --no-fund
+      - name: Prepare isolated build settings
+        run: |
+          node - <<'JS'
+          const fs = require('fs');
+          fs.appendFileSync('next.config.js', '\nmodule.exports.experimental = { ...module.exports.experimental, cpus: 2 };\nmodule.exports.generateBuildId = async () => ' + JSON.stringify(process.env.GITHUB_SHA) + ';\n');
+          JS
+      - name: Build and validate types
+        run: |
+          if ! npm run build -- --no-lint > /tmp/altamed-build.log 2>&1; then
+            tail -n 100 /tmp/altamed-build.log
+            exit 1
+          fi
+          echo 'Production build and TypeScript validation passed.'
+      - run: npm prune --omit=dev --ignore-scripts --no-audit --no-fund
+      - run: python3 scripts/package-site-build.py "$GITHUB_SHA"
+      - name: Publish prepared bundle
+        run: |
+          tag="site-build-$GITHUB_SHA"
+          if ! gh release view "$tag" >/dev/null 2>&1; then
+            gh release create "$tag" --target "$GITHUB_SHA" --title "Site build ${GITHUB_SHA:0:7}" --notes "Prepared site deployment bundle. Production settings and patient files are excluded." --prerelease --latest=false
+          fi
+          gh release upload "$tag" site-build.tar.gz site-build.tar.gz.sha256 deploy-manifest.json --clobber
