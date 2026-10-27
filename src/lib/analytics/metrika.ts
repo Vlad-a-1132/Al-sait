@@ -90,7 +90,12 @@ export function trackMetrikaPage(pathname: string, search: string) {
   try {
     const counter = ensureMetrika();
     if (!counter) return;
-    counter(METRIKA_ID, 'hit', new URL(url, location.origin).href);
+    const pageUrl = new URL(url, location.origin).href;
+    counter(METRIKA_ID, 'hit', pageUrl, { callback: () => {
+      // Non-sensitive DOM diagnostics: confirms the real library processed the queued view.
+      const script = document.getElementById('altamed-metrika-tag');
+      if (script && allowedPage()) script.dataset.lastHit = pageUrl;
+    } });
     lastRoute = route;
   } catch { /* never block navigation */ }
 }
