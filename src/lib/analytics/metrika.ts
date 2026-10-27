@@ -7,12 +7,53 @@ export const METRIKA_ID = 105270439;
 type MetrikaFunction = ((...args: unknown[]) => void) & { a?: unknown[][]; l?: number };
 declare global { interface Window { ym?: MetrikaFunction; __altamedMetrikaInitialized?: boolean } }
 let lastRoute = '';
+let loadRetries = 0;
+let retryTimer: ReturnType<typeof setTimeout> | undefined;
+let fieldsObserver: MutationObserver | undefined;
 const confirmed = new Set<string>();
 const FORM_EVENTS = new Set(['form_view', 'form_click', 'form_start', 'form_submit', 'form_error']);
 const LAB_EVENTS = new Set(['lab_add', 'lab_remove', 'lab_call', 'lab_booking', 'lab_copy_list']);
 
+function allowedPage(): boolean {
+  return typeof window !== 'undefined' && Boolean(cleanPath(location.pathname)) && ['altamed-c.ru', 'www.altamed-c.ru'].includes(location.hostname);
+}
+
+function protectFields() {
+  const mask = () => document.querySelectorAll('input, textarea').forEach(field => field.classList.add('ym-disable-keys'));
+  mask();
+  if (!fieldsObserver && typeof MutationObserver !== 'undefined') {
+    fieldsObserver = new MutationObserver(mask);
+    fieldsObserver.observe(document.body, { childList: true, subtree: true });
+  }
+}
+
+function loadLibrary() {
+  if (!allowedPage() || document.getElementById('altamed-metrika-tag')) return;
+  const script = document.createElement('script');
+  script.id = 'altamed-metrika-tag'; script.async = true;
+  script.src = `https://mc.yandex.ru/metrika/tag.js?id=${METRIKA_ID}`;
+  script.dataset.state = 'loading';
+  script.onload = () => { script.dataset.state = 'loaded'; loadRetries = 0; };
+  script.onerror = () => {
+    script.remove();
+    if (allowedPage() && loadRetries++ < 3) retryTimer = setTimeout(loadLibrary, 5000);
+  };
+  document.head.appendChild(script);
+}
+
+function stopMetrika() {
+  lastRoute = '';
+  if (retryTimer) { clearTimeout(retryTimer); retryTimer = undefined; }
+  fieldsObserver?.disconnect(); fieldsObserver = undefined;
+  if (typeof window !== 'undefined' && window.__altamedMetrikaInitialized) {
+    window.ym?.(METRIKA_ID, 'destruct');
+    window.__altamedMetrikaInitialized = false;
+  }
+}
+
 function ensureMetrika(): MetrikaFunction | null {
-  if (typeof window === 'undefined' || !cleanPath(location.pathname) || navigator.webdriver || !['altamed-c.ru', 'www.altamed-c.ru'].includes(location.hostname)) return null;
+  if (!allowedPage()) return null;
+  protectFields();
   if (!window.ym) {
     const queued: MetrikaFunction = (...args) => { (queued.a ||= []).push(args); };
     queued.l = Date.now();
@@ -20,14 +61,9 @@ function ensureMetrika(): MetrikaFunction | null {
   }
   if (!window.__altamedMetrikaInitialized) {
     window.__altamedMetrikaInitialized = true;
-    window.ym(METRIKA_ID, 'init', { defer: true, ssr: true, webvisor: false, clickmap: false, trackLinks: false, accurateTrackBounce: true });
-    if (!document.getElementById('altamed-metrika-tag')) {
-      const script = document.createElement('script');
-      script.id = 'altamed-metrika-tag'; script.async = true;
-      script.src = 'https://mc.yandex.ru/metrika/tag.js';
-      document.head.appendChild(script);
-    }
+    window.ym(METRIKA_ID, 'init', { defer: true, ssr: true, webvisor: true, clickmap: true, trackLinks: true, ecommerce: 'dataLayer', accurateTrackBounce: true, triggerEvent: true });
   }
+  loadLibrary();
   return window.ym;
 }
 
@@ -47,12 +83,16 @@ export function metrikaPageUrl(pathname: string, search: string): string | null 
 }
 
 export function trackMetrikaPage(pathname: string, search: string) {
+  const url = metrikaPageUrl(pathname, search);
+  if (!url) { stopMetrika(); return; }
   const route = `${pathname}?${search}`;
   if (route === lastRoute) return;
-  lastRoute = route;
-  const url = metrikaPageUrl(pathname, search);
-  if (!url) return;
-  try { ensureMetrika()?.(METRIKA_ID, 'hit', url); } catch { /* never block navigation */ }
+  try {
+    const counter = ensureMetrika();
+    if (!counter) return;
+    counter(METRIKA_ID, 'hit', new URL(url, location.origin).href);
+    lastRoute = route;
+  } catch { /* never block navigation */ }
 }
 
 export function trackMetrikaEvent(event: AnalyticsEvent) {

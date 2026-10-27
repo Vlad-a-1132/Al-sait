@@ -35,7 +35,7 @@ function browserEnvironment(values = new Map()) {
   const globals = {
     window: {}, crypto, localStorage: storage,
     location: { pathname: '/about', search: '?utm_source=test', hostname: 'altamed-c.ru', href: 'https://altamed-c.ru/about', origin: 'https://altamed-c.ru' },
-    document: { referrer: '', getElementById: id => scripts.get(id), createElement: () => ({}), head: { appendChild: script => scripts.set(script.id, script) }, querySelector: () => null, querySelectorAll: () => [], body: { querySelectorAll: () => [] } },
+    document: { referrer: '', getElementById: id => scripts.get(id), createElement: () => ({ dataset: {}, remove() { scripts.delete(this.id); } }), head: { appendChild: script => scripts.set(script.id, script) }, querySelector: () => null, querySelectorAll: () => [], body: { querySelectorAll: () => [] } },
     navigator: { userAgent: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/130.0.0.0 Safari/537.36', webdriver: false, maxTouchPoints: 0, sendBeacon: (_, body) => { beacons.push(body); return true; } },
     fetch: async (_, options) => { requests.push(JSON.parse(options.body)); return new Response(null, { status: 204 }); }, setTimeout: () => 1, clearTimeout: () => {},
   };
@@ -161,10 +161,17 @@ test('site analytics: attribution, identity, storage, reports and authentication
       let calls = env.globals.window.ym.a;
       assert.equal(calls.filter(call => call[1] === 'init').length, 1);
       assert.equal(calls.find(call => call[1] === 'init')[2].defer, true);
-      assert.equal(calls.find(call => call[1] === 'init')[2].webvisor, false);
+      assert.equal(calls.find(call => call[1] === 'init')[2].webvisor, true);
+      assert.equal(calls.find(call => call[1] === 'init')[2].clickmap, true);
+      assert.equal(calls.find(call => call[1] === 'init')[2].trackLinks, true);
+      assert.equal(calls.find(call => call[1] === 'init')[2].ecommerce, 'dataLayer');
       assert.equal(calls.filter(call => call[1] === 'hit').length, 1);
       assert(!calls.find(call => call[1] === 'hit')[2].includes('private'));
+      assert.equal(calls.find(call => call[1] === 'hit')[2], 'https://altamed-c.ru/about?utm_source=test');
+      env.globals.location.pathname = '/prices/analytics';
       metrika.trackMetrikaPage('/prices/analytics', '');
+      assert.equal(calls.filter(call => call[1] === 'destruct').length, 1);
+      env.globals.location.pathname = '/about';
       metrika.trackMetrikaPage('/about', 'q=private&utm_source=test');
       assert.equal(calls.filter(call => call[1] === 'hit').length, 2);
       metrika.confirmMetrikaSubmission(event({ form: 'callback' }), 'saved-001');
@@ -177,6 +184,28 @@ test('site analytics: attribution, identity, storage, reports and authentication
       const local = browserEnvironment(); local.globals.location.hostname = 'localhost';
       loader(local.globals)('src/lib/analytics/metrika.ts').trackMetrikaPage('/about', '');
       assert.equal(local.scripts.size, 0); assert.equal(local.globals.window.ym, undefined);
+    });
+
+    await t.test('Metrika masks input values, recovers a failed library and can run the official automated checker', () => {
+      const env = browserEnvironment(), masked = [], scheduled = [];
+      env.globals.navigator.webdriver = true;
+      env.globals.document.querySelectorAll = () => [{ classList: { add(name) { masked.push(name); } } }];
+      env.globals.setTimeout = callback => { scheduled.push(callback); return 1; };
+      const metrika = loader(env.globals)('src/lib/analytics/metrika.ts');
+      metrika.trackMetrikaPage('/about', '');
+      assert(masked.includes('ym-disable-keys'));
+      const first = env.scripts.get('altamed-metrika-tag');
+      assert(first.src.endsWith('tag.js?id=105270439'));
+      first.onerror(); assert.equal(env.scripts.size, 0);
+      scheduled.shift()(); const retried = env.scripts.get('altamed-metrika-tag');
+      assert(retried); assert.notEqual(first, retried);
+      assert.equal(env.globals.window.ym.a.filter(call => call[1] === 'init').length, 1);
+      retried.onload(); assert.equal(retried.dataset.state, 'loaded');
+      env.globals.location.pathname = '/imaging'; metrika.trackMetrikaPage('/imaging', '');
+      assert.equal(env.globals.window.ym.a.at(-1)[1], 'destruct');
+      const privatePage = browserEnvironment(); privatePage.globals.location.pathname = '/imaging';
+      loader(privatePage.globals)('src/lib/analytics/metrika.ts').trackMetrikaPage('/imaging', '');
+      assert.equal(privatePage.scripts.size, 0); assert.equal(privatePage.globals.window.ym, undefined);
     });
 
     await t.test('form stages are unique per visit, confirmations are not forgeable public events, and booking CTA has placement', async () => {
