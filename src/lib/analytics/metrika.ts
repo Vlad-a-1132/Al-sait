@@ -4,7 +4,7 @@ import { cleanPath, cleanTag, goalForEvent } from './shared';
 import type { AnalyticsEvent } from './shared';
 
 export const METRIKA_ID = 105270439;
-type MetrikaFunction = ((...args: unknown[]) => void) & { a?: unknown[][]; l?: number };
+type MetrikaFunction = ((...args: unknown[]) => void) & { a?: IArguments[]; l?: number };
 declare global { interface Window { ym?: MetrikaFunction; __altamedMetrikaInitialized?: boolean } }
 let lastRoute = '';
 let loadRetries = 0;
@@ -55,7 +55,7 @@ function ensureMetrika(): MetrikaFunction | null {
   if (!allowedPage()) return null;
   protectFields();
   if (!window.ym) {
-    const queued: MetrikaFunction = (...args) => { (queued.a ||= []).push(args); };
+    const queued: MetrikaFunction = function () { (queued.a ||= []).push(arguments); };
     queued.l = Date.now();
     window.ym = queued;
   }
