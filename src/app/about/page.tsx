@@ -1332,8 +1332,8 @@ function PatientInfoSection() {
                     <h4 className="text-lg font-semibold text-gray-900 mb-2">Телефонная запись</h4>
                     <p className="text-gray-700 mb-2">
                       Вы можете записаться на прием, позвонив в нашу регистратуру по номеру{' '}
-                      <a href="tel:+74951275118" className="text-emerald-600 hover:text-emerald-700 font-medium underline">
-                        +8 (495) 127-51-18
+                      <a href="tel:+74952554450" className="text-emerald-600 hover:text-emerald-700 font-medium underline">
+                        +7 (495) 255-44-50
                       </a>.
                     </p>
                     <p className="text-gray-700">
@@ -1937,7 +1937,7 @@ function AboutPageContent() {
                       Сведения о лицензии на осуществление медицинской деятельности (по выписке из реестра лицензий)
                     </p>
                     <p className="text-gray-600 text-xs">
-                      Дата и время формирования выписки в реестре: 08.10.2026, 11:28. Проверка подлинности электронного документа, двумерный штриховой код и усиленная квалифицированная электронная подпись содержатся в файле PDF «Выписка из реестра Альтамед-С» ниже.
+                      Дата и время формирования выписки в реестре: 28.10.2026, 12:24. Проверка подлинности электронного документа, двумерный штриховой код и усиленная квалифицированная электронная подпись содержатся в выписке PDF ниже.
                     </p>
                     <dl className="grid gap-2 sm:grid-cols-1">
                       <div className="flex flex-col sm:flex-row sm:gap-2">
@@ -1983,6 +1983,15 @@ function AboutPageContent() {
                     </p>
                   </div>
                   <div className="space-y-4">
+                    <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
+                      <a href="/images/documents/vypiska-iz-reestra-licenziy-altamed-s-2026-10-28.pdf" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between group">
+                        <span className="text-gray-700 group-hover:text-emerald-600">Выписка из реестра лицензий по состоянию на 12:24 28.10.2026 г.</span>
+                        <svg className="w-5 h-5 text-gray-400 group-hover:text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.172 7l-6.586 6.586a2 2 0 102.828 2.828l6.414-6.586a4 4 0 00-5.656-5.656l-6.415 6.585a6 6 0 108.486 8.486L20.5 13" />
+                        </svg>
+                      </a>
+                    </div>
+
                     <div className="border border-gray-200 rounded-lg p-4 hover:bg-gray-50 transition-colors">
                       <a href="/images/documents/vypiska-egryul (1).pdf" target="_blank" className="flex items-center justify-between group">
                         <span className="text-gray-700 group-hover:text-emerald-600">Выписка ЕГРЮЛ</span>
