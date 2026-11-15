@@ -1,0 +1,102 @@
+export const KDL_PROMOTION = {
+  slug: 'kdl',
+  href: '/promo/kdl',
+  title: 'Акции на комплексные исследования KDL',
+  image: '/images/slides/kdl-lab-promotions-altamed-s.webp',
+  description: '11 комплексных исследований по специальным ценам в «Альтамед-С». Выгода до 71%.',
+  badge: 'Выгода до 71%',
+};
+
+export const KDL_OFFERS = [
+  {
+    id: 'male-hormones',
+    title: 'Гормональный профиль для мужчин',
+    description: 'Для оценки мужского гормонального статуса.',
+    price: 1029,
+    originalPrice: 3600,
+    discount: 71,
+  },
+  {
+    id: 'dna-fragmentation',
+    title: 'Фрагментация ДНК сперматозоидов',
+    description: 'Для оценки мужской репродуктивной функции.',
+    price: 6292,
+    originalPrice: 7215,
+    discount: 12,
+  },
+  {
+    id: 'female-hormones',
+    title: 'Гормональный профиль для женщин',
+    description: 'Для оценки гормонального баланса и женского здоровья.',
+    price: 2210,
+    originalPrice: 7622,
+    discount: 71,
+  },
+  {
+    id: 'womens-checkup',
+    title: 'Чекап экспертный для женщин',
+    description: 'Для комплексной оценки женского здоровья.',
+    price: 5721,
+    originalPrice: 13826,
+    discount: 58,
+  },
+  {
+    id: 'cardiac-profile',
+    title: 'Кардиологический профиль',
+    description: 'Для базовой оценки сердечно-сосудистых рисков.',
+    price: 2354,
+    originalPrice: 6402,
+    discount: 63,
+  },
+  {
+    id: 'lipid-index',
+    title: 'Индекс дислипидемии ApoB / ApoA1',
+    description: 'Для оценки нарушений липидного обмена и атерориска.',
+    price: 891,
+    originalPrice: 1600,
+    discount: 44,
+  },
+  {
+    id: 'cervical-screening',
+    title: 'Скрининг рака шейки матки',
+    description: 'ПАП-тест и ВПЧ 14 типов.',
+    price: 2309,
+    originalPrice: 3099,
+    discount: 25,
+  },
+  {
+    id: 'femoflor',
+    title: 'Фемофлор II',
+    description: 'Для оценки состояния интимной микрофлоры.',
+    price: 2762,
+    originalPrice: 3176,
+    discount: 13,
+  },
+  {
+    id: 'thyroid',
+    title: 'Обследование щитовидной железы',
+    description: 'Для комплексной оценки функции щитовидной железы.',
+    price: 2336,
+    originalPrice: 6913,
+    discount: 66,
+  },
+  {
+    id: 'chronic-fatigue',
+    title: 'Чекап «Хроническая усталость»',
+    description: 'Для оценки причин снижения энергии и хронической усталости.',
+    price: 5260,
+    originalPrice: 7310,
+    discount: 28,
+  },
+  {
+    id: 'iron-deficiency',
+    title: 'Диагностика дефицита железа',
+    description: 'Для диагностики дефицита железа и скрытой анемии.',
+    price: 2167,
+    originalPrice: 3248,
+    discount: 33,
+  },
+] as const;
+
+export const kdlPoster = (id: (typeof KDL_OFFERS)[number]['id']) =>
+  `/images/promo/kdl/${id}-altamed-s.webp`;

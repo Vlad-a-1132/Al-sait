@@ -195,6 +195,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/ginekolog-v-odintsovo/vedenie-beremennosti',
     '/privacy-policy',
     '/promo',
+    '/promo/kdl',
     '/rehabilitation',
     '/schedule',
     '/services',

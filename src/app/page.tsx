@@ -7,6 +7,7 @@ import AppointmentForm from "@/components/AppointmentForm";
 import { doctors as defaultDoctors } from "@/data/static-data";
 import LabDiscountBanner from "@/components/LabDiscountBanner";
 import { LAB_PROMOTION } from "@/data/lab-promotion";
+import { KDL_PROMOTION } from "@/data/kdl-promotions";
 import HomeGallery from "@/components/gallery/HomeGallery";
 
 interface Schedule {
@@ -112,6 +113,13 @@ export default function Home() {
   // Slides data - используем нейтральные пути чтобы избежать блокировки рекламы
   const slides = [
     {
+      title: KDL_PROMOTION.title,
+      buttonText: "Подробнее",
+      buttonLink: KDL_PROMOTION.href,
+      buttonColor: "#13AB7B",
+      image: KDL_PROMOTION.image
+    },
+    {
       title: LAB_PROMOTION.title,
       buttonText: "Подробнее",
       buttonLink: LAB_PROMOTION.href,
@@ -161,6 +169,8 @@ export default function Home() {
       image: "/images/promo/task_01kbdkwa0xftb9wh0jek05ksz3_1764615024_img_0.webp"
     }
   ];
+
+  const isLabSlide = slides[currentSlide].buttonLink === LAB_PROMOTION.href;
 
   // Function to go to next slide
   const nextSlide = () => {
@@ -235,10 +245,10 @@ export default function Home() {
     if (isSlidePaused) return;
     const timer = setTimeout(() => {
       setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, currentSlide === 0 ? 8000 : 5000);
+    }, currentSlide === 0 || isLabSlide ? 8000 : 5000);
 
     return () => clearTimeout(timer);
-  }, [currentSlide, isSlidePaused, slides.length]);
+  }, [currentSlide, isSlidePaused, slides.length, isLabSlide]);
 
   // Function to scroll doctors slider left
   const scrollDoctorsLeft = () => {
@@ -369,9 +379,13 @@ export default function Home() {
                 <div className="h-[300px] md:h-[358px] bg-emerald-500 relative overflow-hidden">
                   {/* Условия акции остаются читаемым текстом на любом экране. */}
                   <div className="w-full h-full relative">
-                    {slides[currentSlide].buttonLink === LAB_PROMOTION.href ? (
+                    {isLabSlide ? (
                       <Link href={LAB_PROMOTION.href} className="block h-full" aria-label="Скидки на анализы — условия акции">
                         <LabDiscountBanner priority />
+                      </Link>
+                    ) : slides[currentSlide].buttonLink === KDL_PROMOTION.href ? (
+                      <Link href={KDL_PROMOTION.href} className="block h-full bg-[#a20c5c]" aria-label="Акции на анализы KDL — все предложения">
+                        <Image src={KDL_PROMOTION.image} alt="Акции на анализы KDL в Альтамед-С" fill priority sizes="(max-width: 767px) calc(100vw - 64px), 548px" className="object-contain" />
                       </Link>
                     ) : <img
                       src={slides[currentSlide]?.image || slides[0].image}
@@ -388,7 +402,7 @@ export default function Home() {
                   <button 
                     onClick={prevSlide} 
                     aria-label="Предыдущий баннер"
-                    className={`hidden md:block absolute left-3 ${currentSlide === 0 ? 'bottom-2' : 'top-1/2 -translate-y-1/2'} bg-white/70 rounded-full p-2 shadow-md hover:bg-white`}
+                    className={`hidden md:block absolute left-3 ${isLabSlide ? 'bottom-2' : 'top-1/2 -translate-y-1/2'} bg-white/70 rounded-full p-2 shadow-md hover:bg-white`}
                   >
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -397,7 +411,7 @@ export default function Home() {
                   <button 
                     onClick={nextSlide} 
                     aria-label="Следующий баннер"
-                    className={`hidden md:block absolute right-3 ${currentSlide === 0 ? 'bottom-2' : 'top-1/2 -translate-y-1/2'} bg-white/70 rounded-full p-2 shadow-md hover:bg-white`}
+                    className={`hidden md:block absolute right-3 ${isLabSlide ? 'bottom-2' : 'top-1/2 -translate-y-1/2'} bg-white/70 rounded-full p-2 shadow-md hover:bg-white`}
                   >
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -413,8 +427,8 @@ export default function Home() {
                         aria-label={`Баннер ${index + 1}: ${slides[index].title}`}
                         aria-pressed={currentSlide === index}
                         className={`w-3 h-3 rounded-full ${
-                          currentSlide === 0
-                            ? (index === 0 ? "bg-emerald-700" : "bg-emerald-700/25")
+                          isLabSlide
+                            ? (currentSlide === index ? "bg-emerald-700" : "bg-emerald-700/25")
                             : (currentSlide === index ? "bg-white" : "bg-white/50")
                         }`}
                         suppressHydrationWarning

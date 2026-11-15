@@ -5,6 +5,7 @@ import DentalPromoBanner from "@/components/DentalPromoBanner";
 import { PEDIATRIC_PROMOTIONS } from "@/data/pediatric-promotions";
 import { LAB_PROMOTION } from "@/data/lab-promotion";
 import LabDiscountBanner from "@/components/LabDiscountBanner";
+import { KDL_PROMOTION } from "@/data/kdl-promotions";
 
 export default function PromoPage() {
   // Данные акций
@@ -20,6 +21,15 @@ export default function PromoPage() {
     startDate?: string;
     endDate?: string;
   }> = [
+    {
+      id: KDL_PROMOTION.slug,
+      slug: KDL_PROMOTION.slug,
+      category: "diagnostics",
+      image: KDL_PROMOTION.image,
+      title: KDL_PROMOTION.title,
+      description: KDL_PROMOTION.description,
+      badge: KDL_PROMOTION.badge,
+    },
     {
       id: LAB_PROMOTION.slug,
       slug: LAB_PROMOTION.slug,
