@@ -1504,14 +1504,14 @@ function PatientInfoSection() {
 function AboutPageContent() {
   const searchParams = useSearchParams();
   const urlSection = searchParams.get('section');
-  const initialSection = urlSection === 'reviews' || urlSection === 'patient-info' ? urlSection : 'photogallery';
+  const initialSection = urlSection === 'reviews' || urlSection === 'patient-info' || urlSection === 'personal-data' ? urlSection : 'photogallery';
   const [activeSection, setActiveSection] = useState(initialSection);
   const [pressTab, setPressTab] = useState<'news' | 'articles' | 'media'>('articles');
 
   // Проверяем, есть ли якорь в URL
   useEffect(() => {
     const section = searchParams.get('section');
-    if (section === 'reviews' || section === 'patient-info' || section === 'photogallery') {
+    if (section === 'reviews' || section === 'patient-info' || section === 'photogallery' || section === 'personal-data') {
       setActiveSection(section);
     }
   }, [searchParams]);
@@ -2160,6 +2160,7 @@ function AboutPageContent() {
                   </p>
                   <div className="space-y-4">
                     {[
+                      { title: 'Передача данных в ЕГИСЗ', file: 'Передача данных в ЕГИСЗ.docx' },
                       { title: 'Акт оценки возможного вреда', file: '+Акт оценки возможного вреда.docx' },
                       { title: 'Политика оператора в отношении обработки персональных данных (для медицины)', file: '+Политика оператора в отношении обработки персональных данных НОВАЯ ДЛЯ МЕДИЦИНЫ.docx' },
                       { title: 'Журнал проведения инструктажей по обработке ПД', file: 'ЖУРНАЛ проведения инструктажей по обработке пд.docx' },
