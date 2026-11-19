@@ -1189,8 +1189,8 @@ function getDoctorDetails(doctorName: string) {
       methods: []
     },
     'Притула Александр Васильевич': {
-      specialization: 'Невролог',
-      category: 'Невролог',
+      specialization: 'Врач-невролог, врач-физиотерапевт',
+      category: 'Врач-невролог, врач-физиотерапевт',
       education: [
         'Диплом Военно-медицинская ордена Ленина Краснознаменная академия в 1984 г/регистрационный № 563 лечебно-профилактическое дело',
         'Интернатура медицинского состава РВСН г.Одинцово первичная специализация по неврологии-3,5 месяца-2000 г. свидетельство №73'
@@ -1204,8 +1204,10 @@ function getDoctorDetails(doctorName: string) {
         'Неврология — 144ч. Удостоверение №772419661002 от 22.01.24'
       ],
       accreditation: [
-        { number: '2022.3186171', date: 'с 26.11.24 до 26.11.29', specialty: 'Неврология', institution: 'ФГБОУ ДПО РМАНПО Минздрава России' }
+        { number: '7724 031738581', date: 'с 27.02.2024 до 27.02.2029', specialty: 'Неврология', institution: 'ФГБОУ ДПО РМАНПО Минздрава России' },
+        { number: '7724 032417016', date: 'с 26.11.2024 до 26.11.2029', specialty: 'Физиотерапия', institution: 'ФГБОУ ДПО РМАНПО Минздрава России' }
       ],
+      accreditationDocument: '/images/documents/pritula-akkreditaciya-fizioterapiya.pdf',
       experience: 'Стаж работы: с 1984 года',
       mainDirections: [],
       methods: []

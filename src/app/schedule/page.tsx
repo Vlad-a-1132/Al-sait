@@ -355,7 +355,7 @@ export default function SchedulePage() {
     },
     {
       name: "Притула Александр Васильевич",
-      specialty: "Невролог",
+      specialty: "Невролог, Физиотерапевт",
       schedule: { Monday: { start: "14:00", end: "20:00" }, Wednesday: { start: "13:30", end: "20:00" }, Saturday: { start: "14:00", end: "20:00" } }
     },
     {

@@ -287,9 +287,11 @@ export default function DoctorPageFullContent({
           )}
           {doctorDetails && doctorDetails.accreditation && doctorDetails.accreditation.length > 0 && (
             <>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">
-                Аккредитация
-              </h2>
+              {!doctorDetails.accreditationDocument && (
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">
+                  Аккредитация
+                </h2>
+              )}
               <div className="space-y-4 mb-6">
                 {doctorDetails.accreditation.map((acc: any, index: number) => (
                   <div key={index} className="flex items-start gap-3">
