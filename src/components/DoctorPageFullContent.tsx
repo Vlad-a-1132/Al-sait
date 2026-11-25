@@ -215,6 +215,22 @@ export default function DoctorPageFullContent({
                 </>
               )}
             </div>
+            {doctorDetails.diagnostics && (
+              <div>
+                <h3 className="font-semibold text-lg mb-3">Диагностика</h3>
+                <p>{doctorDetails.diagnostics}</p>
+              </div>
+            )}
+            {doctorDetails.conditions && doctorDetails.conditions.length > 0 && (
+              <div>
+                <h3 className="font-semibold text-lg mb-3">Заболевания и состояния</h3>
+                <ul className="list-disc list-inside space-y-2 ml-4">
+                  {doctorDetails.conditions.map((condition: string, index: number) => (
+                    <li key={index}>{condition}</li>
+                  ))}
+                </ul>
+              </div>
+            )}
             {doctorDetails.methods && doctorDetails.methods.length > 0 && (
               <div className="mt-4">
                 <p className="mb-3 font-medium">
@@ -227,6 +243,12 @@ export default function DoctorPageFullContent({
                     <li key={index}>{method}</li>
                   ))}
                 </ul>
+              </div>
+            )}
+            {doctorDetails.treatmentApproach && (
+              <div>
+                <h3 className="font-semibold text-lg mb-3">Комплексный подход</h3>
+                <p>{doctorDetails.treatmentApproach}</p>
               </div>
             )}
           </div>

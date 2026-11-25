@@ -25,7 +25,10 @@ export interface DoctorDetails {
   }>;
   experience?: string;
   mainDirections?: string[];
+  diagnostics?: string;
+  conditions?: string[];
   methods?: string[];
+  treatmentApproach?: string;
   schedule?: DoctorSchedule;
   patientAge?: string;
   note?: string;

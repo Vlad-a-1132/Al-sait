@@ -631,19 +631,19 @@
       "id": 34,
       "name": "Притула Александр Васильевич",
       "slug": "pritula-aleksandr-vasilievich",
-      "specialization": "Невролог, Физиотерапевт",
-      "specializations": ["Невролог", "Физиотерапевт"],
-      "experience": 40,
+      "specialization": "Невролог, Нейрохирург, Физиотерапевт",
+      "specializations": ["Невролог", "Нейрохирург", "Физиотерапевт"],
+      "experience": 42,
       "photo": "/images/doctors/Pritula Alexander Vasilievich.webp",
-      "description": "Врач-невролог, врач-физиотерапевт. Стаж работы: с 1984 года",
+      "description": "Врач-невролог, врач-нейрохирург, врач-физиотерапевт. Стаж работы: с 1984 года",
       "schedule": {
         "Monday": { "start": "14:00", "end": "20:00" },
         "Wednesday": { "start": "13:30", "end": "20:00" },
         "Saturday": { "start": "14:00", "end": "20:00" }
       },
       "details": {
-        "specialization": "Врач-невролог, врач-физиотерапевт",
-        "category": "Врач-невролог, врач-физиотерапевт",
+        "specialization": "Врач-невролог, врач-нейрохирург, врач-физиотерапевт",
+        "category": "Неврология, нейрохирургия, физиотерапия",
         "experience": "Стаж работы: с 1984 года"
       }
     },
