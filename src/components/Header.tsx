@@ -28,24 +28,24 @@ export default function Header() {
     <>
     <header data-analytics-placement="header" className="fixed left-0 right-0 top-0 z-50 w-full bg-white pt-[env(safe-area-inset-top)] shadow-sm">
       {/* Верхний уровень: логотип, телефон и кнопки */}
-      <div className="border-b border-gray-100 py-2 md:py-3">
-        <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: '83rem' }}>
-          <div className="flex justify-between items-center">
-            <div className="flex items-center">
+      <div className="border-b border-gray-100 py-2 xl:py-3">
+        <div className="mx-auto px-2 min-[360px]:px-3 sm:px-6 lg:px-8" style={{ maxWidth: '83rem' }}>
+          <div className="flex justify-between items-center gap-2">
+            <div className="flex min-w-0 items-center">
               {/* Логотип */}
-              <Link href="/" className="flex items-center">
+              <Link href="/" className="flex shrink-0 items-center">
                 <Image 
                   src="/images/icons/S.webp" 
                   alt="Альтамед-с" 
                   width={40}
                   height={40}
-                  className="object-contain"
+                  className="h-7 w-7 object-contain min-[360px]:h-8 min-[360px]:w-8 xl:h-10 xl:w-10"
                 />
-                <div className="text-[#13AB7B] font-semibold ml-2 text-xl">Альтамед-С</div>
+                <div className="ml-1 whitespace-nowrap text-sm font-semibold text-[#13AB7B] min-[360px]:text-base xl:ml-2 xl:text-xl">Альтамед-С</div>
               </Link>
               
               {/* Телефон - скрываем на мобильных */}
-              <div className="hidden lg:flex items-center ml-10">
+              <div className="hidden xl:flex items-center ml-10">
                 <svg className="w-5 h-5 text-gray-600 mr-2" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.362 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.574 2.81.7A2 2 0 0122 16.92z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
@@ -54,10 +54,10 @@ export default function Header() {
             </div>
             
             {/* Кнопки справа - адаптируем для мобильных */}
-            <div className="flex items-center space-x-2 md:space-x-4">
+            <div className="flex shrink-0 items-center gap-1 min-[360px]:gap-2 xl:gap-4">
               <button
                 onClick={toggleAccessibilityMode}
-                className={`hidden md:flex items-center transition text-sm border rounded px-3 py-1.5 ${
+                className={`hidden xl:flex items-center transition text-sm border rounded px-3 py-1.5 ${
                   isAccessibilityMode
                     ? 'bg-yellow-400 text-black border-yellow-600 font-bold'
                     : 'text-gray-600 hover:text-[#13AB7B] border-gray-300'
@@ -70,40 +70,47 @@ export default function Header() {
                 </svg>
                 Версия для слабовидящих
               </button>
-              <Link href="https://lk.altamed-c.ru/login" target="_blank" rel="noopener noreferrer" className="hidden md:flex items-center bg-[#13AB7B] text-white hover:bg-[#10a070] transition-colors text-sm border border-[#13AB7B] rounded px-3 py-1.5 shadow-sm">
+              <Link href="https://lk.altamed-c.ru/login" target="_blank" rel="noopener noreferrer" className="hidden xl:flex items-center bg-[#13AB7B] text-white hover:bg-[#10a070] transition-colors text-sm border border-[#13AB7B] rounded px-3 py-1.5 shadow-sm">
                 <svg className="w-4 h-4 mr-1" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M12 12C14.21 12 16 10.21 16 8C16 5.79 14.21 4 12 4C9.79 4 8 5.79 8 8C8 10.21 9.79 12 12 12ZM12 14C9.33 14 4 15.34 4 18V20H20V18C20 15.34 14.67 14 12 14Z" fill="currentColor"/>
                 </svg>
                 Личный кабинет
               </Link>
-              {/* Мобильные кнопки */}
-              <div className="md:hidden flex items-center space-x-2">
+              {/* Кнопки телефона и записи для мобильных и планшетов */}
+              <div className="flex items-center gap-1 xl:hidden" data-header-compact-actions>
+                <a
+                  href="tel:+74952554450"
+                  data-analytics-id="header_call_mobile"
+                  className="inline-flex h-9 items-center justify-center rounded-md border border-emerald-600 px-1.5 text-sm font-medium text-emerald-800 transition-colors hover:bg-emerald-50 min-[360px]:px-2"
+                >
+                  Позвонить
+                </a>
                 <Link 
                   href="https://online.altamed-c.ru/" 
                   data-analytics-id="header_booking_mobile"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-orange-500 text-white px-3 py-1.5 rounded-md hover:bg-orange-600 transition-colors text-xs font-medium shadow-sm"
+                  className="inline-flex h-9 items-center justify-center rounded-md bg-orange-500 px-1.5 text-sm font-medium text-white shadow-sm transition-colors hover:bg-orange-600 min-[360px]:px-2"
                 >
                   Запись
                 </Link>
               </div>
               
               {/* Десктопная кнопка записи */}
-              <Link href="https://online.altamed-c.ru/" data-analytics-id="header_booking_desktop" target="_blank" rel="noopener noreferrer" className="hidden md:block bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition text-sm">
+              <Link href="https://online.altamed-c.ru/" data-analytics-id="header_booking_desktop" target="_blank" rel="noopener noreferrer" className="hidden xl:block bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 transition text-sm">
                 Записаться онлайн
               </Link>
               
               {/* Mobile menu button */}
-              <div className="md:hidden">
+              <div className="xl:hidden">
                 <button
                   onClick={toggleMenu}
-                  className="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100"
-                  aria-expanded="false"
+                  className="inline-flex items-center justify-center rounded-md p-1 text-gray-400 hover:bg-gray-100 hover:text-gray-500 min-[360px]:p-1.5"
+                  aria-expanded={isMenuOpen}
                 >
                   <span className="sr-only">Открыть меню</span>
                   <svg
-                    className={`${isMenuOpen ? 'hidden' : 'block'} h-6 w-6`}
+                    className={`${isMenuOpen ? 'hidden' : 'block'} h-5 w-5`}
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -118,7 +125,7 @@ export default function Header() {
                     />
                   </svg>
                   <svg
-                    className={`${isMenuOpen ? 'block' : 'hidden'} h-6 w-6`}
+                    className={`${isMenuOpen ? 'block' : 'hidden'} h-5 w-5`}
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -140,7 +147,7 @@ export default function Header() {
       </div>
 
       {/* Второй уровень: поиск и навигация - скрываем на мобильных */}
-      <div className="flex h-9 items-center justify-between border-b border-gray-100 bg-emerald-50/70 px-4 text-[11px] font-medium text-gray-700 md:hidden">
+      <div className="flex h-9 items-center gap-4 border-b border-gray-100 bg-emerald-50/70 px-4 text-[11px] font-medium text-gray-700 xl:hidden">
         <Link href="/contacts" className="inline-flex min-w-0 items-center gap-1.5">
           <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-emerald-700" fill="none" stroke="currentColor" strokeWidth="2">
             <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1118 0z" />
@@ -148,15 +155,16 @@ export default function Header() {
           </svg>
           <span className="truncate">Можайское ш., 141</span>
         </Link>
-        <a href="tel:+74952554450" className="inline-flex shrink-0 items-center gap-1.5 font-semibold text-emerald-800">
-          <svg viewBox="0 0 24 24" className="h-4 w-4" fill="none" stroke="currentColor" strokeWidth="2">
-            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72" />
+        <Link href="/contacts" className="inline-flex min-w-0 items-center gap-1.5">
+          <svg viewBox="0 0 24 24" className="h-4 w-4 shrink-0 text-emerald-700" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 1118 0z" />
+            <circle cx="12" cy="10" r="3" />
           </svg>
-          Позвонить
-        </a>
+          <span className="truncate">б-р М. Крылова, 23</span>
+        </Link>
       </div>
 
-      <div className="border-b border-gray-200 hidden md:block">
+      <div className="border-b border-gray-200 hidden xl:block">
         <div className="mx-auto px-4 sm:px-6 lg:px-8" style={{ maxWidth: '83rem' }}>
           <div className="flex items-center py-3">
             {/* Блок поиска */}
@@ -182,7 +190,7 @@ export default function Header() {
             
             {/* Меню навигации */}
             <div className="flex-1">
-              <nav className="flex space-x-6">
+              <nav className="flex space-x-4 whitespace-nowrap min-[1360px]:space-x-6">
                 <Link href="/doctors" className="text-gray-800 hover:text-[#13AB7B] transition py-2 text-sm font-medium">
                   Врачи
                 </Link>
@@ -223,7 +231,7 @@ export default function Header() {
       </div>
 
       {/* Mobile menu */}
-      <div className={`${isMenuOpen ? 'block' : 'hidden'} max-h-[calc(var(--app-viewport-height,100dvh)_-_92px_-_env(safe-area-inset-top))] overflow-y-auto overscroll-contain border-b border-gray-200 md:hidden`}>
+      <div className={`${isMenuOpen ? 'block' : 'hidden'} max-h-[calc(var(--app-viewport-height,100dvh)_-_92px_-_env(safe-area-inset-top))] overflow-y-auto overscroll-contain border-b border-gray-200 xl:hidden`}>
         {/* Поиск в мобильном меню */}
         <div className="px-4 py-3 border-b border-gray-100">
           <form onSubmit={handleSearchSubmit} className="relative">
@@ -314,7 +322,7 @@ export default function Header() {
       </div>
     </header>
     {/* Spacer to offset fixed header height */}
-    <div className="h-[calc(92px_+_env(safe-area-inset-top))] md:h-[calc(128px_+_env(safe-area-inset-top))]"></div>
+    <div className="h-[calc(92px_+_env(safe-area-inset-top))] xl:h-[calc(128px_+_env(safe-area-inset-top))]"></div>
     </>
   )
 }

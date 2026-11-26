@@ -1,0 +1,33 @@
+.snowfall {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  overflow: hidden;
+  pointer-events: none;
+  user-select: none;
+}
+.snowfall span {
+  position: absolute;
+  top: -24px;
+  width: var(--flake-size);
+  height: var(--flake-size);
+  pointer-events: none;
+  opacity: 0;
+  filter: drop-shadow(0 1px 1px #ffffffa0);
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2360869f' stroke-width='1.6' stroke-linecap='round'%3E%3Cpath d='M12 2v20M3.34 7l17.32 10M3.34 17 20.66 7M8 4l4 4 4-4M8 20l4-4 4 4M3 11l5-1-1-5M17 19l-1-5 5-1M3 13l5 1-1 5M17 5l-1 5 5 1'/%3E%3C/svg%3E") center / contain no-repeat;
+  animation: snowfall-drift var(--flake-duration) var(--flake-delay) linear infinite;
+}
+.paused span { animation-play-state: paused; }
+@keyframes snowfall-drift {
+  0% { transform: translate3d(0, -24px, 0) rotate(0deg); opacity: 0; }
+  8%, 85% { opacity: var(--flake-opacity); }
+  100% { transform: translate3d(var(--flake-drift), calc(100dvh + 48px), 0) rotate(140deg); opacity: 0; }
+}
+@media (max-width: 767px) {
+  .snowfall span { width: calc(var(--flake-size) * .85); height: calc(var(--flake-size) * .85); }
+  .snowfall span:nth-child(3n) { display: none; }
+}
+@media (prefers-reduced-motion: reduce), print {
+  .snowfall { display: none; }
+}
+:global(html.accessibility-mode) .snowfall { display: none; }

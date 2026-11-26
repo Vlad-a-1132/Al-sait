@@ -451,7 +451,7 @@ html.accessibility-mode .form-control {
     right: 0 !important;
     width: 100% !important;
     max-width: 100vw !important;
-    z-index: 40 !important;
+    z-index: 45 !important;
   }
   
   html.accessibility-mode .fixed.bottom-0 a,

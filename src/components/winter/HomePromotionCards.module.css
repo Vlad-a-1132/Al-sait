@@ -1,0 +1,110 @@
+.card {
+  position: relative;
+  z-index: 41;
+  isolation: isolate;
+  color: #142f2b;
+  box-shadow: inset 0 0 0 1px #ffffffb0, 0 8px 24px #164b3d0a;
+  transition: box-shadow 240ms ease;
+}
+.card.lab {
+  background: radial-gradient(ellipse at 90% 35%, #f5fdff 0, transparent 52%), linear-gradient(125deg, #dff4ff 0, #d4effd 46%, #c5e4f3 100%);
+}
+.card.seniors {
+  background: radial-gradient(ellipse at 90% 40%, #fff7ff 0, transparent 50%), linear-gradient(115deg, #f9e8fa, #efd2f3);
+}
+.card.ct {
+  background: radial-gradient(ellipse at 90% 40%, #fffdf1 0, transparent 50%), linear-gradient(115deg, #fff8d8, #f6e6ab);
+}
+.card::after { top: 5px; right: 5px; bottom: auto; left: auto; width: 44px; height: 42px; opacity: .55; }
+.card:focus-visible { outline: 3px solid #b89a61; outline-offset: 4px; }
+.card > div { z-index: 1; }
+.labCopy {
+  position: relative;
+  z-index: 2 !important;
+  width: 61%;
+  padding: 26px 12px 26px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+.eyebrow { margin-bottom: 10px; font-size: 9px; line-height: 1.2; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; color: #4e777a; }
+.labHeading { max-width: 300px; font-size: 32px; line-height: 1.08; font-weight: 750; letter-spacing: -.035em; }
+.period { margin-top: 12px; color: #365e5d; font-size: 12px; line-height: 1.3; }
+.discounts { display: flex; gap: 25px; margin-top: 20px; }
+.discountOption { min-width: 0; }
+.percent { font-size: 48px; line-height: 1; letter-spacing: -.065em; font-weight: 800; color: #0e634f; font-variant-numeric: lining-nums; white-space: nowrap; }
+.percent span { font-size: .65em; letter-spacing: -.06em; }
+.discountOption + .discountOption { padding-left: 23px; border-left: 1px solid #729f9c40; }
+.days { margin-top: 7px; color: #315b59; font-size: 11px; line-height: 1.25; font-weight: 600; white-space: nowrap; }
+.exclusion { max-width: 270px; margin-top: 17px; color: #476866; font-size: 10px; line-height: 1.35; }
+.button {
+  position: relative;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  gap: 15px;
+  width: fit-content;
+  height: 38px;
+  padding: 0 20px;
+  border-radius: 24px;
+  color: #fff;
+  background: linear-gradient(110deg, #0e7158, #105a48);
+  box-shadow: 0 5px 12px #155d4720, inset 0 1px 0 #ffffff20;
+  font-size: 12px;
+  line-height: 1;
+  font-weight: 600;
+  transition: background 180ms ease, box-shadow 180ms ease;
+}
+.button svg { flex-shrink: 0; transition: transform 200ms ease; }
+.smallCopy { position: relative; z-index: 2 !important; display: flex; flex-direction: column; align-items: flex-start; justify-content: center; gap: 9px; width: 68%; min-width: 0; }
+.badge { display: inline-flex; align-items: center; width: fit-content; height: 20px; padding: 0 9px; border-radius: 7px; vertical-align: top; color: #6b3e64; background: #fff8ffb8; box-shadow: inset 0 0 0 1px #b786b42e; font-size: 9px; line-height: 1; font-weight: 700; letter-spacing: .055em; text-transform: uppercase; white-space: nowrap; }
+.smallHeading { font-size: 26px; line-height: 1.08; font-weight: 750; letter-spacing: -.035em; }
+.ctCopy { gap: 4px; }
+.ctHeading { font-size: 19px; line-height: 1.2; font-weight: 700; letter-spacing: -.025em; }
+.ctPercent { color: #155846; font-size: 48px; line-height: 1; font-weight: 800; letter-spacing: -.065em; white-space: nowrap; }
+.ctPercent > span { margin-right: 3px; font-size: 12px; letter-spacing: 0; font-weight: 600; }
+.art { z-index: 1; }
+.seniors .art { height: 96%; }
+.art::before { content: ''; position: absolute; inset: 12% -5% 0 -10%; border-radius: 50%; background: radial-gradient(ellipse at 55% 80%, #ffffff99 0, #ffffff30 45%, transparent 72%); }
+.art img { transform-origin: bottom right; filter: drop-shadow(0 8px 6px #264b401e); transition: transform 420ms cubic-bezier(.2,.65,.3,1), filter 300ms ease; }
+.labArt::before { inset: 40% -20% -2%; background: radial-gradient(ellipse at 50% 85%, #f6fdffc9 0, #e2f6ff50 45%, transparent 70%); }
+.mobilePercent { color: #0b6851; font-weight: 750; }
+.discountTail { display: inline-block; white-space: nowrap; }
+@media (hover: hover) and (pointer: fine) {
+  .card:hover { box-shadow: inset 0 0 0 1px #99bbaa, 0 12px 30px #164b3d19; }
+  .card:hover .art img, .card:focus-visible .art img { transform: scale(1.035) translateY(-1px); filter: drop-shadow(0 11px 8px #264b4030); }
+  .card:hover .button, .card:focus-visible .button { background: #0b604b; box-shadow: 0 6px 14px #155d4730; }
+  .card:hover .button svg, .card:focus-visible .button svg { transform: translateX(3px); }
+}
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .smallHeading { font-size: 18px; }
+  .ctHeading { font-size: 16px; }
+  .ctPercent { font-size: 43px; }
+}
+@media (max-width: 767px) {
+  .card > div { position: relative; }
+  .mobileButton { height: 28px; padding: 0 12px; gap: 10px; font-size: 11px; }
+  .mobileButton svg { width: 14px; height: 14px; }
+  .card .badge { height: 22px; font-size: 10px; }
+  .card::after { width: 38px; height: 36px; opacity: .45; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .card, .button, .button svg, .art img { transition: none; }
+  .card:hover .art img, .card:focus-visible .art img, .card:hover .button svg, .card:focus-visible .button svg { transform: none; }
+}
+:global(html.accessibility-mode) .card { background: #fff !important; color: #000; box-shadow: inset 0 0 0 1px #333; }
+:global(html.accessibility-mode) .art { display: none; }
+:global(html.accessibility-mode) .labCopy { width: 100%; }
+:global(html.accessibility-mode) .smallCopy { width: 100%; }
+:global(html.accessibility-mode) .eyebrow,
+:global(html.accessibility-mode) .period,
+:global(html.accessibility-mode) .percent,
+:global(html.accessibility-mode) .days,
+:global(html.accessibility-mode) .exclusion,
+:global(html.accessibility-mode) .ctPercent,
+:global(html.accessibility-mode) .mobilePercent { color: #000; }
+:global(html.accessibility-mode) .badge { color: #000; background: #fff; }
+:global(html.accessibility-mode) .button { background: #000; color: #fff; box-shadow: none; }

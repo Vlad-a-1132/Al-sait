@@ -9,6 +9,19 @@ import LabDiscountBanner from "@/components/LabDiscountBanner";
 import { LAB_PROMOTION } from "@/data/lab-promotion";
 import { KDL_PROMOTION } from "@/data/kdl-promotions";
 import HomeGallery from "@/components/gallery/HomeGallery";
+import winterStyles from "@/components/winter/WinterTheme.module.css";
+import WinterOzoneBanner from "@/components/winter/WinterOzoneBanner";
+import promoStyles from "@/components/winter/HomePromotionCards.module.css";
+import ClinicLocationMap from "@/components/ClinicLocationMap";
+
+function PromotionAction({ compact = false }: { compact?: boolean }) {
+  return (
+    <span className={`${promoStyles.button} ${compact ? promoStyles.mobileButton : ''}`}>
+      Подробнее
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6" /></svg>
+    </span>
+  );
+}
 
 interface Schedule {
   start: string;
@@ -104,14 +117,19 @@ export default function Home() {
   const [isSlidePaused, setIsSlidePaused] = useState(false);
   // State for tracking current promotion slide (mobile)
   const [currentPromoSlide, setCurrentPromoSlide] = useState(0);
-  // State for selected branch
-  const [selectedBranch, setSelectedBranch] = useState('branch1');
   
   // Ref for doctors slider
   const doctorsSliderRef = useRef<HTMLDivElement>(null);
   
   // Slides data - используем нейтральные пути чтобы избежать блокировки рекламы
   const slides = [
+    {
+      title: "Зимнее меню озонотерапии",
+      buttonText: "Об услуге",
+      buttonLink: "/services/ozone-therapy",
+      buttonColor: "#13735A",
+      image: "/images/yslugi/ozone-therapy.webp"
+    },
     {
       title: KDL_PROMOTION.title,
       buttonText: "Подробнее",
@@ -171,6 +189,7 @@ export default function Home() {
   ];
 
   const isLabSlide = slides[currentSlide].buttonLink === LAB_PROMOTION.href;
+  const isWinterSlide = slides[currentSlide].buttonLink === '/services/ozone-therapy';
 
   // Function to go to next slide
   const nextSlide = () => {
@@ -242,13 +261,13 @@ export default function Home() {
 
   // Автоматическое переключение слайдов (только на клиенте)
   useEffect(() => {
-    if (isSlidePaused) return;
+    if (isSlidePaused || isWinterSlide) return;
     const timer = setTimeout(() => {
       setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, currentSlide === 0 || isLabSlide ? 8000 : 5000);
+    }, currentSlide === 1 || isLabSlide ? 8000 : 5000);
 
     return () => clearTimeout(timer);
-  }, [currentSlide, isSlidePaused, slides.length, isLabSlide]);
+  }, [currentSlide, isSlidePaused, slides.length, isLabSlide, isWinterSlide]);
 
   // Function to scroll doctors slider left
   const scrollDoctorsLeft = () => {
@@ -290,72 +309,10 @@ export default function Home() {
     };
   }, []);
 
-  // Load Yandex Maps script
-  useEffect(() => {
-    const loadMapScript = (containerId: string, innerContainerId: string, height: string) => {
-      const container = document.getElementById(containerId);
-      const innerContainer = document.getElementById(innerContainerId);
-      if (!container || !innerContainer || innerContainer.querySelector('script')) {
-        return; // Container doesn't exist or script already loaded
-      }
-
-      // Get container width for proper map sizing
-      const containerWidth = container.offsetWidth || 500;
-      
-      // Create and load the script for this specific container
-      const script = document.createElement('script');
-      script.type = 'text/javascript';
-      script.charset = 'utf-8';
-      script.async = true;
-      script.src = `https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A45b2f50250d7120a4c2242f7d1dffcb1e5024476e057fef53a1c87499479b853&width=${containerWidth}&height=${height}&lang=ru_RU&scroll=true`;
-      script.id = `yandex-map-script-${containerId}`;
-      
-      innerContainer.appendChild(script);
-    };
-
-    // Small delay to ensure DOM is ready
-    const timer = setTimeout(() => {
-      // Load mobile map (always visible on mobile)
-      if (window.innerWidth < 768) {
-        loadMapScript('yandex-map-mobile', 'yandex-map-mobile-inner', '250');
-      }
-
-      // Load desktop map (visible on md+)
-      if (window.innerWidth >= 768) {
-        loadMapScript('yandex-map-desktop', 'yandex-map-desktop-inner', '404');
-      }
-    }, 100);
-
-    // Handle window resize for responsive maps
-    const handleResize = () => {
-      const mobileInner = document.getElementById('yandex-map-mobile-inner');
-      const desktopInner = document.getElementById('yandex-map-desktop-inner');
-
-      if (window.innerWidth < 768) {
-        // Mobile view
-        if (mobileInner && !mobileInner.querySelector('script')) {
-          loadMapScript('yandex-map-mobile', 'yandex-map-mobile-inner', '250');
-        }
-      } else {
-        // Desktop view
-        if (desktopInner && !desktopInner.querySelector('script')) {
-          loadMapScript('yandex-map-desktop', 'yandex-map-desktop-inner', '404');
-        }
-      }
-    };
-
-    window.addEventListener('resize', handleResize);
-    
-    return () => {
-      clearTimeout(timer);
-      window.removeEventListener('resize', handleResize);
-    };
-  }, []);
-
   return (
-    <div className="flex flex-col min-h-full bg-white mx-auto">
+    <div className={`flex flex-col min-h-full bg-white mx-auto ${winterStyles.page}`} data-winter-page="home">
       {/* Основной раздел с заголовком */}
-      <section className="py-3">
+      <section className={`py-3 ${winterStyles.hero}`}>
         <div className="mx-auto px-4" style={{ maxWidth: '83rem' }}>
           <div className="mb-6 ml-0 md:ml-4 lg:ml-8">
             <h1 className="text-2xl md:text-3xl font-bold text-black leading-tight px-4 md:px-0">
@@ -363,11 +320,11 @@ export default function Home() {
             </h1>
           </div>
 
-          <div className="flex flex-col md:flex-row gap-4 md:gap-8 justify-center mx-auto px-4 md:px-0">
+          <div className={`flex flex-col md:flex-row gap-4 md:gap-8 justify-center mx-auto px-4 md:px-0 ${winterStyles.heroLayout}`}>
             {/* Левая колонка с семейной картинкой и блоком для взрослых и детей - теперь слайдер */}
-            <div className="w-full md:w-[548px] flex-shrink-0 mx-auto md:mx-0">
+            <div className={`w-full md:w-[548px] flex-shrink-0 mx-auto md:mx-0 ${winterStyles.heroSliderColumn}`}>
               <div
-                className="min-h-[380px] md:min-h-[445px] flex flex-col rounded-[20px] overflow-hidden shadow-md"
+                className={`min-h-[380px] md:min-h-[445px] flex flex-col rounded-[20px] overflow-hidden shadow-md ${winterStyles.promotionFrame} ${isWinterSlide ? winterStyles.posterFrame : ''}`}
                 onMouseEnter={() => setIsSlidePaused(true)}
                 onMouseLeave={() => setIsSlidePaused(false)}
                 onFocusCapture={() => setIsSlidePaused(true)}
@@ -376,10 +333,14 @@ export default function Home() {
                 }}
               >
                 {/* Слайдер */}
-                <div className="h-[300px] md:h-[358px] bg-emerald-500 relative overflow-hidden">
+                <div className={`h-[300px] md:h-[358px] bg-emerald-500 relative overflow-hidden ${winterStyles.slideImage} ${isWinterSlide ? winterStyles.posterSlide : ''}`}>
                   {/* Условия акции остаются читаемым текстом на любом экране. */}
                   <div className="w-full h-full relative">
-                    {isLabSlide ? (
+                    {isWinterSlide ? (
+                      <Link href="/services/ozone-therapy" className="block h-full" aria-label="Озонотерапия в Альтамед-С — об услуге">
+                        <WinterOzoneBanner />
+                      </Link>
+                    ) : isLabSlide ? (
                       <Link href={LAB_PROMOTION.href} className="block h-full" aria-label="Скидки на анализы — условия акции">
                         <LabDiscountBanner priority />
                       </Link>
@@ -402,7 +363,7 @@ export default function Home() {
                   <button 
                     onClick={prevSlide} 
                     aria-label="Предыдущий баннер"
-                    className={`hidden md:block absolute left-3 ${isLabSlide ? 'bottom-2' : 'top-1/2 -translate-y-1/2'} bg-white/70 rounded-full p-2 shadow-md hover:bg-white`}
+                    className={`hidden md:block absolute left-3 ${isWinterSlide ? 'bottom-0' : isLabSlide ? 'bottom-2' : 'top-1/2 -translate-y-1/2'} bg-white/70 rounded-full p-2 shadow-md hover:bg-white`}
                   >
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -411,7 +372,7 @@ export default function Home() {
                   <button 
                     onClick={nextSlide} 
                     aria-label="Следующий баннер"
-                    className={`hidden md:block absolute right-3 ${isLabSlide ? 'bottom-2' : 'top-1/2 -translate-y-1/2'} bg-white/70 rounded-full p-2 shadow-md hover:bg-white`}
+                    className={`hidden md:block absolute right-3 ${isWinterSlide ? 'bottom-0' : isLabSlide ? 'bottom-2' : 'top-1/2 -translate-y-1/2'} bg-white/70 rounded-full p-2 shadow-md hover:bg-white`}
                   >
                     <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
@@ -457,72 +418,72 @@ export default function Home() {
 
             {/* Правая колонка с услугами */}
             {/* Мобильная версия - цветные блоки 2x6 */}
-            <div className="md:hidden grid grid-cols-2 gap-3 w-full max-w-sm mx-auto">
+            <div className={`md:hidden grid grid-cols-2 gap-3 w-full max-w-sm mx-auto ${winterStyles.serviceTiles} ${winterStyles.mobileTiles}`}>
               <Link href="/services/allergology" className="bg-[#E8F4FD] p-3 rounded-[20px] flex items-center justify-between h-[80px] relative overflow-hidden">
-                <span className="font-medium text-sm text-gray-800">Аллергология</span>
+                <span className="font-medium text-sm text-gray-800">Аллерго<wbr />логия</span>
                 <svg className="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
               
               <Link href="/services/gastroenterology" className="bg-[#FFE8E1] p-3 rounded-[20px] flex items-center justify-between h-[80px] relative overflow-hidden">
-                <span className="font-medium text-sm text-gray-800">Гастроэнтерология</span>
+                <span className="font-medium text-sm text-gray-800">Гастро<wbr />энтерология</span>
                 <svg className="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
               
               <Link href="/ginekolog-v-odintsovo" className="bg-[#E8F5E8] p-3 rounded-[20px] flex items-center justify-between h-[80px] relative overflow-hidden">
-                <span className="font-medium text-sm text-gray-800">Гинекология</span>
+                <span className="font-medium text-sm text-gray-800">Гинеко<wbr />логия</span>
                 <svg className="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
               
               <Link href="/services/dermatology" className="bg-[#FFF8E1] p-3 rounded-[20px] flex items-center justify-between h-[80px] relative overflow-hidden">
-                <span className="font-medium text-sm text-gray-800">Дерматология</span>
+                <span className="font-medium text-sm text-gray-800">Дермато<wbr />логия</span>
                 <svg className="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
               
               <Link href="/services/cardiology" className="bg-[#E8F4FD] p-3 rounded-[20px] flex items-center justify-between h-[80px] relative overflow-hidden">
-                <span className="font-medium text-sm text-gray-800">Кардиология</span>
+                <span className="font-medium text-sm text-gray-800">Кардио<wbr />логия</span>
                 <svg className="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
               
               <Link href="/services/dentistry" className="bg-[#FFE8F0] p-3 rounded-[20px] flex items-center justify-between h-[80px] relative overflow-hidden">
-                <span className="font-medium text-sm text-gray-800">Стоматология</span>
+                <span className="font-medium text-sm text-gray-800">Стомато<wbr />логия</span>
                 <svg className="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
               
               <Link href="/services/mammology" className="bg-[#FFE8E1] p-3 rounded-[20px] flex items-center justify-between h-[80px] relative overflow-hidden">
-                <span className="font-medium text-sm text-gray-800">Маммология</span>
+                <span className="font-medium text-sm text-gray-800">Маммо<wbr />логия</span>
                 <svg className="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
               
               <Link href="/services/neurology" className="bg-[#F0E8FF] p-3 rounded-[20px] flex items-center justify-between h-[80px] relative overflow-hidden">
-                <span className="font-medium text-sm text-gray-800">Неврология</span>
+                <span className="font-medium text-sm text-gray-800">Невро<wbr />логия</span>
                 <svg className="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
 
               <Link href="/services/otolaryngology" className="bg-[#F2F6D6] p-3 rounded-[20px] flex items-center justify-between h-[80px] relative overflow-hidden">
-                <span className="font-medium text-sm text-gray-800">Отоларингология</span>
+                <span className="font-medium text-sm text-gray-800">Отоларинго<wbr />логия</span>
                 <svg className="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
               </Link>
 
               <Link href="/services/ophthalmology" className="bg-[#E2F5F0] p-3 rounded-[20px] flex items-center justify-between h-[80px] relative overflow-hidden">
-                <span className="font-medium text-sm text-gray-800">Офтальмология</span>
+                <span className="font-medium text-sm text-gray-800">Офтальмо<wbr />логия</span>
                 <svg className="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
@@ -536,7 +497,7 @@ export default function Home() {
               </Link>
 
               <Link href="/services/proctology" className="bg-[#DFDBF0] p-3 rounded-[20px] flex items-center justify-between h-[80px] relative overflow-hidden">
-                <span className="font-medium text-sm text-gray-800">Проктология</span>
+                <span className="font-medium text-sm text-gray-800">Прокто<wbr />логия</span>
                 <svg className="w-4 h-4 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                 </svg>
@@ -558,7 +519,7 @@ export default function Home() {
             </div>
 
             {/* Десктопная версия - оригинальные серые блоки */}
-            <div className="hidden md:flex flex-col space-y-4 md:space-y-6">
+            <div className={`hidden md:flex flex-col space-y-4 md:space-y-6 ${winterStyles.serviceTiles} ${winterStyles.desktopTiles}`}>
               <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
                 <Link href="/services/allergology" className="bg-[#EDF8F4] p-4 rounded-[20px] flex items-center justify-between w-full md:w-[224px] h-[89px] relative overflow-hidden">
                   <span className="font-medium text-sm md:text-base">Аллергология</span>
@@ -671,7 +632,7 @@ export default function Home() {
       </section>
 
       {/* Что Вас интересует с картой */}
-      <section className="pt-0 pb-4">
+      <section id="home-clinics" className="pt-0 pb-4 scroll-mt-36">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl flex flex-col">
           <h2 className="text-2xl md:text-3xl font-bold text-black mb-6 text-center md:text-left">
             Что Вас интересует?
@@ -749,15 +710,15 @@ export default function Home() {
               </div>
 
               {/* Мобильная карта */}
-              <div className="w-full">
-                <div className="w-full h-[250px] rounded-[20px] overflow-hidden mb-4" id="yandex-map-mobile">
-                  <div id="yandex-map-mobile-inner" style={{ width: '100%', height: '100%' }}></div>
+              <div className="w-full md:hidden">
+                <div className="w-full h-[250px] rounded-[20px] overflow-hidden mb-4" id="clinic-map-mobile">
+                  <ClinicLocationMap />
                 </div>
               </div>
             </div>
 
             {/* Десктопная версия - оригинальные блоки */}
-            <div className="hidden lg:flex flex-col lg:flex-row w-full justify-center gap-6">
+            <div className="hidden lg:flex flex-col lg:flex-row w-[574px] flex-shrink-0 justify-center gap-6">
             {/* Левая колонка с блоками */}
               <div className="flex flex-col gap-[15px] w-full lg:w-[574px] flex-shrink-0 mx-auto lg:mx-0 px-4 lg:px-0">
               {/* Блок Специалисты */}
@@ -846,10 +807,10 @@ export default function Home() {
             </div>
 
             {/* Правая колонка */}
-              <div className="flex flex-col w-full lg:w-[715px] flex-shrink-0 mx-auto lg:mx-[15px] px-4 lg:px-0">
-              {/* Яндекс карта — показываем только на md+ чтобы не дублировать мобильную карту */}
-                <div className="hidden md:block w-full h-[404px] rounded-[20px] overflow-hidden mb-8" id="yandex-map-desktop">
-                  <div id="yandex-map-desktop-inner" style={{ width: '100%', height: '100%' }}></div>
+              <div className="hidden md:flex flex-col w-full min-w-0 lg:flex-1 mx-auto px-4 lg:px-0">
+              {/* Локальная схема с переходом в карточку выбранного филиала. */}
+                <div className="w-full h-[404px] rounded-[20px] overflow-hidden mb-8" id="clinic-map-desktop">
+                  <ClinicLocationMap />
                 </div>
 
             </div>
@@ -862,7 +823,7 @@ export default function Home() {
       </section>
 
       {/* Акции и специальные предложения */}
-      <section className="py-8">
+      <section id="home-promotions" className="py-8 scroll-mt-36">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl">
           <h2 className="text-2xl md:text-3xl font-bold text-black mb-6 text-center md:text-left px-4 md:px-0 max-w-full overflow-hidden text-ellipsis">
             Акции и специальные предложения
@@ -873,47 +834,44 @@ export default function Home() {
           <div className="md:hidden px-4">
             <div className="flex flex-col gap-4">
               {/* Блок "Скидки на анализы!" */}
-              <Link href={LAB_PROMOTION.href} className="bg-[#DAF2FF] rounded-[20px] p-5 h-auto min-h-[160px] flex flex-col justify-between">
+              <Link href={LAB_PROMOTION.href} className={`bg-[#DAF2FF] rounded-[20px] p-5 h-auto min-h-[160px] flex flex-col justify-between ${winterStyles.promoCard} ${promoStyles.card} ${promoStyles.lab}`}>
                 <div className="flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="text-xl font-bold mb-2">Скидки на анализы!</h3>
                     <p className="text-sm text-emerald-800 mb-2">{LAB_PROMOTION.period}</p>
-                    {LAB_PROMOTION.discounts.map(({ days, percent }) => (
-                      <p key={percent} className="text-base text-gray-700 mb-1">{days} — {percent}%</p>
-                    ))}
+                    {LAB_PROMOTION.discounts.map(({ days, percent }) => {
+                      const lastComma = days.lastIndexOf(',');
+                      const prefix = lastComma >= 0 ? `${days.slice(0, lastComma + 1)} ` : '';
+                      const lastDay = days.slice(lastComma + 1).trim();
+                      return <p key={percent} className="text-base text-gray-700 mb-1">{prefix}<span className={promoStyles.discountTail}>{lastDay} — <strong className={promoStyles.mobilePercent}>{percent}%</strong></span></p>;
+                    })}
                     <p className="text-xs text-gray-700 mt-2">{LAB_PROMOTION.exclusion}</p>
                   </div>
                 </div>
-                <div className="flex items-center justify-end mt-4">
-                  <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                <div className="flex items-center justify-end mt-4 h-5">
+                  <PromotionAction compact />
                 </div>
               </Link>
 
               {/* Блок "Скидки пенсионерам" */}
-              <Link href="/promo" className="bg-[#FADFFF] rounded-[20px] p-5 h-auto min-h-[140px] flex flex-col justify-between">
+              <Link href="/promo" className={`bg-[#FADFFF] rounded-[20px] p-5 h-auto min-h-[140px] flex flex-col justify-between ${winterStyles.promoCard} ${promoStyles.card} ${promoStyles.seniors}`}>
                 <div>
                   <h3 className="text-xl font-bold mb-2">Скидки пенсионерам</h3>
-                  <p className="text-base text-gray-700">Специальные условия</p>
+                  <p className="text-base text-gray-700 h-6"><span className={promoStyles.badge}>Специальные условия</span></p>
                 </div>
-                <div className="flex items-center justify-end mt-4">
-                  <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                <div className="flex items-center justify-end mt-4 h-5">
+                  <PromotionAction compact />
                 </div>
               </Link>
 
               {/* Блок "Скидки на КТ до 25%" */}
-              <Link href="/promo" className="bg-[#FFF6C1] rounded-[20px] p-5 h-auto min-h-[140px] flex flex-col justify-between">
+              <Link href="/promo" className={`bg-[#FFF6C1] rounded-[20px] p-5 h-auto min-h-[140px] flex flex-col justify-between ${winterStyles.promoCard} ${promoStyles.card} ${promoStyles.ct}`}>
                 <div>
-                  <h3 className="text-xl font-bold mb-2">Скидки на КТ до 25%</h3>
+                  <h3 className="text-xl font-bold mb-2">Скидки на КТ до <span className={promoStyles.mobilePercent}>25%</span></h3>
                   <p className="text-base text-gray-700">для взрослых и детей</p>
                 </div>
-                <div className="flex items-center justify-end mt-4">
-                  <svg className="w-5 h-5 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                  </svg>
+                <div className="flex items-center justify-end mt-4 h-5">
+                  <PromotionAction compact />
                 </div>
               </Link>
             </div>
@@ -927,31 +885,32 @@ export default function Home() {
           {/* Десктопная версия - оригинальные блоки */}
           <div className="hidden md:flex flex-col lg:flex-row gap-6 justify-center max-w-[1300px] mx-auto px-4 lg:px-0">
             {/* Левый большой блок */}
-            <Link href={LAB_PROMOTION.href} className="bg-[#DAF2FF] rounded-[20px] w-full lg:w-[593px] h-[300px] md:h-[374px] flex flex-shrink-0 relative overflow-hidden cursor-pointer">
-              <div className="p-6 md:p-8 flex flex-col justify-between z-10 w-full lg:w-[60%]">
+            <Link href={LAB_PROMOTION.href} data-promo-art-card="lab" className={`bg-[#DAF2FF] rounded-[20px] w-full lg:w-[593px] h-[300px] md:h-[374px] flex flex-shrink-0 relative overflow-hidden cursor-pointer ${winterStyles.promoCard} ${promoStyles.card} ${promoStyles.lab}`}>
+              <div className={promoStyles.labCopy}>
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-4">Скидки на анализы!</h3>
-                  <p className="text-sm text-emerald-800 mb-3">{LAB_PROMOTION.period}</p>
-                  <div className="text-black text-sm md:text-base">
-                    {LAB_PROMOTION.discounts.map(({ days, percent }) => (
-                      <p key={percent}>{days} — {percent}%</p>
+                  <p className={promoStyles.eyebrow}>Лабораторная диагностика</p>
+                  <h3 className={promoStyles.labHeading}>Скидки на<br />анализы!</h3>
+                  <p className={promoStyles.period}>{LAB_PROMOTION.period}</p>
+                  <div className={promoStyles.discounts}>
+                    {LAB_PROMOTION.discounts.map(({ days, shortDays, percent }) => (
+                      <div key={percent} className={promoStyles.discountOption} aria-label={`${days} — скидка ${percent}%`}>
+                        <p className={promoStyles.percent}>−{percent}<span>%</span></p>
+                        <p className={promoStyles.days}>{shortDays}</p>
+                      </div>
                     ))}
-                    <p className="text-xs mt-3">{LAB_PROMOTION.exclusion}</p>
                   </div>
+                  <p className={promoStyles.exclusion}>{LAB_PROMOTION.exclusion}</p>
                 </div>
-                
-                <div className="bg-white text-black rounded-full px-8 py-2 w-fit hover:bg-gray-50 transition-colors">
-                  Подробнее
-                </div>
+                <PromotionAction />
               </div>
               
-              <div className="hidden lg:block absolute bottom-0 right-0 h-full w-[40%]">
+              <div className={`absolute bottom-0 right-1 h-[92%] w-[40%] pointer-events-none ${promoStyles.art} ${promoStyles.labArt}`}>
                 <Image 
-                  src="/images/doctors/Альтамед врачи.png" 
-                  alt="Альтамед врачи" 
-                  width={450} 
-                  height={650}
-                  className="object-contain absolute bottom-0 right-4"
+                  src="/images/seasonal/promo-lab-winter.webp"
+                  alt="Лабораторные пробирки и стеклянные колбы"
+                  fill
+                  sizes="(min-width: 1024px) 240px, 40vw"
+                  className="object-contain object-bottom"
                 />
               </div>
             </Link>
@@ -961,22 +920,20 @@ export default function Home() {
               {/* Верхний ряд */}
               <div className="flex flex-col md:flex-row gap-4 md:gap-6">
                 {/* Блок 2 */}
-                <Link href="/promo" className="bg-[#FADFFF] rounded-[20px] w-full md:w-full h-[175px] p-4 md:p-6 flex flex-col items-center justify-center relative overflow-hidden cursor-pointer">
-                  <div className="text-center mb-4 z-10">
-                    <h3 className="text-lg md:text-2xl font-bold mb-2 text-gray-900">Скидки пенсионерам</h3>
+                <Link href="/promo" data-promo-art-card="seniors" className={`bg-[#FADFFF] rounded-[20px] w-full md:w-full h-[175px] p-4 md:p-6 flex items-center relative overflow-hidden cursor-pointer ${winterStyles.promoCard} ${promoStyles.card} ${promoStyles.seniors}`}>
+                  <div className={promoStyles.smallCopy}>
+                    <span className={promoStyles.badge}>Специальные условия</span>
+                    <h3 className={promoStyles.smallHeading}>Скидки пенсионерам</h3>
+                    <PromotionAction />
                   </div>
                   
-                  <div className="bg-white text-gray-900 rounded-full px-6 md:px-8 py-2 md:py-3 text-sm md:text-base font-semibold shadow-md hover:shadow-lg hover:bg-gray-50 transition-all duration-200 z-10">
-                    Подробнее
-                  </div>
-                  
-                  <div className="hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2">
+                  <div className={`absolute right-1 bottom-0 h-full w-[34%] pointer-events-none ${promoStyles.art}`}>
                     <Image 
-                      src="/images/icons/promo-5.png" 
-                      alt="Пластика век" 
-                      width={250} 
-                      height={120}
-                      className="object-contain"
+                      src="/images/seasonal/promo-seniors-winter.webp"
+                      alt="Улыбающаяся пожилая пара"
+                      fill
+                      sizes="(min-width: 1280px) 185px, (min-width: 1024px) 110px, 220px"
+                      className="object-contain object-bottom"
                     />
                   </div>
                 </Link>
@@ -985,24 +942,20 @@ export default function Home() {
               {/* Нижний ряд */}
               <div className="flex flex-col md:flex-row gap-4 md:gap-6">
                 {/* Блок 4 */}
-                <Link href="/promo" className="bg-[#FFF6C1] rounded-[20px] w-full md:w-full h-[175px] p-4 md:p-6 flex flex-col items-center justify-center relative overflow-hidden cursor-pointer">
-                  <div className="text-center mb-4 z-10">
-                    <h3 className="text-lg md:text-2xl font-bold mb-2 text-gray-900">
-                      Скидки на КТ до 25%<br />для взрослых и детей
-                    </h3>
+                <Link href="/promo" data-promo-art-card="ct" className={`bg-[#FFF6C1] rounded-[20px] w-full md:w-full h-[175px] p-4 md:p-6 flex items-center relative overflow-hidden cursor-pointer ${winterStyles.promoCard} ${promoStyles.card} ${promoStyles.ct}`}>
+                  <div className={`${promoStyles.smallCopy} ${promoStyles.ctCopy}`}>
+                    <h3 className={promoStyles.ctHeading}>КТ для взрослых и детей</h3>
+                    <p className={promoStyles.ctPercent}><span>до</span> −25%</p>
+                    <PromotionAction />
                   </div>
                   
-                  <div className="bg-white text-gray-900 rounded-full px-6 md:px-8 py-2 md:py-3 text-sm md:text-base font-semibold shadow-md hover:shadow-lg hover:bg-gray-50 transition-all duration-200 z-10">
-                    Подробнее
-                  </div>
-                  
-                  <div className="hidden md:block absolute right-0 top-1/2 transform -translate-y-1/2">
+                  <div className={`absolute right-1 bottom-0 h-full w-[34%] pointer-events-none ${promoStyles.art}`}>
                     <Image
-                      src="/images/icons/promoKT.png" 
-                      alt="КТ сканирование" 
-                      width={180} 
-                      height={80}
-                      className="object-contain"
+                      src="/images/seasonal/promo-ct-winter.webp"
+                      alt="Компьютерный томограф с кушеткой"
+                      fill
+                      sizes="(min-width: 1280px) 185px, (min-width: 1024px) 110px, 220px"
+                      className="object-contain object-bottom"
                     />
                   </div>
                 </Link>
@@ -1166,7 +1119,7 @@ export default function Home() {
               <div className="relative">
                 <div className="w-full h-[180px] overflow-hidden">
                   <Image
-                    src="/images/news/Интервью с Еленой Будко.webp"
+                    src={encodeURI("/images/news/Интервью с Еленой Будко.webp")}
                     alt="Интервью с Еленой Будко"
                     width={400}
                     height={180}

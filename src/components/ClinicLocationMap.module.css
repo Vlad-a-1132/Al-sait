@@ -1,0 +1,73 @@
+.map { container: clinic-map / size; position: relative; isolation: isolate; z-index: 41; width: 100%; height: 100%; overflow: hidden; border-radius: 20px; background: #f5f5f2; box-shadow: inset 0 0 0 1px #dce1e5, 0 7px 24px #194b3810; }
+.map::before { content: ''; position: absolute; z-index: 5; inset: 0 0 auto; height: 10px; pointer-events: none; filter: drop-shadow(0 1px 1px #69869820); background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 12' preserveAspectRatio='none'%3E%3Cpath d='M0 0h600v5q-24 7-47 2t-41 0q-32 6-56 0t-50 1q-22 5-49-1t-48 1q-33 6-58-1t-45 1q-27 4-48-1t-49 0T0 7Z' fill='%23fff'/%3E%3C/svg%3E") top / 100% 10px no-repeat; }
+.map::after { content: ''; position: absolute; z-index: 2; left: -12px; bottom: -8px; width: 70px; height: 64px; transform: rotate(180deg); pointer-events: none; opacity: .8; background: url('/images/seasonal/slider-pine-corner.svg') center / contain no-repeat; }
+.scene { position: absolute; inset: 0; width: 100%; height: 100%; cursor: grab; user-select: none; -webkit-user-select: none; }
+.scene[data-dragging='true'], .scene[data-dragging='true'] * { cursor: grabbing; }
+.mapSurface { cursor: inherit; }
+.streetLabel { font-family: Arial, sans-serif; font-size: 12px; font-weight: 500; fill: #69727d; stroke: #ffffffdc; stroke-width: 3px; paint-order: stroke fill; }
+.branches { position: absolute; z-index: 4; left: 16px; right: 16px; top: 16px; display: flex; gap: 8px; }
+.branchLink { flex: 1; min-width: 0; height: 52px; display: grid; grid-template-columns: 23px minmax(0, 1fr) 15px; align-items: center; gap: 8px; padding: 7px 12px; border: 1px solid #fff; border-radius: 13px; color: #2d5244; background: #fffffff5; box-shadow: 0 3px 12px #34425218; transition: background 180ms, color 180ms, box-shadow 180ms; }
+.branchNumber { display: flex; align-items: center; justify-content: center; width: 23px; height: 23px; border-radius: 50%; background: #e9f0e6; color: #35644b; font-size: 11px; font-weight: 700; }
+.branchText { min-width: 0; }
+.branchText strong, .branchText small { display: block; }
+.branchText strong { font-size: 12px; line-height: 1.2; font-weight: 700; }
+.branchText small { margin-top: 2px; font-size: 10px; line-height: 1.15; opacity: .88; }
+.branchText small b { font-size: 11px; font-weight: 750; }
+.activeBranch { color: #fff; border-color: #176a50; background: #176a50; box-shadow: 0 4px 14px #15523b24; }
+.activeBranch .branchNumber { color: #fff; background: #ffffff26; }
+.branchLink:hover { box-shadow: 0 4px 16px #15523b30; }
+.point { color: #df5c56; cursor: pointer; }
+.pin { filter: drop-shadow(0 5px 4px #723d3930); }
+.halo { fill: currentColor; opacity: .075; }
+.activePoint { color: #e03e38; }
+.activePoint .halo { animation: pin-glow 3s ease-in-out infinite; }
+.activePoint .pointLabel rect { stroke: #e4a5a0; }
+.point:focus-visible .pin { stroke: #efbd5f; stroke-width: 6px; }
+.mapControls { position: absolute; z-index: 4; top: 92px; right: 14px; display: flex; flex-direction: column; align-items: flex-end; gap: 8px; }
+.zoomButtons { display: flex; flex-direction: column; border: 1px solid #dfe4e7; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 12px #3442521c; }
+.zoomButtons button { display: flex; width: 38px; height: 38px; align-items: center; justify-content: center; color: #394750; background: #fff; cursor: pointer; }
+.zoomButtons button + button { border-top: 1px solid #e7ebee; }
+.zoomButtons button:hover:not(:disabled) { color: #176a50; background: #f0f5f2; }
+.zoomButtons button:disabled { cursor: default; color: #a8b1b8; background: #fafbfb; }
+.fitButton { display: inline-flex; height: 28px; align-items: center; justify-content: center; gap: 5px; padding: 0 9px; border: 1px solid #e0e5e8; border-radius: 11px; color: #3d5146; background: #fff; box-shadow: 0 3px 12px #34425214; font-size: 10px; line-height: 1; font-weight: 600; cursor: pointer; }
+.fitButton:hover { color: #176a50; background: #f0f5f2; }
+.mapControls button:focus-visible { outline: 2px solid #b08c45; outline-offset: -3px; }
+.srOnly { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.footer { position: absolute; z-index: 4; bottom: 22px; left: 16px; right: 16px; display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 11px 12px; border-radius: 13px; background: #ffffffed; border: 1px solid #fff; box-shadow: 0 4px 18px #34425218; }
+.footerText { min-width: 0; }
+.footerText small, .footerText strong { display: block; }
+.footerText small { font-size: 9px; line-height: 1.2; color: #6b8374; margin-bottom: 3px; }
+.footerText strong { font-size: 12px; line-height: 1.25; font-weight: 650; color: #204735; }
+.openMap { display: inline-flex; flex-shrink: 0; align-items: center; justify-content: center; gap: 9px; height: 34px; padding: 0 11px; border-radius: 18px; background: #176a50; color: white; font-size: 11px; font-weight: 600; }
+.openMap:hover { background: #105a43; }
+.credit { position: absolute; z-index: 4; right: 12px; bottom: 3px; color: #77818a; background: #f5f5f2cc; font-size: 8px; line-height: 13px; padding: 0 3px; border-radius: 3px; }
+.branchLink:focus-visible, .openMap:focus-visible, .credit:focus-visible { outline: 3px solid #b08c45; outline-offset: 2px; }
+@keyframes pin-glow { 0%, 100% { opacity: .055; } 50% { opacity: .15; } }
+@container clinic-map (max-width: 420px) or (max-height: 300px) {
+  .branches { left: 10px; right: 10px; top: 10px; gap: 6px; }
+  .branchLink { height: 48px; grid-template-columns: 18px minmax(0, 1fr) 10px; padding: 6px 7px; gap: 5px; border-radius: 11px; }
+  .branchNumber { width: 18px; height: 18px; font-size: 9px; }
+  .branchText strong { font-size: 10px; }
+  .branchText small { font-size: 9px; }
+  .branchText small b { font-size: 10px; }
+  .branchLink > svg { width: 10px; height: 10px; }
+  .pointLabel { display: none; }
+  .streetLabel { font-size: 10px; stroke-width: 3px; }
+  .mapControls { top: 66px; right: 10px; gap: 7px; }
+  .zoomButtons button { width: 34px; height: 34px; }
+  .fitButton { height: 26px; padding: 0 7px; font-size: 9px; }
+  .footer { left: 10px; right: 10px; bottom: 20px; gap: 8px; padding: 8px 9px; }
+  .footerText strong { font-size: 10px; }
+  .footerText small { font-size: 8px; }
+  .openMap { height: 29px; width: 29px; padding: 0; }
+  .openMap > span { display: none; }
+  .map::after { width: 55px; height: 50px; opacity: .7; }
+}
+@media (prefers-reduced-motion: reduce) { .activePoint .halo { animation: none; } .branchLink { transition: none; } }
+:global(html.accessibility-mode) .map { background: #fff; }
+:global(html.accessibility-mode) .scene, :global(html.accessibility-mode) .mapControls,
+:global(html.accessibility-mode) .map::before, :global(html.accessibility-mode) .map::after { display: none; }
+:global(html.accessibility-mode) .branchLink { color: #000; background: #fff; border-color: #000; }
+:global(html.accessibility-mode) .activeBranch { border-width: 2px; }
+:global(html.accessibility-mode) .branchNumber { color: #000; background: #eee; }
+:global(html.accessibility-mode) .openMap { color: #fff; background: #000; }

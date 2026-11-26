@@ -8,7 +8,7 @@ export default function MobileBottomNav() {
     <nav
       data-mobile-bottom-nav
       data-analytics-placement="mobile_nav"
-      className="fixed bottom-0 left-0 right-0 z-40 md:hidden"
+      className="fixed bottom-0 left-0 right-0 z-[45] md:hidden"
       aria-label="Мобильная навигация"
     >
       <div className="relative">
@@ -23,9 +23,8 @@ export default function MobileBottomNav() {
             aria-label="Записаться"
           >
             <Image src="/images/icons/zapis.webp" alt="Записаться" width={28} height={28} className="object-contain" />
+            <span className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[11px] font-medium text-emerald-600">Записаться</span>
           </Link>
-          {/* Center label */}
-          <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 text-[11px] font-medium text-emerald-600">Записаться</div>
         </div>
         <div className="border-t border-gray-200 bg-white px-3 pt-3 pb-[calc(0.5rem_+_env(safe-area-inset-bottom))] shadow-[0_-4px_12px_rgba(0,0,0,0.06)]">
           <ul className="grid grid-cols-5 text-center text-[11px] text-gray-600">

@@ -6,6 +6,7 @@ import Footer from './Footer'
 import MobileBottomNav from './MobileBottomNav'
 import CallbackModal from './CallbackModal'
 import ViewportMetrics from './ViewportMetrics'
+import Snowfall from './Snowfall'
 import { usePathname } from 'next/navigation'
 import { isPrivatePath } from '@/lib/analytics/shared'
 
@@ -18,6 +19,7 @@ export default function ClientLayout({ children }: { children: React.ReactNode }
     <AccessibilityProvider>
       <ViewportMetrics />
       <Header />
+      {pathname && !isPrivatePath(pathname) && <Snowfall />}
       <main className={`flex-grow${pathname && isPrivatePath(pathname) ? ' ym-hide-content' : ''}`}>{children}</main>
       {/* Spacer for mobile bottom nav */}
       <div className="h-[calc(5rem_+_env(safe-area-inset-bottom))] md:hidden"></div>

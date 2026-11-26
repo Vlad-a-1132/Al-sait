@@ -5,6 +5,7 @@ import Image from 'next/image';
 import AppointmentForm from '@/components/AppointmentForm';
 import DentalPromoBanner from '@/components/DentalPromoBanner';
 import LabDiscountBanner from '@/components/LabDiscountBanner';
+import winterStyles from '@/components/winter/WinterTheme.module.css';
 
 export default function ServicesPage() {
   
@@ -760,7 +761,7 @@ export default function ServicesPage() {
   );
 
   return (
-    <div className="flex flex-col min-h-full bg-white overflow-x-hidden">
+    <div className={`flex flex-col min-h-full bg-white overflow-x-hidden ${winterStyles.page}`} data-winter-page="services">
       <section className="py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <DentalPromoBanner />
