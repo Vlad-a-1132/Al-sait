@@ -261,10 +261,10 @@ export default function Home() {
 
   // Автоматическое переключение слайдов (только на клиенте)
   useEffect(() => {
-    if (isSlidePaused || isWinterSlide) return;
+    if (isSlidePaused) return;
     const timer = setTimeout(() => {
       setCurrentSlide((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
-    }, currentSlide === 1 || isLabSlide ? 8000 : 5000);
+    }, isWinterSlide || currentSlide === 1 || isLabSlide ? 8000 : 5000);
 
     return () => clearTimeout(timer);
   }, [currentSlide, isSlidePaused, slides.length, isLabSlide, isWinterSlide]);
